@@ -8,22 +8,22 @@ function Header() {
     <img src={logo} alt="" className="container__logo" />
     <ul className="container__list">
       <li className="container__li">
-        <a href="" className="container__a">
+        <a href="src/components/header/header" className="container__a">
           Площадка проектов
         </a>
       </li>
       <li className="container__li">
-        <a href="" className="container__a">
+        <a href="src/components/header/header" className="container__a">
           Защиты проектов
         </a>
       </li>
       <li className="container__li">
-        <a href="" className="container__a">
+        <a href="src/components/header/header" className="container__a">
           Заказать проект
         </a>
       </li>
       <li className="container__li">
-        <a href="" className="container__a">
+        <a href="src/components/header/header" className="container__a">
           Обучение команды
         </a>
       </li>

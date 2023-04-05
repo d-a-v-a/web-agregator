@@ -1,0 +1,72 @@
+.container {
+    width: 260px;
+}
+
+.searchBlock__h2 {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+}
+
+.searchBlock {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    height: 60px;
+    background-color: #2D2D2D;
+}
+
+.search__input {
+    margin-right: 13px;
+    padding-left: 10px;
+    height: 40px;
+    width: 196px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3d3d3d;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.search__input:focus {
+    border: none;
+    outline: none;
+}
+
+.categories {
+    background-color: #2D2D2D;
+    padding: 27px 29px ;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #C1D9E2;
+}
+
+.input {
+    display: inline;
+}
+
+.learnSection {
+
+
+}
