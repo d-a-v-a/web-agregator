@@ -11,29 +11,64 @@ function NavigationForProjects() {
           <input type="checkbox" className={styles.input}/> Все категориии
           <div className={styles.learnSection}>
             <h3 className={styles.learnSection__h3}>Образовательные</h3>
-            <input type="checkbox" className={styles.input}/> Математика
-            <input type="checkbox" className={styles.input}/> Медицина
-            <input type="checkbox" className={styles.input}/> Другие области
+            <div>
+              <input type="checkbox" className={styles.input}/> Математика
+            </div>
+
+            <div>
+              <input type="checkbox" className={styles.input}/> Медицина
+            </div>
+
+            <div>
+              <input type="checkbox" className={styles.input}/> Другие области
+            </div>
+
           </div>
 
           <div className={styles.SimulatorSection}>
             <h3 className={styles.SimulatorSection__h3}>Симуляторы</h3>
-            <input type="checkbox" className={styles.input}/> Физика
-            <input type="checkbox" className={styles.input}/> Сопромат
-            <input type="checkbox" className={styles.input}/> Биомеханика
-            <input type="checkbox" className={styles.input}/> Другие области
+            <div>
+              <input type="checkbox" className={styles.input}/> Физика
+            </div>
+            <div>
+              <input type="checkbox" className={styles.input}/> Сопромат
+            </div>
+            <div>
+              <input type="checkbox" className={styles.input}/> Биомеханика
+            </div>
+            <div>
+              <input type="checkbox" className={styles.input}/> Другие области
+            </div>
+
           </div>
 
           <div className={styles.entertaining}>
-            <h3 className={styles.entertaining__h3}>Развлекательные</h3>
-            <input type="checkbox" className={styles.input}/> Аркады
-            <input type="checkbox" className={styles.input}/> Боевики
-            <input type="checkbox" className={styles.input}/> Головоломки
-            <input type="checkbox" className={styles.input}/> Казуальные
-            <input type="checkbox" className={styles.input}/> Карточные
-            <input type="checkbox" className={styles.input}/> Мидкорные
-            <input type="checkbox" className={styles.input}/> Ролевые
-            <input type="checkbox" className={styles.input}/> Другие области
+            <h3 className={styles.entertaining__h3 }>Развлекательные</h3>
+            <div>
+              <input type="checkbox" className={styles.input}/> Аркады
+            </div>
+            <div>
+              <input type="checkbox" className={styles.input}/> Боевики
+            </div>
+            <div>
+              <input type="checkbox" className={styles.input}/> Головоломки
+            </div>
+            <div>
+              <input type="checkbox" className={styles.input}/> Казуальные
+            </div>
+            <div>
+              <input type="checkbox" className={styles.input}/> Карточные
+            </div>
+            <div>
+              <input type="checkbox" className={styles.input}/> Мидкорные
+            </div>
+            <div>
+              <input type="checkbox" className={styles.input}/> Ролевые
+            </div>
+            <div>
+              <input type="checkbox" className={styles.input}/> Другие области
+            </div>
+
           </div>
         </div>
 
