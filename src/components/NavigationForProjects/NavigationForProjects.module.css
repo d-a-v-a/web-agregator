@@ -3,6 +3,7 @@
 }
 
 .searchBlock__h2 {
+    margin: 0 0 25px 0;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -19,6 +20,7 @@
 .searchBlock {
     display: flex;
     align-items: center;
+    margin-bottom: 30px;
     padding: 10px 15px;
     height: 60px;
     background-color: #2D2D2D;
@@ -63,10 +65,41 @@
 }
 
 .input {
-    display: inline;
+    ;
+
 }
 
-.learnSection {
 
+
+.learnSection__h3, .simulatorSection__h3, .entertaining__h3 {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #B6B6B6;
+
+}
+
+.learnSection__h3 {
+    margin-top: 10px;
+}
+
+.simulatorSection__h3, .entertaining__h3 {
+    margin-top: 30px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #C1D9E2;
 
 }
