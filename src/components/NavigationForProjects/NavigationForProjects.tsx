@@ -3,6 +3,7 @@ import styles from "./NavigationForProjects.module.css"
 import searchImg from "./search.svg"
 import checkboxImg from "./галка.svg"
 import styled from "styled-components";
+import HistoryButton from "./HistoryButton.svg"
 
 function NavigationForProjects() {
   return(
@@ -59,54 +60,87 @@ function Search() {
         <h2 className={styles.searchBlock__h2}>Проекты</h2>
         <div className={styles.searchBlock}>
           <input type="text" placeholder="Поиск" className={styles.search__input}/>
-          <img src={searchImg} alt=""/>
+          <img src={searchImg} alt="" className={styles.searchImg}/>
         </div>
       </div>
 
   )
 }
 
+const CardHistoryStyled = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 78px;
+  margin-bottom: 10px;
+  padding: 18px 23px;
+  background-color: #2D2D2D;
+  cursor: pointer;
+`
+
+function CarHistory({genreGame = '', nameGame = ""}: {genreGame: string, nameGame: string}) {
+  return(
+      <CardHistoryStyled>
+        <div>
+          <NameGame genreGame={genreGame} nameGame={nameGame}/>
+        </div>
+        <img src={HistoryButton} alt=""/>
+      </CardHistoryStyled>
+  )
+}
+
+const GenreGameStyle = styled.div`
+  margin-bottom: 3px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: rgba(255, 255, 255, 0.8);
+`
+
+const NameGameStyle = styled.div`
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #FFFFFF;
+`
+
+
+function NameGame({genreGame = '', nameGame = ""}: {genreGame: string, nameGame: string}) {
+  return(
+      <div>
+        <GenreGameStyle>
+          {genreGame}
+        </GenreGameStyle>
+        <NameGameStyle>
+          {nameGame}
+        </NameGameStyle>
+      </div>
+  )
+}
+
+
+
 function History() {
   return (
       <div>
-        <h2 className={styles.searchBlock__h2}></h2>
-        <ul className={styles.historyBlock}>
-          <li className={styles.history__li}>
-            <div>
-            <span>
+        <h2 className={styles.searchBlock__h2}>История</h2>
+        <CarHistory genreGame={"Аркады"} nameGame={"Birdie Fall"}/>
+        <CarHistory genreGame={"Аркады"} nameGame={"Merge Комбинаторика"}/>
+        <CarHistory genreGame={"Аркады"} nameGame={"Night Way"}/>
 
-            </span>
-              <span></span>
-              <img src="" alt=""/>
-            </div>
-          </li>
-          <li className={styles.history__li}>
-            <div>
-            <span>
-
-            </span>
-              <span></span>
-              <img src="" alt=""/>
-            </div>
-          </li>
-          <li className={styles.history__li}>
-            <div>
-            <span>
-
-            </span>
-              <span></span>
-              <img src="" alt=""/>
-            </div>
-          </li>
-        </ul>
       </div>
-
   )
 }
 
 const CheckBoxContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 15px;
+  margin-left: 9px;
   
   label {
     cursor: pointer;
@@ -130,9 +164,12 @@ const CheckBoxContainer = styled.div`
   
   input:checked {
     &+label::before{
-      content: "\\002714";
+      content: "";
+      background-image: url(${checkboxImg});
+      background-size: cover;
+      
       background-color: #D9D9D9;
-      border-color:#2D2D2D ;
+      border-color:transparent ;
    
       display: flex;
       justify-content: center;
