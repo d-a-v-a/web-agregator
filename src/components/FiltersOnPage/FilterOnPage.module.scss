@@ -1,3 +1,5 @@
+@import "../../assets/variables";
+
 .container {
     width: 260px;
     margin-bottom: 50px;
@@ -15,7 +17,7 @@
     display: flex;
     align-items: center;
 
-    color: #FFFFFF;
+    color: $white-color;
 }
 
 .searchBlock {
@@ -24,7 +26,7 @@
     margin-bottom: 30px;
     padding: 10px 15px;
     height: 60px;
-    background-color: #2D2D2D;
+    background-color: $dark-grey-color;
 }
 
 .search__input {
@@ -58,7 +60,7 @@
 
 .categories {
     margin-bottom: 31px;
-    background-color: #2D2D2D;
+    background-color: $dark-grey-color;
     padding: 27px 20px ;
 
     font-family: 'Inter', sans-serif;
@@ -78,7 +80,7 @@
     font-size: 18px;
     line-height: 22px;
 
-    color: #B6B6B6;
+    color:$grey-title;
 
 }
 
@@ -88,4 +90,8 @@
 
 .simulatorSection__h3, .entertaining__h3 {
     margin-top: 30px;
+}
+
+.dark {
+    background-color: $dark-grey-color;
 }

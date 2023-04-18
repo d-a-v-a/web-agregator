@@ -1,11 +1,13 @@
 import React from "react";
-import styles from "./NavigationForProjects.module.css"
-import searchImg from "./search.svg"
-import checkboxImg from "./галка.svg"
+import styles from "./FilterOnPage.module.scss"
+import searchImg from "../../assets/images/search.svg"
+import checkboxImg from "../../assets/images/galka.svg"
 import styled from "styled-components";
-import HistoryButton from "./HistoryButton.svg"
+import HistoryButton from "../../assets/images/HistoryButton.svg"
 
-function NavigationForProjects() {
+
+
+function FilterOnPage() {
   return(
       <div className={styles.container}>
         <Search></Search>
@@ -45,8 +47,16 @@ function NavigationForProjects() {
             <Checkbox id={'ch14'} labelTxt={'Мидкорные'}></Checkbox>
             <Checkbox id={'ch15'} labelTxt={'Ролевые'}></Checkbox>
             <Checkbox id={'ch16'} labelTxt={'Другие области'}></Checkbox>
-
           </div>
+
+          <div className={styles.other}>
+            <h3 className={styles.entertaining__h3}>Другие проекты</h3>
+            <Checkbox id={'ch17'} labelTxt={'Веб-проекты'}></Checkbox>
+            <Checkbox id={'ch18'} labelTxt={'Приложения'}></Checkbox>
+            <Checkbox id={'ch19'} labelTxt={'ML'}></Checkbox>
+            <Checkbox id={'ch20'} labelTxt={'Другое'}></Checkbox>
+          </div>
+
         </div>
 
         <History></History>
@@ -141,6 +151,7 @@ const CheckBoxContainer = styled.div`
   align-items: center;
   margin-bottom: 15px;
   margin-left: 9px;
+  font-size: 18px;
   
   label {
     cursor: pointer;
@@ -156,24 +167,28 @@ const CheckBoxContainer = styled.div`
     content: "";
     margin-right: 9px;
     border: 2px solid #99A2AD;
-    width: 22px;
-    height: 22px;
+    width: 18px;
+    height: 18px;
     border-radius: 7px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
   }
   
   input:checked {
     &+label::before{
       content: "";
       background-image: url(${checkboxImg});
-      background-size: cover;
-      
-      background-color: #D9D9D9;
-      border-color:transparent ;
-   
+      background-position: center;
+      background-position-x: 4px;
+      background-repeat: no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
+      
+      background-color: #D9D9D9;
+      border-color:#2D2D2D ;
+   
+      
     }
   }
 `
@@ -188,4 +203,4 @@ const Checkbox = ({ labelTxt = "", id = "ch" }: Props) => {
   );
 };
 
-export default NavigationForProjects
+export default FilterOnPage

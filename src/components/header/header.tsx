@@ -1,7 +1,7 @@
-import './header.css'
+import './header.scss'
 import React from 'react';
-import profileIMG from './profile.png'
-import logo from './logo.png'
+import profileIMG from '../../assets/images/profile.png'
+import logo from '../../assets/images/logo.png'
 
 function Header() {
   return (<div className="container">

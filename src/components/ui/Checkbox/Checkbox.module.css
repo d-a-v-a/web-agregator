@@ -1,0 +1,37 @@
+.label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.input {
+    display: none;
+}
+
+.box {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--light-grey-color);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    background-image: url("../../../assets/images/check.svg");
+    background-size: contain;
+
+    transition: background-color 0.3s ease-in-out;
+}
+
+.input:checked + .box {
+    background-color: var(--light-grey-color);
+}
+
+.text {
+    flex: 1 1;
+
+    font-weight: 400;
+    font-size: 18px;
+
+    color: #C1D9E2;
+}
