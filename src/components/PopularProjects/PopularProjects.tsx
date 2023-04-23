@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import "./PopularProjects.css"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -8,6 +9,7 @@ import {Navigation, Pagination} from "swiper";
 import image1 from '../../assets/images/image1.jpg'
 import image2 from '../../assets/images/image2.jpg'
 import image3 from '../../assets/images/image3.jpg'
+
 
 const PopularProjects = () => {
     const settings = {

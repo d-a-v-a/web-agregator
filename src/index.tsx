@@ -5,7 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import styled,  {createGlobalStyle} from "styled-components";
 
-const Global = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
+  
+  :root {
+    --main-bg-color: #1C1E22;
+    --dark-grey-color: #2D2D2D;
+    --white-color: #FFFFFF;
+    --light-grey-color: #99A2AD;
+    --rgba-white-color: rgba(255, 255, 255, 0.8);
+    --rgba-grey-color: rgba(200, 200, 200, 0.1);
+    --grey-title: #B6B6B6;
+    --btn-color-normal: rgba(189, 255, 235, 0.94);
+    --btn-color-hover: #E7FFF8;
+    --btn-color-disabled: rgba(232, 232, 232, 0.94);
+    --black-bg: #282828;
+  }
   
   
   /* cyrillic-ext */
@@ -256,7 +270,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Global/>
+    <GlobalStyle/>
     <App />
   </React.StrictMode>
 );

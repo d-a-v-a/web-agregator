@@ -1,8 +1,7 @@
 import React from "react";
-import styles from "./Footer.module.css"
 import styled from "styled-components";
 import logo from "../../assets/images/Group 441.png"
-import vkIcon from "../../assets/images/VK.svg"
+import vkIcon from "../../assets/images/vk.svg"
 import internetIcon from "../../assets/images/InternetIcon.svg"
 import tgIcon from "../../assets/images/TGIcon.svg"
 
@@ -35,10 +34,10 @@ const SectionOneFooterStyle = styled.div`
 function SectionOneFooter() {
   return (
       <SectionOneFooterStyle>
-        <img src={logo} className={styles.logo} alt=""/>
-        <img src={vkIcon} className={styles.Icon} alt=""/>
-        <img src={internetIcon} className={styles.Icon} alt=""/>
-        <img src={tgIcon} className={styles.Icon} alt=""/>
+        <img src={logo} style={{marginRight: 30}} alt=""/>
+        <img src={vkIcon} style={{marginRight: 15}} alt=""/>
+        <img src={internetIcon} style={{marginRight: 15}} alt=""/>
+        <img src={tgIcon} style={{marginRight: 15}} alt=""/>
       </SectionOneFooterStyle>
   )
 }
