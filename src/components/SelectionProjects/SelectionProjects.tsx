@@ -26,7 +26,7 @@ const Options = styled.div`
 const FoundStyle = styled.span`
     flex: 1 1;
     font-size: 20px;
-    color: #99A2AD;
+    color: var(--light-grey-color);
 `
 
 const DropdownHeadStyle = styled.div`
@@ -39,10 +39,10 @@ const DropdownHeadStyle = styled.div`
     font-weight: 500;
     font-size: 12px;
 
-    color: #99A2AD;
+    color: var(--light-grey-color);
 
     border-radius: 3px;
-    border: 1px solid #99A2AD;
+    border: 1px solid var(--light-grey-color);;
 `
 
 const Grid = styled.div`
@@ -63,7 +63,7 @@ const SelectionProjects = () => {
             <H2Style>Подборка проектов &gt;</H2Style>
             <Options>
                 <FoundStyle>Найдено 31 проект</FoundStyle>
-                <Pagination current='1' total='5'/>
+                <Pagination current={1} total={5}/>
                 <div>
                     <DropdownHeadStyle>
                         <span>По популярности</span>

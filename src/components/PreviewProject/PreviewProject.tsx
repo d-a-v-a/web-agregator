@@ -15,7 +15,7 @@ const HeadStyle = styled.div`
   overflow: hidden;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
-  border-radius: 20px;
+  border-radius: 8px;
 `
 
 const DescriptionStyle = styled.div`
