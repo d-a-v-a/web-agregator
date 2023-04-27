@@ -1,14 +1,16 @@
 import React from 'react';
 import './App.css';
-import FirstPage from "./pages/FirsPage/FirstPage";
+import Home from "./pages/Home/Home";
 import Header from "./components/header/Header";
 import Footer from "./components/Footer/Footer";
+
+
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <FirstPage/>
+      <Home/>
       <Footer/>
     </div>
   );

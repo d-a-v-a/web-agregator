@@ -1,67 +1,30 @@
 import React from "react";
 import styled from "styled-components";
-import "./PopularProjects.css"
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import {Navigation, Pagination} from "swiper";
-import image1 from '../../assets/images/image1.jpg'
-import image2 from '../../assets/images/image2.jpg'
-import image3 from '../../assets/images/image3.jpg'
+import SwiperProjects from "../ui/Swiper/Swiper";
 
 
-const PopularProjects = () => {
-    const settings = {
-        'centeredSlides': true,
-        'spaceBetween': 80,
-        'slidesPerView': 3,
-        'navigation': {
-            'nextEl': '.swiper-button-next',
-            'prevEl': '.swiper-button-prev',
-        },
-        'allowTouchMove': false,
-        'pagination': {
-            'clickable': true
-        }
-    }
+const PopularProjectsStyle = styled.div`
+  
+`
 
-    return (
-        <div>
-            <h2 className='title-popular'>Популярные проекты</h2>
-            <div className='slider'>
-                <Swiper
-                    modules={[Navigation, Pagination]}
-                    {...settings}
-                >
-                    <SwiperSlide>
-                        <img src={image1} alt=""/>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={image2} alt=""/>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={image1} alt=""/>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={image3} alt=""/>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={image3} alt=""/>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={image2} alt=""/>
-                    </SwiperSlide>
 
-                    <div className="swiper-tools">
-                        <div className="swiper-nav">
-                            <div className="swiper-button-prev">  </div>
-                            <div className="swiper-button-next"> </div>
-                        </div>
-                    </div>
-                </Swiper>
-            </div>
-        </div>
-    )}
+const H1Style = styled.h1`
+  margin: 0 0 25px 0;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 31px;
+  color: var(--white-color);
+`
+
+
+function PopularProjects(){
+  return(
+      <PopularProjectsStyle>
+        <H1Style>Популярные проекты</H1Style>
+        <SwiperProjects/>
+      </PopularProjectsStyle>
+  )
+}
 
 export default PopularProjects

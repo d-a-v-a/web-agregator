@@ -1,8 +1,8 @@
 import React from "react";
 import FilterOnPage from "../../components/FiltersOnPage/FilterOnPage";
 import styled from "styled-components";
-import PopularProjects from "../../components/PopularProjects/PopularProjects";
 import SelectionProjects from "../../components/SelectionProjects/SelectionProjects";
+import PopularProjects from "../../components/PopularProjects/PopularProjects";
 
 const FirstPageStyle = styled.div`
   display: flex;
@@ -13,11 +13,13 @@ const FirstPageStyle = styled.div`
   
 `
 
-function FirstPage() {
+
+
+function Home() {
   return(
       <FirstPageStyle>
         <FilterOnPage/>
-        <div style={{'flex': '1 1', 'minWidth': 0}}>
+        <div>
           <PopularProjects />
           <SelectionProjects />
         </div>
@@ -25,4 +27,4 @@ function FirstPage() {
   )
 }
 
-export default FirstPage
+export default Home

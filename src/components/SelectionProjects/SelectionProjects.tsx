@@ -59,7 +59,7 @@ const Grid = styled.div`
 const SelectionProjects = () => {
     const divs = Array(15).fill(10).map((_, i) => <PreviewProject key={i} image={image1} category='Аркады' name='Merge Комбинаторика'/>)
     return (
-        <div>
+        <div style={{maxWidth: 810}}>
             <H2Style>Подборка проектов &gt;</H2Style>
             <Options>
                 <FoundStyle>Найдено 31 проект</FoundStyle>
