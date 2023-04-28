@@ -53,7 +53,6 @@ const Button: React.FC<IButtonProps> =
     ({
         children
     }) => {
-
         return (
             <ButtonStyle type='button'>
                 <Wrapper className='wrapper'>

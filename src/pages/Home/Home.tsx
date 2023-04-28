@@ -13,8 +13,6 @@ const FirstPageStyle = styled.div`
   
 `
 
-
-
 function Home() {
   return(
       <FirstPageStyle>

@@ -1,18 +1,18 @@
-import styles from './Header.module.scss'
 import styled from "styled-components";
 import React from 'react';
 import profileIMG from '../../assets/images/profile.png'
 import logo from '../../assets/images/logo.png'
+import {Link} from "react-router-dom";
 
 function Header() {
   return (
       <HeaderStyle>
         <LogoStyle src={logo} />
         <ListLinks>
-          <Link label={'Площадка проектов'} path={'/'} margin={34}/>
-          <Link label={'Защиты проектов'} path={'/'} margin={34}/>
-          <Link label={'Заказать проект'} path={'/'} margin={34}/>
-          <Link label={'Обучение команды'} path={'/'} margin={0}/>
+          <LinkToCategories label={'Площадка проектов'} path={'/'} margin={34}/>
+          <LinkToCategories label={'Защиты проектов'} path={'/'} margin={34}/>
+          <LinkToCategories label={'Заказать проект'} path={'/'} margin={34}/>
+          <LinkToCategories label={'Обучение команды'} path={'/'} margin={0}/>
         </ListLinks>
         <Profile/>
       </HeaderStyle>
@@ -55,7 +55,7 @@ const LinkStyle = styled.a`
   cursor: pointer;
 `
 
-function Link({label = 'ссылка', path = '/', margin = 34}:{label: string, path: string, margin: number}) {
+function LinkToCategories({label = 'ссылка', path = '/', margin = 34}:{label: string, path: string, margin: number}) {
   return(
       <li style={{marginRight: margin}}>
         <LinkStyle href={path}>{label}</LinkStyle>
@@ -80,8 +80,10 @@ const ProfileStyle = styled.div`
 function Profile() {
   return(
       <ProfileStyle>
-        <span style={{marginRight: 11}}>Профиль</span>
-        <img src={profileIMG} alt="" style={{marginRight: 8}}/>
+        <Link to={'login'} style={{display: 'flex'}}>
+          <span style={{marginRight: 11}}>Профиль</span>
+          <img src={profileIMG} alt="" style={{marginRight: 8}}/>
+        </Link>
       </ProfileStyle>
   )
 }

@@ -27,6 +27,7 @@ const SwiperBlockStyle = styled.div`
     position: relative;
     border-radius: 20px;
     flex-shrink: 0;
+    cursor: default;
   }
   
   .swiper .swiper-slide img {
@@ -88,11 +89,7 @@ const SwiperBlockStyle = styled.div`
 `
 
 const SwiperWrapper = styled.div`
-  position: absolute;
-  left: -100px;
-  right: -100px;
-  top: 0;
-  bottom: 0;
+  
 `
 
 
@@ -116,6 +113,7 @@ function SwiperProjects(){
               modifier: 1.132,
             }}
             slidesPerView={"auto"}
+            allowTouchMove={false}
         >
           <SwiperWrapper>
             <SwiperSlide><img src={image1} style={{width: '100%'}} alt=""/></SwiperSlide>

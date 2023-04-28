@@ -86,6 +86,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
     -webkit-text-size-adjust: 100%;
+    color: var(--white-color);
   }
   
   

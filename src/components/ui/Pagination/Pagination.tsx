@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import styles from "./Pagination.module.css"
 import arrow from "../../../assets/images/arrow_left.svg"
 
 const PaginationStyle = styled.div`

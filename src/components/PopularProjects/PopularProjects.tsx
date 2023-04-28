@@ -7,7 +7,6 @@ const PopularProjectsStyle = styled.div`
   
 `
 
-
 const H1Style = styled.h1`
   margin: 0 0 25px 0;
   font-style: normal;
