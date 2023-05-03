@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SwiperProjects from "../ui/Swiper/Swiper";
+import SwiperProjects from "./ui/Swiper";
 
 
 const PopularProjectsStyle = styled.div`

@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../../assets/images/Group 441.png"
-import vkIcon from "../../assets/images/vk.svg"
-import internetIcon from "../../assets/images/InternetIcon.svg"
-import tgIcon from "../../assets/images/TGIcon.svg"
+import logo from "../assets/images/Group 441.png"
+import vkIcon from "../assets/images/vk.svg"
+import internetIcon from "../assets/images/InternetIcon.svg"
+import tgIcon from "../assets/images/TGIcon.svg"
 
 
 const FooterStyle = styled.div`

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Checkbox from "../../ui/Checkbox/Checkbox";
+import Checkbox from "../../ui/Checkbox";
 import {H2Style} from "../FilterOnPage";
 
 

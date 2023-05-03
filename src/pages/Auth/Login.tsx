@@ -1,12 +1,11 @@
 import React from "react";
-import "./Auth.css"
 import styled from "styled-components";
-import Input from "../../components/ui/Input/Input";
-import Button from "../../components/ui/Button/Button";
+import Input from "../../components/ui/Input";
+import Button from "../../components/ui/Button";
 import {Link} from "react-router-dom";
 
 export const AuthWrapper = styled.div`
-  max-width: 400px;
+  width: 400px;
   margin: 0 auto 80px;
   
   & button {
@@ -65,9 +64,13 @@ function Login() {
           <AuthSpan>Пароль:</AuthSpan>
           <Input width={'100%'} type={'password'}/>
         </AuthLabel>
-        <Button>Войти</Button>
+        <Link to='/'>
+          <Button>
+            Войти
+          </Button>
+        </Link>
         <AuthBottom>
-          <AuthLink to='/register'>Создать аккаунт</AuthLink>
+          <AuthLink to='/auth/register'>Создать аккаунт</AuthLink>
         </AuthBottom>
       </AuthWrapper>
   )

@@ -1,13 +1,13 @@
 import React from "react";
 import "./Project.css"
 import {Link} from "react-router-dom";
-import PopularProjects from "../../components/PopularProjects/PopularProjects";
+import PopularProjects from "../../components/PopularProjects";
 import likeSvg from "../../assets/images/like.svg"
 import dislikeSvg from "../../assets/images/dislike.svg"
 import image1 from "../../assets/images/image1.jpg"
-import SwiperProjects from "../../components/ui/Swiper/Swiper";
+import SwiperProjects from "../../components/ui/Swiper";
 import {Navigation, Pagination} from "swiper";
-import PreviewProject from "../../components/PreviewProject/PreviewProject";
+import PreviewProject from "../../components/PreviewProject";
 
 function Project() {
     return(

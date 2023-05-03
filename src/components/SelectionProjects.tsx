@@ -1,11 +1,11 @@
 import React from "react";
-import dropdownOutline from "../../assets/images/dropdown_outline.svg"
-import Pagination from "../ui/Pagination/Pagination";
-import PreviewProject from "../PreviewProject/PreviewProject"
+import dropdownOutline from "../assets/images/dropdown_outline.svg"
+import Pagination from "./ui/Pagination";
+import PreviewProject from "./PreviewProject"
 import styled from "styled-components";
-import image1 from "../../assets/images/image1.jpg"
-import image2 from "../../assets/images/image2.jpg"
-import image3 from "../../assets/images/image3.jpg"
+import image1 from "../assets/images/image1.jpg"
+import image2 from "../assets/images/image2.jpg"
+import image3 from "../assets/images/image3.jpg"
 
 
 const H2Style = styled.h2`

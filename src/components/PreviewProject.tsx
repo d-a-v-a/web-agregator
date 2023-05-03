@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "../ui/Button/Button";
-import image1 from "../../assets/images/image1.jpg"
+import Button from "./ui/Button";
+import image1 from "../assets/images/image1.jpg"
 import styled from "styled-components";
 
 const CardWrapper = styled.div`
