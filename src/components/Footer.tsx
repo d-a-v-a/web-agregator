@@ -1,13 +1,13 @@
 import React from "react";
-import styles from "./Footer.module.css"
 import styled from "styled-components";
-import logo from "./Group 441.png"
-import vkIcon from "./VK.svg"
-import internetIcon from "./InternetIcon.svg"
-import tgIcon from "./TGIcon.svg"
+import logo from "../assets/images/Group 441.png"
+import vkIcon from "../assets/images/vk.svg"
+import internetIcon from "../assets/images/InternetIcon.svg"
+import tgIcon from "../assets/images/TGIcon.svg"
 
 
 const FooterStyle = styled.div`
+  margin: 0 auto;
   padding: 46px 117px 80px;
   width: 926px;
   border-top: 2px solid #2D2D2D;
@@ -34,10 +34,10 @@ const SectionOneFooterStyle = styled.div`
 function SectionOneFooter() {
   return (
       <SectionOneFooterStyle>
-        <img src={logo} className={styles.logo} alt=""/>
-        <img src={vkIcon} className={styles.Icon} alt=""/>
-        <img src={internetIcon} className={styles.Icon} alt=""/>
-        <img src={tgIcon} className={styles.Icon} alt=""/>
+        <img src={logo} style={{marginRight: 30}} alt=""/>
+        <img src={vkIcon} style={{marginRight: 15}} alt=""/>
+        <img src={internetIcon} style={{marginRight: 15}} alt=""/>
+        <img src={tgIcon} style={{marginRight: 15}} alt=""/>
       </SectionOneFooterStyle>
   )
 }
