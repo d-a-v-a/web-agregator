@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../assets/images/Group 441.png"
+import logo from "../assets/images/logo.svg"
 import vkIcon from "../assets/images/vk.svg"
 import internetIcon from "../assets/images/InternetIcon.svg"
 import tgIcon from "../assets/images/TGIcon.svg"
+import {Link} from "react-router-dom";
 
 
 const FooterStyle = styled.div`
@@ -34,7 +35,7 @@ const SectionOneFooterStyle = styled.div`
 function SectionOneFooter() {
   return (
       <SectionOneFooterStyle>
-        <img src={logo} style={{marginRight: 30}} alt=""/>
+        <Link to={'/'}><img src={logo} style={{marginRight: 30}} alt=""/></Link>
         <img src={vkIcon} style={{marginRight: 15}} alt=""/>
         <img src={internetIcon} style={{marginRight: 15}} alt=""/>
         <img src={tgIcon} style={{marginRight: 15}} alt=""/>
@@ -48,31 +49,27 @@ const SectionTwoFooterStyle = styled.div`
   justify-content: space-between;
 `
 
-const LinkForFooterStyle = styled.a`
+const LinkForFooterStyle = styled(Link)`
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
   line-height: 19px;
   color: #99A2AD;
   cursor: pointer;
+  transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: var(--blue-bg);
+  }
 `
-
-function LinkForFooter({txtLink = "ссылка"}:{txtLink: string}) {
-  return(
-      <LinkForFooterStyle>
-        {txtLink}
-      </LinkForFooterStyle>
-  )
-}
-
 
 function SectionTwoFooter() {
   return(
       <SectionTwoFooterStyle>
-        <LinkForFooter txtLink={"Площадка проектов"}/>
-        <LinkForFooter txtLink={"Защиты проектов"}/>
-        <LinkForFooter txtLink={"Заказать проект"}/>
-        <LinkForFooter txtLink={"Обучение команды"}/>
+        <LinkForFooterStyle to={'/editing'}>Площадка проектов</LinkForFooterStyle>
+        <LinkForFooterStyle to={'/'}>Защиты проектов</LinkForFooterStyle>
+        <LinkForFooterStyle to={'/'}>Заказать проект</LinkForFooterStyle>
+        <LinkForFooterStyle to={'/'}>Обучение команды</LinkForFooterStyle>
       </SectionTwoFooterStyle>
   )
 }

@@ -59,6 +59,7 @@ export const Step = styled.div<{ isActive: boolean}>`
     width: 20px;
     height: 2px;
     background-color: ${p=> (p.isActive ? 'var(--blue-bg)' : 'var(--step-grey)')};
+    transition: background-color 0.3s ease-in-out;
   }
 `
 

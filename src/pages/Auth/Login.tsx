@@ -1,20 +1,29 @@
-import React from "react";
+import React, {useState, ChangeEventHandler} from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import {PasswordInput} from "../../components/ui/PasswordInput";
 
-
 const Login = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
-  return (
+    const handleEmailChange: ChangeEventHandler<HTMLInputElement> = ({target}) => {
+      setEmail(target.value)
+    }
+
+    const handlePasswordChange: ChangeEventHandler<HTMLInputElement> = ({target}) => {
+        setPassword(target.value)
+    }
+
+    return (
       <AuthWrapper>
         <AuthTitle>Вход</AuthTitle>
         <AuthLabel>
-          <AuthInput type={'email'} placeholder={'Почта от ЛК УрФУ'}/>
+          <AuthInput value={email} onChange={handleEmailChange} type={'email'} placeholder={'Почта от ЛК УрФУ'}/>
         </AuthLabel>
         <AuthLabel>
-          <PasswordInput placeholder={'Пароль'}/>
-          <SubInput to='/'>Забыли пароль?</SubInput>
+          <PasswordInput value={password} onChange={handlePasswordChange} placeholder={'Пароль'}/>
+          <SubInput to='/auth/change-password'>Забыли пароль?</SubInput>
         </AuthLabel>
           <AuthBtn to={'/'}>
             Войти
@@ -71,11 +80,17 @@ export const AuthInput = styled.input`
 `
 
 export const SubInput = styled(Link)`
+  display: inline-block;
   cursor: pointer;
   padding: 9px 5px;
   font-weight: 300;
   font-size: 16px;
   color: var(--grey-rgba-color);
+  transition: color 0.3s ease-in-out;
+  
+  &:hover {
+    color: var(--blue-bg);
+  }
 `
 
 export const AuthBtn = styled(Link)`

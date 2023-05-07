@@ -52,4 +52,11 @@ const ShowPassword = styled.img`
   width: 28px;
   height: 28px;
   object-fit: contain;
+  
+  transition: filter 0.3s ease-in-out;
+  
+  &:hover {
+    filter: invert(84%) sepia(20%) saturate(1100%) hue-rotate(165deg)
+    brightness(88%) contrast(83%);
+  }
 `

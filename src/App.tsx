@@ -9,6 +9,7 @@ import {AuthLayout} from "./components/AuthLayout";
 import ProjectEditing from "./pages/ProjectEditing/ProjectEditing";
 import Basic from "./pages/Auth/Register/Basic";
 import Contacts from "./pages/Auth/Register/Contacts";
+import ChangePassword from "./pages/Auth/ChangePassword";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           </Route>
           <Route path='auth' element={<AuthLayout/>}>
             <Route path='login' element={<Login/>}/>
+            <Route path='change-password' element={<ChangePassword/>}/>
             <Route path='register' element={<RegisterLayout/>}>
                 <Route path='' element={<Basic/>}/>
                 <Route path='contacts' element={<Contacts/>}/>
