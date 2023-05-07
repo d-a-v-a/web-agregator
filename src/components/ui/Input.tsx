@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-
 interface InputProps {
   height?: string,
   width?: string,

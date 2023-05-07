@@ -1,13 +1,15 @@
 import styled from "styled-components";
 import React from 'react';
 import profileIMG from '../assets/images/profile.png'
-import logo from '../assets/images/logo.png'
+import logo from '../assets/images/logo.svg'
 import {Link} from "react-router-dom";
 
 function Header() {
   return (
       <HeaderStyle>
-        <LogoStyle src={logo} />
+        <Link to='/'>
+            <LogoStyle src={logo} />
+        </Link>
         <ListLinks>
           <LinkToCategories label={'Площадка проектов'} path={'/editing'} margin={34}/>
           <LinkToCategories label={'Защиты проектов'} path={'/'} margin={34}/>
@@ -22,20 +24,18 @@ function Header() {
 const HeaderStyle = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   margin-bottom: 53px;
   padding: 11px 98px 11px 118px;
   background-color:  var(--dark-grey-color);
 `
 
 const LogoStyle = styled.img`
-  margin-right: 106px;
 `
 
 const ListLinks = styled.ul`
   display: flex;
   list-style: none;
-  margin-right: 106px;
   margin-top: 0;
   margin-bottom: 0;
 `
@@ -80,7 +80,7 @@ const ProfileStyle = styled.div`
 function Profile() {
   return(
       <ProfileStyle>
-        <Link to={'auth/login'} style={{display: 'flex'}}>
+        <Link to={'auth/login'} style={{display: 'flex', alignItems: 'center'}}>
           <span style={{marginRight: 11}}>Профиль</span>
           <img src={profileIMG} alt="" style={{marginRight: 8}}/>
         </Link>
