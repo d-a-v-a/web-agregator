@@ -48,10 +48,34 @@ function SidebarForEditing() {
         <PublicationNotice>Проект опубликован</PublicationNotice>
         <Button>Загрузить файл</Button>
         <FileName>Загружено: название.zip 15 Мб</FileName>
-        <Selector labelSelector={'Трек проекта'}></Selector>
-        <Selector labelSelector={'Категория проекта'}></Selector>
-        <Selector labelSelector={'Тема проекта'}></Selector>
-        <Selector labelSelector={'Команда разработки'}></Selector>
+        <Selector
+            labelSelector={'Трек проекта'}
+            options={[
+                'Пункт 1', 'Пункт 2', 'Пункт 3', 'Пункт 4', 'Пункт 5',
+                'Пункт 6', 'Пункт 7', 'Пункт 8', 'Пункт 9'
+            ]}
+        />
+        <Selector
+            labelSelector={'Категория проекта'}
+            options={[
+                'Пункт 1', 'Пункт 2', 'Пункт 3', 'Пункт 4', 'Пункт 5',
+                'Пункт 6', 'Пункт 7', 'Пункт 8', 'Пункт 9'
+            ]}
+        />
+        <Selector
+            labelSelector={'Тема проекта'}
+            options={[
+                'Пункт 1', 'Пункт 2', 'Пункт 3', 'Пункт 4', 'Пункт 5',
+                'Пункт 6', 'Пункт 7', 'Пункт 8', 'Пункт 9'
+            ]}
+        />
+        <Selector
+            labelSelector={'Команда разработки'}
+            options={[
+                'Пункт 1', 'Пункт 2', 'Пункт 3', 'Пункт 4', 'Пункт 5',
+                'Пункт 6', 'Пункт 7', 'Пункт 8', 'Пункт 9'
+            ]}
+        />
       </SidebarForEditingStyle>
   )
 }

@@ -46,7 +46,6 @@ function ProjectEditing() {
       <ProjectEditingStyle>
         <H1Style>Редактирование проекта</H1Style>
         <PathName><span style={{color: '#B6B6B6'}}>Профиль &gt; </span>Мои проекты</PathName>
-
         <MainPart>
           <SidebarForEditing/>
           <DescriptionProject/>
