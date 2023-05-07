@@ -21,6 +21,8 @@ const GlobalStyle = createGlobalStyle`
     --btn-color-disabled: rgba(232, 232, 232, 0.94);
     --black-bg: #282828;
     --grey-rgba-color: rgba(193, 217, 226, 0.65);
+    --statistics-color: rgba(234, 240, 255, 0.73);
+    --black-rgba: rgba(0, 0, 0, 0.5);
     --blue-bg: #5A9DF5;
     --blue-light-bg: #50BDE8;
     --blue-dark-bg: #177DDC;

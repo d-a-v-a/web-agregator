@@ -4,8 +4,6 @@ import Pagination from "./ui/Pagination";
 import PreviewProject from "./PreviewProject"
 import styled from "styled-components";
 import image1 from "../assets/images/image1.jpg"
-import image2 from "../assets/images/image2.jpg"
-import image3 from "../assets/images/image3.jpg"
 
 
 const H2Style = styled.h2`
@@ -20,7 +18,6 @@ const Options = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    margin-bottom: 30px;
 `
 
 const FoundStyle = styled.span`
@@ -46,6 +43,7 @@ const DropdownHeadStyle = styled.div`
 `
 
 const Grid = styled.div`
+    margin-top: 15px;
     display: grid;
     align-items: flex-end;
     grid-template-columns: 1fr 1fr 1fr;
@@ -55,23 +53,32 @@ const Grid = styled.div`
         flex: 0 0 calc(33.3% - 25px);
     }
 `
+const HeaderSelectProjects = styled.div`
+    position: sticky;
+    padding: 15px 0 15px;
+    top: 63px;
+    background-color: var(--main-bg-color);
+    z-index: 1000;
+`
 
 const SelectionProjects = () => {
-    const divs = Array(15).fill(10).map((_, i) => <PreviewProject key={i} image={image1} category='Аркады' name='Merge Комбинаторика'/>)
+    const divs = Array(15).fill(10).map((_, i) => <PreviewProject key={i} views={'1555'} rating={'4,5'} image={image1} category='Аркады' name='Merge Комбинаторика'/>)
     return (
         <div style={{maxWidth: 810}}>
-            <H2Style>Подборка проектов &gt;</H2Style>
-            <Options>
-                <FoundStyle>Найдено 31 проект</FoundStyle>
-                <Pagination current={1} total={5}/>
-                <div>
-                    <DropdownHeadStyle>
-                        <span>По популярности</span>
-                        <img src={dropdownOutline} alt=""/>
-                    </DropdownHeadStyle>
-                    <div></div>
-                </div>
-            </Options>
+            <HeaderSelectProjects>
+                <H2Style>Подборка проектов &gt;</H2Style>
+                <Options>
+                    <FoundStyle>Найдено 31 проект</FoundStyle>
+                    <Pagination current={1} total={5}/>
+                    <div>
+                        <DropdownHeadStyle>
+                            <span>По популярности</span>
+                            <img src={dropdownOutline} alt=""/>
+                        </DropdownHeadStyle>
+                        <div></div>
+                    </div>
+                </Options>
+            </HeaderSelectProjects>
             <Grid>
                 {divs}
             </Grid>
