@@ -4,7 +4,7 @@ import {BrowserRouter} from "react-router-dom";
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import styled,  {createGlobalStyle} from "styled-components";
+import {createGlobalStyle} from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   
@@ -20,6 +20,13 @@ const GlobalStyle = createGlobalStyle`
     --btn-color-hover: #E7FFF8;
     --btn-color-disabled: rgba(232, 232, 232, 0.94);
     --black-bg: #282828;
+    --grey-rgba-color: rgba(193, 217, 226, 0.65);
+    --statistics-color: rgba(234, 240, 255, 0.73);
+    --black-rgba: rgba(0, 0, 0, 0.5);
+    --blue-bg: #5A9DF5;
+    --blue-light-bg: #50BDE8;
+    --blue-dark-bg: #177DDC;
+    --step-grey: #3C3C3C;
   }
   
   

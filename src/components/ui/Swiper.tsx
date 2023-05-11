@@ -7,6 +7,7 @@ import image2 from '../../assets/images/image2.jpg'
 import image3 from '../../assets/images/image3.jpg'
 import sliderArrow from '../../assets/images/slider-arrow.svg'
 import 'swiper/swiper-bundle.css'
+import {Link} from "react-router-dom";
 
 const SwiperBlockStyle = styled.div`
   position: relative;
@@ -20,7 +21,7 @@ const SwiperBlockStyle = styled.div`
     position: relative;
   }
   
-  .swiper .swiper-slide{
+  .swiper .swiper-slide {
     margin-bottom: 27px;
     width: 526px !important;
     height: 310px !important;
@@ -92,6 +93,52 @@ const SwiperWrapper = styled.div`
   
 `
 
+const SlideInfo = styled.div`
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+        "category button"
+        "name button";
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 8px 36px 25px;
+  z-index: 100;
+
+  background: linear-gradient(
+          180deg, 
+          rgba(34, 33, 33, 0) 0%, 
+          rgba(34, 33, 33, 0.270079) 44.83%, 
+          rgba(34, 33, 33, 0.39) 100%
+  );
+`
+
+const SlideCategory = styled.div`
+  grid-area: category;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--rgba-white-color);
+`
+
+const SlideName = styled.div`
+  grid-area: name;
+  font-weight: 600;
+  font-size: 20px;
+`
+
+const SlideBtn = styled(Link)`
+  grid-area: button;
+  width: 100px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  background: linear-gradient(180deg, #60FB9E 0%, #1EFE77 0.01%, #0D9834 100%);
+  border-radius: 6px;
+`
 
 function SwiperProjects(){
   return (
@@ -116,15 +163,47 @@ function SwiperProjects(){
             allowTouchMove={false}
         >
           <SwiperWrapper>
-            <SwiperSlide><img src={image1} style={{width: '100%'}} alt=""/></SwiperSlide>
-            <SwiperSlide><img src={image3} style={{width: '100%'}} alt=""/></SwiperSlide>
-            <SwiperSlide><img src={image2} style={{width: '100%'}} alt=""/></SwiperSlide>
-            <SwiperSlide><img src={image2} style={{width: '100%'}} alt=""/></SwiperSlide>
-
+              <SwiperSlide>
+                  <SlideInner image={image1} category={'Аркады'} name={'Merge Комбинаторика'}/>
+              </SwiperSlide>
+              <SwiperSlide>
+                  <SlideInner image={image2} category={'Аркады'} name={'Merge Комбинаторика'}/>
+              </SwiperSlide>
+              <SwiperSlide>
+                  <SlideInner image={image3} category={'Аркады'} name={'Merge Комбинаторика'}/>
+              </SwiperSlide>
+              <SwiperSlide>
+                  <SlideInner image={image3} category={'Аркады'} name={'Merge Комбинаторика'}/>
+              </SwiperSlide>
+              <SwiperSlide>
+                  <SlideInner image={image3} category={'Аркады'} name={'Merge Комбинаторика'}/>
+              </SwiperSlide>
+              <SwiperSlide>
+                  <SlideInner image={image1} category={'Аркады'} name={'Merge Комбинаторика'}/>
+              </SwiperSlide>
           </SwiperWrapper>
         </Swiper>
       </SwiperBlockStyle>
-
   )
 }
+
+export interface SlideProps {
+    image: any,
+    category: string,
+    name: string
+}
+
+const SlideInner = ({image, category, name}: SlideProps) => {
+    return(
+        <>
+            <img src={image} style={{width: '100%'}} alt=""/>
+            <SlideInfo>
+                <SlideCategory>{category}</SlideCategory>
+                <SlideName>{name}</SlideName>
+                <SlideBtn to={'/project'}>Играть</SlideBtn>
+            </SlideInfo>
+        </>
+    )
+}
+
 export default SwiperProjects
