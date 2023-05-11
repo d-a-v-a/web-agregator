@@ -5,7 +5,6 @@ import History from "./components/History";
 import Categories from "./components/Categories";
 
 
-
 const FilterOnPageStyle = styled.div`
   
 `
