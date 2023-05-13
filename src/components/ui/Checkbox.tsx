@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import checkboxImg from "../Aside/images/galka.svg";
+import checkboxImg from "../images/galka.svg";
 
 const CheckBoxContainer = styled.div`
   display: flex;

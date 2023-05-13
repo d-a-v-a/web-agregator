@@ -1,7 +1,7 @@
 import React from "react";
 import {H2Style} from "../pages/ProjectEditing/ProjectEditing";
 import styled from "styled-components";
-import icon from "./Aside/images/CardPromoDownloadIcon.svg"
+import icon from "./images/CardPromoDownloadIcon.svg"
 
 const PromoMaterialsStyle = styled.div`
   margin-bottom: 94px;

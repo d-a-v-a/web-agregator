@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import totalStarsActive from "../Aside/images/total_stars_gold.svg";
-import totalStarsDisable from "../Aside/images/total_stars_grey.svg";
+import totalStarsActive from "../images/total_stars_gold.svg";
+import totalStarsDisable from "../images/total_stars_grey.svg";
 
 interface TotalRatingProps {
     total: string;

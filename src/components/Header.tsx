@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React from 'react';
-import profileIMG from './Aside/images/profile.png'
-import logo from './Aside/images/logo.svg'
+import profileIMG from './images/profile.png'
+import logo from './images/logo.svg'
 import {Link} from "react-router-dom";
 
 function Header() {

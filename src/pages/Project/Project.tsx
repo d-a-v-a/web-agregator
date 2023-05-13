@@ -4,7 +4,7 @@ import History from "../../components/Aside/components/History";
 import {AsideStyle} from "../../components/Aside/AsideStyle";
 import {H1Style, H2Style, PathName} from "../ProjectEditing/ProjectEditing";
 import PreviewProject from "../../components/PreviewProject";
-import image1 from "../../components/Aside/images/image1.jpg";
+import image1 from "../../components/images/image1.jpg";
 import ProjectPlay from "../../components/Aside/components/ProjectPlay";
 import Statistics from "../../components/Aside/components/Statistics";
 
