@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {Link, Outlet} from "react-router-dom";
 import Header from "./Header";
-import logo from "../assets/images/logo.svg";
+import logo from "./Aside/images/logo.svg";
 
 
 const AuthLayoutStyle = styled.div`

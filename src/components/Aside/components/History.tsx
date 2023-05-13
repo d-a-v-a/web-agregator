@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import HistoryButton from "../../../assets/images/HistoryButton.svg";
-import HistoryButtonActive from "../../../assets/images/HistoryButtonActive.svg";
-import image1 from "../../../assets/images/image1.jpg"
+import HistoryButton from "../images/HistoryButton.svg";
+import HistoryButtonActive from "../images/HistoryButtonActive.svg";
+import image1 from "../images/image1.jpg"
 import {Link} from "react-router-dom";
 
 const CardHistoryStyled = styled(Link)`

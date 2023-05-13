@@ -2,7 +2,7 @@ import React from "react";
 import Pagination from "./ui/Pagination";
 import PreviewProject from "./PreviewProject"
 import styled from "styled-components";
-import image1 from "../assets/images/image1.jpg"
+import image1 from "./Aside/images/image1.jpg"
 import Select from "./Select";
 
 

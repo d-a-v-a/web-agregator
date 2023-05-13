@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {H2Style} from "../../../pages/ProjectEditing/ProjectEditing";
 import TotalRating from "../../ui/TotalRating";
-import viewSvg from "../../../assets/images/views.svg"
+import viewSvg from "../images/views.svg"
 import RatingAction from "../../RatingAction";
 
 const StatisticsStyle = styled.div`

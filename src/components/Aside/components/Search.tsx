@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import searchImg from "../../../assets/images/search.svg";
+import searchImg from "../images/search.svg";
 
 const SearchStyle = styled.div`
   
