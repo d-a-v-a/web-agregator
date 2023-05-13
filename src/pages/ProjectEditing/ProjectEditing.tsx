@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import SidebarForEditing from "../../components/SidebarForEditing";
 import DescriptionProject from "../../components/DescriptionProject";
+import PromoMaterials from "../../components/PromoMaterials";
 
 
 const ProjectEditingStyle = styled.div`
@@ -41,6 +42,51 @@ const MainPart = styled.div`
   gap: 120px;
 `
 
+const Buttons = styled.div`
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+`
+
+const SaveButton = styled.button`
+  width: 356px;
+  margin-right: 24px;
+  background-color: var(--blue-bg);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 20px;
+  height: 56px;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: var(--blue-light-bg);
+  }
+
+  &:active {
+    background-color: var(--blue-dark-bg);
+  }
+`
+
+const PublicButton = styled(SaveButton)`
+  margin-right: 0;
+  background-color: #282828;
+  border-image: linear-gradient(#58E1FF 0%, #3431CE 100%);
+  border: 1px;
+`
+
+const P = styled.div`
+  display: flex;
+  justify-content: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(208, 230, 238, 0.94);
+`
+
 function ProjectEditing() {
   return (
       <ProjectEditingStyle>
@@ -50,6 +96,12 @@ function ProjectEditing() {
           <SidebarForEditing/>
           <DescriptionProject/>
         </MainPart>
+        <PromoMaterials/>
+        <Buttons>
+          <SaveButton>Сохранить</SaveButton>
+          <PublicButton>Опубликовать</PublicButton>
+        </Buttons>
+        <P>Проект будет опубликован после одобрения модератором</P>
       </ProjectEditingStyle>
   )
 }

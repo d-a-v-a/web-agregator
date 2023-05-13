@@ -7,6 +7,7 @@ const DescriptionProjectStyle = styled.div`
   max-width: 706px;
 `
 const Block = styled.div`
+  width: 736px;
   margin-bottom: 30px;
 `
 
@@ -15,13 +16,16 @@ const BlockTextArea = styled(Block)`
 `
 
 const WrapperNameInput = styled.div`
+  width: 100%;
   margin-bottom: 15px;
   padding: 10px 15px;
   background-color: var(--dark-grey-color);
 `
 
+
+
 const WrapperTextareaInput = styled(WrapperNameInput)`
-  height: 500px;
+  
 `
 
 const NameInputStyle = styled.input`
@@ -95,13 +99,25 @@ function NameProjectInput() {
 
 function NameProjectTextArea({placeholder}: {placeholder: string}) {
   const [inputValue, setInputValue] = useState('');
-  const handleInputChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-    setInputValue(event.target.value);
+  const [height, setHeight] = useState('');
+  const handleInputChange = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    setInputValue(event.currentTarget.value);
+    if (event.currentTarget.value === "") {
+      setHeight('60px');
+    }
   };
+
+  function handleKeyUp(event: React.KeyboardEvent<HTMLTextAreaElement>) {
+    event.currentTarget.style.height = "auto";
+    event.currentTarget.style.height = event.currentTarget.scrollHeight + "px";
+    setInputValue(event.currentTarget.value);
+
+  }
+
   return(
       <BlockTextArea>
         <WrapperTextareaInput>
-          <TextAreaStyle maxLength={1000} value={inputValue} onChange={handleInputChange} placeholder={placeholder}/>
+          <TextAreaStyle style={{ height }} maxLength={1000} value={inputValue} onInput={handleInputChange} onKeyUp={handleKeyUp} placeholder={placeholder}/>
         </WrapperTextareaInput>
         <Counter>{inputValue.length}/1000</Counter>
       </BlockTextArea>

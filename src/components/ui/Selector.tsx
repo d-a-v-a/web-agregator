@@ -1,7 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import {H2Style} from "../../pages/ProjectEditing/ProjectEditing";
-import {Autocomplete, TextField} from "@mui/material";
 import Select from "../Select";
 
 const options = ['Первый пункт', 'Второй пункт', 'Третий пункт', 'Четвертый пункт', 'Пятый пункт'];
@@ -17,12 +16,14 @@ const SelectBox = styled.div`
 
 interface Props {
   labelSelector: string;
-    options: any;
+  options: any;
+  margin?: string;
+
 }
 
-function Selector({labelSelector = '', options}: Props) {
+function Selector({labelSelector = '', options, margin = '30px'}: Props) {
   return (
-      <SelectorStyle>
+      <SelectorStyle style={{marginBottom: margin}}>
         <H2Style>{labelSelector}</H2Style>
         <SelectBox>
             <Select options={options}/>
