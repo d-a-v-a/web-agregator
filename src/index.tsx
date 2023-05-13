@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     --blue-dark-bg: #177DDC;
     --step-grey: #3C3C3C;
     --title-blue-grey: #D0E6EE;
+    --gold-bg: #F6B535;
   }
   
   
