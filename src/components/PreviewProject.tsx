@@ -142,9 +142,10 @@ export interface Props {
     name: string;
     views: string;
     rating: string;
+    path: string;
 }
 
-const PreviewProject: React.FC<Props> = ({image, category, name, views, rating}: Props) => {
+const PreviewProject: React.FC<Props> = ({image, category, name, views, rating, path}: Props) => {
     const roundViews = (num:string) => {
         if (Number(num) < 1000) {
             return num
@@ -153,7 +154,7 @@ const PreviewProject: React.FC<Props> = ({image, category, name, views, rating}:
     }
 
     return (
-        <CardWrapper>
+        <CardWrapper >
             <HeadStyle>
                 <img style={{maxWidth: '100%', objectFit: "cover"}} src={image} alt=""/>
                 <Statistics>
@@ -165,7 +166,7 @@ const PreviewProject: React.FC<Props> = ({image, category, name, views, rating}:
                 <Category>{category}</Category>
                 <Name>{name}</Name>
                 <ButtonStyle>
-                    <Button>Играть</Button>
+                    <Button to={path}>Играть</Button>
                 </ButtonStyle>
             </DescriptionStyle>
         </CardWrapper>

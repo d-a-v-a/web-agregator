@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import searchImg from "../../../assets/images/search.svg";
-import { H2Style } from "../FilterOnPage";
-
 
 const SearchStyle = styled.div`
   
@@ -46,7 +44,7 @@ const SearchInputStyle = styled.input`
 function Search() {
   return (
       <SearchStyle>
-        <H2Style>Проекты</H2Style>
+        <h2>Проекты</h2>
         <SearchBlockStyle>
           <SearchInputStyle type="text" placeholder="Поиск"/>
           <img src={searchImg} alt="" style={{cursor: "pointer"}}/>

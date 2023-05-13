@@ -1,8 +1,11 @@
 import React from "react";
-import FilterOnPage from "../../components/FiltersOnPage/FilterOnPage";
 import styled from "styled-components";
 import SelectionProjects from "../../components/SelectionProjects";
 import PopularProjects from "../../components/PopularProjects";
+import Search from "../../components/Aside/components/Search";
+import Categories from "../../components/Aside/components/Categories";
+import History from "../../components/Aside/components/History";
+import {AsideStyle} from "../../components/Aside/AsideStyle";
 
 const HomeStyle = styled.div`
   display: flex;
@@ -11,10 +14,14 @@ const HomeStyle = styled.div`
   max-width: 1144px;
 `
 
-function Home() {
+const Home = () => {
   return(
       <HomeStyle>
-        <FilterOnPage/>
+        <AsideStyle>
+            <Search/>
+            <Categories/>
+            <History title={'Иcтория'}/>
+        </AsideStyle>
         <div>
           <PopularProjects />
           <SelectionProjects />

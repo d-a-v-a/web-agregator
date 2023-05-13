@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import HistoryButton from "../../../assets/images/HistoryButton.svg";
 import HistoryButtonActive from "../../../assets/images/HistoryButtonActive.svg";
-import { H2Style } from "../FilterOnPage";
 import image1 from "../../../assets/images/image1.jpg"
+import {Link} from "react-router-dom";
 
-const CardHistoryStyled = styled.div`
+const CardHistoryStyled = styled(Link)`
   position: relative;
   height: 78px;
   margin-bottom: 10px;
@@ -64,9 +64,16 @@ const PreviewImage = styled.img`
   border-radius: 8px;
 `
 
-function CardHistory({genreGame = '', nameGame = "", image}: {image: any, genreGame: string, nameGame: string}) {
+interface CardProps {
+    genreGame: string;
+    nameGame: string;
+    image: any;
+    path: string;
+}
+
+function CardHistory({genreGame, nameGame, image, path}: CardProps) {
   return(
-      <CardHistoryStyled>
+      <CardHistoryStyled to={path}>
         <CardInner>
             <NameGame genreGame={genreGame} nameGame={nameGame}/>
             <HistoryButtonStyled />
@@ -95,7 +102,6 @@ const NameGameStyle = styled.div`
   color: #FFFFFF;
 `
 
-
 function NameGame({genreGame = '', nameGame = ""}: {genreGame: string, nameGame: string}) {
   return(
       <div>
@@ -109,13 +115,18 @@ function NameGame({genreGame = '', nameGame = ""}: {genreGame: string, nameGame:
   )
 }
 
-function History() {
+export interface HistoryProps {
+    title?: string;
+}
+
+
+const History = ({title = 'История'}: HistoryProps) => {
   return (
       <div>
-        <H2Style >История</H2Style>
-        <CardHistory image={image1} genreGame={"Аркады"} nameGame={"Birdie Fall"}/>
-        <CardHistory image={image1} genreGame={"Аркады"} nameGame={"Merge Комбинаторика"}/>
-        <CardHistory image={image1} genreGame={"Аркады"} nameGame={"Night Way"}/>
+        <h2>{title}</h2>
+        <CardHistory path={'/project'} image={image1} genreGame={"Аркады"} nameGame={"Birdie Fall"}/>
+        <CardHistory path={'/project'} image={image1} genreGame={"Аркады"} nameGame={"Merge Комбинаторика"}/>
+        <CardHistory path={'/project'} image={image1} genreGame={"Аркады"} nameGame={"Night Way"}/>
       </div>
   )
 }

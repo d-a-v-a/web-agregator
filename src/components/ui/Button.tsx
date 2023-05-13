@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
-const ButtonStyle = styled.button`
+const ButtonStyle = styled(Link)`
   padding: 1px;
   width: 76px;
   height: 26px;
@@ -40,22 +41,21 @@ const Wrapper = styled.span`
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-
   transition: background-color 0.3s ease-in-out;
 `
 
-
-
 export interface IButtonProps {
+    color?: string;
+    to?: string;
     children?: React.ReactNode;
 }
 const Button: React.FC<IButtonProps> =
     ({
-        children
+        children, to = '', color = 'transparent'
     }) => {
         return (
-            <ButtonStyle type='button'>
-                <Wrapper className='wrapper'>
+            <ButtonStyle to={to}>
+                <Wrapper color={color} className='wrapper'>
                     {children}
                 </Wrapper>
             </ButtonStyle>

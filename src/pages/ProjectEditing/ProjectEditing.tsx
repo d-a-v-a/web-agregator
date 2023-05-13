@@ -9,7 +9,7 @@ const ProjectEditingStyle = styled.div`
   max-width: 1144px;
 `
 
-const H1Style = styled.h1`
+export const H1Style = styled.h1`
   margin: 0 0 14px;
   font-style: normal;
   font-weight: 600;
@@ -18,7 +18,7 @@ const H1Style = styled.h1`
   color: var(--white-color);
 `
 
-const PathName = styled.div`
+export const PathName = styled.div`
   margin-bottom: 66px;
   font-style: normal;
   font-weight: 400;

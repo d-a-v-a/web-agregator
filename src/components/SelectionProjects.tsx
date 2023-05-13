@@ -46,7 +46,7 @@ const HeaderSelectProjects = styled.div`
 `
 
 const SelectionProjects = () => {
-    const divs = Array(15).fill(10).map((_, i) => <PreviewProject key={i} views={'12333'} rating={'4,5'} image={image1} category='Аркады' name='Merge Комбинаторика'/>)
+    const divs = Array(15).fill(10).map((_, i) => <PreviewProject key={i} path={'/project'} views={'12333'} rating={'4,5'} image={image1} category='Аркады' name='Merge Комбинаторика'/>)
     return (
         <div style={{maxWidth: 810}}>
             <HeaderSelectProjects>

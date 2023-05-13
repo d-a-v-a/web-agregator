@@ -200,7 +200,7 @@ const SlideInner = ({image, category, name}: SlideProps) => {
             <SlideInfo>
                 <SlideCategory>{category}</SlideCategory>
                 <SlideName>{name}</SlideName>
-                <SlideBtn to={'/'}>Играть</SlideBtn>
+                <SlideBtn to={'/project'}>Играть</SlideBtn>
             </SlideInfo>
         </>
     )

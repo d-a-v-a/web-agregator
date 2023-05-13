@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Checkbox from "../../ui/Checkbox";
-import {H2Style} from "../FilterOnPage";
-
 
 const CategoriesStyle = styled.div`
 
@@ -35,7 +33,7 @@ const H3Style = styled.h2`
 function Categories() {
   return(
       <CategoriesStyle>
-        <H2Style>Категории</H2Style>
+        <h2>Категории</h2>
         <CategoriesBlockStyle>
           <Checkbox id={'ch1'} labelTxt={'Все категории'}></Checkbox>
 

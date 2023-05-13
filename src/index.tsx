@@ -24,9 +24,11 @@ const GlobalStyle = createGlobalStyle`
     --statistics-color: rgba(234, 240, 255, 0.73);
     --black-rgba: rgba(0, 0, 0, 0.5);
     --blue-bg: #5A9DF5;
+    --paragraph-color: rgba(255, 255, 255, 0.65);
     --blue-light-bg: #50BDE8;
     --blue-dark-bg: #177DDC;
     --step-grey: #3C3C3C;
+    --title-blue-grey: #D0E6EE;
   }
   
   
@@ -101,6 +103,16 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-size: 2em;
     margin: 0.67em 0;
+  }
+  
+  h2 {
+    margin-bottom: 25px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: var(--white-color);
   }
   
   hr {

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "./ui/Button";
 import {H2Style} from "../pages/ProjectEditing/ProjectEditing";
 import Selector from "./ui/Selector";
 
@@ -41,12 +40,36 @@ const FileName = styled.div`
 
   color: rgba(182, 182, 182, 0.94);`
 
+const ButtonStyle = styled.button`
+  width: 100%;
+  height: 51px;
+  background: var(--blue-bg);
+  border-radius: 3px;
+  transition: background-color 0.3s ease-in-out;
+
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--white-color);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: var(--blue-light-bg);
+  }
+
+  &:active {
+    background-color: var(--blue-dark-bg);
+  }
+`
+
 function SidebarForEditing() {
   return(
       <SidebarForEditingStyle>
         <H2Style style={{marginBottom: '8px'}}>Статус проекта</H2Style>
         <PublicationNotice>Проект опубликован</PublicationNotice>
-        <Button>Загрузить файл</Button>
+        <ButtonStyle>Загрузить файл</ButtonStyle>
         <FileName>Загружено: название.zip 15 Мб</FileName>
         <Selector
             labelSelector={'Трек проекта'}
