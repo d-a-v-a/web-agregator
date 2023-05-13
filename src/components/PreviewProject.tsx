@@ -1,8 +1,8 @@
 import React from "react";
 import Button from "./ui/Button";
 import styled from "styled-components";
-import viewsSvg from "./images/views.svg"
-import ratingSvg from "./images/rating.svg"
+import viewsSvg from "../assets/images/views.svg"
+import ratingSvg from "../assets/images/rating.svg"
 
 const CardWrapper = styled.div`
   -webkit-border-radius: 20px;

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import dropdownOutline from "./images/dropdown_outline.svg";
+import dropdownOutline from "../assets/images/dropdown_outline.svg";
 
 export interface Props {
     value?: string;
