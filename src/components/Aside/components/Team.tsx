@@ -161,11 +161,11 @@ const Team = ({ countOnTab = 3 }: { countOnTab?: number }) => {
                     ))
                 }
                 <PaginationStyle>
-                    <PaginationButtonLeft onClick={prevTabHandler} type='button'>
+                    <PaginationButtonLeft disabled={current == countOnTab} onClick={prevTabHandler} type='button'>
                         <img src={arrow} alt=""/>
                     </PaginationButtonLeft>
                     <PaginationText>{current} из {length}</PaginationText>
-                    <PaginationButtonRight onClick={nextTabHandler} type='button'>
+                    <PaginationButtonRight disabled={current == length} onClick={nextTabHandler} type='button'>
                         <img src={arrow} alt=""/>
                     </PaginationButtonRight>
                 </PaginationStyle>
