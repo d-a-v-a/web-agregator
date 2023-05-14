@@ -81,7 +81,7 @@ const RatingStar = ({value, rating, setRating}: StarProps) => {
 }
 
 const RatingAction = () => {
-    const [rating, setRating] = useState(3)
+    const [rating, setRating] = useState(4)
 
     return (
         <RatingActionStyle>

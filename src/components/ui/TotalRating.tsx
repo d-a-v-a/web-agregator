@@ -8,8 +8,6 @@ interface TotalRatingProps {
 }
 
 const TotalRating = ({total}: TotalRatingProps) => {
-    console.log(total)
-
     return (
         <TotalRatingStyled>
             <TotalStyled>{total}</TotalStyled>

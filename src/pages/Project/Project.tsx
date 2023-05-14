@@ -7,6 +7,7 @@ import PreviewProject from "../../components/PreviewProject";
 import image1 from "../../assets/images/image1.jpg";
 import ProjectPlay from "../../components/Aside/components/ProjectPlay";
 import Statistics from "../../components/Aside/components/Statistics";
+import Team from "../../components/Aside/components/Team";
 
 const ProjectStyle = styled.div`
   margin: 0 auto 74px;
@@ -67,6 +68,7 @@ const Project = () => {
                 <AsideStyle>
                     <ProjectPlay name={'Merge Комбинаторика'} image={image1} />
                     <Statistics />
+                    <Team countOnTab={3} />
                     <History title={'Проекты команды'}/>
                 </AsideStyle>
                 <div>

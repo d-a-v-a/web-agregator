@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import arrow from "../../assets/images/arrow_left.svg"
 
-const PaginationStyle = styled.div`
+export const PaginationStyle = styled.div`
   display: flex;
   align-items: center;
   color: var(--light-grey-color);
 `
 
-const PaginationButtonStyle = styled.button`
+export const PaginationButtonStyle = styled.button`
   transition: opacity 0.3s ease-in-out;
   &:disabled {
     opacity: 0.45 !important;
@@ -18,15 +18,15 @@ const PaginationButtonStyle = styled.button`
   }
 `
 
-const PaginationButtonRight = styled(PaginationButtonStyle)`
+export const PaginationButtonRight = styled(PaginationButtonStyle)`
   
 `
 
-const PaginationButtonLeft = styled(PaginationButtonStyle)`
+export const PaginationButtonLeft = styled(PaginationButtonStyle)`
   transform: rotate(180deg);
 `
 
-const PaginationText = styled.div`
+export const PaginationText = styled.div`
   padding: 0 10px;
   font-size: 12px;
   color: var(--light-grey-color);
