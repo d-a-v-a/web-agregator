@@ -8,6 +8,7 @@ import image1 from "../../assets/images/image1.jpg";
 import ProjectPlay from "../../components/Aside/components/ProjectPlay";
 import Statistics from "../../components/Aside/components/Statistics";
 import Team from "../../components/Aside/components/Team";
+import About from "../../components/About";
 
 const ProjectStyle = styled.div`
   margin: 0 auto 74px;
@@ -18,10 +19,6 @@ const ProjectGrid = styled.div`
   display: flex;
   gap: 119px;
   margin-bottom: 50px;
-`
-
-const AboutStyled = styled.div`
-
 `
 
 const TextWrapperStyled = styled.div`
@@ -72,9 +69,7 @@ const Project = () => {
                     <History title={'Проекты команды'}/>
                 </AsideStyle>
                 <div>
-                    <AboutStyled>
-                        <H2Style>Об игре</H2Style>
-                    </AboutStyled>
+                    <About />
 
                     <TextWrapperStyled>
                         <H2Style>Описание проекта</H2Style>
