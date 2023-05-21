@@ -19,7 +19,7 @@ const ChangePassword = () => {
             <AuthLabel>
                 <PasswordInput placeholder={'Потвердите пароль'} />
             </AuthLabel>
-            <AuthBtn to={'/'}>
+            <AuthBtn>
                 Изменить
             </AuthBtn>
             <AuthBottom>

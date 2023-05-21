@@ -25,7 +25,7 @@ const Login = () => {
           <PasswordInput value={password} onChange={handlePasswordChange} placeholder={'Пароль'}/>
           <SubInput to='/auth/change-password'>Забыли пароль?</SubInput>
         </AuthLabel>
-          <AuthBtn to={'/'}>
+          <AuthBtn>
             Войти
           </AuthBtn>
         <AuthSubBtn to='/auth/register'>Регистрация</AuthSubBtn>
@@ -47,10 +47,53 @@ export const AuthTitle = styled.div`
   padding: 0 20px;
 `
 
-export const AuthLabel = styled.label`
+export const AuthLabel = styled.label<{isInvalid?: any}>`
   position: relative;
   display: block;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
+  
+  p {
+  }
+
+  ${({ isInvalid }) => isInvalid && `
+        input {
+            border-color: #C86571 !important;
+        }
+        
+        input::placeholder {
+            color: #C86571 !important;
+        }
+        
+        p {
+            opacity: 1;
+            bottom: -10px;
+              transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
+        }
+    `}
+`
+export const LabelText = styled.div`
+  margin-bottom: 8px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--input-title);
+`
+
+export const ErrorText = styled.p`
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  left: 0;
+  height: 16px;
+  z-index: 0;
+  
+  transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
+  
+  padding-top: 8px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--input-title);
 `
 
 export const AuthBottom = styled.div`
@@ -60,7 +103,9 @@ export const AuthBottom = styled.div`
 `
 
 export const AuthInput = styled.input`
+  position: relative;
   display: block;
+  z-index: 1;
   flex: 1;
   width: 100%;
   height: 54px;
@@ -74,8 +119,16 @@ export const AuthInput = styled.input`
   border: 1px solid var(--light-grey-color);
   border-radius: 4px;
 
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+
   &::placeholder {
     color: var(--rgba-white-color);
+    
+    transition: color 0.3s ease-in-out;
+  }
+
+  &:focus {
+    background-color: var(--rgba-grey-color);
   }
 `
 
@@ -93,7 +146,7 @@ export const SubInput = styled(Link)`
   }
 `
 
-export const AuthBtn = styled(Link)`
+export const AuthBtn = styled.button`
   width: 100%;
   background-color: var(--blue-bg);
   border-radius: 3px;

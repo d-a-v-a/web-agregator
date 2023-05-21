@@ -1,30 +1,49 @@
 import React from "react";
-import {AuthBtn, AuthInput, AuthLabel} from "../Login";
-import {Step, Steps} from "./Basic";
-import {Link} from "react-router-dom";
+import {AuthBtn, AuthInput, AuthLabel, ErrorText} from "../Login";
+import {useForm} from "react-hook-form";
+import {yupResolver} from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import {useNavigate} from "react-router-dom";
+
+const schema = yup.object({
+    firstName: yup.string()
+        .required('Обязательное поле'),
+    lastName: yup.string()
+        .required('Обязательное поле'),
+    group: yup.string()
+        .required('Обязательное поле'),
+}).required();
+
+type FormData = yup.InferType<typeof schema>;
 
 const Contacts = () => {
+    const navigate = useNavigate();
+
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+        resolver: yupResolver(schema)
+    });
+    const onSubmit = (data: FormData) => {
+        navigate("/auth/login");
+    }
+
     return (
-        <>
-            <Steps>
-                <Link style={{'flex': '0 0 30px'}} to={'/auth/register'}>
-                    <Step isActive={true}>1</Step>
-                </Link>
-                <Step isActive={true}>2</Step>
-            </Steps>
-            <AuthLabel>
-                <AuthInput type={'text'} placeholder={'Имя'}/>
+        <form onSubmit={handleSubmit(onSubmit)} noValidate>
+            <AuthLabel isInvalid={!!errors.firstName}>
+                <AuthInput {...register("firstName")} type={'text'} placeholder={'Имя'}/>
+                <ErrorText>{errors.firstName?.message}</ErrorText>
             </AuthLabel>
-            <AuthLabel>
-                <AuthInput type={'text'} placeholder={'Фамилия'}/>
+            <AuthLabel isInvalid={!!errors.lastName}>
+                <AuthInput {...register("lastName")} type={'text'} placeholder={'Фамилия'}/>
+                <ErrorText>{errors.lastName?.message}</ErrorText>
             </AuthLabel>
-            <AuthLabel>
-                <AuthInput type={'text'} placeholder={'Академ. группа'}/>
+            <AuthLabel isInvalid={!!errors.group}>
+                <AuthInput {...register("group")} type={'text'} placeholder={'Академ. группа'}/>
+                <ErrorText>{errors.group?.message}</ErrorText>
             </AuthLabel>
-            <AuthBtn to={'/'}>
+            <AuthBtn type={"submit"}>
                 Зарегистрироваться
             </AuthBtn>
-        </>
+        </form>
     )
 }
 
