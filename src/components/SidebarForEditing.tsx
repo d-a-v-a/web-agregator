@@ -23,7 +23,7 @@ const SidebarForEditingStyle = styled.div`
   }
 `
 
-const PublicationNotice = styled.div`
+export const PublicationNotice = styled.div`
   margin-bottom: 35px;
   font-style: normal;
   font-weight: 400;

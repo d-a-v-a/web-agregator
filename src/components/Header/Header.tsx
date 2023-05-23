@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import React from 'react';
-import profileIMG from '../assets/images/profile.png'
-import logo from '../assets/images/logo.svg'
+import logo from '../../assets/images/logo.svg'
 import {Link} from "react-router-dom";
+import Profile from "./Profile";
 
-function Header() {
+const Header = () => {
   return (
       <HeaderWrapper>
           <HeaderStyle>
@@ -78,35 +78,5 @@ function LinkToCategories({label = 'ссылка', path = '/', margin = 34}:{lab
       </li>
   )
 }
-
-
-const ProfileStyle = styled.div`
-  display: flex;
-  align-items: center;
-  
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-
-  color: var(--white-color);
-
-  &:hover span {
-    color: var(--blue-bg);
-  }
-`
-
-
-function Profile() {
-  return(
-      <ProfileStyle>
-        <Link to={'/auth/login'} style={{display: 'flex', alignItems: 'center'}}>
-          <span style={{marginRight: 11, transition: 'color 0.3s ease-in-out'}}>Профиль</span>
-          <img src={profileIMG} alt="" style={{marginRight: 8}}/>
-        </Link>
-      </ProfileStyle>
-  )
-}
-
 
 export default Header

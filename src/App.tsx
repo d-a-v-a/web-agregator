@@ -10,6 +10,10 @@ import ProjectEditing from "./pages/ProjectEditing/ProjectEditing";
 import SearchOnEmail from "./pages/Auth/Recovery/SearchOnEmail";
 import SuccessInfo from "./pages/Auth/Recovery/SuccessInfo";
 import ChangePassword from "./pages/Auth/Recovery/ChangePassword";
+import MyProjects from "./pages/Profile/components/MyProjects";
+import Information from "./pages/Profile/components/Information";
+import Security from "./pages/Profile/components/Security";
+import ProfileLayout from "./pages/Profile/ProfileLayout";
 
 
 function App() {
@@ -19,6 +23,11 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path='project' element={<Project/>}/>
             <Route path='editing' element={<ProjectEditing/>}/>
+            <Route path='profile' element={<ProfileLayout/>}>
+                <Route path='my-projects' element={<MyProjects/>}/>
+                <Route path='information' element={<Information/>}/>
+                <Route path='security' element={<Security/>}/>
+            </Route>
           </Route>
           <Route path='auth' element={<AuthLayout/>}>
             <Route path='login' element={<Login/>}/>
