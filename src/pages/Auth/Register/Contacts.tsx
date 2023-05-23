@@ -27,7 +27,7 @@ const Contacts = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        <form onSubmit={handleSubmit(onSubmit)} autoComplete={'off'}>
             <AuthLabel isInvalid={!!errors.firstName}>
                 <AuthInput {...register("firstName")} type={'text'} placeholder={'Имя'}/>
                 <ErrorText>{errors.firstName?.message}</ErrorText>

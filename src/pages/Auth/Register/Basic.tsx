@@ -113,7 +113,7 @@ export const Step = styled.button<{ isActive: boolean}>`
   }
 `
 
-const ShowPassword = styled.img`
+export const ShowPassword = styled.img`
   position: absolute;
   cursor: pointer;
   top: 12px;

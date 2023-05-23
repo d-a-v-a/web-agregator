@@ -23,7 +23,7 @@ const Login = () => {
         </AuthLabel>
         <AuthLabel>
           <PasswordInput value={password} onChange={handlePasswordChange} placeholder={'Пароль'}/>
-          <SubInput to='/auth/change-password'>Забыли пароль?</SubInput>
+          <SubInput to='/auth/recovery/search-email'>Забыли пароль?</SubInput>
         </AuthLabel>
           <AuthBtn>
             Войти

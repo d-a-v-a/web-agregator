@@ -7,7 +7,9 @@ import Project from "./pages/Project/Project";
 import {MainLayout} from "./components/MainLayout";
 import {AuthLayout} from "./components/AuthLayout";
 import ProjectEditing from "./pages/ProjectEditing/ProjectEditing";
-import ChangePassword from "./pages/Auth/ChangePassword";
+import SearchOnEmail from "./pages/Auth/Recovery/SearchOnEmail";
+import SuccessInfo from "./pages/Auth/Recovery/SuccessInfo";
+import ChangePassword from "./pages/Auth/Recovery/ChangePassword";
 
 
 function App() {
@@ -20,8 +22,12 @@ function App() {
           </Route>
           <Route path='auth' element={<AuthLayout/>}>
             <Route path='login' element={<Login/>}/>
-            <Route path='change-password' element={<ChangePassword/>}/>
             <Route path='register' element={<RegisterLayout/>}/>
+            <Route path='recovery'>
+                <Route path='search-email' element={<SearchOnEmail/>}/>
+                <Route path='success-info' element={<SuccessInfo/>}/>
+                <Route path='change-password' element={<ChangePassword/>}/>
+            </Route>
           </Route>
         </Routes>
   );
