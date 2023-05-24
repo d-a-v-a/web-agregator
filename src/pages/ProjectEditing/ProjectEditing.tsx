@@ -5,6 +5,25 @@ import DescriptionProject from "../../components/DescriptionProject";
 import PromoMaterials from "../../components/PromoMaterials";
 
 
+function ProjectEditing() {
+  return (
+      <ProjectEditingStyle>
+        <H1Style>Редактирование проекта</H1Style>
+        <PathName><span style={{color: '#B6B6B6'}}>Профиль &gt; </span>Мои проекты</PathName>
+        <MainPart>
+          <SidebarForEditing/>
+          <DescriptionProject/>
+        </MainPart>
+        <PromoMaterials/>
+        <Buttons>
+          <SaveButton>Сохранить</SaveButton>
+          <PublicButton>Опубликовать</PublicButton>
+        </Buttons>
+        <P>Проект будет опубликован после одобрения модератором</P>
+      </ProjectEditingStyle>
+  )
+}
+
 const ProjectEditingStyle = styled.div`
   margin: 0 auto 74px;
   max-width: 1144px;
@@ -86,25 +105,6 @@ const P = styled.div`
   line-height: 19px;
   color: rgba(208, 230, 238, 0.94);
 `
-
-function ProjectEditing() {
-  return (
-      <ProjectEditingStyle>
-        <H1Style>Редактирование проекта</H1Style>
-        <PathName><span style={{color: '#B6B6B6'}}>Профиль &gt; </span>Мои проекты</PathName>
-        <MainPart>
-          <SidebarForEditing/>
-          <DescriptionProject/>
-        </MainPart>
-        <PromoMaterials/>
-        <Buttons>
-          <SaveButton>Сохранить</SaveButton>
-          <PublicButton>Опубликовать</PublicButton>
-        </Buttons>
-        <P>Проект будет опубликован после одобрения модератором</P>
-      </ProjectEditingStyle>
-  )
-}
 
 
 export default ProjectEditing
