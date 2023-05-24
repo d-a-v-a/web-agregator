@@ -38,6 +38,7 @@ const GlobalStyle = createGlobalStyle`
     --input-title: rgba(193, 217, 226, 0.65);
     --contacts-color: rgba(208, 230, 238, 0.94);
     --red-color: #FF8197;
+    --required-color: #5B5B5B;
   }
   
   
