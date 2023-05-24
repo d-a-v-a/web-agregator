@@ -45,7 +45,7 @@ const ProfileLayout = () => {
                         <ExitStyle>Выход</ExitStyle>
                     </ProfileNavStyle>
                 </AsideStyle>
-                <Outlet/>
+                <Outlet />
             </ProfileGrid>
         </ProfileLayoutStyle>
     )

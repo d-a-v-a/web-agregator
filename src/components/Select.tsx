@@ -5,8 +5,9 @@ import dropdownOutline from "../assets/images/dropdown_outline.svg";
 export interface Props {
     value?: string;
     options: any;
+    height?: string;
 }
-function Select({value, options}: Props) {
+function Select({value, options, height}: Props) {
     const [isOpen, setIsOpen] = useState(false)
     const [activeValue, setActiveValue] = useState(value)
     const hideClickHandler = () => {
@@ -20,7 +21,7 @@ function Select({value, options}: Props) {
 
     return (
         <SelectStyle>
-            <HeadStyle onClick={hideClickHandler}>
+            <HeadStyle height={height} onClick={hideClickHandler}>
                 <span>{activeValue ? activeValue : 'Выберите из списка'}</span>
             </HeadStyle>
             {
@@ -42,7 +43,7 @@ const SelectStyle = styled.div`
   position: relative;
   min-width: 166px;
 `
-const HeadStyle = styled.div`
+const HeadStyle = styled.div<{ height?: string }>`
     cursor: pointer;
     padding: 5px 15px 5px 20px;
     display: flex;
@@ -57,6 +58,10 @@ const HeadStyle = styled.div`
 
     border-radius: 3px;
     border: 1px solid var(--light-grey-color);
+
+    ${({ height }) => height && `
+        height: ${height};
+    `}
   
   &::after {
     content: '';
