@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 
 import image1 from "../../assets/images/image1.jpg";
@@ -21,35 +21,56 @@ export interface SlideProps {
 
 
 function SwiperAboutProject() {
+  const [img, setImg] = useState(image1)
+
+  function handleClickSlide(img: any) {
+    setImg(img);
+  }
   return (
-      <SwiperBlockStyle>
-        <Swiper
-            spaceBetween={26}
-            grabCursor={true}
-            slidesPerView={4}
-            allowTouchMove={true}
-        >
-          <SwiperWrapper>
-            <SwiperSlide>
-              <SlideInner image={image1}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <SlideInner image={image2}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <SlideInner image={image3}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <SlideInner image={image3}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <SlideInner image={image3}/>
-            </SwiperSlide>
-          </SwiperWrapper>
-        </Swiper>
-      </SwiperBlockStyle>
+      <div>
+        <SwiperSelect img={img}/>
+        <SwiperBlockStyle>
+          <Swiper
+              spaceBetween={26}
+              grabCursor={true}
+              slidesPerView={4}
+              allowTouchMove={true}
+          >
+            <SwiperWrapper>
+              <SwiperSlide onClick={() => handleClickSlide(image1)}>
+                <SlideInner image={image1}/>
+              </SwiperSlide>
+              <SwiperSlide onClick={() => handleClickSlide(image2)}>
+                <SlideInner image={image2}/>
+              </SwiperSlide>
+              <SwiperSlide onClick={() => handleClickSlide(image3)}>
+                <SlideInner image={image3}/>
+              </SwiperSlide>
+              <SwiperSlide onClick={() => handleClickSlide(image1)}>
+                <SlideInner image={image1}/>
+              </SwiperSlide>
+              <SwiperSlide onClick={() => handleClickSlide(image2)}>
+                <SlideInner image={image2}/>
+              </SwiperSlide>
+            </SwiperWrapper>
+          </Swiper>
+        </SwiperBlockStyle>
+      </div>
+
   )
 }
+
+interface SwiperProps {
+  img: any
+}
+
+const SwiperSelect = styled.div<SwiperProps>`
+  width: 764px;
+  height: 414px;
+  margin-bottom: 25px;
+  background-image: url(${props => props.img});
+  background-size: cover;
+`
 
 const SwiperWrapper = styled.div`
 
