@@ -5,8 +5,9 @@ import dropdownOutline from "../assets/images/dropdown_outline.svg";
 export interface Props {
     value?: string;
     options: any;
+    height?: string;
 }
-function Select({value, options}: Props) {
+function Select({value, options, height}: Props) {
     const [isOpen, setIsOpen] = useState(false)
     const [activeValue, setActiveValue] = useState(value)
     const hideClickHandler = () => {
@@ -20,7 +21,7 @@ function Select({value, options}: Props) {
 
     return (
         <SelectStyle>
-            <HeadStyle onClick={hideClickHandler}>
+            <HeadStyle height={height} onClick={hideClickHandler}>
                 <span>{activeValue ? activeValue : 'Выберите из списка'}</span>
             </HeadStyle>
             {
@@ -39,10 +40,10 @@ function Select({value, options}: Props) {
 export default Select
 
 const SelectStyle = styled.div`
-  position: relative;
-  min-width: 166px;
+    position: relative;
+    min-width: 166px;
 `
-const HeadStyle = styled.div`
+const HeadStyle = styled.div<{ height?: string }>`
     cursor: pointer;
     padding: 5px 15px 5px 20px;
     display: flex;
@@ -57,13 +58,17 @@ const HeadStyle = styled.div`
 
     border-radius: 3px;
     border: 1px solid var(--light-grey-color);
-  
-  &::after {
-    content: '';
-    width: 16px;
-    height: 16px;
-    background: url(${dropdownOutline}) center/contain no-repeat;
-  }
+
+    ${({ height }) => height && `
+        height: ${height};
+    `}
+
+    &::after {
+        content: '';
+        width: 16px;
+        height: 16px;
+        background: url(${dropdownOutline}) center/contain no-repeat;
+    }
 `
 
 const BodyStyle = styled.div`
@@ -77,17 +82,17 @@ const BodyStyle = styled.div`
     max-height: 180px;
     overflow-y: auto;
 
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
 
-  &::-webkit-scrollbar-track {
-    background-color: darkgrey;
-  }
+    &::-webkit-scrollbar-track {
+        background-color: darkgrey;
+    }
 
-  &::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
-  }
+    &::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    }
 `
 
 const ItemStyle = styled.div`
@@ -107,8 +112,8 @@ const ItemStyle = styled.div`
         background: url(${dropdownOutline}) center/contain no-repeat;
         transform: rotate(180deg);
     }
-    
-  &:hover {
-    background-color: var(--black-bg);
-  }
+
+    &:hover {
+        background-color: var(--black-bg);
+    }
 `
