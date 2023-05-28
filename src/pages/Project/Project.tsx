@@ -115,6 +115,10 @@ const Project = () => {
   )
 }
 
+const AboutStyled = styled.div`
+
+`
+
 const ButtonsAboutStyled = styled.div`
   display: flex;
   gap: 9px;
