@@ -1,9 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import {H2Style} from "../../pages/ProjectEditing/ProjectEditing";
 import Select from "../Select";
-
-const options = ['Первый пункт', 'Второй пункт', 'Третий пункт', 'Четвертый пункт', 'Пятый пункт'];
 
 const SelectorStyle = styled.div`
   margin-bottom: 30px;
@@ -26,24 +24,8 @@ function Selector({labelSelector = '', options, margin = '30px'}: Props) {
       <SelectorStyle style={{marginBottom: margin}}>
         <H2Style>{labelSelector}</H2Style>
         <SelectBox>
-            <Select options={options}/>
+            <Select height={'37px'} options={options}/>
         </SelectBox>
-
-        {/*<Autocomplete*/}
-        {/*    disablePortal*/}
-        {/*    id="combo-box-edit-project"*/}
-        {/*    options={options}*/}
-        {/*    sx={{ width: 260,*/}
-        {/*      '& button': {*/}
-        {/*        marginRight: '0',*/}
-        {/*        backgroundColor: '#1C1E22',*/}
-        {/*      },*/}
-        {/*      '& input': {*/}
-        {/*        color: 'white',*/}
-        {/*      },*/}
-        {/*    }}*/}
-        {/*    renderInput={(params) => <TextField {...params}/>}*/}
-        {/*/>*/}
       </SelectorStyle>
   )
 }

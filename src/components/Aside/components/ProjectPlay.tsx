@@ -30,6 +30,11 @@ const ButtonStyled = styled(Link)`
   color: var(--white-color);
   background: linear-gradient(180deg, #60FB9E 0%, #1EFE77 0.01%, #0D9834 100%);
   border-radius: 3px;
+  transition: opacity 0.3s ease-in-out;
+  
+  &:hover {
+    opacity: 0.8;
+  }
 `
 
 interface ProjectPlayProps {

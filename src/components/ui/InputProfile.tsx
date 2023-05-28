@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {Block, Counter, WrapperNameInput} from "./InputAndTextarea";
 import styled from "styled-components";
-import jackdawImg from "../../assets/images/jackdow.svg"
 import passwordImg from "../../assets/images/notEye.svg"
+import {regURL} from "../../regExp";
 
 interface Props {
   placeholder?: string,
@@ -17,7 +17,7 @@ interface Props {
 
 function NameProjectInput({
                             placeholder = '',
-                            maxLength = 20,
+                            maxLength = 50,
                             counter = false,
                             jackdaw = false,
                             password = false,
@@ -25,23 +25,34 @@ function NameProjectInput({
                             cleaner = false,
 
                           }: Props) {
+
   const [inputValue, setInputValue] = useState('');
+  const [validUrl, setValidUrl] = useState(false)
   const handleInputChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-    setInputValue(event.target.value);
+    setInputValue(event.target.value)
+      if (event.target.value.toString().match(regURL)) {
+          setValidUrl(true)
+      } else {
+          setValidUrl(false)
+      }
   };
   const type: 'password' | 'text' = password ? 'password' : 'text'
 
   function cleanInput() {
-    setInputValue('')
+      setInputValue('')
+      setValidUrl(false)
   }
-
 
   return (
       <Block>
         <WrapperNameInput>
           <NameInputStyle type={type} maxLength={maxLength} value={inputValue} onChange={handleInputChange}
                           placeholder={placeholder}/>
-          {jackdaw ? (<Icon size={iconSize} img={jackdawImg}/>) : (<></>)}
+          {jackdaw ? (
+              <JackdawStyled validUrl={validUrl} width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.7364 1.16399C18.0878 1.51547 18.0878 2.08531 17.7364 2.43679L6.6364 13.5368C6.46761 13.7056 6.2387 13.8004 6 13.8004C5.76131 13.8004 5.53239 13.7056 5.3636 13.5368L0.263604 8.43679C-0.0878682 8.08531 -0.0878678 7.51547 0.263604 7.16399C0.615076 6.81252 1.18492 6.81252 1.5364 7.16399L6 11.6276L16.4636 1.16399C16.8151 0.812523 17.3849 0.812523 17.7364 1.16399Z" fill="#585858"/>
+              </JackdawStyled>
+          ) : (<></>)}
           {password ? (<Icon size={iconSize} img={passwordImg}/>) : (<></>)}
         </WrapperNameInput>
         {counter ? (<Counter>{inputValue.length}/{maxLength}</Counter>) : (<></>)}
@@ -65,6 +76,13 @@ interface IconProps {
   size: number,
   img: any,
 }
+
+const JackdawStyled = styled.svg<{ validUrl?: boolean }>`
+  path {
+    transition: fill 0.3s ease-in-out;
+    fill: ${props => props.validUrl ? 'green' : '#585858'};
+  }
+`
 
 const Icon = styled.div<IconProps>`
   width: ${props => props.size.toString() + 'px'};

@@ -30,7 +30,7 @@ const Security = () => {
           </InputBox>
         </LabelBox>
         <LabelBox>
-          <TitleInput required={true}>Подтвердите пароль*</TitleInput>
+          <TitleInput required={true}>Подтвердите пароль</TitleInput>
           <InputBox>
             <ProfileInput placeholder={'Повторите новый пароль'}/>
           </InputBox>

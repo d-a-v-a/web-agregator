@@ -10,7 +10,7 @@ const ProfileLayout = () => {
   return (
       <ProfileLayoutStyle>
         <TitleStyle>Данные пользователя</TitleStyle>
-        <SubTitle>Профиль</SubTitle>
+        <SubTitleProfile>Профиль</SubTitleProfile>
         <ProfileGrid>
           <AsideStyle>
             <H2Style style={{marginBottom: '8px'}}>Редактирование</H2Style>
@@ -65,7 +65,7 @@ const TitleStyle = styled.div`
   color: var(--white-color);
 `
 
-const SubTitle = styled.div`
+export const SubTitleProfile = styled.div`
   margin-bottom: 67px;
   font-size: 20px;
   color: var(--grey-title);

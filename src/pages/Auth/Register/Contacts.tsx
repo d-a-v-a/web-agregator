@@ -4,6 +4,7 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import {useNavigate} from "react-router-dom";
+import {useData} from "../../../DataContext";
 
 const schema = yup.object({
   firstName: yup.string()
@@ -18,12 +19,19 @@ type FormData = yup.InferType<typeof schema>;
 
 const Contacts = () => {
   const navigate = useNavigate();
+  const {data, setValues} = useData()
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
-    resolver: yupResolver(schema)
+      defaultValues: {
+          firstName: data.firstName,
+          lastName: data.lastName,
+          group: data.group
+      },
+      resolver: yupResolver(schema)
   });
   const onSubmit = (data: FormData) => {
-    navigate("/auth/login");
+    navigate("/auth/login")
+    setValues(data)
   }
 
   return (

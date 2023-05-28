@@ -7,6 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import hidePasswordSvg from "../../../assets/images/hide_password.svg";
 import showPasswordSvg from "../../../assets/images/show_password.svg";
+import {useData} from "../../../DataContext";
 
 interface Context {
   setStep?: any;
@@ -27,20 +28,30 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>;
 
 const Basic = ({ setStep }: Context) => {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
-    resolver: yupResolver(schema)
-  });
-  const onSubmit = (data: FormData) => {
-    setStep(2)
-  }
+    const {data, setValues} = useData()
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+        defaultValues: {
+            email: data.email,
+            password: data.password,
+            confirmPassword: data.password
+        },
+        resolver: yupResolver(schema)
+    });
+    const onSubmit = (data: FormData) => {
+        setStep(2)
+        setValues(data)
+    }
 
-  const [showPassword, setShowPassword] = React.useState(false)
-  const [showPasswordConfirm, setShowPasswordConfirm] = React.useState(false)
+    const [showPassword, setShowPassword] = React.useState(false)
+    const [showPasswordConfirm, setShowPasswordConfirm] = React.useState(false)
 
-  return (
+    return (
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <AuthLabel isInvalid={!!errors.email}>
-          <AuthInput {...register("email")} type={'email'} placeholder={'Почта от ЛК УрФУ'}/>
+          <AuthInput
+              {...register("email")}
+              type={'email'}
+              placeholder={'Почта от ЛК УрФУ'}/>
           <ErrorText>{errors.email?.message}</ErrorText>
         </AuthLabel>
         <AuthLabel isInvalid={!!errors.password}>
@@ -73,7 +84,7 @@ const Basic = ({ setStep }: Context) => {
           Далее
         </AuthBtn>
       </form>
-  )
+    )
 }
 
 export default Basic
@@ -125,14 +136,6 @@ export const ShowPassword = styled.img`
   
   transition: filter 0.3s ease-in-out;
   
-  &:hover {
-    filter: invert(84%) sepia(20%) saturate(1100%) hue-rotate(165deg)
-    brightness(88%) contrast(83%);
-  }
-`
-
-  transition: filter 0.3s ease-in-out;
-
   &:hover {
     filter: invert(84%) sepia(20%) saturate(1100%) hue-rotate(165deg)
     brightness(88%) contrast(83%);
