@@ -18,12 +18,15 @@ interface Props {
   labelSelector: string;
   options: any;
   margin?: string;
-
+  width?: string;
 }
 
-function Selector({labelSelector = '', options, margin = '30px'}: Props) {
+function Selector({labelSelector = '', options, margin = '30px', width = '100%'}: Props) {
   return (
-      <SelectorStyle style={{marginBottom: margin}}>
+      <SelectorStyle style={{
+        marginBottom: margin,
+        width: width,
+      }}>
         <H2Style>{labelSelector}</H2Style>
         <SelectBox>
             <Select options={options}/>

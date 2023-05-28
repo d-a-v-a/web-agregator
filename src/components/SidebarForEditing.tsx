@@ -47,7 +47,6 @@ function SidebarForEditing() {
   )
 }
 
-
 const P = styled.div`
   margin-bottom: 50px;
   font-style: normal;
