@@ -7,18 +7,18 @@ import Profile from "./Profile";
 const Header = () => {
   return (
       <HeaderWrapper>
-          <HeaderStyle>
-            <Link to='/'>
-                <LogoStyle src={logo} />
-            </Link>
-            <ListLinks>
-              <LinkToCategories label={'Площадка проектов'} path={'/editing'} margin={34}/>
-              <LinkToCategories label={'Защиты проектов'} path={'/'} margin={34}/>
-              <LinkToCategories label={'Заказать проект'} path={'/'} margin={34}/>
-              <LinkToCategories label={'Обучение команды'} path={'/'} margin={0}/>
-            </ListLinks>
-            <Profile/>
-          </HeaderStyle>
+        <HeaderStyle>
+          <Link to='/'>
+            <LogoStyle src={logo} />
+          </Link>
+          <ListLinks>
+            <LinkToCategories label={'Площадка проектов'} path={'/editing'} margin={34}/>
+            <LinkToCategories label={'Защиты проектов'} path={'/'} margin={34}/>
+            <LinkToCategories label={'Заказать проект'} path={'/'} margin={34}/>
+            <LinkToCategories label={'Обучение команды'} path={'/'} margin={0}/>
+          </ListLinks>
+          <Profile/>
+        </HeaderStyle>
       </HeaderWrapper>
   )
 }
@@ -80,3 +80,4 @@ function LinkToCategories({label = 'ссылка', path = '/', margin = 34}:{lab
 }
 
 export default Header
+

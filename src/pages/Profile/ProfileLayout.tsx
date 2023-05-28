@@ -7,48 +7,48 @@ import {NavLink, Outlet} from "react-router-dom";
 import exitSvg from "../../assets/images/exit.svg"
 
 const ProfileLayout = () => {
-    return (
-        <ProfileLayoutStyle>
-            <TitleStyle>Данные пользователя</TitleStyle>
-            <SubTitle>Профиль</SubTitle>
-            <ProfileGrid>
-                <AsideStyle>
-                    <H2Style style={{marginBottom: '8px'}}>Редактирование</H2Style>
-                    <PublicationNotice>Изменения сохранены</PublicationNotice>
-                    <ProfileNavStyle>
-                        <NavListStyle>
-                            <NavLinkStyle
-                                to={'my-projects'}
-                                className={({ isActive }) =>
-                                    isActive ? "active" : ""
-                                }
-                            >
-                                Мои проекты
-                            </NavLinkStyle>
-                            <NavLinkStyle
-                                to={'information'}
-                                className={({ isActive }) =>
-                                    isActive ? "active" : ""
-                                }
-                            >
-                                Данные пользователя
-                            </NavLinkStyle>
-                            <NavLinkStyle
-                                to={'security'}
-                                className={({ isActive }) =>
-                                    isActive ? "active" : ""
-                                }
-                            >
-                                Безопасность
-                            </NavLinkStyle>
-                        </NavListStyle>
-                        <ExitStyle>Выход</ExitStyle>
-                    </ProfileNavStyle>
-                </AsideStyle>
-                <Outlet />
-            </ProfileGrid>
-        </ProfileLayoutStyle>
-    )
+  return (
+      <ProfileLayoutStyle>
+        <TitleStyle>Данные пользователя</TitleStyle>
+        <SubTitle>Профиль</SubTitle>
+        <ProfileGrid>
+          <AsideStyle>
+            <H2Style style={{marginBottom: '8px'}}>Редактирование</H2Style>
+            <PublicationNotice>Изменения сохранены</PublicationNotice>
+            <ProfileNavStyle>
+              <NavListStyle>
+                <NavLinkStyle
+                    to={'my-projects'}
+                    className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }
+                >
+                  Мои проекты
+                </NavLinkStyle>
+                <NavLinkStyle
+                    to={'information'}
+                    className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }
+                >
+                  Данные пользователя
+                </NavLinkStyle>
+                <NavLinkStyle
+                    to={'security'}
+                    className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }
+                >
+                  Безопасность
+                </NavLinkStyle>
+              </NavListStyle>
+              <ExitStyle>Выход</ExitStyle>
+            </ProfileNavStyle>
+          </AsideStyle>
+          <Outlet />
+        </ProfileGrid>
+      </ProfileLayoutStyle>
+  )
 }
 
 export default ProfileLayout

@@ -4,17 +4,17 @@ import styled from "styled-components";
 import {Link} from "react-router-dom";
 
 const SuccessInfo = () => {
-    return (
-        <AuthWrapper>
-            <AuthTitle>Востановление пароля</AuthTitle>
-            <AuthCenterText>
-                Вам отправлена ссылка для измения пароля
-            </AuthCenterText>
-            <Link to={'/auth/recovery/change-password'}>
-                <AuthBtn>Продолжить</AuthBtn>
-            </Link>
-        </AuthWrapper>
-    )
+  return (
+      <AuthWrapper>
+        <AuthTitle>Востановление пароля</AuthTitle>
+        <AuthCenterText>
+          Вам отправлена ссылка для измения пароля
+        </AuthCenterText>
+        <Link to={'/auth/recovery/change-password'}>
+          <AuthBtn>Продолжить</AuthBtn>
+        </Link>
+      </AuthWrapper>
+  )
 }
 
 export default SuccessInfo

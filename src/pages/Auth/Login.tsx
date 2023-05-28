@@ -4,18 +4,18 @@ import {Link} from "react-router-dom";
 import {PasswordInput} from "../../components/ui/PasswordInput";
 
 const Login = () => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-    const handleEmailChange: ChangeEventHandler<HTMLInputElement> = ({target}) => {
-      setEmail(target.value)
-    }
+  const handleEmailChange: ChangeEventHandler<HTMLInputElement> = ({target}) => {
+    setEmail(target.value)
+  }
 
-    const handlePasswordChange: ChangeEventHandler<HTMLInputElement> = ({target}) => {
-        setPassword(target.value)
-    }
+  const handlePasswordChange: ChangeEventHandler<HTMLInputElement> = ({target}) => {
+    setPassword(target.value)
+  }
 
-    return (
+  return (
       <AuthWrapper>
         <AuthTitle>Вход</AuthTitle>
         <AuthLabel>
@@ -25,9 +25,11 @@ const Login = () => {
           <PasswordInput value={password} onChange={handlePasswordChange} placeholder={'Пароль'}/>
           <SubInput to='/auth/recovery/search-email'>Забыли пароль?</SubInput>
         </AuthLabel>
-          <AuthBtn>
-            Войти
-          </AuthBtn>
+
+        <AuthBtn>
+          Войти
+        </AuthBtn>
+
         <AuthSubBtn to='/auth/register'>Регистрация</AuthSubBtn>
       </AuthWrapper>
   )
@@ -51,7 +53,6 @@ export const AuthLabel = styled.label<{isInvalid?: any}>`
   position: relative;
   display: block;
   margin-bottom: 30px;
-  
   p {
   }
 
@@ -86,9 +87,9 @@ export const ErrorText = styled.p`
   left: 0;
   height: 16px;
   z-index: 0;
-  
+
   transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
-  
+
   padding-top: 8px;
   font-weight: 300;
   font-size: 16px;
@@ -123,7 +124,7 @@ export const AuthInput = styled.input`
 
   &::placeholder {
     color: var(--rgba-white-color);
-    
+
     transition: color 0.3s ease-in-out;
   }
 
@@ -175,7 +176,7 @@ export const AuthSubBtn = styled(Link)`
   text-align: center;
   color: var(--blue-bg);
   transition: color 0.3s ease-in-out;
-  
+
   &:hover {
     color: var(--white-color);
   }

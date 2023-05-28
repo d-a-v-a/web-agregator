@@ -3,54 +3,54 @@ import styled from "styled-components";
 import Select from "../../../components/Select";
 
 const Information = () => {
-    return (
-        <ProfileFormStyle>
-            <LabelBox>
-                <TitleInput required={true}>Фамилия</TitleInput>
-                <InputBox>
-                    <ProfileInput placeholder={'Введите фамилию'}/>
-                </InputBox>
-            </LabelBox>
-            <LabelBox>
-                <TitleInput required={true}>Имя</TitleInput>
-                <InputBox>
-                    <ProfileInput placeholder={'Введите имя'}/>
-                </InputBox>
-            </LabelBox>
-            <LabelBox>
-                <TitleInput>Отчество</TitleInput>
-                <InputBox>
-                    <ProfileInput placeholder={'Введите отчество'}/>
-                </InputBox>
-            </LabelBox>
-            <GridTwoColumns>
-                <LabelBox>
-                    <TitleInput required={true}>Направление обучения</TitleInput>
-                    <InputBox>
-                        <Select height={'37px'} options={['1', '2', '3', '4']}/>
-                    </InputBox>
-                </LabelBox>
-                <LabelBox>
-                    <TitleInput required={true}>Курс</TitleInput>
-                    <InputBox>
-                        <Select height={'37px'} options={['1', '2', '3', '4']}/>
-                    </InputBox>
-                </LabelBox>
-                <LabelBox>
-                    <TitleInput required={true}>Академ. группа</TitleInput>
-                    <InputBox>
-                        <ProfileInput placeholder={'Введите группу'}/>
-                    </InputBox>
-                </LabelBox>
-                <LabelBox>
-                    <TitleInput required={true}>Контакты</TitleInput>
-                    <InputBox>
-                        <ProfileInput placeholder={'Ссылка на Telegram или ВК'}/>
-                    </InputBox>
-                </LabelBox>
-            </GridTwoColumns>
-        </ProfileFormStyle>
-    )
+  return (
+      <ProfileFormStyle>
+        <LabelBox>
+          <TitleInput required={true}>Фамилия</TitleInput>
+          <InputBox>
+            <ProfileInput placeholder={'Введите фамилию'}/>
+          </InputBox>
+        </LabelBox>
+        <LabelBox>
+          <TitleInput required={true}>Имя</TitleInput>
+          <InputBox>
+            <ProfileInput placeholder={'Введите имя'}/>
+          </InputBox>
+        </LabelBox>
+        <LabelBox>
+          <TitleInput>Отчество</TitleInput>
+          <InputBox>
+            <ProfileInput placeholder={'Введите отчество'}/>
+          </InputBox>
+        </LabelBox>
+        <GridTwoColumns>
+          <LabelBox>
+            <TitleInput required={true}>Направление обучения</TitleInput>
+            <InputBox>
+              <Select height={'37px'} options={['1', '2', '3', '4']}/>
+            </InputBox>
+          </LabelBox>
+          <LabelBox>
+            <TitleInput required={true}>Курс</TitleInput>
+            <InputBox>
+              <Select height={'37px'} options={['1', '2', '3', '4']}/>
+            </InputBox>
+          </LabelBox>
+          <LabelBox>
+            <TitleInput required={true}>Академ. группа</TitleInput>
+            <InputBox>
+              <ProfileInput placeholder={'Введите группу'}/>
+            </InputBox>
+          </LabelBox>
+          <LabelBox>
+            <TitleInput required={true}>Контакты</TitleInput>
+            <InputBox>
+              <ProfileInput placeholder={'Ссылка на Telegram или ВК'}/>
+            </InputBox>
+          </LabelBox>
+        </GridTwoColumns>
+      </ProfileFormStyle>
+  )
 }
 
 export default Information

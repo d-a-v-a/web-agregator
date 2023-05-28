@@ -4,39 +4,39 @@ import styled from "styled-components";
 import {H2Style} from "../../ProjectEditing/ProjectEditing";
 
 const Security = () => {
-    return (
-        <ProfileFormStyle>
-            <LabelBox>
-                <TitleInput>Почта ЛК УрФУ</TitleInput>
-                <InputBox>
-                    <ProfileInput disabled={true} readOnly={true} value={'avarts360@urfu.me'}/>
-                </InputBox>
-                <DescInput>Недоступно для изменения</DescInput>
-            </LabelBox>
-            <TitleBox>
-                <H2Style>Изменение пароля</H2Style>
-                <ProfileParagraph>Обновите свой текущий пароль</ProfileParagraph>
-            </TitleBox>
-            <LabelBox>
-                <TitleInput required={true}>Старый пароль</TitleInput>
-                <InputBox>
-                    <ProfileInput placeholder={'Введите пароль'}/>
-                </InputBox>
-            </LabelBox>
-            <LabelBox>
-                <TitleInput required={true}>Новый пароль</TitleInput>
-                <InputBox>
-                    <ProfileInput placeholder={'Введите новый пароль'}/>
-                </InputBox>
-            </LabelBox>
-            <LabelBox>
-                <TitleInput required={true}>Подтвердите пароль*</TitleInput>
-                <InputBox>
-                    <ProfileInput placeholder={'Повторите новый пароль'}/>
-                </InputBox>
-            </LabelBox>
-        </ProfileFormStyle>
-    )
+  return (
+      <ProfileFormStyle>
+        <LabelBox>
+          <TitleInput>Почта ЛК УрФУ</TitleInput>
+          <InputBox>
+            <ProfileInput disabled={true} readOnly={true} value={'avarts360@urfu.me'}/>
+          </InputBox>
+          <DescInput>Недоступно для изменения</DescInput>
+        </LabelBox>
+        <TitleBox>
+          <H2Style>Изменение пароля</H2Style>
+          <ProfileParagraph>Обновите свой текущий пароль</ProfileParagraph>
+        </TitleBox>
+        <LabelBox>
+          <TitleInput required={true}>Старый пароль</TitleInput>
+          <InputBox>
+            <ProfileInput placeholder={'Введите пароль'}/>
+          </InputBox>
+        </LabelBox>
+        <LabelBox>
+          <TitleInput required={true}>Новый пароль</TitleInput>
+          <InputBox>
+            <ProfileInput placeholder={'Введите новый пароль'}/>
+          </InputBox>
+        </LabelBox>
+        <LabelBox>
+          <TitleInput required={true}>Подтвердите пароль*</TitleInput>
+          <InputBox>
+            <ProfileInput placeholder={'Повторите новый пароль'}/>
+          </InputBox>
+        </LabelBox>
+      </ProfileFormStyle>
+  )
 }
 
 export default Security
@@ -62,3 +62,4 @@ const DescInput = styled.p`
   font-size: 18px;
   color: var(--title-blue-grey);
 `
+

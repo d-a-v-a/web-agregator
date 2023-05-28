@@ -40,8 +40,8 @@ function Select({value, options, height}: Props) {
 export default Select
 
 const SelectStyle = styled.div`
-  position: relative;
-  min-width: 166px;
+    position: relative;
+    min-width: 166px;
 `
 const HeadStyle = styled.div<{ height?: string }>`
     cursor: pointer;
@@ -62,13 +62,13 @@ const HeadStyle = styled.div<{ height?: string }>`
     ${({ height }) => height && `
         height: ${height};
     `}
-  
-  &::after {
-    content: '';
-    width: 16px;
-    height: 16px;
-    background: url(${dropdownOutline}) center/contain no-repeat;
-  }
+
+    &::after {
+        content: '';
+        width: 16px;
+        height: 16px;
+        background: url(${dropdownOutline}) center/contain no-repeat;
+    }
 `
 
 const BodyStyle = styled.div`
@@ -82,17 +82,17 @@ const BodyStyle = styled.div`
     max-height: 180px;
     overflow-y: auto;
 
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
 
-  &::-webkit-scrollbar-track {
-    background-color: darkgrey;
-  }
+    &::-webkit-scrollbar-track {
+        background-color: darkgrey;
+    }
 
-  &::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
-  }
+    &::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    }
 `
 
 const ItemStyle = styled.div`
@@ -112,8 +112,8 @@ const ItemStyle = styled.div`
         background: url(${dropdownOutline}) center/contain no-repeat;
         transform: rotate(180deg);
     }
-    
-  &:hover {
-    background-color: var(--black-bg);
-  }
+
+    &:hover {
+        background-color: var(--black-bg);
+    }
 `

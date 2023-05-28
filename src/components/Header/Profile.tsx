@@ -7,17 +7,17 @@ import dropdownOutline from "../../assets/images/dropdown_outline.svg";
 const Profile = () => {
   return (
       <ProfileStyle>
-          <LinkProfile to={'#'}>
-              <span style={{marginRight: 11, transition: 'color 0.3s ease-in-out'}}>Профиль</span>
-              <img src={profileIMG} alt="" style={{marginRight: 8}}/>
-              <img src="" alt=""/>
-          </LinkProfile>
-          <DropLinksWrapper>
-              <DropLinks>
-                  <DropLink to={'/profile/information'}>Профиль</DropLink>
-                  <DropLink to={'/auth/login'}>Войти</DropLink>
-              </DropLinks>
-          </DropLinksWrapper>
+        <LinkProfile to={'#'}>
+          <span style={{marginRight: 11, transition: 'color 0.3s ease-in-out'}}>Профиль</span>
+          <img src={profileIMG} alt="" style={{marginRight: 8}}/>
+          <img src="src/components/Header/Profile" alt=""/>
+        </LinkProfile>
+        <DropLinksWrapper>
+          <DropLinks>
+            <DropLink to={'/profile/information'}>Профиль</DropLink>
+            <DropLink to={'/auth/login'}>Войти</DropLink>
+          </DropLinks>
+        </DropLinksWrapper>
       </ProfileStyle>
   )
 }
@@ -90,3 +90,4 @@ const DropLink = styled(Link)`
 
 
 export default Profile
+
