@@ -49,6 +49,7 @@ const NameStyle = styled.div`
 `
 
 const CourseAndRoleStyle = styled.div<{ course: number }>`
+
   display: flex;
   align-items: center;
   gap: 8px;
@@ -66,6 +67,7 @@ const CourseAndRoleStyle = styled.div<{ course: number }>`
   }
 
   ${({course}) => course == 1 && `
+
         color: var(--green-color);
         &::before {
             background: url(${course_1});
@@ -73,20 +75,21 @@ const CourseAndRoleStyle = styled.div<{ course: number }>`
     `}
 
   ${({course}) => course == 2 && `
+
         color: var(--blue-color);
             &::before {
             background: url(${course_2});
         }
     `}
-
   ${({course}) => course == 3 && `
+
         color: var(--orange-color);
             &::before {
             background: url(${course_3});
         }
     `}
-
   ${({course}) => course == 4 && `
+
         color: var(--purple-color);
             &::before {
             background: url(${course_4});
@@ -100,6 +103,7 @@ const ContactsStyle = styled.div`
   text-decoration-line: underline;
   color: var(--contacts-color);
 `
+
 
 const Team = ({countOnTab = 3}: { countOnTab?: number }) => {
   const list = [

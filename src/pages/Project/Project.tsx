@@ -170,10 +170,6 @@ const ProjectGrid = styled.div`
   margin-bottom: 50px;
 `
 
-const AboutStyled = styled.div`
-
-`
-
 const TextWrapperStyled = styled.div`
   margin-top: 50px;
 `
@@ -204,6 +200,4 @@ const SimilarGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 `
-
-
 export default Project

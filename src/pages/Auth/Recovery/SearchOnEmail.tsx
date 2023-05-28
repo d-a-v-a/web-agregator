@@ -9,6 +9,7 @@ const schema = yup.object({
   email: yup.string()
       .required('Обязательное поле')
       .email('Неверное значение')
+
 }).required();
 
 type FormData = yup.InferType<typeof schema>;
@@ -41,3 +42,4 @@ const SearchOnEmail = () => {
 }
 
 export default SearchOnEmail
+

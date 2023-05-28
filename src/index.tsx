@@ -31,8 +31,14 @@ const GlobalStyle = createGlobalStyle`
     --title-blue-grey: #D0E6EE;
     --gold-bg: #F6B535;
     --name-title: #C1D9E2;
-    --role-color: #93AED6;
+    --blue-color: #93AED6;
+    --green-color: #92C9A8;
+    --orange-color: #BDB19E;
+    --purple-color: #D2A6DD;
+    --input-title: rgba(193, 217, 226, 0.65);
     --contacts-color: rgba(208, 230, 238, 0.94);
+    --red-color: #FF8197;
+    --required-color: #5B5B5B;
   }
   
   

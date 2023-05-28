@@ -80,3 +80,4 @@ function LinkToCategories({label = 'ссылка', path = '/', margin = 34}:{lab
 }
 
 export default Header
+

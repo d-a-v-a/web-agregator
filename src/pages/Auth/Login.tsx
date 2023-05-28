@@ -25,9 +25,11 @@ const Login = () => {
           <PasswordInput value={password} onChange={handlePasswordChange} placeholder={'Пароль'}/>
           <SubInput to='/auth/recovery/search-email'>Забыли пароль?</SubInput>
         </AuthLabel>
+
         <AuthBtn>
           Войти
         </AuthBtn>
+
         <AuthSubBtn to='/auth/register'>Регистрация</AuthSubBtn>
       </AuthWrapper>
   )
@@ -51,7 +53,6 @@ export const AuthLabel = styled.label<{isInvalid?: any}>`
   position: relative;
   display: block;
   margin-bottom: 30px;
-
   p {
   }
 

@@ -122,6 +122,14 @@ export const ShowPassword = styled.img`
   height: 28px;
   object-fit: contain;
   z-index: 2;
+  
+  transition: filter 0.3s ease-in-out;
+  
+  &:hover {
+    filter: invert(84%) sepia(20%) saturate(1100%) hue-rotate(165deg)
+    brightness(88%) contrast(83%);
+  }
+`
 
   transition: filter 0.3s ease-in-out;
 

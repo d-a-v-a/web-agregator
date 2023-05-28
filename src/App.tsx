@@ -7,6 +7,7 @@ import Project from "./pages/Project/Project";
 import {MainLayout} from "./components/MainLayout";
 import {AuthLayout} from "./components/AuthLayout";
 import ProjectEditing from "./pages/ProjectEditing/ProjectEditing";
+
 import Basic from "./pages/Auth/Register/Basic";
 import Contacts from "./pages/Auth/Register/Contacts";
 import ChangePassword from "./pages/Auth/Recovery/ChangePassword";
@@ -19,6 +20,7 @@ import SearchOnEmail from "./pages/Auth/Recovery/SearchOnEmail";
 import SuccessInfo from "./pages/Auth/Recovery/SuccessInfo";
 
 
+
 function App() {
   return (
         <Routes>
@@ -26,6 +28,7 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path='project' element={<Project/>}/>
             <Route path='editing' element={<ProjectEditing/>}/>
+
             <Route path='play' element={<Play/>}/>
             <Route path='profile' element={<ProfileLayout/>}>
               <Route path='my-projects' element={<MyProjects/>}/>
@@ -37,6 +40,7 @@ function App() {
             <Route path='login' element={<Login/>}/>
             <Route path='register' element={<RegisterLayout/>}/>
             <Route path='recovery'>
+
               <Route path='search-email' element={<SearchOnEmail/>}/>
               <Route path='success-info' element={<SuccessInfo/>}/>
               <Route path='change-password' element={<ChangePassword/>}/>

@@ -9,6 +9,7 @@ import showPasswordSvg from "../../../assets/images/show_password.svg";
 import {ShowPassword} from "../Register/Basic";
 
 const schema = yup.object({
+
   password: yup.string()
       .required('Обязательное поле')
       .min(8, 'Минимум 8 символов'),
