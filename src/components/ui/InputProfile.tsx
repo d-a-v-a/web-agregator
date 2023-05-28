@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import {Block, Counter, WrapperNameInput} from "./InputAndTextarea";
 import styled from "styled-components";
 import passwordImg from "../../assets/images/notEye.svg"
-import {regURL} from "../../regExp";
 
 interface Props {
   placeholder?: string,
@@ -28,13 +27,24 @@ function NameProjectInput({
 
   const [inputValue, setInputValue] = useState('');
   const [validUrl, setValidUrl] = useState(false)
-  const handleInputChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-    setInputValue(event.target.value)
-      if (event.target.value.toString().match(regURL)) {
+
+  const validURLFunc = (strUrl: string) => {
+      let urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
+          '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
+          '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
+          '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
+          '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
+          '(\\#[-a-z\\d_]*)?$','i');
+
+      if (urlPattern.test(strUrl)) {
           setValidUrl(true)
       } else {
           setValidUrl(false)
       }
+  }
+  const handleInputChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+    setInputValue(event.target.value)
+    validURLFunc(event.target.value.toString())
   };
   const type: 'password' | 'text' = password ? 'password' : 'text'
 
