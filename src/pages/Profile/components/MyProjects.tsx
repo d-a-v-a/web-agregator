@@ -1,8 +1,11 @@
+
 import React, {useState, useContext, useEffect} from 'react';
 import styled from "styled-components";
 import {H2Style} from "../../ProjectEditing/ProjectEditing";
 import Selector from "../../../components/ui/Selector";
 import {Context} from "../Context";
+import {ProfileFormStyle} from "./Information";
+import {SubTitleProfile} from "../ProfileLayout";
 
 interface ButtonSeasonProps {
   label: string,

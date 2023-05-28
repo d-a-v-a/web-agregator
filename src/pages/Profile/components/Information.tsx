@@ -1,7 +1,10 @@
 import React, {useContext, useEffect} from 'react';
 import styled from "styled-components";
 import Select from "../../../components/Select";
+
 import {Context} from "../Context";
+import NameProjectInput from "../../../components/ui/InputProfile";
+
 
 const Information = () => {
 
@@ -37,13 +40,13 @@ const Information = () => {
           <LabelBox>
             <TitleInput required={true}>Направление обучения</TitleInput>
             <InputBox>
-              <Select height={'37px'} options={['1', '2', '3', '4']}/>
+              <Select height={'37px'} options={['09.03.01', '09.03.03', '09.03.04']}/>
             </InputBox>
           </LabelBox>
           <LabelBox>
             <TitleInput required={true}>Курс</TitleInput>
             <InputBox>
-              <Select height={'37px'} options={['1', '2', '3', '4']}/>
+              <Select height={'37px'} options={['2', '3', '4']}/>
             </InputBox>
           </LabelBox>
           <LabelBox>
@@ -54,9 +57,7 @@ const Information = () => {
           </LabelBox>
           <LabelBox>
             <TitleInput required={true}>Контакты</TitleInput>
-            <InputBox>
-              <ProfileInput placeholder={'Ссылка на Telegram или ВК'}/>
-            </InputBox>
+            <NameProjectInput jackdaw={true} cleaner={false} placeholder={'Ссылка на Telegram или ВК'}/>
           </LabelBox>
         </GridTwoColumns>
       </ProfileFormStyle>

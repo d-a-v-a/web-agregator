@@ -65,7 +65,6 @@ const ProfileLayout = () => {
           </ProfileGrid>
         </ProfileLayoutStyle>
       </Context.Provider>
-
   )
 }
 
@@ -107,7 +106,7 @@ const TitleStyle = styled.div`
   color: var(--white-color);
 `
 
-const SubTitle = styled.div`
+export const SubTitleProfile = styled.div`
   margin-bottom: 67px;
   font-size: 20px;
   color: var(--grey-title);

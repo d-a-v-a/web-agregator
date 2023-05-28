@@ -28,24 +28,24 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>;
 
 const Basic = ({ setStep }: Context) => {
-  const {data, setValues} = useData()
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
-    defaultValues: {
-      email: data.email,
-      password: data.password,
-      confirmPassword: data.password
-    },
-    resolver: yupResolver(schema)
-  });
-  const onSubmit = (data: FormData) => {
-    setStep(2)
-    setValues(data)
-  }
+    const {data, setValues} = useData()
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+        defaultValues: {
+            email: data.email,
+            password: data.password,
+            confirmPassword: data.password
+        },
+        resolver: yupResolver(schema)
+    });
+    const onSubmit = (data: FormData) => {
+        setStep(2)
+        setValues(data)
+    }
 
-  const [showPassword, setShowPassword] = React.useState(false)
-  const [showPasswordConfirm, setShowPasswordConfirm] = React.useState(false)
+    const [showPassword, setShowPassword] = React.useState(false)
+    const [showPasswordConfirm, setShowPasswordConfirm] = React.useState(false)
 
-  return (
+    return (
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <AuthLabel isInvalid={!!errors.email}>
           <AuthInput
@@ -84,7 +84,7 @@ const Basic = ({ setStep }: Context) => {
           Далее
         </AuthBtn>
       </form>
-  )
+    )
 }
 
 export default Basic
@@ -133,9 +133,9 @@ export const ShowPassword = styled.img`
   height: 28px;
   object-fit: contain;
   z-index: 2;
-
+  
   transition: filter 0.3s ease-in-out;
-
+  
   &:hover {
     filter: invert(84%) sepia(20%) saturate(1100%) hue-rotate(165deg)
     brightness(88%) contrast(83%);
