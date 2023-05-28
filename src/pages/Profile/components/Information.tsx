@@ -1,9 +1,21 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import styled from "styled-components";
 import Select from "../../../components/Select";
+
+import {Context} from "../Context";
 import NameProjectInput from "../../../components/ui/InputProfile";
 
+
 const Information = () => {
+
+  // @ts-ignore
+  const {SetLabel, SetBtn} = useContext(Context)
+
+  useEffect(() => {
+    SetLabel('Данные пользователя')
+    SetBtn(false)
+  }, []);
+
   return (
       <ProfileFormStyle>
         <LabelBox>

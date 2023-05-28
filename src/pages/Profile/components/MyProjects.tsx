@@ -1,61 +1,122 @@
-import React from 'react';
-import {ProfileFormStyle} from "./Information";
+
+import React, {useState, useContext, useEffect} from 'react';
 import styled from "styled-components";
 import {H2Style} from "../../ProjectEditing/ProjectEditing";
+import Selector from "../../../components/ui/Selector";
+import {Context} from "../Context";
+import {ProfileFormStyle} from "./Information";
 import {SubTitleProfile} from "../ProfileLayout";
 
-const MyProjects = () => {
+interface ButtonSeasonProps {
+  label: string,
+  disable?: boolean,
+  select: boolean,
+}
+
+function ButtonSeason({label = '', disable = false, select}: ButtonSeasonProps) {
+  let color
+  if (select) {
+    color = '#5A9DF5'
+  } else {
+    color = '#282828'
+  }
   return (
-      <ProfileFormStyle>
-        <ChoiceProject>
-            <H2Style style={{marginBottom: '8px'}}>Выбор проекта</H2Style>
-            <SubTitleProfile style={{marginBottom: '30px'}}>Выберите учебный семестр</SubTitleProfile>
-            <ChoiceGrid>
-                <ChoiceBtn active>Осень 2022</ChoiceBtn>
-                <ChoiceBtn>Осень 2022</ChoiceBtn>
-                <ChoiceBtn disabled>Осень 2022</ChoiceBtn>
-                <ChoiceBtn disabled>Осень 2022</ChoiceBtn>
-            </ChoiceGrid>
-        </ChoiceProject>
-      </ProfileFormStyle>
+      <>
+        {disable ? (<ButtonSeasonStyle disabled={true}>{label}</ButtonSeasonStyle>)
+            : (<ButtonSeasonStyle style=
+                                      {{
+                                        backgroundColor: color,
+                                      }}>{label}</ButtonSeasonStyle>)}
+      </>
   )
 }
 
-export default MyProjects
+const MyProjects = () => {
+  const [activeButton, setActiveButton] = useState(0)
 
-const ChoiceProject = styled.div`
+  // @ts-ignore
+  const {SetLabel, SetBtn} = useContext(Context)
 
-`
+  useEffect(() => {
+    SetLabel('Мои проекты')
+    SetBtn(true)
+  }, []);
 
-const ChoiceGrid = styled.div`
+  return (
+      <MyProjectStyle>
+        <H2Style style={{
+          marginBottom: 8,
+        }}>Выбор проектов</H2Style>
+        <P style={{
+          fontSize: 18,
+        }}>выберите учебный семестр</P>
+
+        <ButtonSeasonWrapper>
+          {[...Array(4)].map((_, idx) => (
+              <div key={idx}>
+                <div onClick={() => setActiveButton(idx)}>
+                  <ButtonSeason label={'Осень 2022'} select={idx === activeButton}/>
+                </div>
+              </div>
+          ))}
+        </ButtonSeasonWrapper>
+        <Selector
+            width={'356px'}
+            margin={'10px'}
+            labelSelector={'Роль в команде*'}
+            options={[
+              'Team Lead', 'UI/UX-дизайнер', 'Game-дизайнер', 'Unity-разработчик', 'Художник',
+              'UE-разработчик',
+            ]}
+        />
+        <P>Создать команду может только Team Lead</P>
+
+
+      </MyProjectStyle>
+  )
+}
+
+const ButtonSeasonWrapper = styled.div`
   display: flex;
-  align-items: center;
   gap: 24px;
+  margin-bottom: 47px;
 `
 
-const ChoiceBtn = styled.button<{active?: boolean}>`
-  height: 44px;
+const ButtonSeasonStyle = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1 1;
-
-  background: var(--black-bg);
-  border: 1px solid var(--blue-bg);
+  width: 166px;
+  height: 44px;
+  border: 1px solid #5A9DF5;
   border-radius: 3px;
 
+  font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  color: var(--title-blue-grey);
 
-  ${({active}) => active && `
-      background: var(--blue-bg);
-      color: var(--white-color);
-  `}
-  
+
+  cursor: pointer;
+
   &:disabled {
-    cursor: auto;
-    border-color: var(--title-blue-grey);
-    opacity: 0.5;
+    color: rgba(208, 230, 238, 0.5);
+    border-color: rgba(208, 230, 238, 0.5);
+    cursor: unset;
   }
 `
+
+const MyProjectStyle = styled.div`
+
+`
+
+const P = styled.div`
+  margin-bottom: 30px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: rgba(208, 230, 238, 0.94);
+`
+
+export default MyProjects

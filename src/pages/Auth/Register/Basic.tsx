@@ -90,10 +90,10 @@ const Basic = ({ setStep }: Context) => {
 export default Basic
 
 export const Steps = styled.div`
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
 `
 
 export const Step = styled.button<{ isActive: boolean}>`

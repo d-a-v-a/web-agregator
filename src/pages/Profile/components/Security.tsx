@@ -1,9 +1,18 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {InputBox, LabelBox, ProfileFormStyle, ProfileInput, TitleInput} from "./Information";
 import styled from "styled-components";
 import {H2Style} from "../../ProjectEditing/ProjectEditing";
+import {Context} from "../Context";
 
 const Security = () => {
+  // @ts-ignore
+  const {SetLabel, SetBtn} = useContext(Context)
+
+  useEffect(() => {
+    SetLabel('Безопасность')
+    SetBtn(false)
+  }, []);
+
   return (
       <ProfileFormStyle>
         <LabelBox>
