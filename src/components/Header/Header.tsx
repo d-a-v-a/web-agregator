@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from 'react';
-import logo from '../assets/images/logo.svg'
+import logo from '../../assets/images/logo.svg'
 import {Link} from "react-router-dom";
 import Profile from "./Profile";
 
