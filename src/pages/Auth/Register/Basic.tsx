@@ -31,9 +31,6 @@ const Basic = ({ setStep }: Context) => {
   const {data, setValues} = useData()
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     defaultValues: {
-      email: data.email,
-      password: data.password,
-      confirmPassword: data.password
     },
     resolver: yupResolver(schema)
   });

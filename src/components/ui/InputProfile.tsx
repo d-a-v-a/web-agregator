@@ -12,6 +12,7 @@ interface Props {
   password?: boolean,
   iconSize?: number,
   cleaner?: boolean,
+  margin?: number,
 }
 
 
@@ -23,6 +24,7 @@ function NameProjectInput({
                             password = false,
                             iconSize = 24,
                             cleaner = false,
+                            margin = 30,
 
                           }: Props) {
   const [inputValue, setInputValue] = useState('');
@@ -37,7 +39,7 @@ function NameProjectInput({
 
 
   return (
-      <Block>
+      <Block margin={margin}>
         <WrapperNameInput>
           <NameInputStyle type={type} maxLength={maxLength} value={inputValue} onChange={handleInputChange}
                           placeholder={placeholder}/>

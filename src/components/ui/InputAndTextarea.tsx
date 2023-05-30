@@ -2,12 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 
-export const Block = styled.div`
+export const Block = styled.div<{margin: number}>`
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: ${props => props.margin.toString() + 'px'};
 `
 
-export const BlockTextArea = styled(Block)`
+export const BlockTextArea = styled.div`
+  margin-bottom: 30px;
   width: 736px;
 `
 
