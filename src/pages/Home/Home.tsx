@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import SelectionProjects from "../../components/SelectionProjects";
 import PopularProjects from "../../components/PopularProjects";
 import Search from "../../components/Aside/components/Search";
@@ -17,15 +18,15 @@ const HomeStyle = styled.div`
 const Home = () => {
   return(
       <HomeStyle>
-        <AsideStyle>
-            <Search/>
-            <Categories/>
-            <History title={'Иcтория'}/>
-        </AsideStyle>
-        <div>
-          <PopularProjects />
-          <SelectionProjects />
-        </div>
+          <AsideStyle>
+              <Search/>
+              <Categories/>
+              <History title={'Иcтория'}/>
+          </AsideStyle>
+          <div>
+              <PopularProjects />
+              <SelectionProjects />
+          </div>
       </HomeStyle>
   )
 }

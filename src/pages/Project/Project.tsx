@@ -10,7 +10,6 @@ import Statistics from "../../components/Aside/components/Statistics";
 import Team from "../../components/Aside/components/Team";
 import SwiperAboutProject from "../../components/ui/SwiperAboutProject";
 
-
 const Project = () => {
   const divs = Array(8).fill(10).map((_, i) => <PreviewProject key={i} path={'/project'} views={'12333'} rating={'4,5'}
                                                                image={image1} category='Аркады'
@@ -22,7 +21,7 @@ const Project = () => {
 
         <ProjectGrid>
           <AsideStyle>
-            <ProjectPlay name={'Merge Комбинаторика'} image={image1}/>
+            <ProjectPlay path={'/play'} name={'Merge Комбинаторика'} image={image1}/>
             <Statistics/>
             <Team countOnTab={3}/>
             <History title={'Проекты команды'}/>

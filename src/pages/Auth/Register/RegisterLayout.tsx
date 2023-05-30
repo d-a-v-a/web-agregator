@@ -15,8 +15,8 @@ const RegisterLayout = () => {
             </Steps>
             {
                 step == 1
-                    ? <Basic setStep={setStep}/>
-                    : <Contacts/>
+                    ? <Basic setStep={setStep} />
+                    : <Contacts />
             }
             <AuthBottom>
                 <AuthSubBtn to='/auth/login'>Войти</AuthSubBtn>

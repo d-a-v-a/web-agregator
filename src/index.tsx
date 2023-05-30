@@ -5,6 +5,7 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createGlobalStyle} from "styled-components";
+import {DataProvider} from "./DataContext";
 
 const GlobalStyle = createGlobalStyle`
   
@@ -40,7 +41,6 @@ const GlobalStyle = createGlobalStyle`
     --red-color: #FF8197;
     --required-color: #5B5B5B;
   }
-  
   
   /* cyrillic-ext */
   @font-face {
@@ -98,7 +98,6 @@ const GlobalStyle = createGlobalStyle`
     src: url(https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
-  
   
   * {
     margin: 0;
@@ -302,8 +301,10 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <GlobalStyle/>
-      <App />
+        <DataProvider>
+          <GlobalStyle/>
+          <App />
+        </DataProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

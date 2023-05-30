@@ -138,6 +138,12 @@ const SlideBtn = styled(Link)`
   font-size: 16px;
   background: linear-gradient(180deg, #60FB9E 0%, #1EFE77 0.01%, #0D9834 100%);
   border-radius: 6px;
+  
+  transition: opacity 0.3s ease-in-out;
+  
+  &:hover {
+    opacity: 0.8;
+  }
 `
 
 function SwiperProjects(){

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import styled from "styled-components";
 import dropdownOutline from "../assets/images/dropdown_outline.svg";
 
@@ -9,6 +9,7 @@ export interface Props {
 }
 function Select({value, options, height}: Props) {
     const [isOpen, setIsOpen] = useState(false)
+    const ref = useRef<HTMLDivElement>();
     const [activeValue, setActiveValue] = useState(value)
     const hideClickHandler = () => {
         setIsOpen(prevState => !prevState)
@@ -19,19 +20,30 @@ function Select({value, options, height}: Props) {
         setIsOpen(false)
     }
 
+    useEffect(() => {
+        const checkIfClickedOutside = (e: any) => {
+            if (isOpen && ref.current && !ref.current.contains(e.target)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener("click", checkIfClickedOutside);
+        return () => {
+            document.removeEventListener("click", checkIfClickedOutside);
+        };
+    }, [isOpen]);
+
     return (
-        <SelectStyle>
+        <SelectStyle ref={ref}>
             <HeadStyle height={height} onClick={hideClickHandler}>
                 <span>{activeValue ? activeValue : 'Выберите из списка'}</span>
             </HeadStyle>
             {
-                isOpen
-                    ?
+                isOpen && (
                     <BodyStyle>
                         {options.map((item: string, i: number) => <ItemStyle key={i} onClick={activeValueHandler}>{item}</ItemStyle>)}
                     </BodyStyle>
-                    :
-                    false
+                )
             }
 
         </SelectStyle>
@@ -39,9 +51,10 @@ function Select({value, options, height}: Props) {
 }
 export default Select
 
-const SelectStyle = styled.div`
+const SelectStyle = styled.div<{ref: any}>`
     position: relative;
     min-width: 166px;
+    
 `
 const HeadStyle = styled.div<{ height?: string }>`
     cursor: pointer;

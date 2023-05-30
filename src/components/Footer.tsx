@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 
 
 const FooterStyle = styled.div`
-  margin: 0 auto;
+  margin: 90px auto 0;
   padding: 46px 117px 80px;
   width: 926px;
   border-top: 2px solid #2D2D2D;
