@@ -25,7 +25,7 @@ const ProfileLayout = () => {
       }}>
         <ProfileLayoutStyle>
           <TitleStyle>{label}</TitleStyle>
-          <SubTitle>Профиль</SubTitle>
+          <SubTitleProfile>Профиль</SubTitleProfile>
           <ProfileGrid>
             <AsideStyle>
               <H2Style style={{marginBottom: '8px'}}>Редактирование</H2Style>
