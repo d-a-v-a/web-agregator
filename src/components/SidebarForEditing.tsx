@@ -88,6 +88,10 @@ export const PublicationNotice = styled.div`
   font-size: 18px;
   line-height: 22px;
   color: #47FFA7;
+  
+  &::before {
+    
+  }
 `
 
 const FileName = styled.div`

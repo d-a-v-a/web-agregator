@@ -40,6 +40,8 @@ const GlobalStyle = createGlobalStyle`
     --contacts-color: rgba(208, 230, 238, 0.94);
     --red-color: #FF8197;
     --required-color: #5B5B5B;
+    --disabled-submit-bg: #37383A;
+    --disabled-submit-color: #656567;
   }
   
   /* cyrillic-ext */

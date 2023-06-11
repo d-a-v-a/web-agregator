@@ -6,10 +6,24 @@ import {H2Style} from "../ProjectEditing/ProjectEditing";
 import {PublicationNotice} from "../../components/SidebarForEditing";
 import {NavLink, Outlet} from "react-router-dom";
 import exitSvg from "../../assets/images/exit.svg"
+import {SubmitProfile} from "./components/Information";
 
 const ProfileLayout = () => {
   const [label, setLabel] = useState('Профиль')
   const [createBtn, setCreateBtn] = useState(false)
+  const [status, setStatus] = useState(['Изменений нет', '#47BDFF'])
+  const [buttonState, setButtonState] = useState({
+    handleSubmit: (onSubmit: any) => {},
+    onSubmit: () => true,
+    isDirty: null,
+    isValid: null,
+  })
+
+  const saveButtonHandler = () => {
+    if (buttonState?.handleSubmit) {
+      buttonState.handleSubmit(buttonState.onSubmit())
+    }
+  }
 
   function SetLabel(label: string) {
     setLabel(label)
@@ -21,15 +35,15 @@ const ProfileLayout = () => {
 
   return (
       <Context.Provider value={{
-        SetLabel, SetBtn
+        SetLabel, SetBtn, setStatus, setButtonState
       }}>
         <ProfileLayoutStyle>
           <TitleStyle>{label}</TitleStyle>
-          <SubTitle>Профиль</SubTitle>
+          <SubTitleProfile>Профиль</SubTitleProfile>
           <ProfileGrid>
             <AsideStyle>
               <H2Style style={{marginBottom: '8px'}}>Редактирование</H2Style>
-              <PublicationNotice>Изменения сохранены</PublicationNotice>
+              <PublicationNotice style={{color: status[1]}}>{status[0]}</PublicationNotice>
               <ProfileNavStyle>
                 <NavListStyle>
                   <NavLinkStyle
@@ -59,7 +73,13 @@ const ProfileLayout = () => {
                 </NavListStyle>
                 <ExitStyle>Выход</ExitStyle>
               </ProfileNavStyle>
-              <ButtonSaveProject display={createBtn}>Создать проект</ButtonSaveProject>
+              <SubmitProfile
+                  type={'button'}
+                  onClick={saveButtonHandler}
+                  disabled={!buttonState.isDirty || !buttonState.isValid}>
+                Сохранить
+              </SubmitProfile>
+              {/*<ButtonSaveProject display={createBtn}>Создать проект</ButtonSaveProject>*/}
             </AsideStyle>
             <Outlet/>
           </ProfileGrid>
@@ -69,30 +89,6 @@ const ProfileLayout = () => {
 }
 
 export default ProfileLayout
-
-const ButtonSaveProject = styled.button<{display: boolean}>`
-  
-  display: ${props => {
-    if (props.display) return 'flex'
-    else return 'none'
-  }};
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-  width: 260px;
-  height: 50px;
-
-  background-color: #5A9DF5;
-  border-radius: 3px;
-
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-
-  color: var(--white-color);
-`
-
 
 const ProfileLayoutStyle = styled.div`
   margin: 0 auto 74px;
