@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {H2Style} from "../../ProjectEditing/ProjectEditing";
 import Selector from "../../../components/ui/Selector";
 import {Context} from "../Context";
+import CreateTeamBlock from "../../../components/CreateTeamBlock";
 
 interface ButtonSeasonProps {
   label: string,
@@ -67,7 +68,7 @@ const MyProjects = () => {
             ]}
         />
         <P>Создать команду может только Team Lead</P>
-
+        <CreateTeamBlock/>
 
       </MyProjectStyle>
   )
@@ -107,7 +108,7 @@ const MyProjectStyle = styled.div`
 `
 
 const P = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 47px;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
