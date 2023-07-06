@@ -15,26 +15,32 @@ const CreateTeamBlock = () => {
     name: 'Компонент 3'
   },])
   const addComponent = () => {
-    if (names.at(-1)) {
-      const id = names.at(-1)!.id + 1
-      setNames([...names, {id: id, name: `Компонент ${id}`}])
-      setCountComponent(countComponent + 1)
-    }
+    const id = names.at(-1) ? names.at(-1)!.id + 1 : 1
+    setNames([...names, {id: id, name: `Компонент ${id}`}])
+    setCountComponent(countComponent + 1)
   }
   const deleteElement = ({id}: { id: number }) => {
-    console.log(id)
     if (names.find(name => name.id === id)) {
-      const arr = names
-      arr.slice(id - arr[0].id, 1)
-      console.log('грибочки')
-      for (let i = id - arr[0].id; i < countComponent; i++) {
-        if (arr[i].id > id) {
-          arr[i].id += 1
+      setNames(names.filter(name => name.id !== id).map(name => {
+        if (name.id > id) {
+          name.id -= 1
         }
-      }
-      setNames(arr)
+        return name
+      }));
+
     }
   }
+
+
+  const Components = ({names}: { names: Name[] }) => {
+
+    return (
+        <ul>{names.map(name => <Component key={name.id}>Номер {name.id} {name.name} <ButtonDelete
+            onClick={() => deleteElement({id: name.id})}>Удалить</ButtonDelete></Component>)}</ul>
+    )
+  }
+
+
   return (
       <>
         <TitleInput required={true}>Название команды</TitleInput>
@@ -43,20 +49,13 @@ const CreateTeamBlock = () => {
         <InputBox>
           <ProfileInput disabled={true} readOnly={true} value={'avarts360@urfu.me'}/>
         </InputBox>
-        <Components deleteElement={deleteElement} names={names}/>
+        <Components names={names}/>
         <AddComponent addComponent={addComponent}/>
 
       </>
   )
 }
 
-const Components = ({names, deleteElement}: { names: Name[], deleteElement: Function }) => {
-
-  return (
-      <ul>{names.map(name => <Component key={name.id}>{name.name} <ButtonDelete
-          onClick={() => deleteElement(name.id)}>Удалить</ButtonDelete></Component>)}</ul>
-  )
-}
 
 const Component = ({children}: { children: any }) => {
   return (
