@@ -150,8 +150,8 @@ export const GridTwoColumns = styled.div`
   column-gap: 24px;
 `
 
-export const TitleInput = styled.div<{required?: boolean}>`
-  margin-bottom: 25px;
+export const TitleInput = styled.div<{required?: boolean, marginBottom?: string}>`
+  margin-bottom: ${props => props.marginBottom ? props.marginBottom : '25px'};
   font-weight: 500;
   font-size: 24px;
   color: var(--white-color);
