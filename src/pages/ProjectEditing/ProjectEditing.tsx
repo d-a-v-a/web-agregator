@@ -3,13 +3,20 @@ import styled from "styled-components";
 import SidebarForEditing from "../../components/SidebarForEditing";
 import DescriptionProject from "../../components/DescriptionProject";
 import PromoMaterials from "../../components/PromoMaterials";
+import {Link} from "react-router-dom";
 
 
 function ProjectEditing() {
   return (
       <ProjectEditingStyle>
         <H1Style>Редактирование проекта</H1Style>
-        <PathName><span style={{color: '#B6B6B6'}}>Профиль &gt; </span>Мои проекты</PathName>
+        <PathName>
+            <span style={{color: '#B6B6B6'}}>
+                <Link style={{display: 'inline', color: '#B6B6B6'}} to={'/profile/my-projects'}>Профиль </Link>
+            </span>
+            <span> &gt; </span>
+            <span> Мои проекты</span>
+        </PathName>
         <MainPart>
           <SidebarForEditing/>
           <DescriptionProject/>

@@ -42,6 +42,7 @@ function SidebarForEditing() {
             ]}
         />
         <P>Профиль команды</P>
+        <H2Style>Ссылка на репозиторий</H2Style>
         <NameProjectInput jackdaw={true} cleaner={true} placeholder={'Вставьте ссылку'}/>
       </SidebarForEditingStyle>
   )
@@ -58,7 +59,7 @@ const P = styled.div`
 `
 
 const SidebarForEditingStyle = styled.div`
-
+  flex: 0 1 290px;
 `
 
 const ButtonSidebar = styled.button`
@@ -87,6 +88,10 @@ export const PublicationNotice = styled.div`
   font-size: 18px;
   line-height: 22px;
   color: #47FFA7;
+  
+  &::before {
+    
+  }
 `
 
 const FileName = styled.div`

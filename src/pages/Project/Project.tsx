@@ -9,7 +9,7 @@ import ProjectPlay from "../../components/Aside/components/ProjectPlay";
 import Statistics from "../../components/Aside/components/Statistics";
 import Team from "../../components/Aside/components/Team";
 import SwiperAboutProject from "../../components/ui/SwiperAboutProject";
-
+import {Link} from "react-router-dom";
 
 const Project = () => {
   const divs = Array(8).fill(10).map((_, i) => <PreviewProject key={i} path={'/project'} views={'12333'} rating={'4,5'}
@@ -18,11 +18,17 @@ const Project = () => {
   return (
       <ProjectStyle>
         <H1Style>Страница проекта</H1Style>
-        <PathName><span style={{color: '#B6B6B6'}}>Профиль &gt; </span>Название проекта</PathName>
+        <PathName>
+            <span style={{color: '#B6B6B6'}}>
+                <Link style={{display: 'inline', color: '#B6B6B6'}} to={'/'}>Проекты </Link>
+            </span>
+          <span> &gt; </span>
+          <span> Название проекта</span>
+        </PathName>
 
         <ProjectGrid>
           <AsideStyle>
-            <ProjectPlay name={'Merge Комбинаторика'} image={image1}/>
+            <ProjectPlay path={'/play'} name={'Merge Комбинаторика'} image={image1}/>
             <Statistics/>
             <Team countOnTab={3}/>
             <History title={'Проекты команды'}/>

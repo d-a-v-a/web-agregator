@@ -68,7 +68,7 @@ export const AuthLabel = styled.label<{isInvalid?: any}>`
         p {
             opacity: 1;
             bottom: -10px;
-              transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
         }
     `}
 `
@@ -92,7 +92,7 @@ export const ErrorText = styled.p`
 
   padding-top: 8px;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 19px;
   color: var(--input-title);
 `
