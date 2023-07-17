@@ -20,6 +20,7 @@ interface Props {
 }
 
 function Selector({labelSelector = '', options, margin = '30px', width = '100%'}: Props) {
+
   return (
       <SelectorStyle style={{
         marginBottom: margin,
