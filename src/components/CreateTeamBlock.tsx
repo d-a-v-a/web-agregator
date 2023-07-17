@@ -10,10 +10,7 @@ type Name = {
 
 const CreateTeamBlock = () => {
   const [countComponent, setCountComponent] = useState<number>(3)
-  const [names, setNames] = useState<Name[]>([{id: 1, name: 'Компонент 1'}, {id: 2, name: 'Компонент 2'}, {
-    id: 3,
-    name: 'Компонент 3'
-  },])
+  const [names, setNames] = useState<Name[]>([{id: 2, name: 'Компонент 1'}, {id: 3, name: 'Компонент 2'}])
   const addComponent = () => {
     if (countComponent < 7) {
       const id = names.at(-1) ? names.at(-1)!.id + 1 : 1
@@ -37,8 +34,14 @@ const CreateTeamBlock = () => {
   const Components = ({names}: { names: Name[] }) => {
 
     return (
-        <ul>{names.map(name => <Component key={name.id} number={name.id}><ButtonDelete
-            onClick={() => deleteElement({id: name.id})}>Удалить</ButtonDelete></Component>)}</ul>
+        <ul>
+          {names.map(name => <Component key={name.id} number={name.id}>
+            {countComponent > 3 ? <ButtonDelete
+                onClick={() => deleteElement({id: name.id})}>Удалить
+            </ButtonDelete> : <></>}
+
+        </Component>)}
+        </ul>
     )
   }
 
@@ -109,11 +112,12 @@ const ButtonAddComponent = styled.button`
   &:hover {
     background-color: var(--5-a-9-df-5, #5A9DF5);
   }
-  
+
   &:disabled {
     border: 1px solid var(--d-0-e-6-ee, rgba(208, 230, 238, 0.50));
     background-color: #1C1E22;
     color: #D0E6EE;
+
     &:hover {
       background-color: #1C1E22;
     }
