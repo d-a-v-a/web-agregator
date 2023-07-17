@@ -17,9 +17,13 @@ interface Props {
   options: any;
   margin?: string;
   width?: string;
+  type?: TypeSelector;
 }
 
-function Selector({labelSelector = '', options, margin = '30px', width = '100%'}: Props) {
+export type TypeSelector = 'none' | 'role'
+
+function Selector({labelSelector = '', options, margin = '30px', width = '100%', type = 'none'}: Props) {
+
   return (
       <SelectorStyle style={{
         marginBottom: margin,
@@ -27,7 +31,7 @@ function Selector({labelSelector = '', options, margin = '30px', width = '100%'}
       }}>
         <H2Style>{labelSelector}</H2Style>
         <SelectBox>
-            <Select height={'37px'} options={options}/>
+            <Select height={'37px'} options={options} type={type}/>
         </SelectBox>
       </SelectorStyle>
   )

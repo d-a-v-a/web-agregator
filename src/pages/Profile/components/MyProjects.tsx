@@ -4,6 +4,7 @@ import {H2Style} from "../../ProjectEditing/ProjectEditing";
 import Selector from "../../../components/ui/Selector";
 import {Context} from "../Context";
 import CreateTeamBlock from "../../../components/CreateTeamBlock";
+import {useData} from "../../../DataContext";
 
 interface ButtonSeasonProps {
   label: string,
@@ -33,11 +34,13 @@ const MyProjects = () => {
   const [activeButton, setActiveButton] = useState(0)
 
   // @ts-ignore
-  const {SetLabel, SetBtn} = useContext(Context)
+  const {SetLabel} = useContext(Context)
+  const { data } = useData()
+
+
 
   useEffect(() => {
     SetLabel('Мои проекты')
-    SetBtn(true)
   }, []);
 
   return (
@@ -58,7 +61,7 @@ const MyProjects = () => {
               </div>
           ))}
         </ButtonSeasonWrapper>
-        <Selector
+        <Selector type={'role'}
             width={'356px'}
             margin={'10px'}
             labelSelector={'Роль в команде*'}
@@ -68,7 +71,7 @@ const MyProjects = () => {
             ]}
         />
         <P>Создать команду может только Team Lead</P>
-        <CreateTeamBlock/>
+        {data.role === 'Team Lead' ? <CreateTeamBlock/> : <></>}
 
       </MyProjectStyle>
   )

@@ -15,6 +15,7 @@
     "@types/react-dom": "^18.0.11",
     "@types/styled-components": "^5.1.26",
     "bootstrap": "^5.3.0-alpha3",
+    "firebase": "^10.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.1",
@@ -28,7 +29,7 @@
     "yup": "^1.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start src/index.tsx",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -58,7 +59,8 @@
     "eslint-plugin-react": "^7.32.2",
     "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
-    "webpack": "^5.80.0",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.13.3"
   }
 }

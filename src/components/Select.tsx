@@ -1,13 +1,16 @@
 import React, {useEffect, useRef, useState} from "react";
 import styled from "styled-components";
 import dropdownOutline from "../assets/images/dropdown_outline.svg";
+import {TypeSelector} from "./ui/Selector";
+import {useData} from "../DataContext";
 
 export interface Props {
     value?: string;
     options: any;
     height?: string;
+    type?: TypeSelector;
 }
-function Select({value, options, height}: Props) {
+function Select({value, options, height, type}: Props) {
     const [isOpen, setIsOpen] = useState(false)
     const ref = useRef<HTMLDivElement>();
     const [activeValue, setActiveValue] = useState(value)
@@ -15,9 +18,14 @@ function Select({value, options, height}: Props) {
         setIsOpen(prevState => !prevState)
     }
 
+    const {setValues } = useData();
+
     const activeValueHandler = ({target}: any) => {
         setActiveValue(target.textContent)
         setIsOpen(false)
+        if (type === 'role') {
+            setValues({role: target.textContent})
+        }
     }
 
     useEffect(() => {
