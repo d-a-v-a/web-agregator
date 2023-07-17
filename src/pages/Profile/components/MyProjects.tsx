@@ -35,7 +35,9 @@ const MyProjects = () => {
 
   // @ts-ignore
   const {SetLabel} = useContext(Context)
-  const { data, setValues } = useData()
+  const { data } = useData()
+
+
 
   useEffect(() => {
     SetLabel('Мои проекты')
@@ -59,7 +61,7 @@ const MyProjects = () => {
               </div>
           ))}
         </ButtonSeasonWrapper>
-        <Selector
+        <Selector type={'role'}
             width={'356px'}
             margin={'10px'}
             labelSelector={'Роль в команде*'}
@@ -69,7 +71,8 @@ const MyProjects = () => {
             ]}
         />
         <P>Создать команду может только Team Lead</P>
-        <CreateTeamBlock/>
+        {data.role === 'Team Lead' ? <CreateTeamBlock/> : <></>}
+
       </MyProjectStyle>
   )
 }
