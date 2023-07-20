@@ -5,6 +5,7 @@ import Selector from "../../../components/ui/Selector";
 import {Context} from "../Context";
 import CreateTeamBlock from "../../../components/CreateTeamBlock";
 import {useData} from "../../../DataContext";
+import TeamBlock from "../../../components/ui/TeamBlock";
 
 interface ButtonSeasonProps {
   label: string,
@@ -37,7 +38,7 @@ const MyProjects = () => {
   const {SetLabel} = useContext(Context)
   const { data } = useData()
 
-
+  const seasons = ['Осень 2022', 'Весна 2022', 'Осень 2023', 'Весна 2023']
 
   useEffect(() => {
     SetLabel('Мои проекты')
@@ -53,10 +54,10 @@ const MyProjects = () => {
         }}>выберите учебный семестр</P>
 
         <ButtonSeasonWrapper>
-          {[...Array(4)].map((_, idx) => (
+          {seasons.map((label, idx) => (
               <div key={idx}>
                 <div onClick={() => setActiveButton(idx)}>
-                  <ButtonSeason label={'Осень 2022'} select={idx === activeButton}/>
+                  <ButtonSeason label={label} select={idx === activeButton}/>
                 </div>
               </div>
           ))}
@@ -71,7 +72,7 @@ const MyProjects = () => {
             ]}
         />
         <P>Создать команду может только Team Lead</P>
-        {data.role === 'Team Lead' ? <CreateTeamBlock/> : <></>}
+        {data.role ? data.role === 'Team Lead' ? <CreateTeamBlock/> : <TeamBlock/> : <></>}
 
       </MyProjectStyle>
   )
@@ -91,6 +92,7 @@ const ButtonSeasonStyle = styled.button`
   height: 44px;
   border: 1px solid #5A9DF5;
   border-radius: 3px;
+  transition: background-color 0.1s ease-in-out;
 
   font-style: normal;
   font-weight: 500;
