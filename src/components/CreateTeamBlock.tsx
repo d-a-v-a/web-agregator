@@ -125,7 +125,7 @@ const ButtonAddComponent = styled.button`
 `
 
 
-const Contacts = styled.div`
+export const Contacts = styled.div`
   color: var(--headline-3-nd, #C1D9E2);
   text-align: right;
   font-family: Inter, sans-serif;
@@ -138,7 +138,7 @@ const Contacts = styled.div`
   cursor: pointer;
 `
 
-const Role = styled.div`
+export const Role = styled.div`
   color: #B6B6B6;
   font-family: Inter, sans-serif;
   font-size: 18px;
@@ -147,7 +147,7 @@ const Role = styled.div`
   line-height: normal;
 `
 
-const WrapperComponent = styled.div`
+export const WrapperComponent = styled.div`
   margin-top: 15px;
   display: flex;
   align-items: center;

@@ -1,7 +1,7 @@
 
 export interface TeamInterface {
-  TeamName: string;
-  Members: MemberTeam[];
+  teamName: string;
+  members: MemberTeam[];
 }
 
 type MemberTeam = {
