@@ -21,10 +21,10 @@ const TotalRatingStyled = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
 `
 
 const TotalStyled = styled.div`
+  margin-right: 10px;
   font-weight: 700;
   font-size: 36px;
   line-height: 1;

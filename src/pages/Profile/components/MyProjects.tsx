@@ -6,6 +6,8 @@ import {Context} from "../Context";
 import CreateTeamBlock from "../../../components/CreateTeamBlock";
 import {useData} from "../../../DataContext";
 import TeamBlock from "../../../components/ui/TeamBlock";
+import CheckedProjectTeamBlock from "../../../components/CheckedProjectTeamBlock";
+
 
 interface ButtonSeasonProps {
   label: string,
@@ -24,9 +26,9 @@ function ButtonSeason({label = '', disable = false, select}: ButtonSeasonProps) 
       <>
         {disable ? (<ButtonSeasonStyle disabled={true}>{label}</ButtonSeasonStyle>)
             : (<ButtonSeasonStyle style=
-              {{
-                backgroundColor: color,
-              }}>{label}</ButtonSeasonStyle>)}
+                                      {{
+                                        backgroundColor: color,
+                                      }}>{label}</ButtonSeasonStyle>)}
       </>
   )
 }
@@ -36,7 +38,7 @@ const MyProjects = () => {
 
   // @ts-ignore
   const {SetLabel} = useContext(Context)
-  const { data } = useData()
+  const {data} = useData()
 
   const seasons = ['Осень 2022', 'Весна 2022', 'Осень 2023', 'Весна 2023']
 
@@ -62,17 +64,21 @@ const MyProjects = () => {
               </div>
           ))}
         </ButtonSeasonWrapper>
-        <Selector type={'role'}
-            width={'356px'}
-            margin={'10px'}
-            labelSelector={'Роль в команде*'}
-            options={[
-              'Team Lead', 'UI/UX-дизайнер', 'Game-дизайнер', 'Unity-разработчик', 'Художник',
-              'UE-разработчик',
-            ]}
+        {data.checkProject ? <></> : <><Selector type={'role'}
+                                                 width={'356px'}
+                                                 margin={'10px'}
+                                                 labelSelector={'Роль в команде*'}
+                                                 options={[
+                                                   'Team Lead', 'UI/UX-дизайнер', 'Game-дизайнер', 'Unity-разработчик', 'Художник',
+                                                   'UE-разработчик',
+                                                 ]}
         />
-        <P>Создать команду может только Team Lead</P>
-        {data.role ? data.role === 'Team Lead' ? <CreateTeamBlock/> : <TeamBlock/> : <></>}
+          <P>Создать команду может только Team Lead</P>
+        </>}
+
+
+        {data.checkProject ? <CheckedProjectTeamBlock/> : (data.role ? data.role === 'Team Lead' ? <CreateTeamBlock/> :
+            <TeamBlock/> : <></>)}
 
       </MyProjectStyle>
   )

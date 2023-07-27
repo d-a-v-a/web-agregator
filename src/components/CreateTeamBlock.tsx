@@ -1,7 +1,20 @@
-import React, {useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import styled from "styled-components";
 import {InputBox, ProfileInput, TitleInput} from "../pages/Profile/components/Information";
 import InputProfile from "./ui/InputProfile";
+import * as yup from "yup";
+import {useForm} from "react-hook-form";
+import {yupResolver} from "@hookform/resolvers/yup";
+import {Context} from "../pages/Profile/Context";
+import {useData} from "../DataContext";
+
+
+const schema = yup.object({
+  TeamName: yup.string()
+      .required('Обязательное поле'),
+}).required();
+
+type FormData = yup.InferType<typeof schema>;
 
 type Name = {
   id: number,
@@ -9,6 +22,39 @@ type Name = {
 }
 
 const CreateTeamBlock = () => {
+
+  const {
+    register,
+    handleSubmit,
+    formState: {errors, isDirty, isValid}
+  } = useForm<FormData>({
+    mode: 'all',
+    defaultValues: {
+      TeamName: '',
+    },
+    resolver: yupResolver(schema)
+  });
+
+  // @ts-ignore
+  const {setStatus, setButtonState} = useContext(Context)
+
+
+  const { data } = useData()
+
+  const onSubmit = (formData: FormData) => {
+    setStatus(['Изменения сохранены', '#47FFA7']);
+    data.checkProject = true;
+  }
+
+  useEffect(() => {
+    setButtonState((prevState: any) => ({
+      handleSubmit: handleSubmit,
+      onSubmit: onSubmit,
+      isDirty: true,
+      isValid: true,
+    }))
+  }, [isDirty, isValid]);
+
   const [countComponent, setCountComponent] = useState<number>(3)
   const [names, setNames] = useState<Name[]>([{id: 2, name: 'Компонент 1'}, {id: 3, name: 'Компонент 2'}])
   const addComponent = () => {
@@ -39,17 +85,17 @@ const CreateTeamBlock = () => {
             {countComponent > 3 ? <ButtonDelete
                 onClick={() => deleteElement({id: name.id})}>Удалить
             </ButtonDelete> : <></>}
-
-        </Component>)}
+          </Component>)}
         </ul>
     )
   }
 
 
   return (
-      <>
+      <MyPorjectsFormStyle onSubmit={handleSubmit(onSubmit)} noValidate>
         <TitleInput required={true}>Название команды</TitleInput>
-        <InputProfile placeholder={'Введите название команды'} maxLength={20} counter={true}/>
+        <InputProfile reg={register('TeamName')} isInvalid={!!errors.TeamName} placeholder={'Введите название команды'}
+                      maxLength={20} counter={true}/>
         <TitleInput>Участник команды #1</TitleInput>
         <InputBox>
           <ProfileInput disabled={true} readOnly={true} value={'avarts360@urfu.me'}/>
@@ -60,7 +106,7 @@ const CreateTeamBlock = () => {
         </WrapperComponent>
         <Components names={names}/>
         <AddComponent addComponent={addComponent} count={countComponent}/>
-      </>
+      </MyPorjectsFormStyle>
   )
 }
 
@@ -91,6 +137,10 @@ const AddComponent = ({addComponent, count}: { addComponent: Function, count: nu
       <ButtonAddComponent disabled={count >= 7} onClick={addElem}>Добавить компонент {count}/7</ButtonAddComponent>
   )
 }
+
+const MyPorjectsFormStyle = styled.form`
+
+`
 
 const ButtonAddComponent = styled.button`
   width: 356px;

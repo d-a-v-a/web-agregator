@@ -55,8 +55,6 @@ const Information = () => {
     SetLabel('Данные пользователя')
   }, []);
 
-  console.log()
-
   useEffect(() => {
     setButtonState((prevState: any) => ({
       handleSubmit: handleSubmit,

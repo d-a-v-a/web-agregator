@@ -11,7 +11,7 @@ export const BlockTextArea = styled(Block)`
   width: 736px;
 `
 
-export const WrapperNameInput = styled.div`
+export const WrapperNameInput = styled.div<{isInvalid?: boolean}>`
   display: flex;
   gap: 15px;
   align-items: center;
@@ -19,6 +19,16 @@ export const WrapperNameInput = styled.div`
   margin-bottom: 15px;
   padding: 10px 15px;
   background-color: var(--dark-grey-color);
+  
+  ${({ isInvalid }) => isInvalid && `
+        input {
+            border-color: #C86571 !important;
+        }
+        
+        input::placeholder {
+            color: #C86571 !important;
+        }
+    `}
 `
 
 

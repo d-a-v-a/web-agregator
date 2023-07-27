@@ -3,6 +3,7 @@ import {Block, Counter, WrapperNameInput} from "./InputAndTextarea";
 import styled from "styled-components";
 import passwordImg from "../../assets/images/notEye.svg"
 
+
 interface Props {
   placeholder?: string,
   maxLength?: number,
@@ -11,6 +12,8 @@ interface Props {
   password?: boolean,
   iconSize?: number,
   cleaner?: boolean,
+  isInvalid?: boolean,
+  reg?: any,
 }
 
 
@@ -22,7 +25,8 @@ function NameProjectInput({
                             password = false,
                             iconSize = 24,
                             cleaner = false,
-
+                            isInvalid = false,
+                            reg,
                           }: Props) {
 
   const [inputValue, setInputValue] = useState('');
@@ -55,9 +59,11 @@ function NameProjectInput({
 
   return (
       <Block>
-        <WrapperNameInput>
-          <NameInputStyle type={type} maxLength={maxLength} value={inputValue} onChange={handleInputChange}
+        <WrapperNameInput isInvalid={isInvalid}>
+          <NameInputStyle type={type} {...reg} maxLength={maxLength} value={inputValue}
+                          onChange={handleInputChange}
                           placeholder={placeholder}/>
+
           {jackdaw ? (
               <JackdawStyled validUrl={validUrl} width="18" height="14" viewBox="0 0 18 14" fill="none"
                              xmlns="http://www.w3.org/2000/svg">

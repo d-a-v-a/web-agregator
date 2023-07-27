@@ -39,11 +39,11 @@ const ViewsCount = styled.div`
   color: var(--white-color);
 `
 
-const Statistics = () => {
+const Statistics = ({onlyRating = false, totalRating = '3.5'}:{onlyRating?: boolean, totalRating?: string}) => {
     return (
         <StatisticsStyle>
             <H2Style>Рейтинг проекта</H2Style>
-            <TotalRating total={'2.5'}/>
+            <TotalRating total={totalRating}/>
             <NumberViews>
                 <ViewsTitle>Количество игроков</ViewsTitle>
                 <ViewsGrid>
@@ -51,7 +51,7 @@ const Statistics = () => {
                     <ViewsCount>10,2к</ViewsCount>
                 </ViewsGrid>
             </NumberViews>
-            <RatingAction/>
+          {onlyRating ? <></> : <RatingAction/>}
         </StatisticsStyle>
     )
 }
