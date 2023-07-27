@@ -19,10 +19,28 @@ const dataTeam: TeamInterface = {
 const TeamBlock = () => {
   return (
       <>
-        <TitleInput>Ваша команда</TitleInput>
-        <InputBox style={{marginBottom: '47px'}}>
-          <ProfileInput disabled={true} readOnly={true} value={dataTeam.teamName}/>
-        </InputBox>
+        <div style={{display: 'flex'}}>
+          <div style={{marginRight: '24px'}}>
+            <TitleInput>Роль в команде</TitleInput>
+            <InputBox style={{marginBottom: '47px', width: '356px'}}>
+              <ProfileInput style={{color: '#93AED6'}} disabled={true} readOnly={true} value={'Конципт дизанер'}/>
+            </InputBox>
+          </div>
+          <div>
+            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+              <TitleInput>Ваша команда</TitleInput>
+              <CountMembers>Участников: 4</CountMembers>
+            </div>
+            <InputBox style={{marginBottom: '47px', width: '356px'}}>
+              <ProfileInput disabled={true} readOnly={true} value={dataTeam.teamName}/>
+            </InputBox>
+          </div>
+        </div>
+
+        {/*<TitleInput>Ваша команда</TitleInput>*/}
+        {/*<InputBox style={{marginBottom: '47px'}}>*/}
+        {/*  <ProfileInput disabled={true} readOnly={true} value={dataTeam.teamName}/>*/}
+        {/*</InputBox>*/}
         <div style={{marginBottom: '109px'}}>
           {dataTeam.members.map((member, id) => (
               <>
@@ -43,6 +61,16 @@ const TeamBlock = () => {
       </>
   )
 }
+
+const CountMembers = styled.div`
+  color: var(--d-0-e-6-ee, rgba(208, 230, 238, 0.50));
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  transform: translateY(20px);
+`
 
 const ButtonLeaveTeam = styled.button`
   margin-left: auto;

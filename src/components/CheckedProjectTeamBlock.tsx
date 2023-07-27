@@ -25,7 +25,7 @@ const CheckedProjectTeamBlock = () => {
   )
 }
 
-const PublicationDate = styled.div`
+export const PublicationDate = styled.div`
   margin-bottom: 16px;
   color: var(--d-0-e-6-ee, rgba(208, 230, 238, 0.50));
   font-family: Inter, sans-serif;
