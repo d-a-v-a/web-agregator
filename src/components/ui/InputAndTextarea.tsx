@@ -8,7 +8,7 @@ export const Block = styled.div`
 `
 
 export const BlockTextArea = styled(Block)`
-  width: 736px;
+  width: 100%;
 `
 
 export const WrapperNameInput = styled.div<{isInvalid?: boolean}>`

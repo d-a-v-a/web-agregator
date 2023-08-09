@@ -16,10 +16,18 @@ const dataTeam: TeamInterface = {
 
 }
 
+const GridTeam = styled.div`
+  display: flex;
+  
+  @media (max-width: 777px) {
+    flex-direction: column;
+  }
+`
+
 const TeamBlock = () => {
   return (
       <>
-        <div style={{display: 'flex'}}>
+        <GridTeam style={{display: 'flex'}}>
           <div style={{marginRight: '24px'}}>
             <TitleInput>Роль в команде</TitleInput>
             <InputBox style={{marginBottom: '47px', width: '356px'}}>
@@ -27,7 +35,7 @@ const TeamBlock = () => {
             </InputBox>
           </div>
           <div>
-            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
               <TitleInput>Ваша команда</TitleInput>
               <CountMembers>Участников: 4</CountMembers>
             </div>
@@ -35,7 +43,7 @@ const TeamBlock = () => {
               <ProfileInput disabled={true} readOnly={true} value={dataTeam.teamName}/>
             </InputBox>
           </div>
-        </div>
+        </GridTeam>
 
         {/*<TitleInput>Ваша команда</TitleInput>*/}
         {/*<InputBox style={{marginBottom: '47px'}}>*/}
@@ -69,7 +77,7 @@ const CountMembers = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  transform: translateY(20px);
+  margin-bottom: 20px;
 `
 
 const ButtonLeaveTeam = styled.button`

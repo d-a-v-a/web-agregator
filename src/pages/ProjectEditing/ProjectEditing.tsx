@@ -33,7 +33,8 @@ function ProjectEditing() {
 
 const ProjectEditingStyle = styled.div`
   margin: 0 auto 74px;
-  max-width: 1144px;
+  max-width: 1184px;
+  padding: 0 20px;
 `
 
 export const H1Style = styled.h1`
@@ -65,7 +66,12 @@ export const H2Style = styled.h2`
 
 const MainPart = styled.div`
   display: flex;
-  gap: 120px;
+  gap: 20px;
+  justify-content: space-between;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+  }
 `
 
 const Buttons = styled.div`

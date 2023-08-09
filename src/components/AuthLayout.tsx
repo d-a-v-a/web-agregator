@@ -14,11 +14,7 @@ const AuthLayoutStyle = styled.div`
 
 const AuthWrapper = styled.div`
   flex: 1 1;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 30px;
-  justify-content: center;
+  padding: 0 20px;
   background-color: var(--main-bg-color);
 `
 
@@ -29,8 +25,17 @@ const AuthLogo = styled.img`
 
 const AuthBox = styled.div`
   padding: 60px 100px;
+  max-width: 600px;
+  margin: 0 auto 40px;
   background-color: var(--dark-grey-color);
-  margin-bottom: 40px;
+
+  @media (max-width: 600px) {
+    padding: 40px 40px;
+  }
+
+  @media (max-width: 400px) {
+    padding: 40px 20px;
+  }
 `
 
 function AuthLayout() {
@@ -38,7 +43,7 @@ function AuthLayout() {
       <AuthLayoutStyle>
         <Header/>
           <AuthWrapper>
-             <Link to='/'>
+             <Link to='/' style={{width: '250px', margin: '0 auto 30px'}}>
                  <AuthLogo src={logo}/>
              </Link>
               <AuthBox>

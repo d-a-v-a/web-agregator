@@ -92,7 +92,8 @@ export default ProfileLayout
 
 const ProfileLayoutStyle = styled.div`
   margin: 0 auto 74px;
-  max-width: 1144px;
+  max-width: 1184px;
+  padding: 0 20px;
 `
 
 const TitleStyle = styled.div`
@@ -110,7 +111,12 @@ export const SubTitleProfile = styled.div`
 
 const ProfileGrid = styled.div`
   display: flex;
-  gap: 120px;
+  gap: 20px;
+  justify-content: space-between;
+  
+  @media (max-width: 1100px) {
+    flex-direction: column;
+  }
 `
 
 const ProfileNavStyle = styled.nav`

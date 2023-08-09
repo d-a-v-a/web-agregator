@@ -8,8 +8,6 @@ import {MainLayout} from "./components/MainLayout";
 import {AuthLayout} from "./components/AuthLayout";
 import ProjectEditing from "./pages/ProjectEditing/ProjectEditing";
 
-import Basic from "./pages/Auth/Register/Basic";
-import Contacts from "./pages/Auth/Register/Contacts";
 import ChangePassword from "./pages/Auth/Recovery/ChangePassword";
 import Play from "./pages/Play/Play";
 import Information from "./pages/Profile/components/Information";

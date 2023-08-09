@@ -88,6 +88,7 @@ const ButtonSeasonWrapper = styled.div`
   display: flex;
   gap: 24px;
   margin-bottom: 47px;
+  flex-wrap: wrap;
 `
 
 const ButtonSeasonStyle = styled.button`
