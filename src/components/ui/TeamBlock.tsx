@@ -36,11 +36,6 @@ const TeamBlock = () => {
             </InputBox>
           </div>
         </div>
-
-        {/*<TitleInput>Ваша команда</TitleInput>*/}
-        {/*<InputBox style={{marginBottom: '47px'}}>*/}
-        {/*  <ProfileInput disabled={true} readOnly={true} value={dataTeam.teamName}/>*/}
-        {/*</InputBox>*/}
         <div style={{marginBottom: '109px'}}>
           {dataTeam.members.map((member, id) => (
               <>
