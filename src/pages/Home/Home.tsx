@@ -12,7 +12,12 @@ const HomeStyle = styled.div`
   display: flex;
   gap: 24px;
   margin: 0 auto 74px;
-  max-width: 1144px;
+  max-width: 1184px;
+  padding: 0 20px;
+  
+  @media (max-width: 1165px) {
+    flex-direction: column;
+  }
 `
 
 const Home = () => {

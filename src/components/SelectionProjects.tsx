@@ -18,6 +18,14 @@ const Options = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+  flex-wrap: wrap;
+  
+
+  @media (max-width: 676px) {
+    span:first-child {
+      flex: 1 1 100%;
+    }
+  }
 `
 
 const FoundStyle = styled.span`
@@ -32,7 +40,19 @@ const Grid = styled.div`
     align-items: flex-end;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 25px;
-    
+  
+  @media (max-width: 850px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 500px) {
+    display: flex;
+     flex-direction: column;
+    column-gap: 25px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
     & > div {
         flex: 0 0 calc(33.3% - 25px);
     }

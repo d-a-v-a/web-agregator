@@ -36,6 +36,12 @@ const LinkProfile = styled(Link)`
     color: var(--blue-bg);
   }
 
+  @media (max-width: 500px) {
+    span {
+      display: none;
+    }
+  }
+
   &::after {
     content: '';
     width: 16px;
@@ -57,9 +63,9 @@ const DropLinksWrapper = styled.ul`
   visibility: hidden;
   position: absolute;
   opacity: 0;
-  width: 100%;
+  min-width: 100%;
   top: 100%;
-  left: 0;
+  right: 0;
 `
 
 const DropLinks = styled.div`

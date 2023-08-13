@@ -139,13 +139,17 @@ const Information = () => {
 export default Information
 
 export const ProfileFormStyle = styled.form`
-  flex: 1 1;
+  flex: 0 1 775px;
 `
 
 export const GridTwoColumns = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 24px;
+  
+  @media (max-width: 1100px) {
+    display: block;
+  }
 `
 
 export const TitleInput = styled.div<{required?: boolean, marginBottom?: string}>`

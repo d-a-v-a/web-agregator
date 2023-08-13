@@ -38,7 +38,7 @@ const Login = () => {
 export default Login
 
 export const AuthWrapper = styled.div`
-  width: 400px;
+  width: 100%;
 `
 
 export const AuthTitle = styled.div`
