@@ -8,23 +8,36 @@ import styled from "styled-components";
 
 
 
-const SlideInner = ({image}: SlideProps) => {
+const SlideInner = ({image, number, currentNumber}: SlideProps) => {
+  let opacity;
+  if (currentNumber === number) {
+    opacity = '1';
+  }
+  else {
+    opacity = '0.2';
+  }
   return (
-      <img src={image} style={{width: '100%'}} alt=""/>
-
+  <>
+    <img src={image} style={{width: '100%', opacity: opacity}} alt=""/>
+  </>
   )
 }
 
 export interface SlideProps {
   image: any,
+  number: number,
+  currentNumber: number,
 }
 
 
 function SwiperAboutProject() {
+
+  const [currentNumber, setCurrentNumber] = useState(1)
   const [img, setImg] = useState(image1)
 
-  function handleClickSlide(img: any) {
+  function handleClickSlide(img: any, number: number) {
     setImg(img);
+    setCurrentNumber(number);
   }
   return (
       <div>
@@ -37,26 +50,25 @@ function SwiperAboutProject() {
               allowTouchMove={true}
           >
             <SwiperWrapper>
-              <SwiperSlide onClick={() => handleClickSlide(image1)}>
-                <SlideInner image={image1}/>
+              <SwiperSlide onClick={() => handleClickSlide(image1, 1)}>
+                <SlideInner currentNumber={currentNumber} image={image1} number={1}/>
               </SwiperSlide>
-              <SwiperSlide onClick={() => handleClickSlide(image2)}>
-                <SlideInner image={image2}/>
+              <SwiperSlide onClick={() => handleClickSlide(image2, 2)}>
+                <SlideInner currentNumber={currentNumber} image={image2} number={2}/>
               </SwiperSlide>
-              <SwiperSlide onClick={() => handleClickSlide(image3)}>
-                <SlideInner image={image3}/>
+              <SwiperSlide onClick={() => handleClickSlide(image3, 3)}>
+                <SlideInner currentNumber={currentNumber} image={image3} number={3}/>
               </SwiperSlide>
-              <SwiperSlide onClick={() => handleClickSlide(image1)}>
-                <SlideInner image={image1}/>
+              <SwiperSlide onClick={() => handleClickSlide(image1, 4)}>
+                <SlideInner currentNumber={currentNumber} image={image1} number={4}/>
               </SwiperSlide>
-              <SwiperSlide onClick={() => handleClickSlide(image2)}>
-                <SlideInner image={image2}/>
+              <SwiperSlide onClick={() => handleClickSlide(image2, 5)}>
+                <SlideInner currentNumber={currentNumber} image={image2} number={5}/>
               </SwiperSlide>
             </SwiperWrapper>
           </Swiper>
         </SwiperBlockStyle>
       </div>
-
   )
 }
 
