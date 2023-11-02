@@ -8,7 +8,7 @@ const Menu = styled.nav`
   @media (min-width: 1100px) {
     display: none;
   }
-    
+  
   position: fixed;
   height: 100vh;
   top: 0;

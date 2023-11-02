@@ -25,6 +25,11 @@ const CardsWrapper = styled.div`
 
 const CardStyle = styled.div`
   max-width: 356px;
+  
+  @media (max-width: 400px) {
+    max-width: none;
+    width: 100%;
+  }
 `
 
 const Block = styled.div`
@@ -39,6 +44,11 @@ const Block = styled.div`
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid #99A2AD;
   border-radius: 3px;
+
+  @media (max-width: 400px) {
+    max-width: none;
+    width: 100%;
+  }
 `
 
 

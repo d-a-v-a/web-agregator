@@ -10,7 +10,7 @@ const Profile = () => {
         <LinkProfile to={'#'}>
           <span style={{marginRight: 11, transition: 'color 0.3s ease-in-out'}}>Профиль</span>
           <img src={profileIMG} alt="" style={{marginRight: 8}}/>
-          <img src="src/components/Header/Profile" alt=""/>
+          {/*<img src="src/components/Header/Profile" alt=""/>*/}
         </LinkProfile>
         <DropLinksWrapper>
           <DropLinks>

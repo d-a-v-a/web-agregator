@@ -12,6 +12,15 @@ const FooterStyle = styled.div`
   padding: 46px 117px 80px;
   max-width: 926px;
   border-top: 2px solid #2D2D2D;
+
+  @media (max-width: 410px) {
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 function Footer() {
@@ -30,6 +39,12 @@ const SectionOneFooterStyle = styled.div`
   margin-bottom: 27px;
   flex-wrap: wrap;
   row-gap: 20px;
+  
+  @media (max-width: 410px) {
+    > a {
+      max-width: 100%;
+    }
+  }
 `
 
 

@@ -16,6 +16,7 @@ const SearchBlockStyle = styled.div`
 `
 
 const SearchInputStyle = styled.input`
+  flex: 1 1;
   margin-right: 13px;
   padding-left: 10px;
   height: 40px;
