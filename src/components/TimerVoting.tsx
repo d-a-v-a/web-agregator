@@ -117,7 +117,7 @@ const NumberStyle = styled.div`
 `
 
 const PointsStyle = styled.img`
-    margin: 0 10px;
+    margin: -16px 10px 0;
 `
 
 const UnderTextTimer = styled.div`

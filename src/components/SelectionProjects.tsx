@@ -1,9 +1,9 @@
 import React from "react";
 import Pagination from "./ui/Pagination";
-import PreviewProject from "./PreviewProject"
 import styled from "styled-components";
 import image1 from "../assets/images/image1.jpg"
 import Select from "./Select";
+import RatingPreviewProject from "./RatingPreviewProject";
 
 
 const H2Style = styled.h2`
@@ -34,29 +34,6 @@ const FoundStyle = styled.span`
     color: var(--light-grey-color);
 `
 
-const Grid = styled.div`
-    margin-top: 15px;
-    display: grid;
-    align-items: flex-end;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 25px;
-  
-  @media (max-width: 850px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media (max-width: 500px) {
-    display: flex;
-     flex-direction: column;
-    column-gap: 25px;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-  
-    & > div {
-        flex: 0 0 calc(33.3% - 25px);
-    }
-`
 const HeaderSelectProjects = styled.div`
     position: sticky;
     padding: 15px 0 15px;
@@ -66,7 +43,82 @@ const HeaderSelectProjects = styled.div`
 `
 
 const SelectionProjects = () => {
-    const divs = Array(15).fill(10).map((_, i) => <PreviewProject key={i} path={'/project'} views={'12333'} rating={'4,5'} image={image1} category='Аркады' name='Merge Комбинаторика'/>)
+    const projects = [
+        {
+            place: 1,
+            path: '/project',
+            voices: '1500',
+            image: image1,
+            prevCategory: 'Развлекательные',
+            category: 'Аркады',
+            name: 'Merge Комбинаторика',
+            desc: 'Основной геймплей игры завязан на использовании merge-механики — совмещение/слияние блоков'
+        },
+        {
+            place: 2,
+            path: '/project',
+            voices: '1300',
+            image: image1,
+            prevCategory: 'Развлекательные',
+            category: 'Аркады',
+            name: 'Merge Комбинаторика',
+            desc: 'Основной геймплей игры завязан на использовании merge-механики — совмещение/слияние блоков'
+        },
+        {
+            place: 3,
+            path: '/project',
+            voices: '400',
+            image: image1,
+            prevCategory: 'Развлекательные',
+            category: 'Аркады',
+            name: 'Merge Комбинаторика',
+            desc: 'Основной геймплей игры завязан на использовании merge-механики — совмещение/слияние блоков'
+        },
+        {
+            place: 4,
+            path: '/project',
+            voices: '300',
+            image: image1,
+            prevCategory: 'Развлекательные',
+            category: 'Аркады',
+            name: 'Merge Комбинаторика',
+            desc: 'Основной геймплей игры завязан на использовании merge-механики — совмещение/слияние блоков'
+        },
+        {
+            place: 11,
+            path: '/project',
+            voices: '30',
+            image: image1,
+            prevCategory: 'Развлекательные',
+            category: 'Аркады',
+            name: 'Merge Комбинаторика',
+            desc: 'Основной геймплей игры завязан на использовании merge-механики — совмещение/слияние блоков'
+        },
+        {
+            place: 22,
+            path: '/project',
+            voices: '20',
+            image: image1,
+            prevCategory: 'Развлекательные',
+            category: 'Аркады',
+            name: 'Merge Комбинаторика',
+            desc: 'Основной геймплей игры завязан на использовании merge-механики — совмещение/слияние блоков'
+        },
+        {
+            place: 44,
+            path: '/project',
+            voices: '0',
+            image: image1,
+            prevCategory: 'Развлекательные',
+            category: 'Аркады',
+            name: 'Merge Комбинаторика',
+            desc: 'Основной геймплей игры завязан на использовании merge-механики — совмещение/слияние блоков'
+        },
+    ]
+    const divs = projects.map((_, i) =>
+        <RatingPreviewProject key={i} voices={_['voices']} path={_['path']} place={_['place']} image={_['image']} prevCategory={_['prevCategory']} category={_['category']} name={_['name']}
+                              desc={_['desc']}/>
+    )
     return (
         <div style={{maxWidth: 810}}>
             <HeaderSelectProjects>
@@ -74,12 +126,12 @@ const SelectionProjects = () => {
                 <Options>
                     <FoundStyle>Найдено 31 проект</FoundStyle>
                     <Pagination current={1} total={5}/>
-                    <Select value={'По популярности'} options={['По популярности', 'По дате выхода', 'По оценкам']}/>
+                    <Select value={'По убыванию рейтинга'} options={['По убыванию рейтинга', 'По возрастанию рейтинга', 'Весь список проектов']}/>
                 </Options>
             </HeaderSelectProjects>
-            <Grid>
+            <>
                 {divs}
-            </Grid>
+            </>
         </div>
     )
 }
