@@ -10,13 +10,13 @@ const MainLayoutStyle = styled.div`
 `
 
 function MainLayout() {
-  return(
-      <MainLayoutStyle>
-        <Header/>
-        <Outlet/>
-        <Footer/>
-      </MainLayoutStyle>
-  )
+    return (
+        <MainLayoutStyle>
+            <Header/>
+            <Outlet/>
+            <Footer/>
+        </MainLayoutStyle>
+    )
 }
 
 

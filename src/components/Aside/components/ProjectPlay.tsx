@@ -35,6 +35,11 @@ const ButtonStyled = styled(Link)`
   &:hover {
     opacity: 0.8;
   }
+
+  @media (max-width: 1165px) {
+    max-width: 262px;
+    width: auto;
+  }
 `
 
 interface ProjectPlayProps {
