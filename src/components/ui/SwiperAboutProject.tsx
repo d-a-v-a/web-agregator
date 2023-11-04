@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 
-import image1 from "../../assets/images/image1.jpg";
-import image2 from "../../assets/images/image2.jpg";
-import image3 from "../../assets/images/image3.jpg";
+import image1 from "../../assets/images/project_preview/image1.jpg";
+import image2 from "../../assets/images/project_preview/image2.jpg";
+import image3 from "../../assets/images/project_preview/image3.jpg";
 import styled from "styled-components";
 
 

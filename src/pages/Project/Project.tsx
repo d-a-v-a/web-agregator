@@ -3,7 +3,7 @@ import styled from "styled-components";
 import History from "../../components/Aside/components/History";
 import {H1Style, H2Style, PathName} from "../ProjectEditing/ProjectEditing";
 import PreviewProject from "../../components/PreviewProject";
-import image1 from "../../assets/images/image1.jpg";
+import image1 from "../../assets/images/project_preview/image1.jpg";
 import ProjectPlay from "../../components/Aside/components/ProjectPlay";
 import Statistics from "../../components/Aside/components/Statistics";
 import Team from "../../components/Aside/components/Team";

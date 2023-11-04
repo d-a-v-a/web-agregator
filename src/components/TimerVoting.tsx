@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import timer_points from "../assets/images/timer_points.svg"
+import timer_points from "../assets/images/icons/timer_points.svg"
 import {H2Style} from "../pages/ProjectEditing/ProjectEditing";
 
 export type TimerProps = {

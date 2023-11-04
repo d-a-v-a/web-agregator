@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import voices_svg from "../assets/images/voices.svg"
-import prize_place_default from "../assets/images/prize_place_default.svg"
-import prize_place_1 from "../assets/images/prize_place_1.svg"
-import prize_place_2 from "../assets/images/prize_place_2.svg"
-import prize_place_3 from "../assets/images/prize_place_3.svg"
+import voices_svg from "../assets/images/icons/voices.svg"
+import prize_place_default from "../assets/images/icons/place_flag/place_default.svg"
+import prize_place_1 from "../assets/images/icons/place_flag/place_1.svg"
+import prize_place_2 from "../assets/images/icons/place_flag/place_2.svg"
+import prize_place_3 from "../assets/images/icons/place_flag/place_3.svg"
 import {Link} from "react-router-dom";
 
 const CardWrapper = styled.div<{ place: number }>`

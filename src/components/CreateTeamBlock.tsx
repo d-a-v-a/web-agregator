@@ -6,7 +6,7 @@ import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {Context} from "../pages/Profile/Context";
-import {useData} from "../DataContext";
+import {useData} from "../context/DataContext";
 
 
 const schema = yup.object({

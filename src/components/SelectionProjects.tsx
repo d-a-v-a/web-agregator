@@ -1,7 +1,7 @@
 import React from "react";
 import Pagination from "./ui/Pagination";
 import styled from "styled-components";
-import image1 from "../assets/images/image1.jpg"
+import image1 from "../assets/images/project_preview/image1.jpg"
 import Select from "./Select";
 import RatingPreviewProject from "./RatingPreviewProject";
 

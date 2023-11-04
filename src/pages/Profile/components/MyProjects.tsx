@@ -4,7 +4,7 @@ import {H2Style} from "../../ProjectEditing/ProjectEditing";
 import Selector from "../../../components/ui/Selector";
 import {Context} from "../Context";
 import CreateTeamBlock from "../../../components/CreateTeamBlock";
-import {useData} from "../../../DataContext";
+import {useData} from "../../../context/DataContext";
 import TeamBlock from "../../../components/ui/TeamBlock";
 import CheckedProjectTeamBlock from "../../../components/CheckedProjectTeamBlock";
 

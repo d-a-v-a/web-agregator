@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import {H1Style, PathName} from "../ProjectEditing/ProjectEditing";
-import icon from "../../assets/images/IconDisplayDownloadGame.jpg"
-import unwrap from "../../assets/images/unwrap.svg"
-import roll_up from "../../assets/images/roll_up.svg"
+import icon from "../../assets/images/project_preview/IconDisplayDownloadGame.jpg"
+import unwrap from "../../assets/images/icons/unwrap.svg"
+import roll_up from "../../assets/images/icons/roll_up.svg"
 import {useFullscreen} from "../../context/FullScreen";
 
 function Play() {

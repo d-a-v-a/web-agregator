@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Block, Counter, WrapperNameInput} from "./InputAndTextarea";
 import styled from "styled-components";
-import passwordImg from "../../assets/images/notEye.svg"
+import passwordImg from "../../assets/images/icons/eyes/notEye.svg"
 
 
 interface Props {

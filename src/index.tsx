@@ -5,7 +5,7 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createGlobalStyle} from "styled-components";
-import {DataProvider} from "./DataContext";
+import {DataProvider} from "./context/DataContext";
 import NavState from "./context/navState";
 import {FullscreenProvider} from "./context/FullScreen";
 

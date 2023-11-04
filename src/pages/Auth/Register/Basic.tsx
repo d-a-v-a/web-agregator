@@ -5,9 +5,9 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import hidePasswordSvg from "../../../assets/images/hide_password.svg";
-import showPasswordSvg from "../../../assets/images/show_password.svg";
-import {useData} from "../../../DataContext";
+import hidePasswordSvg from "../../../assets/images/icons/eyes/hide_password.svg";
+import showPasswordSvg from "../../../assets/images/icons/eyes/show_password.svg";
+import {useData} from "../../../context/DataContext";
 
 interface Context {
   setStep?: any;

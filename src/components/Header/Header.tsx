@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React, {useContext, useRef} from 'react';
-import logo from '../../assets/images/logo.svg'
+import logo from '../../assets/images/logo/logo.svg'
 import {Link} from "react-router-dom";
 import Profile from "./Profile";
 import MenuButton from "../MenuButton";
@@ -72,39 +72,6 @@ const ListWrapper = styled.ul`
   @media (max-width: 1100px) {
     display: none;
   }
-`
-
-const BtnClose = styled.div`
-
-  //@media (min-width: 1100px) {
-  //  display: none;
-  //}
-  //cursor: pointer;
-  //position: absolute;
-  //width: 30px;
-  //height: 30px;
-  //top: 20px;
-  //right: 20px;
-  //z-index: 10;
-  //
-  //span {
-  //  position: absolute;
-  //  top: 0;
-  //  left: 0;
-  //  transform: rotate(-45deg);
-  //  width: 100%;
-  //  height: 3px;
-  //  border-radius: 3px;
-  //  background: #ffffff;
-  //}
-  //
-  //span:first-child {
-  //  transform: translate(0, 12px) rotate(45deg);
-  //}
-  //
-  //span:last-child {
-  //  transform: translate(0, 12px) rotate(-45deg);
-  //}
 `
 
 const ListLinks = styled.ul`

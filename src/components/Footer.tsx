@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../assets/images/logo.svg"
-import vkIcon from "../assets/images/vk.svg"
-import internetIcon from "../assets/images/InternetIcon.svg"
-import tgIcon from "../assets/images/TGIcon.svg"
+import logo from "../assets/images/logo/logo.svg"
+import vkIcon from "../assets/images/icons/social/vk.svg"
+import internetIcon from "../assets/images/icons/social/InternetIcon.svg"
+import tgIcon from "../assets/images/icons/social/TGIcon.svg"
 import {Link} from "react-router-dom";
 
 

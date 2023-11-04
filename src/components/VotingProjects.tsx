@@ -3,10 +3,10 @@ import styled from "styled-components";
 import {H1Style} from "../pages/ProjectEditing/ProjectEditing";
 import {Link} from "react-router-dom";
 import TimerVoting from "./TimerVoting";
-import voices from "../assets/images/voices.svg"
-import prize_place_1 from "../assets/images/prize_place_1.svg"
-import prize_place_2 from "../assets/images/prize_place_2.svg"
-import prize_place_3 from "../assets/images/prize_place_3.svg"
+import voices from "../assets/images/icons/voices.svg"
+import prize_place_1 from "../assets/images/icons/place_flag/place_1.svg"
+import prize_place_2 from "../assets/images/icons/place_flag/place_2.svg"
+import prize_place_3 from "../assets/images/icons/place_flag/place_3.svg"
 
 const VotingMainStyle = styled.div`
   @media (min-width: 829px) {
