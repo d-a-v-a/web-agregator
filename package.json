@@ -54,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@types/fscreen": "^1.0.3",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "eslint": "^8.37.0",

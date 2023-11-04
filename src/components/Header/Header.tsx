@@ -9,14 +9,16 @@ import useOnClickOutside from "../../hooks/onClickOutside";
 import {MenuContext} from "../../context/navState";
 
 const Header = () => {
-    const node = useRef();
-    const { isMenuOpen, toggleMenuMode }: any = useContext(MenuContext);
-    useOnClickOutside(node, () => {
-        // Only if menu is open
+    const node = useRef<any>();
+    const { isMenuOpen, switchMenu }: any = useContext(MenuContext);
+
+    const callToggle = () => {
         if (isMenuOpen) {
-            toggleMenuMode();
+            switchMenu();
         }
-    });
+    }
+
+    useOnClickOutside(node, callToggle);
 
   return (
       <HeaderWrapper ref={node}>

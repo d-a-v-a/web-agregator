@@ -17,12 +17,10 @@ function Play() {
 }
 
 function Display({img}: { img: any }) {
-    const {
-        fullscreenRef,
-        enterFullscreen,
-        exitFullscreen,
-        fullscreenActive,
-    } = useFullscreen();
+    const {fullscreenRef}: any = useFullscreen();
+    const {enterFullscreen}: any = useFullscreen();
+    const {exitFullscreen}: any = useFullscreen();
+    const {fullscreenActive}: any = useFullscreen();
 
     return (
         <DisplayStyle ref={fullscreenRef}>

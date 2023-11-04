@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { MenuContext } from '../context/navState';
 import {LinkToCategories} from "./Header/Header";
 
-const Menu = styled.nav`
+const Menu = styled.nav<{ open: boolean }>`
   @media (min-width: 1100px) {
     display: none;
   }
@@ -18,9 +18,9 @@ const Menu = styled.nav`
   display: block;
   width: 400px;
   max-width: 100%;
-  margin-top: 0px;
+  margin-top: 0;
   padding-top: 40px;
-  padding-right: 0px;
+  padding-right: 0;
   align-items: stretch;
   background-color: var(--main-bg-color);
   transform: translateX(-100%);
@@ -60,10 +60,10 @@ export const MenuLink = styled.a`
   }
 `;
 
-export const SideMenu = ({ children }) => {
-    const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
+export const SideMenu = () => {
+    const { isMenuOpen, switchMenu }: any = useContext(MenuContext);
     const clickHandler = () => {
-        toggleMenuMode();
+        switchMenu();
     };
 
     return <Menu open={isMenuOpen}>
