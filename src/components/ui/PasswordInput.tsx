@@ -1,7 +1,7 @@
 import React, {InputHTMLAttributes} from "react";
 import styled from "styled-components";
-import showPasswordSvg from "../../assets/images/show_password.svg";
-import hidePasswordSvg from "../../assets/images/hide_password.svg";
+import showPasswordSvg from "../../assets/images/icons/eyes/show_password.svg";
+import hidePasswordSvg from "../../assets/images/icons/eyes/hide_password.svg";
 
 interface PasswordInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }

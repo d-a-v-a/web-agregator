@@ -4,8 +4,8 @@ import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {useNavigate} from "react-router-dom";
-import hidePasswordSvg from "../../../assets/images/hide_password.svg";
-import showPasswordSvg from "../../../assets/images/show_password.svg";
+import hidePasswordSvg from "../../../assets/images/icons/eyes/hide_password.svg";
+import showPasswordSvg from "../../../assets/images/icons/eyes/show_password.svg";
 import {ShowPassword} from "../Register/Basic";
 
 const schema = yup.object({

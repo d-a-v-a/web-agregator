@@ -7,8 +7,8 @@ import * as yup from "yup";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {ErrorText} from "../../Auth/Login";
-import hidePasswordSvg from "../../../assets/images/hide_password.svg";
-import showPasswordSvg from "../../../assets/images/show_password.svg";
+import hidePasswordSvg from "../../../assets/images/icons/eyes/hide_password.svg";
+import showPasswordSvg from "../../../assets/images/icons/eyes/show_password.svg";
 import {ShowPassword} from "../../Auth/Register/Basic";
 
 const schema = yup.object({

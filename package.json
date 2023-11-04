@@ -54,10 +54,12 @@
     ]
   },
   "devDependencies": {
+    "@types/fscreen": "^1.0.3",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "eslint": "^8.37.0",
     "eslint-plugin-react": "^7.32.2",
+    "fscreen": "^1.2.0",
     "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
     "webpack": "^5.88.1",

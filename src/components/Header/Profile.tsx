@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import React from 'react';
-import profileIMG from '../../assets/images/profile.png'
+import profileIMG from '../../assets/images/profile_default/profile.svg'
 import {Link} from "react-router-dom";
-import dropdownOutline from "../../assets/images/dropdown_outline.svg";
+import dropdownOutline from "../../assets/images/icons/arrows/dropdown_outline.svg";
 
 const Profile = () => {
   return (
@@ -10,7 +10,6 @@ const Profile = () => {
         <LinkProfile to={'#'}>
           <span style={{marginRight: 11, transition: 'color 0.3s ease-in-out'}}>Профиль</span>
           <img src={profileIMG} alt="" style={{marginRight: 8}}/>
-          <img src="src/components/Header/Profile" alt=""/>
         </LinkProfile>
         <DropLinksWrapper>
           <DropLinks>

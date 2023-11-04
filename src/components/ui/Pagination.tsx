@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import arrow from "../../assets/images/arrow_left.svg"
+import arrow from "../../assets/images/icons/arrows/arrow_left.svg"
 
 export const PaginationStyle = styled.div`
   display: flex;

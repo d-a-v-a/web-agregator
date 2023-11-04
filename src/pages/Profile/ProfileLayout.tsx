@@ -5,7 +5,7 @@ import {AsideStyle} from "../../components/Aside/AsideStyle";
 import {H2Style} from "../ProjectEditing/ProjectEditing";
 import {PublicationNotice} from "../../components/SidebarForEditing";
 import {NavLink, Outlet} from "react-router-dom";
-import exitSvg from "../../assets/images/exit.svg"
+import exitSvg from "../../assets/images/icons/exit.svg"
 import {SubmitProfile} from "./components/Information";
 
 const ProfileLayout = () => {

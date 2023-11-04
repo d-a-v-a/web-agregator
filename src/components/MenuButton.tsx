@@ -21,9 +21,9 @@ const MenuButton = styled.div`
 `
 
 const HamburgerButton = () => {
-    const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
+    const { isMenuOpen, switchMenu }: any = useContext(MenuContext);
     const clickHandler = () => {
-        toggleMenuMode();
+        switchMenu();
     };
 
     return (

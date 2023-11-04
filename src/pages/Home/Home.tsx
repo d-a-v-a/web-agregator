@@ -7,6 +7,7 @@ import Search from "../../components/Aside/components/Search";
 import Categories from "../../components/Aside/components/Categories";
 import History from "../../components/Aside/components/History";
 import {AsideStyle} from "../../components/Aside/AsideStyle";
+import VotingProjects from "../../components/VotingProjects";
 
 const HomeStyle = styled.div`
   display: flex;
@@ -29,6 +30,7 @@ const Home = () => {
               <History title={'Иcтория'}/>
           </AsideStyle>
           <div>
+              <VotingProjects/>
               <PopularProjects />
               <SelectionProjects />
           </div>

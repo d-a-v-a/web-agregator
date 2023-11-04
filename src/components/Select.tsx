@@ -1,8 +1,8 @@
 import React, {useEffect, useRef, useState} from "react";
 import styled from "styled-components";
-import dropdownOutline from "../assets/images/dropdown_outline.svg";
+import dropdownOutline from "../assets/images/icons/arrows/dropdown_outline.svg";
 import {TypeSelector} from "./ui/Selector";
-import {useData} from "../DataContext";
+import {useData} from "../context/DataContext";
 
 export interface Props {
     value?: string;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import searchImg from "../../../assets/images/search.svg";
+import searchImg from "../../../assets/images/icons/search.svg";
 
 const SearchStyle = styled.div`
   
@@ -16,6 +16,7 @@ const SearchBlockStyle = styled.div`
 `
 
 const SearchInputStyle = styled.input`
+  flex: 1 1;
   margin-right: 13px;
   padding-left: 10px;
   height: 40px;

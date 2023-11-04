@@ -5,9 +5,9 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import hidePasswordSvg from "../../../assets/images/hide_password.svg";
-import showPasswordSvg from "../../../assets/images/show_password.svg";
-import {useData} from "../../../DataContext";
+import hidePasswordSvg from "../../../assets/images/icons/eyes/hide_password.svg";
+import showPasswordSvg from "../../../assets/images/icons/eyes/show_password.svg";
+import {useData} from "../../../context/DataContext";
 
 interface Context {
   setStep?: any;
@@ -46,7 +46,7 @@ const Basic = ({ setStep }: Context) => {
     const [showPasswordConfirm, setShowPasswordConfirm] = React.useState(false)
 
     return (
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete={'off'}>
         <AuthLabel isInvalid={!!errors.email}>
           <AuthInput
               {...register("email")}
@@ -59,6 +59,7 @@ const Basic = ({ setStep }: Context) => {
               type={showPassword ? "text" : "password"}
               {...register("password")}
               placeholder={'Пароль'}
+              autoComplete={'off'}
           />
           <ShowPassword
               alt={showPassword ? "Hide password" : "Show password"}
@@ -72,6 +73,7 @@ const Basic = ({ setStep }: Context) => {
               type={showPasswordConfirm ? "text" : "password"}
               {...register("confirmPassword")}
               placeholder={'Пароль'}
+              autoComplete={'off'}
           />
           <ShowPassword
               alt={showPasswordConfirm ? "Hide password" : "Show password"}
