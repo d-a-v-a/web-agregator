@@ -7,6 +7,7 @@ import {createGlobalStyle} from "styled-components";
 import {DataProvider} from "./context/DataContext";
 import NavState from "./context/navState";
 import {FullscreenProvider} from "./context/FullScreen";
+import {Provider} from "react-redux";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -351,6 +352,7 @@ root.render(
         </BrowserRouter>
     </React.StrictMode>
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

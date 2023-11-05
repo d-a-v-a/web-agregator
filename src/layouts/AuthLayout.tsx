@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {Link, Outlet} from "react-router-dom";
-import Header from "./Header/Header";
+import Header from "../components/Header/Header";
 import logo from "../assets/images/logo/logo.svg";
 
 

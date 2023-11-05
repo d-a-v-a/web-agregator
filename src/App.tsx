@@ -4,8 +4,8 @@ import {Route, Routes} from "react-router-dom";
 import Login from "./pages/Auth/Login";
 import RegisterLayout from "./pages/Auth/Register/RegisterLayout";
 import Project from "./pages/Project/Project";
-import {MainLayout} from "./components/MainLayout";
-import {AuthLayout} from "./components/AuthLayout";
+import {MainLayout} from "./layouts/MainLayout";
+import {AuthLayout} from "./layouts/AuthLayout";
 import ProjectEditing from "./pages/ProjectEditing/ProjectEditing";
 
 import ChangePassword from "./pages/Auth/Recovery/ChangePassword";
@@ -16,7 +16,6 @@ import MyProjects from "./pages/Profile/components/MyProjects";
 import ProfileLayout from "./pages/Profile/ProfileLayout";
 import SearchOnEmail from "./pages/Auth/Recovery/SearchOnEmail";
 import SuccessInfo from "./pages/Auth/Recovery/SuccessInfo";
-
 
 function App() {
     return (
