@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow } from "swiper";
-import image1 from '../../assets/images/image1.jpg'
-import image2 from '../../assets/images/image2.jpg'
-import image3 from '../../assets/images/image3.jpg'
-import sliderArrow from '../../assets/images/slider-arrow.svg'
+import image1 from '../../assets/images/project_preview/image1.jpg'
+import image2 from '../../assets/images/project_preview/image2.jpg'
+import image3 from '../../assets/images/project_preview/image3.jpg'
+import sliderArrow from '../../assets/images/icons/arrows/slider-arrow.svg'
 import 'swiper/swiper-bundle.css'
 import {Link} from "react-router-dom";
 

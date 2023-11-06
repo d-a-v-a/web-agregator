@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter} from "react-router-dom";
-import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createGlobalStyle} from "styled-components";
-import {DataProvider} from "./DataContext";
+import {DataProvider} from "./context/DataContext";
 import NavState from "./context/navState";
+import {FullscreenProvider} from "./context/FullScreen";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -111,7 +111,11 @@ const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
+
     font-family: 'Inter', sans-serif;
     -webkit-text-size-adjust: 100%;
     color: var(--white-color);
@@ -331,19 +335,21 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-        <DataProvider>
-            <NavState>
-          <GlobalStyle/>
-          <App />
-            </NavState>
-        </DataProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
+            <DataProvider>
+                <NavState>
+                    <GlobalStyle/>
+                    <FullscreenProvider>
+                        <App/>
+                    </FullscreenProvider>
+                </NavState>
+            </DataProvider>
+        </BrowserRouter>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

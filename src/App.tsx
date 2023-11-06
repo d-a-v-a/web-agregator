@@ -18,34 +18,33 @@ import SearchOnEmail from "./pages/Auth/Recovery/SearchOnEmail";
 import SuccessInfo from "./pages/Auth/Recovery/SuccessInfo";
 
 
-
 function App() {
-  return (
+    return (
         <Routes>
-          <Route path='/' element={<MainLayout/>}>
-            <Route index element={<Home/>}/>
-            <Route path='project' element={<Project/>}/>
-            <Route path='editing' element={<ProjectEditing/>}/>
+            <Route path='/' element={<MainLayout/>}>
+                <Route index element={<Home/>}/>
+                <Route path='project' element={<Project/>}/>
+                <Route path='editing' element={<ProjectEditing/>}/>
 
-            <Route path='play' element={<Play/>}/>
-            <Route path='profile' element={<ProfileLayout/>}>
-              <Route path='my-projects' element={<MyProjects/>}/>
-              <Route path='information' element={<Information/>}/>
-              <Route path='security' element={<Security/>}/>
+                <Route path='play' element={<Play/>}/>
+                <Route path='profile' element={<ProfileLayout/>}>
+                    <Route path='my-projects' element={<MyProjects/>}/>
+                    <Route path='information' element={<Information/>}/>
+                    <Route path='security' element={<Security/>}/>
+                </Route>
             </Route>
-          </Route>
-          <Route path='auth' element={<AuthLayout/>}>
-            <Route path='login' element={<Login/>}/>
-            <Route path='register' element={<RegisterLayout/>}/>
-            <Route path='recovery'>
+            <Route path='auth' element={<AuthLayout/>}>
+                <Route path='login' element={<Login/>}/>
+                <Route path='register' element={<RegisterLayout/>}/>
+                <Route path='recovery'>
 
-              <Route path='search-email' element={<SearchOnEmail/>}/>
-              <Route path='success-info' element={<SuccessInfo/>}/>
-              <Route path='change-password' element={<ChangePassword/>}/>
+                    <Route path='search-email' element={<SearchOnEmail/>}/>
+                    <Route path='success-info' element={<SuccessInfo/>}/>
+                    <Route path='change-password' element={<ChangePassword/>}/>
+                </Route>
             </Route>
-          </Route>
         </Routes>
-  );
+    );
 }
 
 export default App;

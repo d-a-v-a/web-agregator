@@ -7,11 +7,11 @@ import {
   PaginationStyle,
   PaginationText
 } from "../../ui/Pagination";
-import course_1 from "../../../assets/images/course_1.svg"
-import course_2 from "../../../assets/images/course_2.svg"
-import course_3 from "../../../assets/images/course_3.svg"
-import course_4 from "../../../assets/images/course_4.svg"
-import arrow from "../../../assets/images/arrow_left.svg";
+import course_1 from "../../../assets/images/icons/course_number/course_1.svg"
+import course_2 from "../../../assets/images/icons/course_number/course_2.svg"
+import course_3 from "../../../assets/images/icons/course_number/course_3.svg"
+import course_4 from "../../../assets/images/icons/course_number/course_4.svg"
+import arrow from "../../../assets/images/icons/arrows/arrow_left.svg";
 
 const TeamStyle = styled.div`
   margin-bottom: 50px;

@@ -4,7 +4,7 @@ import {H2Style} from "../../ProjectEditing/ProjectEditing";
 import Selector from "../../../components/ui/Selector";
 import {Context} from "../Context";
 import CreateTeamBlock from "../../../components/CreateTeamBlock";
-import {useData} from "../../../DataContext";
+import {useData} from "../../../context/DataContext";
 import TeamBlock from "../../../components/ui/TeamBlock";
 import CheckedProjectTeamBlock from "../../../components/CheckedProjectTeamBlock";
 
@@ -98,15 +98,18 @@ const ButtonSeasonStyle = styled.button`
   width: 166px;
   height: 44px;
   border: 1px solid #5A9DF5;
-  border-radius: 3px;
+
   transition: background-color 0.1s ease-in-out;
 
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
 
-
   cursor: pointer;
+
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 
   &:disabled {
     color: rgba(208, 230, 238, 0.5);

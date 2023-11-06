@@ -1,7 +1,7 @@
 import React from "react";
 import {H2Style} from "../pages/ProjectEditing/ProjectEditing";
 import styled from "styled-components";
-import icon from "../assets/images/CardPromoDownloadIcon.svg"
+import icon from "../assets/images/icons/download.svg"
 
 const PromoMaterialsStyle = styled.div`
   margin-bottom: 94px;
@@ -25,6 +25,11 @@ const CardsWrapper = styled.div`
 
 const CardStyle = styled.div`
   max-width: 356px;
+  
+  @media (max-width: 400px) {
+    max-width: none;
+    width: 100%;
+  }
 `
 
 const Block = styled.div`
@@ -39,6 +44,11 @@ const Block = styled.div`
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid #99A2AD;
   border-radius: 3px;
+
+  @media (max-width: 400px) {
+    max-width: none;
+    width: 100%;
+  }
 `
 
 
