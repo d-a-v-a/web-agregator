@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import axios from 'axios';
 import {H1Style, PathName} from "../ProjectEditing/ProjectEditing";
 import icon from "../../assets/images/IconDisplayDownloadGame.jpg"
 
 function Play() {
+
+  const [state, setState] = useState({ details: [], });
+
+  
+  useEffect(() => {
+    let dataBackend;
+    axios.get('http://localhost:8000/')
+      .then(response => {
+        dataBackend = response.data;
+        setState({ details: dataBackend });
+      });
+      
+  })
   return(
       <PlayStyle>
         <H1Style>Название проекта</H1Style>
+        {/* <div dangerouslySetInnerHTML={{__html: state.details.toString()}}></div> */}
+        {/* {state.details} */}
         <PathName><span style={{color: '#B6B6B6'}}>Проеты &gt; </span>Страница проекта</PathName>
         <Display img={icon}/>
       </PlayStyle>
