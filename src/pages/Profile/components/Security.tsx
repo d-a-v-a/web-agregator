@@ -10,6 +10,7 @@ import {ErrorText} from "../../Auth/Login";
 import hidePasswordSvg from "../../../assets/images/icons/eyes/hide_password.svg";
 import showPasswordSvg from "../../../assets/images/icons/eyes/show_password.svg";
 import {ShowPassword} from "../../Auth/Register/Basic";
+import {getCurrentUser} from "../../../services/auth.service";
 
 const schema = yup.object({
     oldPassword: yup.string()
@@ -25,6 +26,8 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>;
 
 const Security = () => {
+    const currentUser = getCurrentUser();
+
     const {
         register,
         handleSubmit,
@@ -69,7 +72,7 @@ const Security = () => {
             <LabelBox>
                 <TitleInput>Почта ЛК УрФУ</TitleInput>
                 <InputBox>
-                    <ProfileInput disabled={true} readOnly={true} value={'avarts360@urfu.me'}/>
+                    <ProfileInput disabled={true} readOnly={true} value={currentUser?.email}/>
                 </InputBox>
                 <DescInput>Недоступно для изменения</DescInput>
             </LabelBox>

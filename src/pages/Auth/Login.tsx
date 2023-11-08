@@ -5,7 +5,7 @@ import {PasswordInput} from "../../components/ui/PasswordInput";
 import * as yup from "yup";
 import {Formik, Field, Form, ErrorMessage} from "formik";
 
-import {login} from "../../services/auth.service";
+import {getCurrentUser, login} from "../../services/auth.service";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import hidePasswordSvg from "../../assets/images/icons/eyes/hide_password.svg";
@@ -21,8 +21,8 @@ const Login = () => {
 
     const schema = yup.object().shape({
         email: yup.string()
-            .required('Обязательное поле')
-            .email('Неверное значение'),
+            .required('Обязательное поле'),
+            // .email('Неверное значение'),
         password: yup.string()
             .required('Обязательное поле')
     });
@@ -43,8 +43,8 @@ const Login = () => {
         login(email, password).then(
             (msg) => {
                 console.log(msg)
-                navigate("/");
-                window.location.reload();
+                // navigate("/");
+                // window.location.reload();
             },
             (error: any) => {
                 const resMessage =
@@ -67,7 +67,7 @@ const Login = () => {
                 <AuthLabel isInvalid={!!errors.email}>
                     <AuthInput
                         {...register("email")}
-                        type={'email'}
+                        type={'text'}
                         placeholder={'Почта от ЛК УрФУ'}/>
                     <ErrorText>{errors.email?.message}</ErrorText>
                 </AuthLabel>

@@ -349,7 +349,7 @@ root.render(
                     </FullscreenProvider>
                 </NavState>
             </DataProvider>
-        </BrowserRouter>
+         </BrowserRouter>
     </React.StrictMode>
 );
 
