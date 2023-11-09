@@ -9,6 +9,7 @@ import Statistics from "../../components/Aside/components/Statistics";
 import Team from "../../components/Aside/components/Team";
 import SwiperAboutProject from "../../components/ui/SwiperAboutProject";
 import {Link} from "react-router-dom";
+import RatingProject from "../../components/RatingProject";
 
 const Project = () => {
     const divs = Array(8).fill(10).map((_, i) => <PreviewProject key={i} path={'/project'} views={'12333'}
@@ -30,7 +31,8 @@ const Project = () => {
                 <AsideProjectStyle>
                     <ProjectPlay path={'/play'} name={'Merge Комбинаторика'} image={image1}/>
                     <Statistics/>
-                    <Team countOnTab={3}/>
+                    <RatingProject currentPlace={1} currentVoices={60} fullVoices={100}/>
+                    <Team countOnTab={3}/>S
                     <History title={'Проекты команды'}/>
                 </AsideProjectStyle>
                 <RightStyle>
