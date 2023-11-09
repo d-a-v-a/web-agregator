@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import axios from 'axios';
 import {H1Style, PathName} from "../ProjectEditing/ProjectEditing";
 import icon from "../../assets/images/project_preview/IconDisplayDownloadGame.jpg"
 import unwrap from "../../assets/images/icons/unwrap.svg"
@@ -7,13 +8,28 @@ import roll_up from "../../assets/images/icons/roll_up.svg"
 import {useFullscreen} from "../../context/FullScreen";
 
 function Play() {
-    return (
-        <PlayStyle>
-            <H1Style>Название проекта</H1Style>
-            <PathName><span style={{color: '#B6B6B6'}}>Проеты &gt; </span>Страница проекта</PathName>
-            <Display img={icon}/>
-        </PlayStyle>
-    )
+
+  const [state, setState] = useState({ details: [], });
+
+  
+  useEffect(() => {
+    let dataBackend;
+    axios.get('http://localhost:8000/')
+      .then(response => {
+        dataBackend = response.data;
+        setState({ details: dataBackend });
+      });
+      
+  })
+  return(
+      <PlayStyle>
+        <H1Style>Название проекта</H1Style>
+        {/* <div dangerouslySetInnerHTML={{__html: state.details.toString()}}></div> */}
+        {/* {state.details} */}
+        <PathName><span style={{color: '#B6B6B6'}}>Проеты &gt; </span>Страница проекта</PathName>
+        <Display img={icon}/>
+      </PlayStyle>
+  )
 }
 
 function Display({img}: { img: any }) {
@@ -26,6 +42,7 @@ function Display({img}: { img: any }) {
         <DisplayStyle ref={fullscreenRef}>
             <GameWrap fullscreen={fullscreenActive}>
                 <DownloadIcon src={img}/>
+                
                 <Download>100%</Download>
             </GameWrap>
 

@@ -26,8 +26,7 @@ const CreateTeamBlock = () => {
   const {
     register,
     handleSubmit,
-    formState: {errors, isDirty, isValid}
-  } = useForm<FormData>({
+    formState: {errors, isDirty, isValid}} = useForm<FormData>({
     mode: 'all',
     defaultValues: {
       TeamName: '',
@@ -41,17 +40,27 @@ const CreateTeamBlock = () => {
 
   const { data } = useData()
 
-  const onSubmit = (formData: FormData) => {
+  
+
+  const onSubmit = () => {
     setStatus(['Изменения сохранены', '#47FFA7']);
     data.checkProject = true;
   }
+
 
   useEffect(() => {
     setButtonState((prevState: any) => ({
       handleSubmit: handleSubmit,
       onSubmit: onSubmit,
-      isDirty: true,
-      isValid: true,
+      isDirty: isDirty,
+      isValid: isValid,
+      styles: {
+        color: 'white',
+        backgroundColor: 'green',
+        borderColor: 'green',
+      },
+      children: 'Создать проект',
+
     }))
   }, [isDirty, isValid]);
 
@@ -134,7 +143,7 @@ const AddComponent = ({addComponent, count}: { addComponent: Function, count: nu
     addComponent()
   }
   return (
-      <ButtonAddComponent disabled={count >= 7} onClick={addElem}>Добавить компонент {count}/7</ButtonAddComponent>
+      <ButtonAddComponent type="button" disabled={count >= 7} onClick={addElem}>Добавить компонент {count}/7</ButtonAddComponent>
   )
 }
 

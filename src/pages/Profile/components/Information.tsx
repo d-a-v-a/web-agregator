@@ -61,6 +61,12 @@ const Information = () => {
       onSubmit: onSubmit,
       isDirty: isDirty,
       isValid: isValid,
+      children: 'Сохранить',
+      styles: {
+        color: 'white',
+        backgroundColor: 'blue',
+        borderColor: 'blue',
+      },
     }))
   }, [isDirty, isValid]);
 
@@ -266,25 +272,3 @@ export const InputBox = styled.div<{required?: boolean, flex?: boolean}>`
   `}
 `
 
-export const SubmitProfile = styled.button<{onClick?: any}>`
-  width: 100%;
-  height: 51px;
-
-  font-weight: 600;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white-color);
-
-  background: var(--blue-bg);
-  border-radius: 3px;
-  
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  
-  &:disabled {
-    cursor: auto;
-    background: var(--disabled-submit-bg);
-    color: var(--disabled-submit-color);
-  }
-`

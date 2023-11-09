@@ -36,15 +36,17 @@ function ButtonSeason({label = '', disable = false, select}: ButtonSeasonProps) 
 const MyProjects = () => {
   const [activeButton, setActiveButton] = useState(0)
 
-  // @ts-ignore
-  const {SetLabel} = useContext(Context)
   const {data} = useData()
 
   const seasons = ['Осень 2022', 'Весна 2022', 'Осень 2023', 'Весна 2023']
 
+
   useEffect(() => {
     SetLabel('Мои проекты')
   }, []);
+
+  // @ts-ignore
+  const {SetLabel, setStatus, setButtonState} = useContext(Context)
 
   return (
       <MyProjectStyle>
@@ -73,7 +75,7 @@ const MyProjects = () => {
                                                    'UE-разработчик',
                                                  ]}
         />
-          <P>Создать команду может только Team Lead</P>
+          <P>Создать команду может только <span style={{color: '#FBFF47'}}>Team Lead</span></P>
         </>}
 
 

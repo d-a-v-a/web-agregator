@@ -3,12 +3,23 @@ import React from 'react';
 import profileIMG from '../../assets/images/profile_default/profile.svg'
 import {Link} from "react-router-dom";
 import dropdownOutline from "../../assets/images/icons/arrows/dropdown_outline.svg";
+import FireIcon from "../../assets/images/icons/voices.svg";
+import { useData } from "../../context/DataContext";
+
 
 const Profile = () => {
+  let isActive = false;
+
+  const {data} = useData();
+
+  if (!data.countFireUser || typeof data.countFireUser !== 'number') {
+      data.countFireUser = 0;
+  }
+
   return (
       <ProfileStyle>
         <LinkProfile to={'#'}>
-          <span style={{marginRight: 11, transition: 'color 0.3s ease-in-out'}}>Профиль</span>
+          <span style={{marginRight: 11, transition: 'color 0.3s ease-in-out'}}>Гость</span>
           <img src={profileIMG} alt="" style={{marginRight: 8}}/>
         </LinkProfile>
         <DropLinksWrapper>
@@ -17,13 +28,44 @@ const Profile = () => {
             <DropLink to={'/auth/login'}>Войти</DropLink>
           </DropLinks>
         </DropLinksWrapper>
+        <FireWrapper>
+          <Fire isActive = {isActive} src={FireIcon} alt=""/>
+          <CountFire>{data.countFireUser}</CountFire>
+        </FireWrapper>
       </ProfileStyle>
   )
 }
 
+const CountFire = styled.span`
+  color: #FFF;
+
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`
+
+const FireWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+type PropsFire = {
+  isActive: boolean;
+}
+
+const Fire = styled.img<PropsFire>`
+  high: 22px;
+  width: 22px;
+  filter: ${({ isActive }) => isActive ? 'none' : 'grayscale(100%)'}
+`
+
 const LinkProfile = styled(Link)`
   display: flex;
   align-items: center;
+
+  margin-right: 2px;
 
   font-weight: 500;
   font-size: 16px;
@@ -50,6 +92,7 @@ const LinkProfile = styled(Link)`
 `
 
 const ProfileStyle = styled.div`
+  display: flex;
   position: relative;
   
   &:hover ul {
