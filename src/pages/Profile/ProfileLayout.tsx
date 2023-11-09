@@ -6,7 +6,11 @@ import {H2Style} from "../ProjectEditing/ProjectEditing";
 import {PublicationNotice} from "../../components/SidebarForEditing";
 import {NavLink, Outlet} from "react-router-dom";
 import exitSvg from "../../assets/images/icons/exit.svg"
-import {SubmitProfile} from "./components/Information";
+
+
+type ColorsBackgroundButton = 'blue' | 'green'
+type ColorsTextButton = 'white' | 'black'
+
 
 const ProfileLayout = () => {
   const [label, setLabel] = useState('Профиль')
@@ -17,6 +21,12 @@ const ProfileLayout = () => {
     onSubmit: () => true,
     isDirty: null,
     isValid: null,
+    children: 'Сохранить',
+    styles: {
+      color: 'white',
+      backgroundColor: 'green',
+      borderColor: 'green',
+    },
   })
 
   const saveButtonHandler = () => {
@@ -76,8 +86,12 @@ const ProfileLayout = () => {
               <SubmitProfile
                   type={'button'}
                   onClick={saveButtonHandler}
-                  disabled={!buttonState.isDirty || !buttonState.isValid}>
-                Сохранить
+                  disabled={!buttonState.isValid}
+                  color = {buttonState.styles.color}
+                  backgroundColor={buttonState.styles.backgroundColor}
+                  borderColor={buttonState.styles.borderColor}
+                  >
+                {buttonState.children}
               </SubmitProfile>
               {/*<ButtonSaveProject display={createBtn}>Создать проект</ButtonSaveProject>*/}
             </AsideStyle>
@@ -89,6 +103,40 @@ const ProfileLayout = () => {
 }
 
 export default ProfileLayout
+
+
+type PropsSubmitProfile = {
+  onClick?: any,
+  color?: string,
+  backgroundColor?: string,
+  borderColor?: string,
+}
+
+
+const SubmitProfile = styled.button<PropsSubmitProfile>`
+  width: 100%;
+  height: 51px;
+
+  font-weight: 600;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ color = 'white' }) => color === 'white' ? 'var(--white-color)' : color === 'black' ? 'black' : 'white'};
+
+  background-color: var(--blue-bg);
+  background-color: ${({ backgroundColor = 'blue' }) => backgroundColor === 'blue' ? 'var(--blue-bg)' : backgroundColor === 'green' ? '#16CD57' : 'blue'};
+  border-color: ${({ borderColor = 'blue' }) => borderColor === 'blue' ? 'var(--blue-bg)' : borderColor === 'green' ? '#16CD57' : 'black'};
+  border-radius: 3px;
+  
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  
+  &:disabled {
+    cursor: auto;
+    background: var(--disabled-submit-bg);
+    color: var(--disabled-submit-color);
+  }
+`
 
 const ProfileLayoutStyle = styled.div`
   margin: 0 auto 74px;

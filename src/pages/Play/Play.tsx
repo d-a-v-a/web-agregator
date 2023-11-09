@@ -42,6 +42,7 @@ function Display({img}: { img: any }) {
         <DisplayStyle ref={fullscreenRef}>
             <GameWrap fullscreen={fullscreenActive}>
                 <DownloadIcon src={img}/>
+                
                 <Download>100%</Download>
             </GameWrap>
 

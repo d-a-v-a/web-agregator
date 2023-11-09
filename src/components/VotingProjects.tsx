@@ -213,6 +213,12 @@ export default function VotingProjects() {
         setEventStatus(prevState => !prevState)
     }
 
+
+    const countTime = Math.round((new Date(2024, 11-1, 9, 20).getTime() - new Date().getTime())/1000);
+
+
+
+
     return (
         <VotingMainStyle>
             <VotingBox>
@@ -229,7 +235,7 @@ export default function VotingProjects() {
                     в защитах проектов в составе экспертной комиссии.
                     Подробнее на странице <LinkStyle to={'/'}>Защиты проектов</LinkStyle>
                 </ParStyle>
-                <TimerVoting countFrom={10} title={'До завершения голосования осталось:'} changeStatus={changeStatus}/>
+                <TimerVoting countFrom={countTime} title={'До завершения голосования осталось:'} changeStatus={changeStatus}/>
             </VotingBox>
             <VotingBox>
                 <EventTitle>

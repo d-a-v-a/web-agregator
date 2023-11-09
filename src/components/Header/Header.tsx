@@ -29,10 +29,9 @@ const Header = () => {
           </Link>
             <ListWrapper>
           <ListLinks>
-            <LinkToCategories label={'Площадка проектов'} path={'/editing'} margin={34}/>
+            <LinkToCategories label={'Витрина проектов'} path={'/'} margin={34}/>
             <LinkToCategories label={'Защиты проектов'} path={'/'} margin={34}/>
             <LinkToCategories label={'Заказать проект'} path={'/'} margin={34}/>
-            <LinkToCategories label={'Обучение команды'} path={'/'} margin={0}/>
           </ListLinks>
             </ListWrapper>
           <Profile/>
