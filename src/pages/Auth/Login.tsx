@@ -1,11 +1,9 @@
-import React, {useState, ChangeEventHandler} from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import {Link, NavigateFunction, useNavigate} from "react-router-dom";
-import {PasswordInput} from "../../components/ui/PasswordInput";
 import * as yup from "yup";
-import {Formik, Field, Form, ErrorMessage} from "formik";
 
-import {getCurrentUser, login} from "../../services/auth.service";
+import {login} from "../../services/auth.service";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import hidePasswordSvg from "../../assets/images/icons/eyes/hide_password.svg";
@@ -53,6 +51,7 @@ const Login = () => {
                         error.response.data.message) ||
                     error.message ||
                     error.toString();
+                console.log(resMessage)
 
                 setLoading(false);
                 setMessage(resMessage);
