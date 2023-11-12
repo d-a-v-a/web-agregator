@@ -32,7 +32,7 @@ const Project = () => {
                     <ProjectPlay path={'/play'} name={'Merge Комбинаторика'} image={image1}/>
                     <Statistics/>
                     <RatingProject currentPlace={1} currentVoices={60} fullVoices={100}/>
-                    <Team countOnTab={3}/>S
+                    <Team countOnTab={3}/>
                     <History title={'Проекты команды'}/>
                 </AsideProjectStyle>
                 <RightStyle>

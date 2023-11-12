@@ -40,19 +40,18 @@ const Login = () => {
 
         login(email, password).then(
             (msg) => {
-                console.log(msg)
                 // navigate("/");
-                // window.location.reload();
             },
             (error: any) => {
-                const resMessage =
-                    (error.response &&
-                        error.response.data &&
-                        error.response.data.message) ||
-                    error.message ||
-                    error.toString();
-                console.log(resMessage)
+                let resMessage = 'Что-то пошло не так'
 
+                if (error?.response?.status >= 400) {
+                    resMessage = 'Неправильный логин или пароль'
+                }
+                if (error?.response?.status >= 500) {
+                    resMessage = 'Неправильный логин или пароль'
+                }
+                console.log(error.response)
                 setLoading(false);
                 setMessage(resMessage);
             }
@@ -84,9 +83,9 @@ const Login = () => {
                     />
                     <ErrorText>{errors.password?.message}</ErrorText>
                 </AuthLabel>
-                {message && (
-                    <ErrorText>{message}</ErrorText>
-                )}
+                {/*{message && (*/}
+                {/*    <ErrorText>{message}</ErrorText>*/}
+                {/*)}*/}
                 <AuthBtn type={'submit'}>
                     Войти
                 </AuthBtn>

@@ -66,7 +66,6 @@ function App() {
                 <Route path='login' element={<Login/>}/>
                 <Route path='register' element={<RegisterLayout/>}/>
                 <Route path='recovery'>
-
                     <Route path='search-email' element={<SearchOnEmail/>}/>
                     <Route path='success-info' element={<SuccessInfo/>}/>
                     <Route path='change-password' element={<ChangePassword/>}/>
