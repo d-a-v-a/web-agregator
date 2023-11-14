@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import SelectionProjects from "../../components/SelectionProjects";
 import PopularProjects from "../../components/PopularProjects";
-import Search from "../../components/Aside/components/Search";
 import Categories from "../../components/Aside/components/Categories";
 import History from "../../components/Aside/components/History";
 import {AsideStyle} from "../../components/Aside/AsideStyle";
@@ -26,7 +25,6 @@ const Home = () => {
   return(
       <HomeStyle>
           <AsideStyle>
-              {/*<Search/>*/}
               <Select selectVoting={true} value={'Осень 2023'} options={['Осень 2023', 'Весна 2023', 'Осень 2022', 'Осень 2023', 'Весна 2023', 'Осень 2022']}/>
               <Categories/>
               <History title={'Иcтория'}/>

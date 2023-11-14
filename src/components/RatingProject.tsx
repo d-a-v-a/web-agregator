@@ -19,6 +19,8 @@ function RatingProject({title = 'Рейтинг проекта', currentPlace, f
     let percentVoices: number = (currentVoices / fullVoices) * 100;
     let nextPlace: number = currentPlace - 1;
 
+    if (endVoting) nextPlace = 0
+
     return (
         <RatingProjectStyle>
             <H2Style>{title}</H2Style>
