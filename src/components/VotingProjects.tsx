@@ -192,16 +192,28 @@ const WinsItem = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+
+    color: #FFF;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   &:nth-child(1)::after {
     background-image: url('${prize_place_1}');
+    content: '1';
   }
   &:nth-child(2)::after {
     background-image: url('${prize_place_2}');
+    content: '2';
   }
   &:nth-child(3)::after {
     background-image: url('${prize_place_3}');
+    content: '3';
   }
 `
 

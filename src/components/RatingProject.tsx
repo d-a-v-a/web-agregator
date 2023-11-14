@@ -12,9 +12,10 @@ export type TypeRating = {
     currentPlace: number;
     fullVoices: number;
     currentVoices: number;
+    endVoting?: boolean;
 };
 
-function RatingProject({title = 'Рейтинг проекта', currentPlace, fullVoices, currentVoices}: TypeRating) {
+function RatingProject({title = 'Рейтинг проекта', currentPlace, fullVoices, currentVoices, endVoting = false}: TypeRating) {
     let percentVoices: number = (currentVoices / fullVoices) * 100;
     let nextPlace: number = currentPlace - 1;
 
@@ -41,7 +42,14 @@ function RatingProject({title = 'Рейтинг проекта', currentPlace, f
                 <img src={voices_svg} alt="Иконка голосов"/>
                 <span>{currentVoices}</span>
             </GiveVices>
-            <VoteButtonStyle type={'button'}>Проголосовать</VoteButtonStyle>
+            <VoteButtonStyle disabled={endVoting} type={'button'}>
+               <div>Проголосовать</div>
+               <div>
+                   <span>Отдать</span>
+                   <span>-5</span>
+                   <img src={voices_svg} alt="Иконка голосов"/>
+               </div>
+            </VoteButtonStyle>
         </RatingProjectStyle>
     );
 }
@@ -72,8 +80,10 @@ const StatVoices = styled.div`
 `
 
 const VoteButtonStyle = styled.button`
+  position: relative;
   cursor: pointer;
   width: 100%;
+  height: 51px;
   padding: 10px;
   display: flex;
   align-items: center;
@@ -88,12 +98,70 @@ const VoteButtonStyle = styled.button`
   background: #282828;
 
   transition: 0.3s ease-in-out;
-
-  &:hover {
-    background: var(--main-bg);
+  
+  div:first-child {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: 0.2s ease-in-out 0.4s;
   }
 
-  &:active {
+  div:last-child {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease-in-out 0.4s;
+    visibility: hidden;
+    opacity: 0;
+
+    span:first-child {
+      color: #FF8197;
+      margin-right: 5px;
+    }
+    
+    span:last-child {
+      color: #fff;
+    }
+    
+    img {
+      display: block;
+      flex: 0 0 28px;
+      height: 28px;
+    }
+  }
+
+  &:disabled {
+    cursor: auto;
+    border-color: rgba(208, 230, 238, 0.50);
+    color: rgba(208, 230, 238, 0.50);
+  }
+  
+  &:hover:not(:disabled) {
+    border-color: #FF8197;
+
+    div:first-child {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    div:last-child {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &:active:not(:disabled) {
     background: var(--main-bg);
   }
 `

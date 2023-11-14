@@ -31,7 +31,7 @@ const Project = () => {
                 <AsideProjectStyle>
                     <ProjectPlay path={'/play'} name={'Merge Комбинаторика'} image={image1}/>
                     <Statistics/>
-                    <RatingProject currentPlace={1} currentVoices={60} fullVoices={100}/>
+                    <RatingProject endVoting={false} currentPlace={2} currentVoices={40} fullVoices={70}/>
                     <Team countOnTab={3}/>
                     <History title={'Проекты команды'}/>
                 </AsideProjectStyle>

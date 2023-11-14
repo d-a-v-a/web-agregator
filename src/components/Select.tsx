@@ -7,13 +7,13 @@ import {H2Style} from "../pages/ProjectEditing/ProjectEditing";
 
 export interface Props {
     value?: string;
-    options: any;
+    options: string[];
     height?: string;
     type?: TypeSelector;
     selectVoting?: boolean;
 }
 
-function Select({value, options, height, type, selectVoting = false}: Props) {
+function Select({ options, value = options[0], height, type, selectVoting = false}: Props) {
     const [isOpen, setIsOpen] = useState(false)
     const ref = useRef<HTMLDivElement>();
     const [activeValue, setActiveValue] = useState(value)
@@ -56,8 +56,11 @@ function Select({value, options, height, type, selectVoting = false}: Props) {
                         isOpen && (
                             <BodyWrapVotingStyle>
                                 <BodyVotingStyle>
-                                    {options.map((item: string, i: number) => <ItemVotingStyle key={i}
-                                                                                         onClick={activeValueHandler}>{item}</ItemVotingStyle>)}
+                                    {options.map((item: string, i: number) =>
+                                        <ItemVotingStyle key={i}
+                                             curValue={item} activeValue={activeValue}
+                                                         onClick={activeValueHandler}>{item}</ItemVotingStyle>)
+                                    }
                                 </BodyVotingStyle>
                             </BodyWrapVotingStyle>
                         )
@@ -76,8 +79,9 @@ function Select({value, options, height, type, selectVoting = false}: Props) {
             {
                 isOpen && (
                     <BodyStyle>
-                        {options.map((item: string, i: number) => <ItemStyle key={i}
-                                                                             onClick={activeValueHandler}>{item}</ItemStyle>)}
+                        {options.map((item: string, i: number) =>
+                            <ItemStyle key={i} onClick={activeValueHandler}>{item}</ItemStyle>)
+                        }
                     </BodyStyle>
                 )
             }
@@ -121,7 +125,7 @@ const HeadVotingStyle = styled.div<{ height?: string }>`
     `}
   
   span {
-    flex: 1 1 0%;
+    flex: 1 1 0;
     padding-left: 10px;
     height: 40px;
     width: 196px;
@@ -247,7 +251,7 @@ const BodyVotingStyle = styled.div`
   overflow-y: auto;
 `
 
-const ItemVotingStyle = styled.div`
+const ItemVotingStyle = styled.div<{activeValue: string, curValue: string}>`
   cursor: pointer;
   padding: 5px 10px;
   margin: 5px 0;
@@ -255,8 +259,7 @@ const ItemVotingStyle = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  color: rgba(255, 255, 255, 0.65);
+  color: ${(p) => p.activeValue == p.curValue ? '#C1D9E2' : 'rgba(255, 255, 255, 0.65)'};
 
   font-size: 16px;
   font-weight: 300;
@@ -264,6 +267,6 @@ const ItemVotingStyle = styled.div`
   transition: 0.1s ease-in-out;
 
   &:hover {
-    background: rgba(200, 200, 200, 0.10);
+    background-color: ${(p) => p.activeValue == p.curValue ? '' : 'rgba(200, 200, 200, 0.10)'};;
   }
 `
