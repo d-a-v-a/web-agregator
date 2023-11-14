@@ -5,7 +5,6 @@ import {H1Style, H2Style, PathName} from "../ProjectEditing/ProjectEditing";
 import PreviewProject from "../../components/PreviewProject";
 import image1 from "../../assets/images/project_preview/image1.jpg";
 import ProjectPlay from "../../components/Aside/components/ProjectPlay";
-import Statistics from "../../components/Aside/components/Statistics";
 import Team from "../../components/Aside/components/Team";
 import SwiperAboutProject from "../../components/ui/SwiperAboutProject";
 import {Link} from "react-router-dom";
@@ -30,7 +29,6 @@ const Project = () => {
             <ProjectGrid>
                 <AsideProjectStyle>
                     <ProjectPlay path={'/play'} name={'Merge Комбинаторика'} image={image1}/>
-                    <Statistics/>
                     <RatingProject endVoting={false} currentPlace={2} currentVoices={40} fullVoices={70}/>
                     <Team countOnTab={3}/>
                     <History title={'Проекты команды'}/>
