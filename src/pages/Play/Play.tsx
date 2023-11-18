@@ -6,21 +6,22 @@ import icon from "../../assets/images/project_preview/IconDisplayDownloadGame.jp
 import unwrap from "../../assets/images/icons/unwrap.svg"
 import roll_up from "../../assets/images/icons/roll_up.svg"
 import {useFullscreen} from "../../context/FullScreen";
+import Iframe from "react-iframe";
 
 function Play() {
 
   const [state, setState] = useState({ details: [], });
 
   
-  useEffect(() => {
-    let dataBackend;
-    axios.get('http://localhost:8000/')
-      .then(response => {
-        dataBackend = response.data;
-        setState({ details: dataBackend });
-      });
+  // useEffect(() => {
+  //   let dataBackend;
+  //   axios.get('http://localhost:8000/')
+  //     .then(response => {
+  //       dataBackend = response.data;
+  //       setState({ details: dataBackend });
+  //     });
       
-  })
+  // })
   return(
       <PlayStyle>
         <H1Style>Название проекта</H1Style>
@@ -41,9 +42,11 @@ function Display({img}: { img: any }) {
     return (
         <DisplayStyle ref={fullscreenRef}>
             <GameWrap fullscreen={fullscreenActive}>
-                <DownloadIcon src={img}/>
-                
-                <Download>100%</Download>
+                {/* <DownloadIcon src={img}/>
+                <Download>100%</Download> */}
+
+                <DisplayUnity/>
+
             </GameWrap>
 
             {fullscreenActive ? (
@@ -59,6 +62,13 @@ function Display({img}: { img: any }) {
             )}
         </DisplayStyle>
     )
+}
+
+
+function DisplayUnity() {
+  return (
+    <Iframe frameBorder={0} scrolling="no" width="100%" height="100%" position="relative" display="block" url="build5/index.html"/>
+  )
 }
 
 const Download = styled.div`
