@@ -63,7 +63,7 @@ const Security = () => {
             handleSubmit: handleSubmit,
             onSubmit: onSubmit,
             isDirty: isDirty,
-            isValid: isValid
+            isValid: isValid,
         }))
     }, [isDirty, isValid]);
 
