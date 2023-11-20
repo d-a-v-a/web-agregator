@@ -57,7 +57,21 @@ const Security = () => {
     useEffect(() => {
         SetLabel('Безопасность')
     }, []);
-
+    useEffect(() => {
+        setButtonState((prevState: any) => ({
+          handleSubmit: handleSubmit,
+          onSubmit: onSubmit,
+          isDirty: isDirty,
+          isValid: isValid,
+          styles: {
+            color: 'white',
+            backgroundColor: 'blue',
+            borderColor: 'blue',
+          },
+          children: 'Сохранить',
+    
+        }))
+      }, [isDirty, isValid]);
     return (
         <ProfileFormStyle onSubmit={handleSubmit(onSubmit)} noValidate>
             <LabelBox>
