@@ -1,38 +1,99 @@
-import React, {useState, ChangeEventHandler} from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
-import {Link} from "react-router-dom";
-import {PasswordInput} from "../../components/ui/PasswordInput";
+import {Link, NavigateFunction, useNavigate} from "react-router-dom";
+import * as yup from "yup";
+
+import {login} from "../../services/auth.service";
+import {useForm} from "react-hook-form";
+import {yupResolver} from "@hookform/resolvers/yup";
+import hidePasswordSvg from "../../assets/images/icons/eyes/hide_password.svg";
+import showPasswordSvg from "../../assets/images/icons/eyes/show_password.svg";
+import {ShowPassword} from "./Register/Basic";
 
 const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+    let navigate: NavigateFunction = useNavigate();
 
-  const handleEmailChange: ChangeEventHandler<HTMLInputElement> = ({target}) => {
-    setEmail(target.value)
-  }
+    const [loading, setLoading] = useState<boolean>(false);
+    const [message, setMessage] = useState<string>("");
+    const [showPassword, setShowPassword] = React.useState(false)
 
-  const handlePasswordChange: ChangeEventHandler<HTMLInputElement> = ({target}) => {
-    setPassword(target.value)
-  }
+    const schema = yup.object().shape({
+        email: yup.string()
+            .required('Обязательное поле'),
+            // .email('Неверное значение'),
+        password: yup.string()
+            .required('Обязательное поле')
+    });
 
-  return (
-      <AuthWrapper>
-        <AuthTitle>Вход</AuthTitle>
-        <AuthLabel>
-          <AuthInput value={email} onChange={handleEmailChange} type={'email'} placeholder={'Почта от ЛК УрФУ'}/>
-        </AuthLabel>
-        <AuthLabel>
-          <PasswordInput value={password} onChange={handlePasswordChange} placeholder={'Пароль'}/>
-          <SubInput to='/auth/recovery/search-email'>Забыли пароль?</SubInput>
-        </AuthLabel>
+    type FormData = yup.InferType<typeof schema>;
 
-        <AuthBtn>
-          Войти
-        </AuthBtn>
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+        resolver: yupResolver(schema)
+    });
 
-        <AuthSubBtn to='/auth/register'>Регистрация</AuthSubBtn>
-      </AuthWrapper>
-  )
+
+    const handleLogin = (formValue: { email: string; password: string }): void => {
+        const {email, password} = formValue;
+
+        setMessage("");
+        setLoading(true);
+
+        login(email, password).then(
+            (msg) => {
+                // navigate("/");
+            },
+            (error: any) => {
+                let resMessage = 'Что-то пошло не так'
+
+                if (error?.response?.status >= 400) {
+                    resMessage = 'Неправильный логин или пароль'
+                }
+                if (error?.response?.status >= 500) {
+                    resMessage = 'Неправильный логин или пароль'
+                }
+                console.log(error.response)
+                setLoading(false);
+                setMessage(resMessage);
+            }
+        );
+    };
+
+    return (
+        <AuthWrapper>
+            <form onSubmit={handleSubmit(handleLogin)} noValidate autoComplete={'off'}>
+                <AuthTitle>Вход</AuthTitle>
+                <AuthLabel isInvalid={!!errors.email}>
+                    <AuthInput
+                        {...register("email")}
+                        type={'text'}
+                        placeholder={'Почта от ЛК УрФУ'}/>
+                    <ErrorText>{errors.email?.message}</ErrorText>
+                </AuthLabel>
+                <AuthLabel isInvalid={!!errors.password}>
+                    <AuthInput
+                        type={showPassword ? "text" : "password"}
+                        {...register("password")}
+                        placeholder={'Пароль'}
+                        autoComplete={'off'}
+                    />
+                    <ShowPassword
+                        alt={showPassword ? "Hide password" : "Show password"}
+                        src={showPassword ? hidePasswordSvg : showPasswordSvg}
+                        onClick={() => setShowPassword(prevState => !prevState)}
+                    />
+                    <ErrorText>{errors.password?.message}</ErrorText>
+                </AuthLabel>
+                {/*{message && (*/}
+                {/*    <ErrorText>{message}</ErrorText>*/}
+                {/*)}*/}
+                <AuthBtn type={'submit'}>
+                    Войти
+                </AuthBtn>
+                <SubInput to='/auth/recovery/search-email'>Забыли пароль?</SubInput>
+            </form>
+            <AuthSubBtn to='/auth/register'>Регистрация</AuthSubBtn>
+        </AuthWrapper>
+    )
 }
 
 export default Login
@@ -49,14 +110,15 @@ export const AuthTitle = styled.div`
   padding: 0 20px;
 `
 
-export const AuthLabel = styled.label<{isInvalid?: any}>`
+export const AuthLabel = styled.label<{ isInvalid?: any }>`
   position: relative;
   display: block;
   margin-bottom: 30px;
+
   p {
   }
 
-  ${({ isInvalid }) => isInvalid && `
+  ${({isInvalid}) => isInvalid && `
         input {
             border-color: #C86571 !important;
         }
@@ -134,14 +196,15 @@ export const AuthInput = styled.input`
 `
 
 export const SubInput = styled(Link)`
-  display: inline-block;
+  display: block;
+  text-align: center;
   cursor: pointer;
   padding: 9px 5px;
   font-weight: 300;
   font-size: 16px;
   color: var(--grey-rgba-color);
   transition: color 0.3s ease-in-out;
-  
+
   &:hover {
     color: var(--blue-bg);
   }
