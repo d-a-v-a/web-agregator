@@ -57,12 +57,19 @@ const Security = () => {
 
     useEffect(() => {
         setButtonState((prevState: any) => ({
-            handleSubmit: handleSubmit,
-            onSubmit: onSubmit,
-            isDirty: isDirty,
-            isValid: isValid
+          handleSubmit: handleSubmit,
+          onSubmit: onSubmit,
+          isDirty: isDirty,
+          isValid: isValid,
+          styles: {
+            color: 'white',
+            backgroundColor: 'blue',
+            borderColor: 'blue',
+          },
+          children: 'Сохранить',
+    
         }))
-    }, [isDirty, isValid]);
+      }, [isDirty, isValid]);
 
     return (
         <ProfileFormStyle onSubmit={handleSubmit(onSubmit)} noValidate>
