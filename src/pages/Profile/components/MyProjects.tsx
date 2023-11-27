@@ -45,16 +45,6 @@ const MyProjects = () => {
     SetLabel('Мои проекты')
   }, []);
 
-
-  useEffect(() => {
-    setButtonState((prevState: any) => ({
-        handleSubmit: ()=>{},
-        onSubmit: ()=>{},
-        isDirty:true,
-        isValid: true,
-    }))
-});
-
   // @ts-ignore
   const {SetLabel, setStatus, setButtonState} = useContext(Context)
 
