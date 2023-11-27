@@ -4,9 +4,182 @@ import {H1Style} from "../pages/ProjectEditing/ProjectEditing";
 import {Link} from "react-router-dom";
 import TimerVoting from "./TimerVoting";
 import voices from "../assets/images/icons/voices.svg"
-import prize_place_1 from "../assets/images/icons/place_flag/place_1.svg"
-import prize_place_2 from "../assets/images/icons/place_flag/place_2.svg"
-import prize_place_3 from "../assets/images/icons/place_flag/place_3.svg"
+
+
+
+
+
+export default function VotingProjects() {
+    const [eventStatus, setEventStatus] = useState(true)
+
+    const changeStatus = () => {
+        setEventStatus(prevState => !prevState)
+    }
+
+    const countTime = Math.round((new Date(2024, 11-1, 9, 20).getTime() - new Date().getTime())/1000);
+
+    return (
+        <VotingMainStyle>
+            <VotingBox>
+                <H1Style>Голосование за лучший проект</H1Style>
+                <ParStyle>
+                    Вы попали на страницу студенческих игровых проектов,
+                    которые создаются в рамках <b> проектного обучения </b> студентами <b>2-3 курса института ИРИТ-РтФ
+                    УрФУ </b>.
+                    Если вы <span>студент</span>, то вы можете отдать свой голос за понравившийся вам проект и
+                    поддержать команду.
+                </ParStyle>
+                <ParStyle>
+                    Если вы <span>эксперт</span> из <b> IT-сферы </b>, то приглашаем вас поучаствовать
+                    в защитах проектов в составе экспертной комиссии.
+                    Подробнее на странице <LinkStyle to={'/'}>Защиты проектов</LinkStyle>
+                </ParStyle>
+                <TimerVoting countFrom={countTime} title={'До завершения голосования осталось:'} changeStatus={changeStatus}/>
+            </VotingBox>
+            <VotingBox>
+                <EventTitle>
+                    Событие: <span>Осень 2023</span>
+                </EventTitle>
+                <EventStatus status={eventStatus}>
+                    {
+                        eventStatus ?
+                            'Началось' :
+                            'Завершено'
+                    }
+                </EventStatus>
+                <Availability>
+                    В наличии:
+                    <VoicesBox count={8}>
+                        <img src={voices} alt={'Иконка наличии голосов'}/>
+                    </VoicesBox>
+                </Availability>
+                <WinsList>
+                    Призы первых мест:
+                    <WinsItem>
+                      <Badge number={1} />
+                        <div>
+                            <b>15 баллов </b>
+                            + мерч
+                        </div>
+                        Проектного практикума
+                    </WinsItem>
+                    <WinsItem>
+                      <Badge number={2} />
+                        <div>
+                            <b>10 баллов </b>
+                            + мерч
+                        </div>
+                        Проектного практикума
+                    </WinsItem>
+                    <WinsItem>
+                      <Badge number={3} />
+                        <div>
+                            <b>5 баллов </b>
+                            + мерч
+                        </div>
+                        Проектного практикума
+                    </WinsItem>
+                </WinsList>
+            </VotingBox>
+        </VotingMainStyle>
+    )
+}
+
+export const Badge = ({number: number = 0, top = "17px", left = "-10px", position = false}) => {
+  return (
+    <BadgeWrapper top={top} left={left} position={position}>
+      <BadgeContent>
+      <BadgeImage>
+      <svg width="20" height="32" viewBox="0 0 20 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <linearGradient id="linear-gradient1" x1="0" y1="0" x2="5%" y2="90%">
+          <stop offset="11.13%" stopColor="#E47B00"/>
+          <stop offset="51.27%" stopColor="#EBAA03"/>
+          <stop offset="92.29%" stopColor="#FFEF5C"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient2" x1="0" y1="0" x2="5%" y2="90%">
+          <stop offset="8.02%" stopColor="#56708A"/>
+          <stop offset="49.04%" stopColor="#8C98A5"/>
+          <stop offset="106.46%" stopColor="#CAE4FF"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient3" x1="0" y1="0" x2="5%" y2="90%">
+          <stop offset="8.02%" stopColor="#C25506"/>
+          <stop offset="106.46%" stopColor="#CD7F32"/>
+        </linearGradient>
+        {number == 1 ? <path d="M2 0H10H18C19.1046 0 20 0.88281 20 1.98738V31.244C20 34.6613 10 25.3857 10 25.3857C10 25.3857 0 34.6613 0 31.244V1.98738C0 0.88281 0.895431 0 2 0Z" fill="url(#linear-gradient1)"/> 
+          : number == 2 ? <path d="M2 0H10H18C19.1046 0 20 0.88281 20 1.98738V31.244C20 34.6613 10 25.3857 10 25.3857C10 25.3857 0 34.6613 0 31.244V1.98738C0 0.88281 0.895431 0 2 0Z" fill="url(#linear-gradient2)"/>
+          : number == 3 ? <path d="M2 0H10H18C19.1046 0 20 0.88281 20 1.98738V31.244C20 34.6613 10 25.3857 10 25.3857C10 25.3857 0 34.6613 0 31.244V1.98738C0 0.88281 0.895431 0 2 0Z" fill="url(#linear-gradient3)"/>
+          : <path d="M2 0H10H18C19.1046 0 20 0.88281 20 1.98738V31.244C20 34.6613 10 25.3857 10 25.3857C10 25.3857 0 34.6613 0 31.244V1.98738C0 0.88281 0.895431 0 2 0Z" fill="#474747"/>}
+      </svg>
+      </BadgeImage>
+      <BadgeText>{number}</BadgeText>
+      </BadgeContent>
+    </BadgeWrapper>
+  )
+}
+
+const BadgeWrapper = styled.div<{top: string, left: string, position: boolean}>`
+  position: absolute;
+
+  left: ${props => props.left};
+  top: ${props => props.top};
+
+
+  &:after {
+    content: "место";
+    display: ${props => props.position ? 'block' : 'none'};
+
+    position: absolute;
+
+    top: 20%;
+    left: 110%;
+
+    color: var(--Headline-2nd, #B6B6B6);
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -0.78px;
+  }
+
+  max-width: 20px;
+  max-height: 32px;
+`
+
+const BadgeText = styled.div`
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  top: 15%;
+  
+
+
+  color: white ;
+      text-align: center;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: -0.7px;
+`
+
+const BadgeContent = styled.div`
+  position: relative;
+`
+
+
+
+
+const BadgeImage = styled.div`
+  & svg path {
+    fill: linear-gradient(164deg, #E47B00 11.13%, #EBAA03 51.27%, #FFEF5C 92.29%);
+  }
+
+   
+`
 
 const VotingMainStyle = styled.div`
   @media (min-width: 829px) {
@@ -150,6 +323,10 @@ const WinsList = styled.div`
 `
 
 const WinsItem = styled.div`
+
+  display: flex;
+  flex-direction: column;
+  
   @media (min-width: 829px) {
     margin-left: auto;
   }
@@ -181,116 +358,4 @@ const WinsItem = styled.div`
     margin-top: 15px;
     background: #2D2D2D;
   }
-  
-  &::after {
-    position: absolute;
-    content: '';
-    top: 17px;
-    left: -9px;
-    width: 20px;
-    height: 32px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-
-    color: #FFF;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: -0.7px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  &:nth-child(1)::after {
-    background-image: url('${prize_place_1}');
-    content: '1';
-  }
-  &:nth-child(2)::after {
-    background-image: url('${prize_place_2}');
-    content: '2';
-  }
-  &:nth-child(3)::after {
-    background-image: url('${prize_place_3}');
-    content: '3';
-  }
 `
-
-
-export default function VotingProjects() {
-    const [eventStatus, setEventStatus] = useState(true)
-
-    const changeStatus = () => {
-        setEventStatus(prevState => !prevState)
-    }
-
-
-    const countTime = Math.round((new Date(2024, 11-1, 9, 20).getTime() - new Date().getTime())/1000);
-
-
-
-
-    return (
-        <VotingMainStyle>
-            <VotingBox>
-                <H1Style>Голосование за лучший проект</H1Style>
-                <ParStyle>
-                    Вы попали на страницу студенческих игровых проектов,
-                    которые создаются в рамках <b> проектного обучения </b> студентами <b>2-3 курса института ИРИТ-РтФ
-                    УрФУ </b>.
-                    Если вы <span>студент</span>, то вы можете отдать свой голос за понравившийся вам проект и
-                    поддержать команду.
-                </ParStyle>
-                <ParStyle>
-                    Если вы <span>эксперт</span> из <b> IT-сферы </b>, то приглашаем вас поучаствовать
-                    в защитах проектов в составе экспертной комиссии.
-                    Подробнее на странице <LinkStyle to={'/'}>Защиты проектов</LinkStyle>
-                </ParStyle>
-                <TimerVoting countFrom={countTime} title={'До завершения голосования осталось:'} changeStatus={changeStatus}/>
-            </VotingBox>
-            <VotingBox>
-                <EventTitle>
-                    Событие: <span>Осень 2023</span>
-                </EventTitle>
-                <EventStatus status={eventStatus}>
-                    {
-                        eventStatus ?
-                            'Началось' :
-                            'Завершено'
-                    }
-                </EventStatus>
-                <Availability>
-                    В наличии:
-                    <VoicesBox count={8}>
-                        <img src={voices} alt={'Иконка наличии голосов'}/>
-                    </VoicesBox>
-                </Availability>
-                <WinsList>
-                    Призы первых мест:
-                    <WinsItem>
-                        <div>
-                            <b>15 баллов </b>
-                            + мерч
-                        </div>
-                        Проектного практикума
-                    </WinsItem>
-                    <WinsItem>
-                        <div>
-                            <b>10 баллов </b>
-                            + мерч
-                        </div>
-                        Проектного практикума
-                    </WinsItem>
-                    <WinsItem>
-                        <div>
-                            <b>5 баллов </b>
-                            + мерч
-                        </div>
-                        Проектного практикума
-                    </WinsItem>
-                </WinsList>
-            </VotingBox>
-        </VotingMainStyle>
-    )
-}

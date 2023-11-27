@@ -6,6 +6,7 @@ import prize_place_1 from "../assets/images/icons/place_flag/place_1.svg"
 import prize_place_2 from "../assets/images/icons/place_flag/place_2.svg"
 import prize_place_3 from "../assets/images/icons/place_flag/place_3.svg"
 import {Link} from "react-router-dom";
+import { Badge } from "./VotingProjects";
 
 const CardWrapper = styled.div<{ place: number }>`
   position: relative;
@@ -195,9 +196,14 @@ export interface Props {
 }
 
 const PreviewProject: React.FC<Props> = ({place, voices, image, prevCategory, category, name, path, desc}: Props) => {
+  let position: boolean = false;
+  if (place === 1 || place === 2 || place === 3) {
+    position = true;
+  }
     return (
         <CardWrapper place={place}>
-            <PlaceStyle place={place}/>
+            {/* <PlaceStyle place={place}/> */}
+            <Badge number={place} top="0" left="10px" position={position}/>
             <VoicesStyle>
                 <img src={voices_svg} alt=""/>
                 {voices}
