@@ -6,6 +6,7 @@ import prize_place_1 from "../assets/images/icons/place_flag/place_1.svg"
 import prize_place_2 from "../assets/images/icons/place_flag/place_2.svg"
 import prize_place_3 from "../assets/images/icons/place_flag/place_3.svg"
 import voices_svg from "../assets/images/icons/voices.svg"
+import { Badge } from "./VotingProjects";
 
 export type TypeRating = {
     title?: string;
@@ -26,6 +27,8 @@ function RatingProject({title = 'Рейтинг проекта', currentPlace, f
             <H2Style>{title}</H2Style>
             <RatingLine>
                 <PlaceStyle placeNum={currentPlace}/>
+                {/* <Badge number={currentPlace}></Badge> */}
+
                 <ProgressLine percentVoices={percentVoices} nextPlace={nextPlace}>
                     <div>
                         <div></div>
