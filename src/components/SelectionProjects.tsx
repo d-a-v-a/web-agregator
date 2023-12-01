@@ -7,9 +7,9 @@ import RatingPreviewProject from "./RatingPreviewProject";
 
 
 const H2Style = styled.h2`
-    margin-bottom: 14px;
+    margin-bottom: 1.4rem;
     font-weight: 600;
-    font-size: 26px;
+    font-size: 2.6rem;
     color: var(--white-color);
 `
 
@@ -17,8 +17,8 @@ const Options = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
-  flex-wrap: wrap;
+    gap: 2rem;
+    flex-wrap: wrap;
   
 
   @media (max-width: 676px) {
@@ -30,14 +30,14 @@ const Options = styled.div`
 
 const FoundStyle = styled.span`
     flex: 1 1;
-    font-size: 20px;
+    font-size: 2rem;
     color: var(--light-grey-color);
 `
 
 const HeaderSelectProjects = styled.div`
     position: sticky;
-    padding: 15px 0 15px;
-    top: 63px;
+    padding: 1.5rem 0 1.5rem;
+    top: 6.3rem;
     background-color: var(--main-bg-color);
     z-index: 1000;
 `
@@ -126,7 +126,7 @@ const SelectionProjects = () => {
                 <Options>
                     <FoundStyle>Найдено 31 проект</FoundStyle>
                     <Pagination current={1} total={5}/>
-                    <Select value={'По убыванию рейтинга'} options={['По убыванию рейтинга', 'По возрастанию рейтинга', 'Весь список проектов']}/>
+                    <Select value={'По убыванию рейтинга'} options={['По убыванию рейтинга', 'По возрастанию рейтинга']}/>
                 </Options>
             </HeaderSelectProjects>
             <>

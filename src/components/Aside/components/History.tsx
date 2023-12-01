@@ -7,8 +7,8 @@ import {Link} from "react-router-dom";
 
 const CardHistoryStyled = styled(Link)`
   position: relative;
-  height: 78px;
-  margin-bottom: 10px;
+  height: 7.8rem;
+  margin-bottom: 1rem;
 `
 
 const CardInner = styled.div`
@@ -19,7 +19,7 @@ const CardInner = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 23px;
+  padding: 1.8rem 2.3rem;
   cursor: pointer;
   background-color: var(--dark-grey-color);
   
@@ -35,8 +35,8 @@ const CardInner = styled.div`
 `
 
 const HistoryButtonStyled = styled.button`
-  width: 31px;
-  height: 31px;
+  width: 3.1rem;
+  height: 3.1rem;
   background-image: url(${HistoryButton});
   background-position: center;
   background-repeat: no-repeat;
@@ -56,12 +56,12 @@ const PreviewImage = styled.img`
           visibility 0.3s ease-in-out,
           opacity 0.3s ease-in-out,
           bottom 0.3s ease-in-out;
-  filter: drop-shadow(0px 4px 4px #1C1E22);
-  height: 136px;
+  filter: drop-shadow(0 0.4rem 0.4rem #1C1E22);
+  height: 13.6rem;
   object-fit: cover;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
+  -webkit-border-radius: 0.8rem;
+  -moz-border-radius: 0.8rem;
+  border-radius: 0.8rem;
 `
 
 interface CardProps {
@@ -84,11 +84,11 @@ function CardHistory({genreGame, nameGame, image, path}: CardProps) {
 }
 
 const GenreGameStyle = styled.div`
-  margin-bottom: 3px;
+  margin-bottom: 0.3rem;
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 15px;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
 
   color: rgba(255, 255, 255, 0.8);
 `
@@ -96,8 +96,8 @@ const GenreGameStyle = styled.div`
 const NameGameStyle = styled.div`
   font-style: normal;
   font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
 
   color: #FFFFFF;
 `

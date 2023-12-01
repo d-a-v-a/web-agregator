@@ -4,6 +4,7 @@ import {H1Style} from "../pages/ProjectEditing/ProjectEditing";
 import {Link} from "react-router-dom";
 import TimerVoting from "./TimerVoting";
 import voices from "../assets/images/icons/voices.svg"
+import { useData } from "../context/DataContext";
 
 
 
@@ -11,12 +12,18 @@ import voices from "../assets/images/icons/voices.svg"
 
 export default function VotingProjects() {
     const [eventStatus, setEventStatus] = useState(true)
+    const {data, setValues} = useData();
+    data.eventStatus = eventStatus;
 
     const changeStatus = () => {
-        setEventStatus(prevState => !prevState)
+        setEventStatus(prevState => !prevState);
+        setValues({
+          ...data,
+          eventStatus: eventStatus
+        });
     }
 
-    const countTime = Math.round((new Date(2024, 11-1, 9, 20).getTime() - new Date().getTime())/1000);
+    //const countTime = Math.round((new Date(2024, 11-1, 9, 20).getTime() - new Date().getTime())/1000);
 
     return (
         <VotingMainStyle>
@@ -34,7 +41,7 @@ export default function VotingProjects() {
                     в защитах проектов в составе экспертной комиссии.
                     Подробнее на странице <LinkStyle to={'/'}>Защиты проектов</LinkStyle>
                 </ParStyle>
-                <TimerVoting countFrom={countTime} title={'До завершения голосования осталось:'} changeStatus={changeStatus}/>
+                <TimerVoting countFrom={10} title={'До завершения голосования осталось:'} changeStatus={changeStatus}/>
             </VotingBox>
             <VotingBox>
                 <EventTitle>
@@ -58,24 +65,21 @@ export default function VotingProjects() {
                     <WinsItem>
                       <Badge number={1} />
                         <div>
-                            <b>15 баллов </b>
-                            + мерч
+                            <b>15 баллов </b>+ мерч
                         </div>
                         Проектного практикума
                     </WinsItem>
                     <WinsItem>
                       <Badge number={2} />
                         <div>
-                            <b>10 баллов </b>
-                            + мерч
+                            <b>10 баллов </b>+ мерч
                         </div>
                         Проектного практикума
                     </WinsItem>
                     <WinsItem>
                       <Badge number={3} />
                         <div>
-                            <b>5 баллов </b>
-                            + мерч
+                            <b>5 баллов </b>+ мерч
                         </div>
                         Проектного практикума
                     </WinsItem>
@@ -86,8 +90,10 @@ export default function VotingProjects() {
 }
 
 export const Badge = ({number: number = 0, top = "17px", left = "-10px", position = false}) => {
+  const {data} = useData();
+
   return (
-    <BadgeWrapper top={top} left={left} position={position}>
+    <BadgeWrapper top={top} left={left} position={position} eventStatus={data.eventStatus}>
       <BadgeContent>
       <BadgeImage>
       <svg width="20" height="32" viewBox="0 0 20 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,7 +123,7 @@ export const Badge = ({number: number = 0, top = "17px", left = "-10px", positio
   )
 }
 
-const BadgeWrapper = styled.div<{top: string, left: string, position: boolean}>`
+const BadgeWrapper = styled.div<{top: string, left: string, position: boolean, eventStatus: boolean}>`
   position: absolute;
 
   left: ${props => props.left};
@@ -126,24 +132,24 @@ const BadgeWrapper = styled.div<{top: string, left: string, position: boolean}>`
 
   &:after {
     content: "место";
-    display: ${props => props.position ? 'block' : 'none'};
+    display: ${props => (props.position && !props.eventStatus) ? 'block' : 'none'};
 
     position: absolute;
 
     top: 20%;
-    left: 110%;
+    left: 120%;
 
     color: var(--Headline-2nd, #B6B6B6);
     font-family: Inter;
-    font-size: 13px;
+    font-size: 1.3rem;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
     letter-spacing: -0.78px;
   }
 
-  max-width: 20px;
-  max-height: 32px;
+  max-width: 2rem;
+  max-height: 3.2rem;
 `
 
 const BadgeText = styled.div`
@@ -159,7 +165,7 @@ const BadgeText = styled.div`
   color: white ;
       text-align: center;
       font-family: Inter;
-      font-size: 14px;
+      font-size: 1.4rem;
       font-style: normal;
       font-weight: 600;
       line-height: normal;
@@ -182,30 +188,30 @@ const BadgeImage = styled.div`
 `
 
 const VotingMainStyle = styled.div`
-  @media (min-width: 829px) {
-    margin-bottom: 30px;
+  @media (min-width: 82.9rem) {
+    
     display: flex;
     justify-content: space-between;
   }
 `
 
 const VotingBox = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 3rem;
 
   &:first-child {
-    flex: 1 1 546px;
+    flex: 1 1 54.6rem;
   }
 
   &:last-child {
-    flex: 1 1 300px;
+    flex: 1 1 30rem;
   }
 `
 
 const ParStyle = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 
   color: #B6B6B6;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 300;
   line-height: 146.5%;
@@ -236,13 +242,13 @@ const LinkStyle = styled(Link)`
 `
 
 const EventTitle = styled.div`
-  @media (min-width: 829px) {
+  @media (min-width: 82.9rem) {
     text-align: right;
   }
   color: #FFF;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 600;
-  line-height: 129.523%; /* 25.905px */
+  line-height: 129.523%; /* 2.59.rem */
 
   span {
     font-weight: 400;
@@ -250,35 +256,35 @@ const EventTitle = styled.div`
 `
 
 const EventStatus = styled.div<{ status: any }>`
-  @media (min-width: 829px) {
+  @media (min-width: 82.9rem) {
     text-align: right;
   }
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 300;
   line-height: 151.523%;
   color: ${props => props.status ? '#47FFA7;' : '#FBFF47;'}
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 `
 
 const Availability = styled.div`
-  @media (min-width: 829px) {
+  @media (min-width: 82.9rem) {
     text-align: right;
   }
   
   color: #D0E6EE;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 500;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 `
 
 const VoicesBox = styled.div<{ count: number }>`
-  @media (min-width: 829px) {
+  @media (min-width: 82.9rem) {
     margin-left: auto;
   }
   
   position: relative;
-  max-width: 62px;
-  margin-bottom: 14px;
+  max-width: 6.2rem;
+  margin-bottom: 1.4rem;
 
   img {
     width: 100%;
@@ -294,7 +300,7 @@ const VoicesBox = styled.div<{ count: number }>`
     left: 0;
     bottom: 0;
     color: #FFF;
-    font-size: 24px;
+    font-size: 2.4rem;
     font-weight: 700;
   }
 
@@ -307,18 +313,18 @@ const VoicesBox = styled.div<{ count: number }>`
     text-align: center;
 
     color: #C1D9E2;
-    font-size: 13px;
+    font-size: 1.3rem;
     font-weight: 300;
   }
 `
 
 const WinsList = styled.div`
-  @media (min-width: 829px) {
+  @media (min-width: 82.9rem) {
     text-align: right;
   }
   
   color: #FFF;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 500;
 `
 
@@ -327,35 +333,35 @@ const WinsItem = styled.div`
   display: flex;
   flex-direction: column;
   
-  @media (min-width: 829px) {
+  @media (min-width: 82.9rem) {
     margin-left: auto;
   }
   
   position: relative;
-  max-width: 211px;
-  margin-top: 10px;
-  border-radius: 4px;
-  border: 2px solid #2D2D2D;
-  padding: 14px 27px 14px 26px;
+  max-width: 21.1rem;
+  margin-top: 1rem;
+  border-radius: 0.4rem;
+  border: 0.2rem solid #2D2D2D;
+  padding: 1.4rem 2.7rem 1.4rem 2.6rem;
   text-align: left;
 
   color: #FFF;
-  font-size: 13px;
+  font-size: 1.3rem;
   font-weight: 300;
-  line-height: 18px;
+  line-height: 1.8rem;
   
   div {
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 400;
   }
   
   b {
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 700;
   }
 
   &:first-child {
-    margin-top: 15px;
+    margin-top: 1.5rem;
     background: #2D2D2D;
   }
 `

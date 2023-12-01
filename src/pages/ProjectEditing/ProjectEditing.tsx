@@ -38,11 +38,11 @@ const ProjectEditingStyle = styled.div`
 `
 
 export const H1Style = styled.h1`
-  margin: 0 0 14px;
+  margin: 0 0 1.4rem;
   font-style: normal;
   font-weight: 600;
-  font-size: 26px;
-  line-height: 31px;
+  font-size: 2.6rem;
+  line-height: 3.1rem;
   color: var(--white-color);
 `
 
