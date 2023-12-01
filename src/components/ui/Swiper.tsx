@@ -11,10 +11,10 @@ import {Link} from "react-router-dom";
 
 const SwiperBlockStyle = styled.div`
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 4rem;
   width: 100%;
-  max-width: 810px;
-  height: 337px;
+  max-width: 81rem;
+  height: 33.7rem;
   overflow: hidden;
   
   .swiper {
@@ -22,17 +22,17 @@ const SwiperBlockStyle = styled.div`
   }
   
   .swiper .swiper-slide {
-    margin-bottom: 27px;
-    width: 526px !important;
-    height: 310px !important;
+    margin-bottom: 2.7rem;
+    width: 52.6rem !important;
+    height: 31rem !important;
     position: relative;
-    border-radius: 20px;
+    border-radius: 2rem;
     flex-shrink: 0;
     cursor: default;
   }
   
   .swiper .swiper-slide img {
-    border-radius: 20px;
+    border-radius: 2rem;
   }
 
   .swiper-pagination {
@@ -52,11 +52,11 @@ const SwiperBlockStyle = styled.div`
   .swiper-button-next, .swiper-button-prev {
     position: absolute;
     top: 45%;
-    margin-top: -25px;
+    margin-top: -2.5rem;
     cursor: pointer;
 
-    width: 50px;
-    height: 50px;
+    width: 5rem;
+    height: 5rem;
 
     display: flex;
     align-items: center;
@@ -76,12 +76,12 @@ const SwiperBlockStyle = styled.div`
   }
 
   .swiper-button-prev {
-    left: 50px;
+    left: 5rem;
   }
 
   .swiper-button-next {
     left: auto;
-    right: 50px;
+    right: 5rem;
   }
 
   .swiper-button-next::after {
@@ -206,7 +206,7 @@ const SlideInner = ({image, category, name}: SlideProps) => {
             <SlideInfo>
                 <SlideCategory>{category}</SlideCategory>
                 <SlideName>{name}</SlideName>
-                <SlideBtn to={'/project'}>Играть</SlideBtn>
+                <SlideBtn to={'/project'}>Открыть</SlideBtn>
             </SlideInfo>
         </>
     )

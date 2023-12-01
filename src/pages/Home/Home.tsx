@@ -11,10 +11,10 @@ import Select from "../../components/Select";
 
 const HomeStyle = styled.div`
   display: flex;
-  gap: 24px;
-  margin: 0 auto 74px;
-  max-width: 1184px;
-  padding: 0 20px;
+  gap: 2.4rem;
+  margin: 0 auto 7.4rem;
+  max-width: 118.4rem;
+  padding: 0 2rem;
   
   @media (max-width: 1165px) {
     flex-direction: column;
@@ -25,7 +25,7 @@ const Home = () => {
   return(
       <HomeStyle>
           <AsideStyle>
-              <Select selectVoting={true} value={'Осень 2023'} options={['Осень 2023', 'Весна 2023', 'Осень 2022', 'Осень 2023', 'Весна 2023', 'Осень 2022']}/>
+              <Select selectVoting={true} value={'Осень 2023'} options={['Осень 2023', 'Весна 2023', 'Осень 2024', 'Весна 2024', 'Осень 2025', 'Весна 2025']}/>
               <Categories/>
               <History title={'Иcтория'}/>
           </AsideStyle>

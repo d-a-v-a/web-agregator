@@ -5,9 +5,9 @@ import checkboxImg from "../../assets/images/icons/checkboxes/galka.svg";
 const CheckBoxContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
-  margin-left: 9px;
-  font-size: 18px;
+  margin-bottom: 1.5rem;
+  margin-left: 0.9rem;
+  font-size: 1.8rem;
   
   label {
     cursor: pointer;
@@ -21,11 +21,11 @@ const CheckBoxContainer = styled.div`
   
   label::before{
     content: "";
-    margin-right: 9px;
-    border: 2px solid #99A2AD;
-    width: 18px;
-    height: 18px;
-    border-radius: 7px;
+    margin-right: 0.9rem;
+    border: 0.2rem solid #99A2AD;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 0.7rem;
     cursor: pointer;
     transition: background-color 0.2s ease;
   }
@@ -35,7 +35,7 @@ const CheckBoxContainer = styled.div`
       content: "";
       background-image: url(${checkboxImg});
       background-position: center;
-      background-position-x: 4px;
+      background-position-x: 0.4rem;
       background-repeat: no-repeat;
       display: flex;
       justify-content: center;
