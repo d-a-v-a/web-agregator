@@ -6,26 +6,26 @@ const CategoriesStyle = styled.div`
 
 `
 const CategoriesBlockStyle = styled.div`
-  margin-bottom: 31px;
+  margin-bottom: 3.1rem;
   background-color: var(--dark-grey-color);
-  padding: 27px 20px ;
+  padding: 2.7rem 2rem;
 
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
 
   color: #C1D9E2;
 `
 
 const H3Style = styled.h2`
-  margin: 22px 0 18px 0;
+  margin: 0 0 18px;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
 
   color:var(--grey-title);
 `
@@ -35,8 +35,6 @@ function Categories() {
       <CategoriesStyle>
         <h2>Категории</h2>
         <CategoriesBlockStyle>
-          <Checkbox id={'ch1'} labelTxt={'Все категории'}></Checkbox>
-
             <H3Style>Образовательные</H3Style>
             <Checkbox id={'ch2'} labelTxt={'Математика'}></Checkbox>
             <Checkbox id={'ch3'} labelTxt={'Медицина'}></Checkbox>

@@ -1,14 +1,14 @@
-import styled from "styled-components";
-import React from 'react';
+import styled, {css} from "styled-components";
+import React, { useRef, useState } from 'react';
 import profileIMG from '../../assets/images/profile_default/profile.svg'
 import {Link} from "react-router-dom";
 import dropdownOutline from "../../assets/images/icons/arrows/dropdown_outline.svg";
 import FireIcon from "../../assets/images/icons/voices.svg";
 import { useData } from "../../context/DataContext";
+import useOnClickOutside from "../../hooks/onClickOutside";
 
 
 const Profile = () => {
-  let isActive = false;
 
   const {data} = useData();
 
@@ -16,15 +16,30 @@ const Profile = () => {
       data.countFireUser = 0;
   }
 
+  const [isActive, setIsActive] = useState<boolean>(false);
+
+  const callToggle = () => {
+    setIsActive(false);
+}
+
+  const onclickHandler = () => {
+    setIsActive(true);
+  }
+
+  const node = useRef<any>();
+
+  useOnClickOutside(node, callToggle);
+
   return (
-      <ProfileStyle>
+      <ProfileStyle ref={node} onClick={onclickHandler}>
         <LinkProfile to={'#'}>
-          <span style={{marginRight: 11, transition: 'color 0.3s ease-in-out'}}>Гость</span>
+          <span style={{marginRight: 11, transition: 'color 0.15s ease-in-out'}}>Гость</span>
           <img src={profileIMG} alt="" style={{marginRight: 8}}/>
         </LinkProfile>
-        <DropLinksWrapper>
+        <DropLinksWrapper isActive={isActive}>
           <DropLinks>
             <DropLink to={'/profile/information'}>Профиль</DropLink>
+            <DropLink to={'/profile/my-projects'}>Мои проекты</DropLink>
             <DropLink to={'/auth/login'}>Войти</DropLink>
           </DropLinks>
         </DropLinksWrapper>
@@ -95,19 +110,29 @@ const ProfileStyle = styled.div`
   display: flex;
   position: relative;
   
-  &:hover ul {
-    opacity: 1;
-    visibility: visible;
-  }
+  // &:hover ul {
+  //   opacity 1;
+  // }
 `
+type IsActive = {
+  isActive: boolean;
+}
 
-const DropLinksWrapper = styled.ul`
-  visibility: hidden;
+
+const DropLinksWrapper = styled.ul<IsActive>`
+${  
+  ({ isActive }) => isActive ? css`
+    opacity: 1;
+  ` :
+   css`
+    opacity: 0;
+  `
+}
   position: absolute;
-  opacity: 0;
   min-width: 100%;
   top: 100%;
   right: 0;
+  transition: opacity 0.15s ease-in-out;
 `
 
 const DropLinks = styled.div`

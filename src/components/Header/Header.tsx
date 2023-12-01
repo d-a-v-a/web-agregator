@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, {useContext, useRef} from 'react';
 import logo from '../../assets/images/logo/logo.svg'
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import Profile from "./Profile";
 import MenuButton from "../MenuButton";
 import {SideMenu} from "../SideMenu";
@@ -20,6 +20,7 @@ const Header = () => {
 
     useOnClickOutside(node, callToggle);
 
+
   return (
       <HeaderWrapper ref={node}>
         <HeaderStyle>
@@ -30,14 +31,23 @@ const Header = () => {
             <ListWrapper>
           <ListLinks>
             <LinkToCategories label={'Витрина проектов'} path={'/'} margin={34}/>
-            <LinkToCategories label={'Защиты проектов'} path={'/'} margin={34}/>
-            <LinkToCategories label={'Заказать проект'} path={'/'} margin={34}/>
+            <LinkToCategories label={'Защиты проектов'} path={'/protection'} margin={34}/>
+            <LinkToCategories label={'Заказать проект'} path={'/order'} margin={34}/>
           </ListLinks>
             </ListWrapper>
           <Profile/>
             <SideMenu/>
         </HeaderStyle>
       </HeaderWrapper>
+  )
+}
+
+
+export function LinkToCategories({label = 'ссылка', path = '/order', margin = 34, onClick}:{label: string, path: string, margin: number, onClick?: any}) {
+  return(
+      <button onClick={onClick} style={{marginRight: margin}}>
+        <LinkStyle to={path} >{label}</LinkStyle>
+      </button>
   )
 }
 
@@ -96,7 +106,7 @@ const ListLinks = styled.ul`
   }
 `
 
-const LinkStyle = styled(Link)`
+const LinkStyle = styled(NavLink)`
   text-decoration: none;
   font-family: 'Inter', sans-serif;
   font-style: normal;
@@ -108,6 +118,9 @@ const LinkStyle = styled(Link)`
   text-align: center;
 
   color: var(--white-color);
+  &.active {
+    color: var(--blue-bg);
+  }
   cursor: pointer;
   
   transition: color 0.3s ease-in-out;
@@ -120,14 +133,6 @@ const LinkStyle = styled(Link)`
     font-size: 20px ;
   }
 `
-
-export function LinkToCategories({label = 'ссылка', path = '/', margin = 34, onClick}:{label: string, path: string, margin: number, onClick?: any}) {
-  return(
-      <button onClick={onClick} style={{marginRight: margin}}>
-        <LinkStyle to={path}>{label}</LinkStyle>
-      </button>
-  )
-}
 
 export default Header
 

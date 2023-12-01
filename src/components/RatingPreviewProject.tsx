@@ -15,12 +15,12 @@ const CardWrapper = styled.div<{ place: number }>`
   align-items: center;
   justify-content: space-between;
   background-color: var(--dark-grey-color);
-  margin-bottom: 10px;
-  padding: 23px 28px 21px 10px;
-  border-left: 2px solid transparent;
+  margin-bottom: 1.0rem;
+  padding: 2.3rem 2.8rem 2.1rem 1.0rem;
+  border-left: 0.2rem solid transparent;
 
-  @media (max-width: 829px) {
-    row-gap: 10px;
+  @media (max-width: 82.9rem) {
+    row-gap: 1rem;
   }
 
   ${({place}) => (place == 1) ?
@@ -42,20 +42,20 @@ const CardWrapper = styled.div<{ place: number }>`
 `
 
 const InfoProject = styled.div`
-  flex: 0 1 382px;
+  flex: 0 1 38.2rem;
 `
 
 const Description = styled.div`
   color: rgba(255, 255, 255, 0.65);
 
-  font-size: 13px;
+  font-size: 1.3rem;
   font-weight: 300;
-  margin-top: 4px;
+  margin-top: 0.4rem;
 `
 
 const Category = styled.div`
   color: #D0E6EE;
-  font-size: 13px;
+  font-size: 1.3rem;
   font-weight: 300;
   line-height: 1.05;
 
@@ -67,61 +67,61 @@ const Category = styled.div`
 
 const Name = styled.div`
   color: #FFF;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 600;
 `
 
 const VoicesStyle = styled.div`
   display: flex;
   align-items: center;
-  gap: 2px;
-  margin-right: 10px;
+  gap: 0.2rem;
+  margin-right: 1rem;
 
   color: #C1D9E2;
-  font-size: 13px;
+  font-size: 1.3rem;
   font-weight: 600;
 
   img {
-    flex: 0 0 18px;
-    height: 18px;
+    flex: 0 0 1.8rem;
+    height: 1.8rem;
     object-fit: contain;
   }
 
-  @media (max-width: 829px) {
+  @media (max-width: 82.9rem) {
     width: 100%;
   }
 `
 
 const ImageStyle = styled.div`
-  flex: 0 1 167px;
-  height: 87px;
+  flex: 0 1 16.7rem;
+  height: 8.7rem;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    border-radius: 0.5rem;
   }
 
-  @media (max-width: 829px) {
+  @media (max-width: 82.9rem) {
     order: -1;
-    margin-top: 20px;
+    margin-top: 2rem;
   }
 `
 
 const ButtonStyle = styled(Link)`
   grid-area: button;
-  width: 100px;
-  height: 37px;
+  width: 10rem;
+  height: 3.7rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1.6rem;
   background: linear-gradient(180deg, #60FB9E 0%, #1EFE77 0.01%, #0D9834 100%);
-  border-radius: 6px;
+  border-radius: 0.6rem;
 
   transition: opacity 0.3s ease-in-out;
 
@@ -132,7 +132,7 @@ const ButtonStyle = styled(Link)`
 `
 
 const ButtonWrap = styled.div`
-  @media (max-width: 829px) {
+  @media (max-width: 82.9rem) {
     width: 100%;
   }
 `
@@ -140,9 +140,9 @@ const ButtonWrap = styled.div`
 const PlaceStyle = styled.div<{ place: number }>`
   position: absolute;
   top: 0;
-  left: 12px;
-  width: 20px;
-  height: 32px;
+  left: 1.2rem;
+  width: 2rem;
+  height: 3.2rem;
 
   background-repeat: no-repeat;
   background-position: left top;
@@ -160,14 +160,14 @@ const PlaceStyle = styled.div<{ place: number }>`
     content: '${p => (p.place ? p.place : 0)}';
     position: absolute;
     left: 0;
-    top: 5px;
+    top: 0.5rem;
     width: 100%;
     height: 100%;
     color: #D0E6EE;
     text-align: center;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 600;
-    letter-spacing: -0.7px;
+    letter-spacing: -0.7rem;
   }
 
   ${({place}) => (place == 1 || place == 2 || place == 3) ? `
@@ -175,11 +175,11 @@ const PlaceStyle = styled.div<{ place: number }>`
         content: 'место';
         position: absolute;
         left: 120%;
-        top: 6px;
+        top: 0.6rem;
         color: #B6B6B6;
-        font-size: 13px;
+        font-size: 1.3rem;
         font-weight: 300;
-        letter-spacing: -0.78px;
+        letter-spacing: -0.78rem;
       }
   ` : ''}
 `
@@ -203,7 +203,7 @@ const PreviewProject: React.FC<Props> = ({place, voices, image, prevCategory, ca
     return (
         <CardWrapper place={place}>
             {/* <PlaceStyle place={place}/> */}
-            <Badge number={place} top="0" left="10px" position={position}/>
+            <Badge number={place} top="0" left="1rem" position={position}/>
             <VoicesStyle>
                 <img src={voices_svg} alt=""/>
                 {voices}
@@ -217,7 +217,7 @@ const PreviewProject: React.FC<Props> = ({place, voices, image, prevCategory, ca
                 <Description>{desc}</Description>
             </InfoProject>
             <ButtonWrap>
-                <ButtonStyle to={path}>Играть</ButtonStyle>
+                <ButtonStyle to={path}>Открыть</ButtonStyle>
             </ButtonWrap>
         </CardWrapper>
     )
