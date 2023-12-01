@@ -16,6 +16,8 @@ const Profile = () => {
       data.countFireUser = 0;
   }
 
+  const isActiveUser: boolean = false;
+
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const callToggle = () => {
@@ -44,7 +46,7 @@ const Profile = () => {
           </DropLinks>
         </DropLinksWrapper>
         <FireWrapper>
-          <Fire isActive = {isActive} src={FireIcon} alt=""/>
+          <Fire isActiveUser = {isActiveUser} src={FireIcon} alt=""/>
           <CountFire>{data.countFireUser}</CountFire>
         </FireWrapper>
       </ProfileStyle>
@@ -67,13 +69,13 @@ const FireWrapper = styled.div`
 `
 
 type PropsFire = {
-  isActive: boolean;
+  isActiveUser: boolean;
 }
 
 const Fire = styled.img<PropsFire>`
   high: 22px;
   width: 22px;
-  filter: ${({ isActive }) => isActive ? 'none' : 'grayscale(100%)'}
+  filter: ${({ isActiveUser }) => isActiveUser ? 'none' : 'grayscale(100%)'}
 `
 
 const LinkProfile = styled(Link)`
