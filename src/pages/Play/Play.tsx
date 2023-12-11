@@ -13,15 +13,20 @@ function Play() {
   const [state, setState] = useState({ details: [], });
 
   
-  // useEffect(() => {
-  //   let dataBackend;
-  //   axios.get('http://localhost:8000/')
-  //     .then(response => {
-  //       dataBackend = response.data;
-  //       setState({ details: dataBackend });
-  //     });
-      
-  // })
+
+  let dataBackend;
+
+  // useEffect(() =>{
+  //   axios.get('http://localhost:8000/api/mainpage/2/')
+  //   .then(response => {
+  //     dataBackend = response.data;
+  //     setState({ details: dataBackend });
+  //     console.log('iteration')
+  //   });
+    
+  // }, [])
+  // console.log(state.details);
+
   return(
       <PlayStyle>
         <H1Style>Название проекта</H1Style>
@@ -45,7 +50,7 @@ function Display({img}: { img: any }) {
                 {/* <DownloadIcon src={img}/>
                 <Download>100%</Download> */}
 
-                <DisplayUnity/>
+                {/* <DisplayUnity/> */}
 
             </GameWrap>
 
