@@ -60,14 +60,14 @@ const Login = () => {
 
     return (
         <AuthWrapper>
-            <form onSubmit={handleSubmit(handleLogin)} noValidate autoComplete={'off'}>
+            <form onSubmit={handleSubmit(handleLogin)}>
                 <AuthTitle>Вход</AuthTitle>
                 <AuthLabel isInvalid={!!errors.email}>
                     <AuthInput
                         {...register("email")}
                         type={'text'}
                         placeholder={'Почта от ЛК УрФУ'}/>
-                    <ErrorText>{errors.email?.message}</ErrorText>
+                    <ErrorText>{ errors.email?.message || 'Введите почту УрФУ' }</ErrorText>
                 </AuthLabel>
                 <AuthLabel isInvalid={!!errors.password}>
                     <AuthInput
@@ -81,15 +81,16 @@ const Login = () => {
                         src={showPassword ? hidePasswordSvg : showPasswordSvg}
                         onClick={() => setShowPassword(prevState => !prevState)}
                     />
-                    <ErrorText>{errors.password?.message}</ErrorText>
+                    <ErrorText>
+                        {
+                            errors.password?.message ||
+                            <SubInput to='/auth/recovery/search-email'>Забыли пароль?</SubInput>
+                        }
+                    </ErrorText>
                 </AuthLabel>
-                {/*{message && (*/}
-                {/*    <ErrorText>{message}</ErrorText>*/}
-                {/*)}*/}
                 <AuthBtn type={'submit'}>
                     Войти
                 </AuthBtn>
-                <SubInput to='/auth/recovery/search-email'>Забыли пароль?</SubInput>
             </form>
             <AuthSubBtn to='/auth/register'>Регистрация</AuthSubBtn>
         </AuthWrapper>
@@ -113,10 +114,7 @@ export const AuthTitle = styled.div`
 export const AuthLabel = styled.label<{ isInvalid?: any }>`
   position: relative;
   display: block;
-  margin-bottom: 30px;
-
-  p {
-  }
+  margin-bottom: 40px;
 
   ${({isInvalid}) => isInvalid && `
         input {
@@ -128,9 +126,7 @@ export const AuthLabel = styled.label<{ isInvalid?: any }>`
         }
         
         p {
-            opacity: 1;
-            bottom: -10px;
-            transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
+         color: #FF8197;
         }
     `}
 `
@@ -143,20 +139,19 @@ export const LabelText = styled.div`
 `
 
 export const ErrorText = styled.p`
-  position: absolute;
-  bottom: 0;
-  opacity: 0;
-  left: 0;
-  height: 16px;
-  z-index: 0;
+    position: absolute;
+    bottom: -12px;
+    left: 1px;
+    height: 16px;
+    z-index: 0;
 
-  transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
 
-  padding-top: 8px;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 19px;
-  color: var(--input-title);
+    padding-top: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: var(--input-title);
 `
 
 export const AuthBottom = styled.div`
@@ -197,11 +192,7 @@ export const AuthInput = styled.input`
 
 export const SubInput = styled(Link)`
   display: block;
-  text-align: center;
   cursor: pointer;
-  padding: 9px 5px;
-  font-weight: 300;
-  font-size: 16px;
   color: var(--grey-rgba-color);
   transition: color 0.3s ease-in-out;
 
