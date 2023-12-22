@@ -241,7 +241,7 @@ export default function VotingProjects() {
                     в защитах проектов в составе экспертной комиссии.
                     Подробнее на странице <LinkStyle to={'/'}>Защиты проектов</LinkStyle>
                 </ParStyle>
-                <TimerVoting countFrom={10} title={'До завершения голосования осталось:'} changeStatus={changeStatus}/>
+                <TimerVoting finishDate={'1 Jan 2024 00:00:00'} title={'До завершения голосования осталось:'} changeStatus={changeStatus} />
             </VotingBox>
             <VotingBox>
                 <EventTitle>

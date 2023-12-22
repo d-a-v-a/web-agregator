@@ -104,7 +104,7 @@ const SelectStyle = styled.div<{ ref: any }>`
 const HeadVotingStyle = styled.div<{ height?: string }>`
   cursor: pointer;
   justify-content: space-between;
-  gap: 10px;
+  gap: 0;
 
   font-weight: 500;
   font-size: 12px;
@@ -142,6 +142,7 @@ const HeadVotingStyle = styled.div<{ height?: string }>`
   
   &::after {
     content: '';
+    margin-left: 15px;
     flex: 0 0 27px;
     height: 100%;
     background: url(${dropdownOutline}) center/contain no-repeat;

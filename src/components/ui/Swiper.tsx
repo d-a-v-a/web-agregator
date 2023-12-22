@@ -8,85 +8,106 @@ import image3 from '../../assets/images/project_preview/image3.jpg'
 import sliderArrow from '../../assets/images/icons/arrows/slider-arrow.svg'
 import 'swiper/swiper-bundle.css'
 import {Link} from "react-router-dom";
+import RatingPreviewProject from "../RatingPreviewProject";
 
 const SwiperBlockStyle = styled.div`
-  position: relative;
-  margin-bottom: 40px;
-  width: 100%;
-  max-width: 810px;
-  height: 337px;
-  overflow: hidden;
-  
-  .swiper {
     position: relative;
-  }
-  
-  .swiper .swiper-slide {
-    margin-bottom: 27px;
-    width: 526px !important;
-    height: 310px !important;
-    position: relative;
-    border-radius: 20px;
-    flex-shrink: 0;
-    cursor: default;
-  }
-  
-  .swiper .swiper-slide img {
-    border-radius: 20px;
-  }
-
-  .swiper-pagination {
-    bottom: 0;
-  }
-
-  .swiper-pagination-bullet {
-    background-color: var(--white-color) !important;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  .swiper-pagination-bullet-active {
-    opacity: 0.45;
-  }
-
-
-  .swiper-button-next, .swiper-button-prev {
-    position: absolute;
-    top: 45%;
-    margin-top: -25px;
-    cursor: pointer;
-
-    width: 50px;
-    height: 50px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    z-index: 10;
-  }
-
-  .swiper-button-next::after, .swiper-button-prev::after {
-    content: url(${sliderArrow});
+    margin-bottom: 40px;
     width: 100%;
-    height: 100%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    background-size: contain;
-  }
+    max-width: 810px;
+    height: 337px;
+    overflow: hidden;
 
-  .swiper-button-prev {
-    left: 50px;
-  }
+    .swiper {
+        position: relative;
+    }
 
-  .swiper-button-next {
-    left: auto;
-    right: 50px;
-  }
+    .swiper .swiper-slide {
+        margin-bottom: 27px;
+        width: 526px !important;
+        height: 310px !important;
+        position: relative;
+        border-radius: 20px;
+        flex-shrink: 0;
+        cursor: default;
+    }
 
-  .swiper-button-next::after {
-    transform: rotate(180deg);
-  }
+    .swiper .swiper-slide::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--dark-grey-color);
+        opacity: 0;
+        transition: 0.3s ease-in-out;
+    }
+
+    .swiper .swiper-slide:not(.swiper-slide-active) {
+        pointer-events: none;
+    }
+
+    .swiper .swiper-slide:not(.swiper-slide-active)::after {
+        opacity: 0.7;
+    }
+
+    .swiper .swiper-slide img {
+        border-radius: 20px;
+    }
+
+    .swiper-pagination {
+        bottom: 0;
+    }
+
+    .swiper-pagination-bullet {
+        background-color: var(--white-color) !important;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .swiper-pagination-bullet-active {
+        opacity: 0.45;
+    }
+
+
+    .swiper-button-next, .swiper-button-prev {
+        position: absolute;
+        top: 45%;
+        margin-top: -25px;
+        cursor: pointer;
+
+        width: 50px;
+        height: 50px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        z-index: 10;
+    }
+
+    .swiper-button-next::after, .swiper-button-prev::after {
+        content: url(${sliderArrow});
+        width: 100%;
+        height: 100%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        background-size: contain;
+    }
+
+    .swiper-button-prev {
+        left: 50px;
+    }
+
+    .swiper-button-next {
+        left: auto;
+        right: 50px;
+    }
+
+    .swiper-button-next::after {
+        transform: rotate(180deg);
+    }
 `
 
 const SwiperWrapper = styled.div`
@@ -115,10 +136,47 @@ const SlideInfo = styled.div`
 `
 
 const SlideCategory = styled.div`
-  grid-area: category;
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--rgba-white-color);
+    grid-area: category;
+    display: flex;
+`
+
+const CategoryStyle = styled.div`
+    position: relative;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--rgba-white-color);
+
+    &:not(:last-child) {
+        padding-right: 1rem;
+    }
+    
+    &:not(:last-child)::after {
+        content: '-';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1rem;
+        height: 100%;
+        font-size: 13px;
+        font-weight: 300;
+        color: var(--title-blue-grey);
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    &:last-child {
+        font-weight: 300;
+        color: var(--title-blue-grey);
+    }
+    
+    @media (max-width: 400px) {
+        &:not(:last-child) {
+            display: none;
+        }
+    }
 `
 
 const SlideName = styled.div`
@@ -170,22 +228,22 @@ function SwiperProjects(){
         >
           <SwiperWrapper>
               <SwiperSlide>
-                  <SlideInner image={image1} category={'Аркады'} name={'Merge Комбинаторика'}/>
+                  <SlideInner image={image1} category={['Развлекательные', 'Аркады']} name={'Merge Комбинаторика'}/>
               </SwiperSlide>
               <SwiperSlide>
-                  <SlideInner image={image2} category={'Аркады'} name={'Merge Комбинаторика'}/>
+                  <SlideInner image={image2} category={['Развлекательные', 'Аркады']} name={'Merge Комбинаторика'}/>
               </SwiperSlide>
               <SwiperSlide>
-                  <SlideInner image={image3} category={'Аркады'} name={'Merge Комбинаторика'}/>
+                  <SlideInner image={image3} category={['Развлекательные', 'Аркады']} name={'Merge Комбинаторика'}/>
               </SwiperSlide>
               <SwiperSlide>
-                  <SlideInner image={image3} category={'Аркады'} name={'Merge Комбинаторика'}/>
+                  <SlideInner image={image3} category={['Развлекательные', 'Аркады']} name={'Merge Комбинаторика'}/>
               </SwiperSlide>
               <SwiperSlide>
-                  <SlideInner image={image3} category={'Аркады'} name={'Merge Комбинаторика'}/>
+                  <SlideInner image={image3} category={['Развлекательные', 'Аркады']} name={'Merge Комбинаторика'}/>
               </SwiperSlide>
               <SwiperSlide>
-                  <SlideInner image={image1} category={'Аркады'} name={'Merge Комбинаторика'}/>
+                  <SlideInner image={image1} category={['Развлекательные', 'Аркады']} name={'Merge Комбинаторика'}/>
               </SwiperSlide>
           </SwiperWrapper>
         </Swiper>
@@ -194,17 +252,21 @@ function SwiperProjects(){
 }
 
 export interface SlideProps {
-    image: any,
-    category: string,
-    name: string
+    image: any;
+    category: string[];
+    name: string;
 }
 
 const SlideInner = ({image, category, name}: SlideProps) => {
+    const categoryBlock = category.map((_, i) => (
+        <CategoryStyle key={i}>{_}</CategoryStyle>
+    ))
+
     return(
         <>
             <img src={image} style={{width: '100%'}} alt=""/>
             <SlideInfo>
-                <SlideCategory>{category}</SlideCategory>
+                <SlideCategory>{categoryBlock}</SlideCategory>
                 <SlideName>{name}</SlideName>
                 <SlideBtn to={'/project'}>Играть</SlideBtn>
             </SlideInfo>
