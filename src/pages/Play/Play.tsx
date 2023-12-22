@@ -5,12 +5,19 @@ import icon from "../../assets/images/project_preview/IconDisplayDownloadGame.jp
 import unwrap from "../../assets/images/icons/unwrap.svg"
 import roll_up from "../../assets/images/icons/roll_up.svg"
 import {useFullscreen} from "../../context/FullScreen";
+import {Link} from "react-router-dom";
 
 function Play() {
     return (
         <PlayStyle>
             <H1Style>Название проекта</H1Style>
-            <PathName><span style={{color: '#B6B6B6'}}>Проеты &gt; </span>Страница проекта</PathName>
+            <PathName>
+            <span style={{color: '#B6B6B6'}}>
+                <Link style={{display: 'inline', color: '#B6B6B6'}} to={'/'}>Проекты </Link>
+            </span>
+                <span> &gt; </span>
+                <span> Страница проекта</span>
+            </PathName>
             <Display img={icon}/>
         </PlayStyle>
     )

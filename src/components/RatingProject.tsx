@@ -82,90 +82,92 @@ const StatVoices = styled.div`
 `
 
 const VoteButtonStyle = styled.button`
-  position: relative;
-  cursor: pointer;
-  width: 100%;
-  height: 51px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  color: #D0E6EE;
-  font-size: 20px;
-  font-weight: 600;
-
-  border-radius: 3px;
-  border: 1px solid #5A9DF5;
-  background: #282828;
-
-  transition: 0.3s ease-in-out;
-  
-  div:first-child {
-    position: absolute;
+    position: relative;
+    cursor: pointer;
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+    height: 51px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    transition: 0.2s ease-in-out 0.4s;
-  }
+    color: #D0E6EE;
+    font-size: 20px;
+    font-weight: 600;
 
-  div:last-child {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.2s ease-in-out 0.4s;
-    visibility: hidden;
-    opacity: 0;
+    border-radius: 3px;
+    border: 1px solid #5A9DF5;
+    background: #282828;
 
-    span:first-child {
-      color: #FF8197;
-      margin-right: 5px;
-    }
-    
-    span:last-child {
-      color: #fff;
-    }
-    
-    img {
-      display: block;
-      flex: 0 0 28px;
-      height: 28px;
-    }
-  }
-
-  &:disabled {
-    cursor: auto;
-    border-color: rgba(208, 230, 238, 0.50);
-    color: rgba(208, 230, 238, 0.50);
-  }
-  
-  &:hover:not(:disabled) {
-    border-color: #FF8197;
+    transition: 0.3s ease-in-out;
 
     div:first-child {
-      visibility: hidden;
-      opacity: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: 0.2s ease-in-out 0.4s;
+        color: #D0E6EE;
     }
 
     div:last-child {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s ease-in-out 0.4s;
+        visibility: hidden;
+        opacity: 0;
+        color: #D0E6EE;
 
-  &:active:not(:disabled) {
-    background: var(--main-bg);
-  }
+        span:first-child {
+            color: #FF8197;
+            margin-right: 5px;
+        }
+
+        span:last-child {
+            color: #fff;
+        }
+
+        img {
+            display: block;
+            flex: 0 0 28px;
+            height: 28px;
+        }
+    }
+
+    &:disabled {
+        cursor: auto;
+        border-color: rgba(208, 230, 238, 0.50);
+        color: rgba(208, 230, 238, 0.50);
+    }
+
+    &:hover:not(:disabled) {
+        border-color: #FF8197;
+
+        div:first-child {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        div:last-child {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    &:active:not(:disabled) {
+        background: var(--main-bg);
+    }
 `
 
 const TitleSmall = styled.div`
