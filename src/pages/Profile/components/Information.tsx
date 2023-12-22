@@ -97,23 +97,20 @@ const Information = () => {
           <LabelBox>
             <TitleInput required={true}>Направление обучения</TitleInput>
             <InputBox>
-              <Select height={'39px'} options={['09.03.01', '09.03.03', '09.03.04']}/>
+              <Select fontSize={'16px'} height={'39px'} options={['09.03.01', '09.03.03', '09.03.04']}/>
             </InputBox>
           </LabelBox>
           <LabelBox>
             <TitleInput required={true}>Курс</TitleInput>
             <InputBox>
-              <Select height={'39px'} options={['2', '3', '4']}/>
+              <Select fontSize={'16px'} height={'39px'} options={['2', '3', '4']}/>
             </InputBox>
           </LabelBox>
           <LabelBox isInvalid={!!errors.group}>
-            <TitleInput required={true}>Академ. группа</TitleInput>
+            <TitleInput>Академ. группа</TitleInput>
             <InputBox>
-              <ProfileInput
-                  {...register("group")}
-                  placeholder={'Введите группу'}/>
+              <ProfileInput disabled={true} readOnly={true} value={'РИ-200031'}/>
             </InputBox>
-            <ErrorText>{errors.group?.message}</ErrorText>
           </LabelBox>
           <LabelBox isInvalid={!!errors.link}>
             <TitleInput
