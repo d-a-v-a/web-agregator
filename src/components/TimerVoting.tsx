@@ -33,8 +33,13 @@ function TimerVoting({finishDate, title = 'До завершения голос�
         const newHours = format(Math.floor((time / 3600) % 24));
         setHours(prev => prev !== newHours ? newHours : prev);
 
-        const newMinutes = format(Math.floor((time / 60) % 60));
+        const newMinutes = format(Math.ceil((time / 60) % 60));
         setMinutes(prev => prev !== newMinutes ? newMinutes : prev);
+
+        if (time <= 0) {
+            changeStatus();
+            clearInterval(id);
+        }
 
         return () => clearInterval(id);
     }, [time]);
@@ -42,7 +47,6 @@ function TimerVoting({finishDate, title = 'До завершения голос�
     const format = (num: number): string => {
         return num < 10 ? '0' + num : num.toString();
     };
-
 
     return (
         <>
@@ -53,13 +57,13 @@ function TimerVoting({finishDate, title = 'До завершения голос�
                     <NumberStyle>{days[1]}</NumberStyle>
                     <UnderTextTimer>дней</UnderTextTimer>
                 </BoxTimerStyle>
-                <PointsStyle src={timer_points}/>
+                <PointsStyle src={timer_points} finishTimeBool={!!time}/>
                 <BoxTimerStyle>
                     <NumberStyle>{hours[0]}</NumberStyle>
                     <NumberStyle>{hours[1]}</NumberStyle>
                     <UnderTextTimer>часов</UnderTextTimer>
                 </BoxTimerStyle>
-                <PointsStyle src={timer_points}/>
+                <PointsStyle src={timer_points} finishTimeBool={!!time}/>
                 <BoxTimerStyle>
                     <NumberStyle>{minutes[0]}</NumberStyle>
                     <NumberStyle>{minutes[1]}</NumberStyle>
@@ -99,9 +103,10 @@ const NumberStyle = styled.div`
     letter-spacing: -0.792px;
 `
 
-const PointsStyle = styled.img`
+const PointsStyle = styled.img<{finishTimeBool: boolean}>`
     margin: -16px 10px 0;
-    animation: points 1s ease-in-out infinite;
+
+    animation: ${p => (p.finishTimeBool ? 'points 1s ease-in-out infinite' : 'none')};
 
     @keyframes points {
         0% {
