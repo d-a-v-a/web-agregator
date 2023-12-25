@@ -91,13 +91,13 @@ const MyProjects = () => {
                                                          'UE-разработчик',
                                                      ]}
             />
-                <P>Создать команду может только Team Lead</P>
+                <P>Создать команду может только <span style={{color: '#FBFF47'}}>Team Lead</span></P>
             </>}
 
 
             {data.checkProject ? <CheckedProjectTeamBlock/> : (data.role ? data.role === 'Team Lead' ?
                 <CreateTeamBlock/> :
-                <TeamBlock/> : <></>)}
+                <TeamBlock buttonExit={true}/> : <></>)}
 
         </MyProjectStyle>
     )
