@@ -65,7 +65,7 @@ const HeaderStyle = styled.div`
   justify-content: space-around;
   margin: 0 auto;
   max-width: 1280px;
-  padding: 11px 25px;
+  padding: 16px 25px;
 
   @media (max-width: 1100px) {
     justify-content: space-between;
