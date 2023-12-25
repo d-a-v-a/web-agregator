@@ -23,11 +23,11 @@ export const Base = `
   }
 
   h2 {
-    margin-bottom: 25px;
+    margin-bottom: 2.5rem;
     font-style: normal;
     font-weight: 500;
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 2.4rem;
+    line-height: 2.9rem;
 
     color: var(--white-color);
   }
@@ -193,20 +193,20 @@ export const Base = `
 
   .container-big {
     margin: 0 auto;
-    max-width: 1252px;
-    padding: 0 14px;
+    max-width: 125.2rem;
+    padding: 0 1.4rem;
   }
 
   .container-middle {
     margin: 0 auto;
-    max-width: 1144px;
-    padding: 0 14px;
+    max-width: 114.4rem;
+    padding: 0 1.4rem;
   }
 
   .container-small {
     margin: 0 auto;
-    max-width: 954px;
-    padding: 0 14px;
+    max-width: 95.4rem;
+    padding: 0 1.4rem;
   }
 
 

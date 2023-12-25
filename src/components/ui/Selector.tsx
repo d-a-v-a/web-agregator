@@ -4,11 +4,11 @@ import {H2Style} from "../../pages/ProjectEditing/ProjectEditing";
 import Select from "../Select";
 
 const SelectorStyle = styled.div`
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
 `
 
 const SelectBox = styled.div`
-    padding: 11px 18px;
+    padding: 1.1rem 1.8rem;
     background: var(--dark-grey-color);
 `
 
@@ -26,7 +26,7 @@ interface Props {
 
 export type TypeSelector = 'none' | 'role'
 
-function Selector({fontSize, headColor, value, setState, labelSelector = '', options, margin = '30px', width = '100%', type = 'none'}: Props) {
+function Selector({fontSize, headColor, value, setState, labelSelector = '', options, margin = '3rem', width = '100%', type = 'none'}: Props) {
 
     return (
         <SelectorStyle style={{
@@ -35,7 +35,7 @@ function Selector({fontSize, headColor, value, setState, labelSelector = '', opt
         }}>
             <H2Style>{labelSelector}</H2Style>
             <SelectBox>
-                <Select headColor={headColor} fontSize={fontSize} value={value} setState={setState} height={'37px'} options={options} type={type}/>
+                <Select headColor={headColor} fontSize={fontSize} value={value} setState={setState} height={'3.7rem'} options={options} type={type}/>
             </SelectBox>
         </SelectorStyle>
     )

@@ -29,11 +29,11 @@ const Input = styled.input`
   display: block;
   flex: 1;
   width: 100%;
-  height: 54px;
-  padding: 0 20px;
+  height: 5.4rem;
+  padding: 0 2rem;
 
   font-weight: 300;
-  font-size: 16px;
+  font-size: 1.6rem;
 
   color: var(--white-color);
   background-color: var(--rgba-grey-color);
@@ -48,10 +48,10 @@ const Input = styled.input`
 const ShowPassword = styled.img`
   position: absolute;
   cursor: pointer;
-  top: 12px;
-  right: 21px;
-  width: 28px;
-  height: 28px;
+  top: 1.2rem;
+  right: 2.1rem;
+  width: 2.8rem;
+  height: 2.8rem;
   object-fit: contain;
   
   transition: filter 0.3s ease-in-out;

@@ -20,7 +20,7 @@ const CategoriesBlockStyle = styled.div`
 `
 
 const H3Style = styled.h2`
-  margin: 0 0 18px;
+  margin: 0 0 1.8rem;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;

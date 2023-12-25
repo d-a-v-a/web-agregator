@@ -4,15 +4,15 @@ import {H2Style} from "../../../pages/ProjectEditing/ProjectEditing";
 import {Link} from "react-router-dom";
 
 const ProjectPlayStyle = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
 `
 
 const ImageStyled = styled.img`
   display: inline-block;
-  margin-bottom: 25px;
+  margin-bottom: 22.5rem;
   object-fit: cover;
-  width: 261px;
-  height: 153px;
+  width: 26.1rem;
+  height: 15.3rem;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -21,9 +21,9 @@ const ImageStyled = styled.img`
 
 const ButtonStyled = styled(Link)`
     width: 100%;
-    height: 51px;
+    height: 5.1rem;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,8 +37,8 @@ const ButtonStyled = styled(Link)`
         opacity: 0.8;
     }
 
-    @media (max-width: 1165px) {
-        max-width: 262px;
+    @media (max-width: 1162.5rem) {
+        max-width: 26.2rem;
         width: auto;
     }
 `

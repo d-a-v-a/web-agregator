@@ -4,10 +4,10 @@ import {Link} from "react-router-dom";
 
 const ButtonStyle = styled(Link)`
   padding: 1px;
-  width: 76px;
-  height: 26px;
+  width: 7.6rem;
+  height: 2.6rem;
   font-weight: 500;
-  font-size: 10px;
+  font-size: 1rem;
 
   color: var(--btn-color-normal);
   border-radius: 3px;

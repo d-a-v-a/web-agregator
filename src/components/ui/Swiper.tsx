@@ -12,10 +12,10 @@ import RatingPreviewProject from "../RatingPreviewProject";
 
 const SwiperBlockStyle = styled.div`
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 4rem;
     width: 100%;
-    max-width: 810px;
-    height: 337px;
+    max-width: 81rem;
+    height: 33.7rem;
     overflow: hidden;
 
     .swiper {
@@ -23,11 +23,11 @@ const SwiperBlockStyle = styled.div`
     }
 
     .swiper .swiper-slide {
-        margin-bottom: 27px;
-        width: 526px !important;
-        height: 310px !important;
+        margin-bottom: 2.7rem;
+        width: 52.6rem !important;
+        height: 31rem !important;
         position: relative;
-        border-radius: 20px;
+        border-radius: 2rem;
         flex-shrink: 0;
         cursor: default;
     }
@@ -53,7 +53,7 @@ const SwiperBlockStyle = styled.div`
     }
 
     .swiper .swiper-slide img {
-        border-radius: 20px;
+        border-radius: 2rem;
     }
 
     .swiper-pagination {
@@ -73,11 +73,11 @@ const SwiperBlockStyle = styled.div`
     .swiper-button-next, .swiper-button-prev {
         position: absolute;
         top: 45%;
-        margin-top: -25px;
+        margin-top: -2.5rem;
         cursor: pointer;
 
-        width: 50px;
-        height: 50px;
+        width: 5rem;
+        height: 5rem;
 
         display: flex;
         align-items: center;
@@ -97,12 +97,12 @@ const SwiperBlockStyle = styled.div`
     }
 
     .swiper-button-prev {
-        left: 50px;
+        left: 5rem;
     }
 
     .swiper-button-next {
         left: auto;
-        right: 50px;
+        right: 5rem;
     }
 
     .swiper-button-next::after {
@@ -124,7 +124,7 @@ const SlideInfo = styled.div`
   right: 0;
   left: 0;
   bottom: 0;
-  padding: 8px 36px 25px;
+  padding: 0.8rem 3.6rem 2.5rem;
   z-index: 100;
 
   background: linear-gradient(
@@ -143,7 +143,7 @@ const SlideCategory = styled.div`
 const CategoryStyle = styled.div`
     position: relative;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 1.3rem;
     color: var(--rgba-white-color);
 
     &:not(:last-child) {
@@ -157,7 +157,7 @@ const CategoryStyle = styled.div`
         right: 0;
         width: 1rem;
         height: 100%;
-        font-size: 13px;
+        font-size: 1.3rem;
         font-weight: 300;
         color: var(--title-blue-grey);
         
@@ -182,20 +182,20 @@ const CategoryStyle = styled.div`
 const SlideName = styled.div`
   grid-area: name;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 2rem;
 `
 
 const SlideBtn = styled(Link)`
   grid-area: button;
-  width: 100px;
-  height: 37px;
+  width: 10rem;
+  height: 3.7rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1.6rem;
   background: linear-gradient(180deg, #60FB9E 0%, #1EFE77 0.01%, #0D9834 100%);
-  border-radius: 6px;
+  border-radius: 6rem;
   
   transition: opacity 0.3s ease-in-out;
   

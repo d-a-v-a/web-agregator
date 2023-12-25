@@ -57,7 +57,7 @@ const CountFire = styled.span`
   color: #FFF;
 
   font-family: Inter, sans-serif;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -73,8 +73,8 @@ type PropsFire = {
 }
 
 const Fire = styled.img<PropsFire>`
-  high: 22px;
-  width: 22px;
+  high: 2.2rem;
+  width: 2.2rem;
   filter: ${({ isActiveUser }) => isActiveUser ? 'none' : 'grayscale(100%)'}
 `
 
@@ -82,11 +82,11 @@ const LinkProfile = styled(Link)`
   display: flex;
   align-items: center;
 
-  margin-right: 2px;
+  margin-right: 0.2rem;
 
   font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
 
   color: var(--white-color);
 
@@ -102,8 +102,8 @@ const LinkProfile = styled(Link)`
 
   &::after {
     content: '';
-    width: 16px;
-    height: 16px;
+    width: 1.6rem;
+    height: 1.6rem;
     background: url(${dropdownOutline}) center/contain no-repeat;
   }
 `
@@ -138,8 +138,8 @@ ${
 `
 
 const DropLinks = styled.div`
-  padding: 20px 25px;
-  margin-top: 20px;
+  padding: 2rem 2.5rem;
+  margin-top: 2rem;
   
   background-color: var(--dark-grey-color);
   
@@ -147,8 +147,8 @@ const DropLinks = styled.div`
 `
 
 const DropLink = styled(Link)`
-  margin-bottom: 12px;
-  font-size: 14px;
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
 
   color: var(--title-input);
   
