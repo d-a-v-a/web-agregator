@@ -93,7 +93,6 @@ const ProfileLayout = () => {
                   >
                 {buttonState.children}
               </SubmitProfile>
-              {/*<ButtonSaveProject display={createBtn}>Создать проект</ButtonSaveProject>*/}
             </AsideStyle>
             <Outlet/>
           </ProfileGrid>

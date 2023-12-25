@@ -59,7 +59,7 @@ const MyProjects = () => {
         }
     ]
 
-    const [role, setRole] = useState('Team Lead')
+    const [role, setRole] = useState('Выберите из списка')
 
     useEffect(() => {
         SetLabel('Мои проекты')
@@ -107,7 +107,7 @@ const MyProjects = () => {
                     </>}
 
 
-            {data.checkProject ? <CheckedProjectTeamBlock/> : (data.role ? data.role === 'Team Lead' ?
+            {data.checkProject ? <CheckedProjectTeamBlock/> : (role !== 'Выберите из списка' ? role === 'Team Lead' ?
                 <CreateTeamBlock/> :
                 <TeamBlock buttonExit={true}/> : <></>)}
 
