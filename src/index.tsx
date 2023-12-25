@@ -8,8 +8,6 @@ import NavState from "./context/navState";
 import {FullscreenProvider} from "./context/FullScreen";
 import {GlobalStyle} from "./assets/GlobalStyles";
 
-
-
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
