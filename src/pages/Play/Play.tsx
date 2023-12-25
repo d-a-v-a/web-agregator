@@ -6,13 +6,14 @@ import icon from "../../assets/images/project_preview/IconDisplayDownloadGame.jp
 import unwrap from "../../assets/images/icons/unwrap.svg"
 import roll_up from "../../assets/images/icons/roll_up.svg"
 import {useFullscreen} from "../../context/FullScreen";
+import {Link} from "react-router-dom";
 import Iframe from "react-iframe";
 
 function Play() {
 
   const [state, setState] = useState({ details: [], });
 
-  
+
   // useEffect(() => {
   //   let dataBackend;
   //   axios.get('http://localhost:8000/')
@@ -20,7 +21,7 @@ function Play() {
   //       dataBackend = response.data;
   //       setState({ details: dataBackend });
   //     });
-      
+
   // })
   return(
       <PlayStyle>
@@ -31,6 +32,19 @@ function Play() {
         <Display img={icon}/>
       </PlayStyle>
   )
+    return (
+        <PlayStyle>
+            <H1Style>Название проекта</H1Style>
+            <PathName>
+            <span style={{color: '#B6B6B6'}}>
+                <Link style={{display: 'inline', color: '#B6B6B6'}} to={'/'}>Проекты </Link>
+            </span>
+                <span> &gt; </span>
+                <span> Страница проекта</span>
+            </PathName>
+            <Display img={icon}/>
+        </PlayStyle>
+    )
 }
 
 function Display({img}: { img: any }) {

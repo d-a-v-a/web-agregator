@@ -52,7 +52,7 @@ const Basic = ({ setStep }: Context) => {
                     {...register("email")}
                     type={'email'}
                     placeholder={'Почта от ЛК УрФУ'}/>
-                <ErrorText>{errors.email?.message}</ErrorText>
+                <ErrorText>{ errors.email?.message || 'Введите почту УрФУ' }</ErrorText>
             </AuthLabel>
             <AuthLabel isInvalid={!!errors.password}>
                 <AuthInput
@@ -66,13 +66,13 @@ const Basic = ({ setStep }: Context) => {
                     src={showPassword ? hidePasswordSvg : showPasswordSvg}
                     onClick={() => setShowPassword(prevState => !prevState)}
                 />
-                <ErrorText>{errors.password?.message}</ErrorText>
+                <ErrorText>{ errors.password?.message || 'Введите не менее 8 символов' }</ErrorText>
             </AuthLabel>
             <AuthLabel isInvalid={!!errors.confirmPassword}>
                 <AuthInput
                     type={showPasswordConfirm ? "text" : "password"}
                     {...register("confirmPassword")}
-                    placeholder={'Пароль'}
+                    placeholder={'Подтвердите пароль'}
                     autoComplete={'off'}
                 />
                 <ShowPassword
@@ -80,7 +80,7 @@ const Basic = ({ setStep }: Context) => {
                     src={showPasswordConfirm ? hidePasswordSvg : showPasswordSvg}
                     onClick={() => setShowPasswordConfirm(prevState => !prevState)}
                 />
-                <ErrorText>{errors.confirmPassword?.message}</ErrorText>
+                <ErrorText>{ errors.confirmPassword?.message }</ErrorText>
             </AuthLabel>
             <AuthBtn type={'submit'}>
                 Далее

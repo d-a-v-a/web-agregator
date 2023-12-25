@@ -45,7 +45,6 @@ const Security = () => {
 
     const onSubmit = (data: FormData) => {
         setStatus(['Изменения сохранены', '#47FFA7'])
-        reset()
     }
     // @ts-ignore
     const {SetLabel, setStatus, setButtonState} = useContext(Context)

@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import styled from "styled-components";
 import Select from "../../../components/Select";
 
@@ -42,6 +42,9 @@ const Information = () => {
     },
     resolver: yupResolver(schema)
   });
+
+  const [direction, setDirection] = useState('09.03.01');
+  const [course, setCourse] = useState('2');
 
   const onSubmit = (data: FormData) => {
     setStatus(['Изменения сохранены', '#47FFA7'])
@@ -103,23 +106,20 @@ const Information = () => {
           <LabelBox>
             <TitleInput required={true}>Направление обучения</TitleInput>
             <InputBox>
-              <Select height={'39px'} options={['09.03.01', '09.03.03', '09.03.04']}/>
+              <Select headColor={'#D0E6EE'} value={direction} setState={setDirection} fontSize={'16px'} height={'39px'} options={['09.03.01', '09.03.03', '09.03.04']}/>
             </InputBox>
           </LabelBox>
           <LabelBox>
             <TitleInput required={true}>Курс</TitleInput>
             <InputBox>
-              <Select height={'39px'} options={['2', '3', '4']}/>
+              <Select headColor={'#D0E6EE'} value={course} setState={setCourse} fontSize={'16px'} height={'39px'} options={['2', '3', '4']}/>
             </InputBox>
           </LabelBox>
           <LabelBox isInvalid={!!errors.group}>
-            <TitleInput required={true}>Академ. группа</TitleInput>
+            <TitleInput>Академ. группа</TitleInput>
             <InputBox>
-              <ProfileInput
-                  {...register("group")}
-                  placeholder={'Введите группу'}/>
+              <ProfileInput disabled={true} readOnly={true} value={'РИ-200031'}/>
             </InputBox>
-            <ErrorText>{errors.group?.message}</ErrorText>
           </LabelBox>
           <LabelBox isInvalid={!!errors.link}>
             <TitleInput

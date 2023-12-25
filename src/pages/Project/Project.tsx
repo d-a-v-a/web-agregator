@@ -29,7 +29,7 @@ const Project = () => {
             <ProjectGrid>
                 <AsideProjectStyle>
                     <ProjectPlay path={'/play'} name={'Merge Комбинаторика'} image={image1}/>
-                    <RatingProject endVoting={false} currentPlace={2} currentVoices={40} fullVoices={70}/>
+                    <RatingProject button={true} endVoting={false} currentPlace={2} currentVoices={40} fullVoices={70}/>
                     <Team countOnTab={3}/>
                     <History title={'Проекты команды'}/>
                 </AsideProjectStyle>

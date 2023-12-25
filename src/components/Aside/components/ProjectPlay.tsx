@@ -20,26 +20,27 @@ const ImageStyled = styled.img`
 
 
 const ButtonStyled = styled(Link)`
-  width: 100%;
-  height: 51px;
-  font-weight: 600;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--white-color);
-  background: linear-gradient(180deg, #60FB9E 0%, #1EFE77 0.01%, #0D9834 100%);
-  border-radius: 3px;
-  transition: opacity 0.3s ease-in-out;
-  
-  &:hover {
-    opacity: 0.8;
-  }
+    width: 100%;
+    height: 51px;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white-color);
+    background: linear-gradient(0deg, #16CD57 0%, #16CD57 100%), linear-gradient(180deg, #60FB9E 0%, #1EFE77 0.01%, #16CD57 48.77%, #0D9834 100%);
 
-  @media (max-width: 1165px) {
-    max-width: 262px;
-    width: auto;
-  }
+    border-radius: 3px;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    @media (max-width: 1165px) {
+        max-width: 262px;
+        width: auto;
+    }
 `
 
 interface ProjectPlayProps {

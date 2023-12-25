@@ -1,22 +1,24 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {Dispatch, SetStateAction, useEffect, useRef, useState} from "react";
 import styled from "styled-components";
 import dropdownOutline from "../assets/images/icons/arrows/dropdown_outline.svg";
 import {TypeSelector} from "./ui/Selector";
 import {useData} from "../context/DataContext";
 import {H2Style} from "../pages/ProjectEditing/ProjectEditing";
 
-export interface Props {
-    value?: string;
+export interface IProps {
+    value: string;
+    setState: Dispatch<SetStateAction<string>>;
     options: string[];
     height?: string;
+    fontSize?: string;
     type?: TypeSelector;
     selectVoting?: boolean;
+    headColor?: string;
 }
 
-function Select({ options, value = options[0], height, type, selectVoting = false}: Props) {
+function Select({value, setState, options, headColor = '#fff', height, fontSize = '12px', type, selectVoting = false}: IProps) {
     const [isOpen, setIsOpen] = useState(false)
     const ref = useRef<HTMLDivElement>();
-    const [activeValue, setActiveValue] = useState(value)
     const hideClickHandler = () => {
         setIsOpen(prevState => !prevState)
     }
@@ -24,7 +26,7 @@ function Select({ options, value = options[0], height, type, selectVoting = fals
     const {setValues} = useData();
 
     const activeValueHandler = ({target}: any) => {
-        setActiveValue(target.textContent)
+        setState(target.textContent);
         setIsOpen(false)
         if (type === 'role') {
             setValues({role: target.textContent})
@@ -50,7 +52,7 @@ function Select({ options, value = options[0], height, type, selectVoting = fals
                 <H2Style>Выбор события</H2Style>
                 <SelectStyle ref={ref}>
                     <HeadVotingStyle height={height} onClick={hideClickHandler}>
-                        <span>{activeValue ? activeValue : 'Выберите из списка'}</span>
+                        <span>{value ? value : 'Выберите из списка'}</span>
                     </HeadVotingStyle>
                     {
                         isOpen && (
@@ -58,7 +60,7 @@ function Select({ options, value = options[0], height, type, selectVoting = fals
                                 <BodyVotingStyle>
                                     {options.map((item: string, i: number) =>
                                         <ItemVotingStyle key={i}
-                                             curValue={item} activeValue={activeValue}
+                                                         curValue={item} activeValue={value}
                                                          onClick={activeValueHandler}>{item}</ItemVotingStyle>)
                                     }
                                 </BodyVotingStyle>
@@ -74,13 +76,13 @@ function Select({ options, value = options[0], height, type, selectVoting = fals
     return (
         <SelectStyle ref={ref}>
             <HeadStyle height={height} onClick={hideClickHandler}>
-                <span>{activeValue ? activeValue : 'Выберите из списка'}</span>
+                <span style={{ fontSize: fontSize, color: headColor }}>{value ? value : 'Выберите из списка'}</span>
             </HeadStyle>
             {
                 isOpen && (
                     <BodyStyle>
                         {options.map((item: string, i: number) =>
-                            <ItemStyle key={i} onClick={activeValueHandler}>{item}</ItemStyle>)
+                            <ItemStyle fontSize={fontSize} key={i} onClick={activeValueHandler}>{item}</ItemStyle>)
                         }
                     </BodyStyle>
                 )
@@ -198,27 +200,27 @@ const BodyStyle = styled.div`
   }
 `
 
-const ItemStyle = styled.div`
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--rgba-white-color);
+const ItemStyle = styled.div<{fontSize: string}>`
+    cursor: pointer;
+    padding: 5px 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--rgba-white-color);
+    font-size: ${(p) => p.fontSize ? p.fontSize : '12px'};
 
-  &::after {
-    content: '';
-    width: 1.6rem;
-    height: 1.6rem;
-    background: url(${dropdownOutline}) center/contain no-repeat;
-    transform: rotate(180deg);
-  }
+    &::after {
+        content: '';
+        width: 16px;
+        height: 16px;
+        background: url(${dropdownOutline}) center/contain no-repeat;
+        transform: rotate(180deg);
+    }
 
-  &:hover {
-    background-color: var(--black-bg);
-  }
+    &:hover {
+        background-color: var(--black-bg);
+    }
 `
 
 const BodyWrapVotingStyle = styled.div`

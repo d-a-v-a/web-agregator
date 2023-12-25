@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Pagination from "./ui/Pagination";
 import styled from "styled-components";
 import image1 from "../assets/images/project_preview/image1.jpg"
@@ -43,6 +43,7 @@ const HeaderSelectProjects = styled.div`
 `
 
 const SelectionProjects = () => {
+    const [sort, setSort] = useState('По убыванию рейтинга')
     const projects = [
         {
             place: 1,
@@ -126,7 +127,7 @@ const SelectionProjects = () => {
                 <Options>
                     <FoundStyle>Найдено 31 проект</FoundStyle>
                     <Pagination current={1} total={5}/>
-                    <Select value={'По убыванию рейтинга'} options={['По убыванию рейтинга', 'По возрастанию рейтинга']}/>
+                    <Select setState={setSort} value={sort} options={['По убыванию рейтинга', 'По возрастанию рейтинга', 'Весь список проектов']}/>
                 </Options>
             </HeaderSelectProjects>
             <>
