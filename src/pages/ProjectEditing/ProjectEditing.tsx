@@ -18,7 +18,7 @@ function ProjectEditing() {
             <span> Мои проекты</span>
         </PathName>
         <MainPart>
-          <SidebarForEditing/>
+          <SidebarForEditing />
           <DescriptionProject/>
         </MainPart>
         <PromoMaterials/>

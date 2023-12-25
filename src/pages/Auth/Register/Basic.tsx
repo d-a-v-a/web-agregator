@@ -72,7 +72,7 @@ const Basic = ({ setStep }: Context) => {
                 <AuthInput
                     type={showPasswordConfirm ? "text" : "password"}
                     {...register("confirmPassword")}
-                    placeholder={'Пароль'}
+                    placeholder={'Подтвердите пароль'}
                     autoComplete={'off'}
                 />
                 <ShowPassword

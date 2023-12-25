@@ -59,6 +59,8 @@ const MyProjects = () => {
         }
     ]
 
+    const [role, setRole] = useState('Team Lead')
+
     useEffect(() => {
         SetLabel('Мои проекты')
     }, []);
@@ -77,22 +79,32 @@ const MyProjects = () => {
                 {seasons.map((season, idx) => (
                     <div key={idx}>
                         <div onClick={() => setActiveButton(idx)}>
-                            <ButtonSeason disabled={season['disabled']} label={season['label']} select={idx === activeButton}/>
+                            <ButtonSeason disabled={season['disabled']} label={season['label']}
+                                          select={idx === activeButton}/>
                         </div>
                     </div>
                 ))}
             </ButtonSeasonWrapper>
-            {data.checkProject ? <></> : <><Selector type={'role'}
-                                                     width={'356px'}
-                                                     margin={'10px'}
-                                                     labelSelector={'Роль в команде*'}
-                                                     options={[
-                                                         'Team Lead', 'UI/UX-дизайнер', 'Game-дизайнер', 'Unity-разработчик', 'Художник',
-                                                         'UE-разработчик',
-                                                     ]}
-            />
-                <P>Создать команду может только <span style={{color: '#FBFF47'}}>Team Lead</span></P>
-            </>}
+            {
+                data.checkProject ?
+                    <></> :
+                    <>
+                        <Selector
+                            headColor={'#D0E6EE'}
+                            fontSize={'16px'}
+                            value={role}
+                            setState={setRole}
+                            type={'role'}
+                            width={'356px'}
+                            margin={'10px'}
+                            labelSelector={'Роль в команде*'}
+                            options={[
+                                'Team Lead', 'UI/UX-дизайнер', 'Game-дизайнер', 'Unity-разработчик', 'Художник',
+                                'UE-разработчик',
+                            ]}
+                        />
+                        <P>Создать команду может только <span style={{color: '#FBFF47'}}>Team Lead</span></P>
+                    </>}
 
 
             {data.checkProject ? <CheckedProjectTeamBlock/> : (data.role ? data.role === 'Team Lead' ?

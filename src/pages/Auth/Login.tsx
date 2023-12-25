@@ -161,33 +161,33 @@ export const AuthBottom = styled.div`
 `
 
 export const AuthInput = styled.input`
-  position: relative;
-  display: block;
-  z-index: 1;
-  flex: 1;
-  width: 100%;
-  height: 54px;
-  padding: 0 20px;
+    position: relative;
+    display: block;
+    z-index: 1;
+    flex: 1;
+    width: 100%;
+    height: 54px;
+    padding: 0 20px;
 
-  font-weight: 300;
-  font-size: 16px;
+    font-weight: 300;
+    font-size: 16px;
 
-  color: var(--white-color);
-  background-color: var(--rgba-grey-color);
-  border: 1px solid var(--light-grey-color);
-  border-radius: 4px;
-
-  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-
-  &::placeholder {
-    color: var(--rgba-white-color);
-
-    transition: color 0.3s ease-in-out;
-  }
-
-  &:focus {
+    color: var(--white-color);
     background-color: var(--rgba-grey-color);
-  }
+    border: 1px solid var(--light-grey-color);
+    border-radius: 4px;
+
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+
+    &::placeholder {
+        color: var(--rgba-white-color);
+
+        transition: color 0.3s ease-in-out;
+    }
+
+    &:focus {
+        background-color: var(--rgba-grey-color);
+    }
 `
 
 export const SubInput = styled(Link)`
