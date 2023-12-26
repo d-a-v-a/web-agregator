@@ -151,7 +151,7 @@ const AddComponent = ({addComponent, count}: { addComponent: Function, count: nu
     addComponent()
   }
   return (
-      <ButtonAddComponent type="button" disabled={count >= 7} onClick={addElem}>Добавить компонент {count}/7</ButtonAddComponent>
+      <ButtonAddComponent type="button" disabled={count >= 7} onClick={addElem}>Добавить участника {count}/7</ButtonAddComponent>
   )
 }
 

@@ -37,7 +37,7 @@ const TeamBlock = ({buttonExit}: {buttonExit?: boolean}) => {
             </div>
             <div style={{marginBottom: '10.9rem'}}>
                 {dataTeam.members.map((member, id) => (
-                    <>
+                    <div key={`${id} ${member}`}>
                         <TitleInput>Участник команды #{id + 1}</TitleInput>
                         <InputBox>
                             <ProfileInput disabled={true} readOnly={true} value={member.name + ' ' + member.group}/>
@@ -46,7 +46,7 @@ const TeamBlock = ({buttonExit}: {buttonExit?: boolean}) => {
                             <Role>Роль: <span style={{color: '#D0E6EE'}}>{member.role}</span></Role>
                             <Contacts target={'_blank'} href={member.contacts}>Контакты</Contacts>
                         </WrapperComponent>
-                    </>)
+                    </div>)
                 )}
             </div>
 

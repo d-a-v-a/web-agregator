@@ -29,7 +29,7 @@ type FormData = yup.InferType<typeof schema>;
 
 const Basic = ({ setStep }: Context) => {
     const {data, setValues} = useData()
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+    const { register, handleSubmit, formState: { errors, dirtyFields } } = useForm<FormData>({
         defaultValues: {
             email: data.email,
             password: data.password,
@@ -52,7 +52,11 @@ const Basic = ({ setStep }: Context) => {
                     {...register("email")}
                     type={'email'}
                     placeholder={'Почта от ЛК УрФУ'}/>
-                <ErrorText>{ errors.email?.message || 'Введите почту УрФУ' }</ErrorText>
+                {
+                    dirtyFields?.email && !errors.email ?
+                        <ErrorText>Введите почту УрФУ</ErrorText> :
+                        <ErrorText>{ errors.email?.message }</ErrorText>
+                }
             </AuthLabel>
             <AuthLabel isInvalid={!!errors.password}>
                 <AuthInput
@@ -66,7 +70,11 @@ const Basic = ({ setStep }: Context) => {
                     src={showPassword ? hidePasswordSvg : showPasswordSvg}
                     onClick={() => setShowPassword(prevState => !prevState)}
                 />
-                <ErrorText>{ errors.password?.message || 'Введите не менее 8 символов' }</ErrorText>
+                {
+                    dirtyFields?.password && !errors.password ?
+                        <ErrorText>Введите не менее 8 символов</ErrorText> :
+                        <ErrorText>{ errors.password?.message }</ErrorText>
+                }
             </AuthLabel>
             <AuthLabel isInvalid={!!errors.confirmPassword}>
                 <AuthInput

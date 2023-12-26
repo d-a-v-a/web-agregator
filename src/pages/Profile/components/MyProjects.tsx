@@ -114,9 +114,11 @@ const MyProjects = () => {
                     </>}
 
 
-            {data.checkProject ? <CheckedProjectTeamBlock/> : (role !== 'Выберите из списка' ? role === 'Team Lead' ?
-                <CreateTeamBlock/> :
-                <TeamBlock buttonExit={true}/> : <></>)}
+            {
+                data.checkProject ? <CheckedProjectTeamBlock/> :
+                    (role !== 'Выберите из списка' ? role === 'Team Lead' ? <CreateTeamBlock/> :
+                        <TeamBlock buttonExit={true}/> : <></>)
+            }
 
         </MyProjectStyle>
     )

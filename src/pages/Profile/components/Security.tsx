@@ -10,7 +10,6 @@ import {ErrorText} from "../../Auth/Login";
 import hidePasswordSvg from "../../../assets/images/icons/eyes/hide_password.svg";
 import showPasswordSvg from "../../../assets/images/icons/eyes/show_password.svg";
 import {ShowPassword} from "../../Auth/Register/Basic";
-import {getCurrentUser} from "../../../services/auth.service";
 
 const schema = yup.object({
     oldPassword: yup.string()
@@ -26,26 +25,31 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>;
 
 const Security = () => {
-    const currentUser = getCurrentUser();
-
     const {
         register,
         handleSubmit,
+        watch,
         reset,
         formState: {errors, isDirty, isValid}
     } = useForm<FormData>({
         mode: 'all',
-        defaultValues: {
-            oldPassword: '',
-            nowPassword: '',
-            confirmPassword: ''
-        },
         resolver: yupResolver(schema)
     });
 
-    const onSubmit = (data: FormData) => {
-        setStatus(['Изменения сохранены', '#47FFA7']);
+    const emailUser = 'Ivanov.Ivan@urfu.me';
+    const statusObj = {
+        noChanges: ['Изменений нет', '#47BDFF'],
+        changesMade: ['Внесены изменения', '#FBFF47'],
+        changesSave: ['Изменения сохранены', '#47FFA7'],
     }
+
+    const onSubmit = (data: FormData) => {
+        setTimeout(() => {
+            setStatus(statusObj.changesSave);
+        })
+        reset();
+    }
+
     // @ts-ignore
     const {SetLabel, SetBtn, setStatus, setButtonState} = useContext(Context)
 
@@ -54,31 +58,44 @@ const Security = () => {
     const [showConfirmPassword, setShowConfirmPassword] = React.useState(false)
 
     useEffect(() => {
+        setStatus(statusObj.noChanges);
         SetLabel('Безопасность');
         SetBtn(true);
     }, []);
 
     useEffect(() => {
+        const subscription = watch((values: any) => {
+                let sumStr = '';
+                for (const key in values) {
+                    sumStr += values[key]
+                }
+                sumStr !== '' ? setStatus(statusObj.changesMade) : setStatus(statusObj.noChanges)
+            }
+        )
+        return () => subscription.unsubscribe()
+    }, [watch]);
+
+    useEffect(() => {
         setButtonState((prevState: any) => ({
-          handleSubmit: handleSubmit,
-          onSubmit: onSubmit,
-          isDirty: isDirty,
-          isValid: isValid,
-          styles: {
-            color: 'white',
-            backgroundColor: 'blue',
-            borderColor: 'blue',
-          },
-          children: 'Сохранить',
-    
+            handleSubmit: handleSubmit,
+            onSubmit: onSubmit,
+            isDirty: isDirty,
+            isValid: isValid,
+            styles: {
+                color: 'white',
+                backgroundColor: 'blue',
+                borderColor: 'blue',
+            },
+            children: 'Сохранить',
         }))
-      }, [isDirty, isValid]);
+    }, [isDirty, isValid]);
+
     return (
         <ProfileFormStyle onSubmit={handleSubmit(onSubmit)} noValidate>
             <LabelBox>
                 <TitleInput>Почта ЛК УрФУ</TitleInput>
                 <InputBox>
-                    <ProfileInput disabled={true} readOnly={true} value={currentUser?.email}/>
+                    <ProfileInput disabled={true} readOnly={true} value={emailUser}/>
                 </InputBox>
                 <DescInput>Недоступно для изменения</DescInput>
             </LabelBox>
@@ -138,24 +155,24 @@ const Security = () => {
 export default Security
 
 const TitleBox = styled.div`
-  margin-bottom: 5rem;
+    margin-bottom: 5rem;
 
-  h2 {
-    margin-bottom: 0.8rem !important;
-  }
+    h2 {
+        margin-bottom: 0.8rem !important;
+    }
 `
 
 const ProfileParagraph = styled.p`
-  font-size: 1.8rem;
-  color: var(--grey-title);
+    font-size: 1.8rem;
+    color: var(--grey-title);
 `
 
 const DescInput = styled.p`
-  margin-top: 1.5rem;
-  text-align: right;
+    margin-top: 1.5rem;
+    text-align: right;
 
-  font-weight: 400;
-  font-size: 1.8rem;
-  color: var(--title-blue-grey);
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: var(--title-blue-grey);
 `
 

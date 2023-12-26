@@ -9,7 +9,7 @@ const ProjectPlayStyle = styled.div`
 
 const ImageStyled = styled.img`
   display: inline-block;
-  margin-bottom: 22.5rem;
+  margin-bottom: 2.25rem;
   object-fit: cover;
   width: 26.1rem;
   height: 15.3rem;

@@ -1,9 +1,8 @@
-import React, {useState} from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
-import {Link, NavigateFunction, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import * as yup from "yup";
 
-import {login} from "../../services/auth.service";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import hidePasswordSvg from "../../assets/images/icons/eyes/hide_password.svg";
@@ -11,51 +10,24 @@ import showPasswordSvg from "../../assets/images/icons/eyes/show_password.svg";
 import {ShowPassword} from "./Register/Basic";
 
 const Login = () => {
-    let navigate: NavigateFunction = useNavigate();
-
-    const [loading, setLoading] = useState<boolean>(false);
-    const [message, setMessage] = useState<string>("");
     const [showPassword, setShowPassword] = React.useState(false)
 
     const schema = yup.object().shape({
         email: yup.string()
             .required('Обязательное поле'),
-            // .email('Неверное значение'),
         password: yup.string()
             .required('Обязательное поле')
     });
 
     type FormData = yup.InferType<typeof schema>;
 
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+    const {register, handleSubmit, formState: {errors, dirtyFields}} = useForm<FormData>({
         resolver: yupResolver(schema)
     });
 
-
     const handleLogin = (formValue: { email: string; password: string }): void => {
-        const {email, password} = formValue;
-
-        setMessage("");
-        setLoading(true);
-
-        login(email, password).then(
-            (msg) => {
-                // navigate("/");
-            },
-            (error: any) => {
-                let resMessage = 'Что-то пошло не так'
-
-                if (error?.response?.status >= 400) {
-                    resMessage = 'Неправильный логин или пароль'
-                }
-                if (error?.response?.status >= 500) {
-                    resMessage = 'Неправильный логин или пароль'
-                }
-                console.log(error.response)
-                setLoading(false);
-                setMessage(resMessage);
-            }
-        );
+        // sending
+        console.log(formValue);
     };
 
     return (
@@ -67,7 +39,11 @@ const Login = () => {
                         {...register("email")}
                         type={'text'}
                         placeholder={'Почта от ЛК УрФУ'}/>
-                    <ErrorText>{ errors.email?.message || 'Введите почту УрФУ' }</ErrorText>
+                    {
+                        dirtyFields?.email && !errors.email ?
+                            <ErrorText>Введите почту УрФУ</ErrorText> :
+                            <ErrorText>{ errors.email?.message }</ErrorText>
+                    }
                 </AuthLabel>
                 <AuthLabel isInvalid={!!errors.password}>
                     <AuthInput
@@ -100,23 +76,22 @@ const Login = () => {
 export default Login
 
 export const AuthWrapper = styled.div`
-  width: 100%;
+    width: 100%;
 `
 
 export const AuthTitle = styled.div`
-  text-align: center;
-  margin-bottom: 3rem;
-  font-weight: 600;
-  font-size: 2.6rem;
-  padding: 0 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 600;
+    font-size: 2.6rem;
 `
 
 export const AuthLabel = styled.label<{ isInvalid?: any }>`
-  position: relative;
-  display: block;
-  margin-bottom: 4rem;
+    position: relative;
+    display: block;
+    margin-bottom: 4rem;
 
-  ${({isInvalid}) => isInvalid && `
+    ${({isInvalid}) => isInvalid && `
         input {
             border-color: #C86571 !important;
         }
@@ -131,14 +106,14 @@ export const AuthLabel = styled.label<{ isInvalid?: any }>`
     `}
 `
 export const LabelText = styled.div`
-  margin-bottom: 0.8rem;
-  font-weight: 300;
-  font-size: 1.6rem;
-  line-height: 1.9rem;
-  color: var(--input-title);
+    margin-bottom: 0.8rem;
+    font-weight: 300;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    color: var(--input-title);
 `
 
-export const ErrorText = styled.p`
+export const ErrorText = styled.p<{bigSize?: boolean}>`
     position: absolute;
     bottom: -1.2rem;
     left: 1px;
@@ -149,15 +124,15 @@ export const ErrorText = styled.p`
 
     padding-top: 0.8rem;
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: ${p => p.bigSize ? '1.8rem' : '1.4rem' };
     line-height: 1.9rem;
     color: var(--input-title);
 `
 
 export const AuthBottom = styled.div`
-  font-weight: 500;
-  font-size: 1.6rem;
-  line-height: 1.9rem;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
 `
 
 export const AuthInput = styled.input`
@@ -191,47 +166,47 @@ export const AuthInput = styled.input`
 `
 
 export const SubInput = styled(Link)`
-  display: block;
-  cursor: pointer;
-  color: var(--grey-rgba-color);
-  transition: color 0.3s ease-in-out;
+    display: block;
+    cursor: pointer;
+    color: var(--grey-rgba-color);
+    transition: color 0.3s ease-in-out;
 
-  &:hover {
-    color: var(--blue-bg);
-  }
+    &:hover {
+        color: var(--blue-bg);
+    }
 `
 
 export const AuthBtn = styled.button`
-  width: 100%;
-  background-color: var(--blue-bg);
-  border-radius: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  font-size: 2rem;
-  height: 5.6rem;
-  margin: 3.5rem 0 1.7rem;
-  transition: background-color 0.3s ease-in-out;
+    width: 100%;
+    background-color: var(--blue-bg);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 2rem;
+    height: 5.6rem;
+    margin: 3.5rem 0 1.7rem;
+    transition: background-color 0.3s ease-in-out;
 
-  &:hover {
-    background-color: var(--blue-light-bg);
-  }
+    &:hover {
+        background-color: var(--blue-light-bg);
+    }
 
-  &:active {
-    background-color: var(--blue-dark-bg);
-  }
+    &:active {
+        background-color: var(--blue-dark-bg);
+    }
 `
 
 
 export const AuthSubBtn = styled(Link)`
-  font-weight: 300;
-  font-size: 1.6rem;
-  text-align: center;
-  color: var(--blue-bg);
-  transition: color 0.3s ease-in-out;
+    font-weight: 300;
+    font-size: 1.6rem;
+    text-align: center;
+    color: var(--blue-bg);
+    transition: color 0.3s ease-in-out;
 
-  &:hover {
-    color: var(--white-color);
-  }
+    &:hover {
+        color: var(--white-color);
+    }
 `
