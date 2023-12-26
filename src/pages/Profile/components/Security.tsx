@@ -51,7 +51,7 @@ const Security = () => {
     }
 
     // @ts-ignore
-    const {SetLabel, SetBtn, setStatus, setButtonState} = useContext(Context)
+    const {SetLabel, SetBtn, setStatus, setButtonState, setSubSubmitText, setButtonLink} = useContext(Context)
 
     const [showOldPassword, setShowOldPassword] = React.useState(false)
     const [showPassword, setShowPassword] = React.useState(false)
@@ -61,6 +61,8 @@ const Security = () => {
         setStatus(statusObj.noChanges);
         SetLabel('Безопасность');
         SetBtn(true);
+        setSubSubmitText('');
+        setButtonLink([]);
     }, []);
 
     useEffect(() => {

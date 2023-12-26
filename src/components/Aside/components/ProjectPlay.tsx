@@ -19,7 +19,7 @@ const ImageStyled = styled.img`
 `
 
 
-const ButtonStyled = styled(Link)`
+export const ButtonStyled = styled(Link)`
     width: 100%;
     height: 5.1rem;
     font-weight: 600;

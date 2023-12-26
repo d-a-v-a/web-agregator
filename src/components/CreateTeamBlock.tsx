@@ -35,26 +35,16 @@ const CreateTeamBlock = () => {
   });
 
   // @ts-ignore
-  const {setStatus, setButtonState} = useContext(Context)
+  const {setStatus, setButtonState, setButtonLink, setSubSubmitText} = useContext(Context)
 
   const { data } = useData()
 
   const onSubmit = () => {
     setStatus(['Изменения сохранены', '#47FFA7']);
     data.checkProject = true;
-
-    setButtonState((prevState: any) => ({
-      handleSubmit: handleSubmit,
-      onSubmit: onSubmit,
-      isDirty: isDirty,
-      isValid: isValid,
-      styles: {
-        color: 'white',
-        backgroundColor: 'green',
-        borderColor: 'green',
-      },
-      children: 'Открыть проект',
-    }))
+    setButtonLink(['Открыть проект', '/project']);
+    setSubSubmitText('');
+    setButtonState();
   }
 
   useEffect(() => {

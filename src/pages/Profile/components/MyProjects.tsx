@@ -36,7 +36,7 @@ const MyProjects = () => {
     const [activeButton, setActiveButton] = useState(0)
 
     // @ts-ignore
-    const {SetLabel, SetBtn} = useContext(Context)
+    const {SetLabel, SetBtn, setSubSubmitText, setButtonLink} = useContext(Context)
     const {data} = useData()
 
     const seasons = [
@@ -62,9 +62,11 @@ const MyProjects = () => {
 
     useEffect(() => {
         if (role === 'Выберите из списка') {
-            SetBtn(false);
+            setSubSubmitText('Выберите роль в команде');
         } else if (role === 'Team Lead') {
-            SetBtn(true);
+            setSubSubmitText('Заполните информацию о команде');
+        } else {
+            setSubSubmitText('Создать проект может только \n Team Lead');
         }
     }, [role]);
 

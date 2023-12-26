@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Context} from "./Context"
 import styled from "styled-components";
 import {AsideStyle} from "../../components/Aside/AsideStyle";
@@ -6,6 +6,7 @@ import {H2Style} from "../ProjectEditing/ProjectEditing";
 import {PublicationNotice} from "../../components/SidebarForEditing";
 import {NavLink, Outlet} from "react-router-dom";
 import exitSvg from "../../assets/images/icons/exit.svg"
+import {ButtonStyled} from "../../components/Aside/components/ProjectPlay";
 
 
 type ColorsBackgroundButton = 'blue' | 'green'
@@ -15,7 +16,11 @@ type ColorsTextButton = 'white' | 'black'
 const ProfileLayout = () => {
     const [label, setLabel] = useState('Профиль');
     const [buttonVisible, setButtonVisible] = useState(false);
+    const [buttonLink, setButtonLink] = useState([])
     const [status, setStatus] = useState(['Изменений нет', '#47BDFF']);
+    const [subSubmitText, setSubSubmitText] = useState('');
+
+
     const [buttonState, setButtonState] = useState({
         handleSubmit: (onSubmit: any) => {
         },
@@ -46,7 +51,7 @@ const ProfileLayout = () => {
 
     return (
         <Context.Provider value={{
-            SetLabel, SetBtn, setStatus, setButtonState
+            setButtonLink, SetLabel, SetBtn, setStatus, setButtonState, setSubSubmitText
         }}>
             <ProfileLayoutStyle>
                 <TitleStyle>{label}</TitleStyle>
@@ -85,7 +90,13 @@ const ProfileLayout = () => {
                             <ExitStyle>Выход</ExitStyle>
                         </ProfileNavStyle>
                         {
-                            buttonVisible &&
+                            buttonLink.length > 0 &&
+                            <ButtonStyled to={buttonLink[1]}>
+                                {buttonLink[0]}
+                            </ButtonStyled>
+                        }
+                        {
+                            buttonState &&
                             <SubmitProfile
                                 type={'button'}
                                 onClick={saveButtonHandler}
@@ -98,6 +109,12 @@ const ProfileLayout = () => {
                             </SubmitProfile>
                         }
 
+                        {
+                            subSubmitText &&
+                            <SubSubmitProfile>
+                                {subSubmitText}
+                            </SubSubmitProfile>
+                        }
                     </AsideStyle>
                     <Outlet/>
                 </ProfileGrid>
@@ -140,6 +157,13 @@ const SubmitProfile = styled.button<PropsSubmitProfile>`
         background: var(--disabled-submit-bg);
         color: var(--disabled-submit-color);
     }
+`
+
+const SubSubmitProfile = styled.div`
+    margin-top: 1.6rem;
+    color: #B6B6B6;
+    font-size: 14px;
+    font-weight: 500;
 `
 
 const ProfileLayoutStyle = styled.div`

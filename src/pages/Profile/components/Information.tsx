@@ -36,7 +36,7 @@ const Information = () => {
         direction: '09.03.03',
         course: '2',
         group: 'РИ-300020',
-        link: 't.me/urfu',
+        link: 'https://t.me/urfu',
     }
 
     const statusObj = {
@@ -65,12 +65,14 @@ const Information = () => {
     }
 
     // @ts-ignore
-    const {SetLabel, SetBtn, setStatus, setButtonState} = useContext(Context);
+    const {SetLabel, SetBtn, setStatus, setButtonState, setSubSubmitText, setButtonLink} = useContext(Context);
 
     useEffect(() => {
         SetLabel('Данные пользователя');
         setStatus(statusObj.noChanges);
         SetBtn(true);
+        setSubSubmitText('');
+        setButtonLink([]);
     }, []);
 
     useEffect(() => {
