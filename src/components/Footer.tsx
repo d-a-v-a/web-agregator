@@ -8,9 +8,9 @@ import {Link} from "react-router-dom";
 
 
 const FooterStyle = styled.div`
-  margin: 90px auto 0;
-  padding: 46px 117px 80px;
-  max-width: 926px;
+  margin: 9rem auto 0;
+  padding: 4.6rem 11.7rem 8rem;
+  max-width: 92.6rem;
   border-top: 2px solid #2D2D2D;
 
   @media (max-width: 410px) {
@@ -36,9 +36,9 @@ const SectionOneFooterStyle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 27px;
+  margin-bottom: 2.7rem;
   flex-wrap: wrap;
-  row-gap: 20px;
+  row-gap: 2rem;
   
   @media (max-width: 410px) {
     > a {
@@ -66,15 +66,15 @@ const SectionTwoFooterStyle = styled.div`
   
   @media (max-width: 850px) {
     flex-direction: column;
-    gap: 10px;
+    gap: 1rem;
   }
 `
 
 const LinkForFooterStyle = styled(Link)`
   font-style: normal;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
   color: #99A2AD;
   cursor: pointer;
   transition: color 0.3s ease-in-out;

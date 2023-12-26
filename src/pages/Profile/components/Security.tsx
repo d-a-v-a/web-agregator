@@ -136,24 +136,24 @@ const Security = () => {
 export default Security
 
 const TitleBox = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
 
   h2 {
-    margin-bottom: 8px !important;
+    margin-bottom: 0.8rem !important;
   }
 `
 
 const ProfileParagraph = styled.p`
-  font-size: 18px;
+  font-size: 1.8rem;
   color: var(--grey-title);
 `
 
 const DescInput = styled.p`
-  margin-top: 15px;
+  margin-top: 1.5rem;
   text-align: right;
 
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.8rem;
   color: var(--title-blue-grey);
 `
 

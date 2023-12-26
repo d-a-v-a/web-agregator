@@ -105,16 +105,16 @@ export const AuthWrapper = styled.div`
 
 export const AuthTitle = styled.div`
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 3rem;
   font-weight: 600;
-  font-size: 26px;
-  padding: 0 20px;
+  font-size: 2.6rem;
+  padding: 0 2rem;
 `
 
 export const AuthLabel = styled.label<{ isInvalid?: any }>`
   position: relative;
   display: block;
-  margin-bottom: 40px;
+  margin-bottom: 4rem;
 
   ${({isInvalid}) => isInvalid && `
         input {
@@ -131,33 +131,33 @@ export const AuthLabel = styled.label<{ isInvalid?: any }>`
     `}
 `
 export const LabelText = styled.div`
-  margin-bottom: 8px;
+  margin-bottom: 0.8rem;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
   color: var(--input-title);
 `
 
 export const ErrorText = styled.p`
     position: absolute;
-    bottom: -12px;
+    bottom: -1.2rem;
     left: 1px;
-    height: 16px;
+    height: 1.6rem;
     z-index: 0;
 
     transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
 
-    padding-top: 8px;
+    padding-top: 0.8rem;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
     color: var(--input-title);
 `
 
 export const AuthBottom = styled.div`
   font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
 `
 
 export const AuthInput = styled.input`
@@ -166,11 +166,11 @@ export const AuthInput = styled.input`
     z-index: 1;
     flex: 1;
     width: 100%;
-    height: 54px;
-    padding: 0 20px;
+    height: 5.4rem;
+    padding: 0 2rem;
 
     font-weight: 300;
-    font-size: 16px;
+    font-size: 1.6rem;
 
     color: var(--white-color);
     background-color: var(--rgba-grey-color);
@@ -209,9 +209,9 @@ export const AuthBtn = styled.button`
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 20px;
-  height: 56px;
-  margin: 35px 0 17px;
+  font-size: 2rem;
+  height: 5.6rem;
+  margin: 3.5rem 0 1.7rem;
   transition: background-color 0.3s ease-in-out;
 
   &:hover {
@@ -226,7 +226,7 @@ export const AuthBtn = styled.button`
 
 export const AuthSubBtn = styled(Link)`
   font-weight: 300;
-  font-size: 16px;
+  font-size: 1.6rem;
   text-align: center;
   color: var(--blue-bg);
   transition: color 0.3s ease-in-out;

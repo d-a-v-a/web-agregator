@@ -16,7 +16,7 @@ export interface IProps {
     headColor?: string;
 }
 
-function Select({value, setState, options, headColor = '#fff', height, fontSize = '12px', type, selectVoting = false}: IProps) {
+function Select({value, setState, options, headColor = '#fff', height, fontSize = '1.2rem', type, selectVoting = false}: IProps) {
     const [isOpen, setIsOpen] = useState(false)
     const ref = useRef<HTMLDivElement>();
     const hideClickHandler = () => {
@@ -202,18 +202,18 @@ const BodyStyle = styled.div`
 
 const ItemStyle = styled.div<{fontSize: string}>`
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 0.5rem 1rem;
     font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: var(--rgba-white-color);
-    font-size: ${(p) => p.fontSize ? p.fontSize : '12px'};
+    font-size: ${(p) => p.fontSize ? p.fontSize : '1.2rem'};
 
     &::after {
         content: '';
-        width: 16px;
-        height: 16px;
+        width: 1.6rem;
+        height: 1.6rem;
         background: url(${dropdownOutline}) center/contain no-repeat;
         transform: rotate(180deg);
     }

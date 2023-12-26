@@ -94,19 +94,19 @@ export default Basic
 export const Steps = styled.div`
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-bottom: 30px;
+  gap: 3rem;
+  margin-bottom: 3rem;
 `
 
 export const Step = styled.button<{ isActive: boolean}>`
   position: relative;
   font-weight: 700;
-  flex: 0 0 30px;
-  height: 30px;
+  flex: 0 0 3rem;
+  height: 3rem;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  font-size: 14px;
+  font-size: 1.4rem;
 
   display: flex;
   align-items: center;
@@ -118,8 +118,8 @@ export const Step = styled.button<{ isActive: boolean}>`
     content: '';
     position: absolute;
     top: 50%;
-    right: 35px;
-    width: 20px;
+    right: 3.5rem;
+    width: 2rem;
     height: 2px;
     background-color: ${p=> (p.isActive ? 'var(--blue-bg)' : 'var(--step-grey)')};
     transition: background-color 0.3s ease-in-out;
@@ -129,10 +129,10 @@ export const Step = styled.button<{ isActive: boolean}>`
 export const ShowPassword = styled.img`
   position: absolute;
   cursor: pointer;
-  top: 12px;
-  right: 21px;
-  width: 28px;
-  height: 28px;
+  top: 1.2rem;
+  right: 2.1rem;
+  width: 2.8rem;
+  height: 2.8rem;
   object-fit: contain;
   z-index: 2;
 

@@ -10,9 +10,9 @@ const CheckedProjectTeamBlock = () => {
     return (
         <>
             <PreviewProject>
-                <div style={{marginRight: '95px'}}>
+                <div style={{marginRight: '9.5rem'}}>
                     <TitleInput>Merge Комбинаторика</TitleInput>
-                    <img style={{width: '261px', height: '153px', borderRadius: '3px'}} src={img} alt={'Постер'}/>
+                    <img style={{width: '261rem', height: '15.3rem', borderRadius: '3px'}} src={img} alt={'Постер'}/>
                 </div>
                 <div>
                     <PublicationDate>Проект опубликован <span
@@ -26,10 +26,10 @@ const CheckedProjectTeamBlock = () => {
 }
 
 export const PublicationDate = styled.div`
-    margin-bottom: 16px;
+    margin-bottom: 1.6rem;
     color: var(--d-0-e-6-ee, rgba(208, 230, 238, 0.50));
     font-family: Inter, sans-serif;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;

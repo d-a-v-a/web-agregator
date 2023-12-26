@@ -67,26 +67,26 @@ function RatingProject({
 }
 
 const RatingProjectStyle = styled.div`
-    margin-bottom: 50px;
+    margin-bottom: 5rem;
 `
 
 const StatVoices = styled.div`
-    margin: -5px 0 10px;
+    margin: -0.5rem 0 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2px;
+    gap: 0.2rem;
 
     img {
         display: block;
-        flex: 0 0 20px;
-        height: 20px;
+        flex: 0 0 2rem;
+        height: 2rem;
     }
 
     span {
         display: block;
         color: #D0E6EE;
-        font-size: 14px;
+        font-size: 1.4rem;
         font-weight: 600;
     }
 `
@@ -95,14 +95,14 @@ const VoteButtonStyle = styled.button`
     position: relative;
     cursor: pointer;
     width: 100%;
-    height: 51px;
-    padding: 10px;
+    height: 5.1rem;
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     color: #D0E6EE;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 600;
 
     border-radius: 3px;
@@ -141,7 +141,7 @@ const VoteButtonStyle = styled.button`
 
         span:first-child {
             color: #FF8197;
-            margin-right: 5px;
+            margin-right: 0.5rem;
         }
 
         span:last-child {
@@ -150,8 +150,8 @@ const VoteButtonStyle = styled.button`
 
         img {
             display: block;
-            flex: 0 0 28px;
-            height: 28px;
+            flex: 0 0 2.8rem;
+            height: 2.8rem;
         }
     }
 
@@ -183,25 +183,25 @@ const VoteButtonStyle = styled.button`
 const TitleSmall = styled.div`
     margin-bottom: 4px;
     color: #B6B6B6;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 400;
 `
 
 const GiveVices = styled.div`
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.8rem;
 
     img {
-        flex: 0 0 24px;
-        height: 38px;
+        flex: 0 0 2.4rem;
+        height: 3.8rem;
         object-fit: contain;
     }
 
     span {
         color: #D0E6EE;
-        font-size: 24px;
+        font-size: 2.4rem;
         font-weight: 700;
     }
 `
@@ -218,7 +218,7 @@ const RatingLine = styled.div`
 const ProgressLine = styled.div<{ percentVoices: number, nextPlace: number }>`
     position: relative;
     flex: 1 1;
-    height: 17px;
+    height: 1.7rem;
     margin: 0 -2px;
     padding: 1px;
     background: linear-gradient(to right, #C25506, #CD7F32);
@@ -253,13 +253,13 @@ const PlaceStyle = styled.div<{ placeNum: number }>`
     position: relative;
     z-index: 1;
 
-    flex: 0 0 27px;
-    height: 43px;
-    padding-top: 10px;
+    flex: 0 0 2.7rem;
+    height: 4.3rem;
+    padding-top: 1rem;
 
     text-align: center;
     color: #FFF;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 600;
     letter-spacing: -0.9px;
 
@@ -276,7 +276,7 @@ const PlaceStyle = styled.div<{ placeNum: number }>`
         display: block;
         text-align: center;
         color: #FFF;
-        font-size: 18px;
+        font-size: 1.8rem;
         font-weight: 600;
         letter-spacing: -0.9px;
     }

@@ -106,13 +106,13 @@ const Information = () => {
           <LabelBox>
             <TitleInput required={true}>Направление обучения</TitleInput>
             <InputBox>
-              <Select headColor={'#D0E6EE'} value={direction} setState={setDirection} fontSize={'16px'} height={'39px'} options={['09.03.01', '09.03.03', '09.03.04']}/>
+              <Select headColor={'#D0E6EE'} value={direction} setState={setDirection} fontSize={'1.6rem'} height={'3.9rem'} options={['09.03.01', '09.03.03', '09.03.04']}/>
             </InputBox>
           </LabelBox>
           <LabelBox>
             <TitleInput required={true}>Курс</TitleInput>
             <InputBox>
-              <Select headColor={'#D0E6EE'} value={course} setState={setCourse} fontSize={'16px'} height={'39px'} options={['2', '3', '4']}/>
+              <Select headColor={'#D0E6EE'} value={course} setState={setCourse} fontSize={'1.6rem'} height={'3.9rem'} options={['2', '3', '4']}/>
             </InputBox>
           </LabelBox>
           <LabelBox isInvalid={!!errors.group}>
@@ -145,13 +145,13 @@ const Information = () => {
 export default Information
 
 export const ProfileFormStyle = styled.form`
-  flex: 0 1 775px;
+  flex: 0 1 77.5rem;
 `
 
 export const GridTwoColumns = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 24px;
+  column-gap: 2.4rem;
   
   @media (max-width: 1100px) {
     display: block;
@@ -159,9 +159,9 @@ export const GridTwoColumns = styled.div`
 `
 
 export const TitleInput = styled.div<{required?: boolean, marginBottom?: string}>`
-  margin-bottom: ${props => props.marginBottom ? props.marginBottom : '25px'};
+  margin-bottom: ${props => props.marginBottom ? props.marginBottom : '2.5rem'};
   font-weight: 500;
-  font-size: 24px;
+  font-size: 2.4rem;
   color: var(--white-color);
 
   ${({ required }) => required && `
@@ -186,7 +186,7 @@ export const LabelBox = styled.label<{isInvalid?: boolean}>`
   position: relative;
   
   display: block;
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
   
   ${ErrorText} {
     color: var(--red-color);
@@ -205,21 +205,21 @@ export const LabelBox = styled.label<{isInvalid?: boolean}>`
         
         p {
             opacity: 1;
-            bottom: -20px;
+            bottom: -2rem;
             transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
         }
     `}
 `
 
 export const ProfileInput = styled.input`
-  padding: 10px 22px;
-  height: 39px;
+  padding: 1rem 2.2rem;
+  height: 3.9rem;
   width: 100%;
   background: var(--rgba-grey-color);
   border-radius: 4px;
 
   font-weight: 300;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: var(--name-title);
   border: 1px solid transparent;
   transition: border-color 0.3s ease-in-out;
@@ -250,7 +250,7 @@ export const ProfileInput = styled.input`
 `
 
 export const InputBox = styled.div<{required?: boolean, flex?: boolean}>`
-  padding: 10px 15px;
+  padding: 1rem 1.5rem;
   background-color: var(--dark-grey-color);
 
   ${Block} {
@@ -268,7 +268,7 @@ export const InputBox = styled.div<{required?: boolean, flex?: boolean}>`
   ${(props) => props.flex && `
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 1.5rem;
   `}
 `
 

@@ -10,29 +10,29 @@ import prize_place_3 from "../assets/images/icons/place_flag/place_3.svg"
 
 const VotingMainStyle = styled.div`
     @media (min-width: 829px) {
-        margin-bottom: 30px;
+        margin-bottom: 3rem;
         display: flex;
         justify-content: space-between;
     }
 `
 
 const VotingBox = styled.div`
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
 
     &:first-child {
-        flex: 1 1 546px;
+        flex: 1 1 54.6rem;
     }
 
     &:last-child {
-        flex: 1 1 300px;
+        flex: 1 1 30rem;
     }
 `
 
 const ParStyle = styled.div`
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 
     color: #B6B6B6;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-style: normal;
     font-weight: 300;
     line-height: 146.5%;
@@ -67,9 +67,9 @@ const EventTitle = styled.div`
         text-align: right;
     }
     color: #FFF;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 600;
-    line-height: 129.523%; /* 25.905px */
+    line-height: 130%;
 
     span {
         font-weight: 400;
@@ -80,11 +80,11 @@ const EventStatus = styled.div<{ status: any }>`
     @media (min-width: 829px) {
         text-align: right;
     }
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 300;
     line-height: 151.523%;
     color: ${props => props.status ? '#47FFA7;' : '#FBFF47;'}
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 `
 
 const Availability = styled.div`
@@ -93,9 +93,9 @@ const Availability = styled.div`
     }
 
     color: #D0E6EE;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 500;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 `
 
 const VoicesBox = styled.div<{ count: number; status: boolean }>`
@@ -104,8 +104,8 @@ const VoicesBox = styled.div<{ count: number; status: boolean }>`
     }
 
     position: relative;
-    max-width: 62px;
-    margin-bottom: 14px;
+    max-width: 6.2rem;
+    margin-bottom: 1.4rem;
 
     img {
         width: 100%;
@@ -121,7 +121,7 @@ const VoicesBox = styled.div<{ count: number; status: boolean }>`
         left: 0;
         bottom: 0;
         color: #FFF;
-        font-size: 24px;
+        font-size: 2.4rem;
         font-weight: 700;
     }
 
@@ -134,7 +134,7 @@ const VoicesBox = styled.div<{ count: number; status: boolean }>`
         text-align: center;
 
         color: #C1D9E2;
-        font-size: 13px;
+        font-size: 1.3rem;
         font-weight: 300;
     }
 `
@@ -145,7 +145,7 @@ const WinsList = styled.div`
     }
 
     color: #FFF;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 500;
 `
 
@@ -155,47 +155,47 @@ const WinsItem = styled.div`
     }
 
     position: relative;
-    max-width: 211px;
-    margin-top: 10px;
+    max-width: 21.1rem;
+    margin-top: 1rem;
     border-radius: 4px;
     border: 2px solid #2D2D2D;
-    padding: 14px 27px 14px 26px;
+    padding: 1.4rem 2.7rem 1.4rem 2.6rem;
     text-align: left;
 
     color: #FFF;
-    font-size: 13px;
+    font-size: 1.3rem;
     font-weight: 300;
-    line-height: 18px;
+    line-height: 1.8rem;
 
     div {
-        font-size: 14px;
+        font-size: 1.4rem;
         font-weight: 400;
     }
 
     b {
-        font-size: 16px;
+        font-size: 1.6rem;
         font-weight: 700;
     }
 
     &:first-child {
-        margin-top: 15px;
+        margin-top: 1.5rem;
         background: #2D2D2D;
     }
 
     &::after {
         position: absolute;
         content: '';
-        top: 17px;
-        left: -9px;
-        width: 20px;
-        height: 32px;
+        top: 1.7rem;
+        left: -0.9rem;
+        width: 2rem;
+        height: 3.2rem;
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
 
         color: #FFF;
         text-align: center;
-        font-size: 14px;
+        font-size: 1.4rem;
         font-weight: 600;
         letter-spacing: -0.7px;
         display: flex;

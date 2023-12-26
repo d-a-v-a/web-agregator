@@ -85,24 +85,24 @@ interface SwiperProps {
 }
 
 const SwiperSelect = styled.div<SwiperProps>`
-  max-width: 764px;
-  height: 414px;
-  margin-bottom: 25px;
+  max-width: 76.4rem;
+  height: 41.4rem;
+  margin-bottom: 2.5rem;
   background-image: url(${props => props.img});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   
   @media (max-width: 720px) {
-    height: 314px;
+    height: 31.4rem;
   }
 
   @media (max-width: 520px) {
-    height: 240px;
+    height: 24rem;
   }
 
   @media (max-width: 430px) {
-    height: 140px;
+    height: 14rem;
   }
 `
 
@@ -113,7 +113,7 @@ const SwiperWrapper = styled.div`
 const SwiperBlockStyle = styled.div`
   position: relative; 
   width: 100%;
-  max-width: 764px;
+  max-width: 76.4rem;
   overflow: hidden;
 
   .swiper {
@@ -121,7 +121,7 @@ const SwiperBlockStyle = styled.div`
   }
 
   .swiper .swiper-slide {
-    margin-bottom: 27px;
+    margin-bottom: 2.7rem;
     position: relative;
     flex-shrink: 0;
     cursor: pointer;

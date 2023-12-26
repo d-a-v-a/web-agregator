@@ -88,7 +88,7 @@ function DisplayUnity() {
 const Download = styled.div`
   font-style: normal;
   font-weight: 800;
-  font-size: 36px;
+  font-size: 3.6rem;
   line-height: 150%;
 
   letter-spacing: -0.022em;
@@ -96,24 +96,24 @@ const Download = styled.div`
 `
 
 const DownloadIcon = styled.img`
-  margin-bottom: 21px;
+  margin-bottom: 2.1rem;
   width: 20%;
 `
 
 const MaximizeButton = styled.button<{ onClick: any }>`
-  margin-top: 10px;
+  margin-top: 1rem;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
 
   span {
     color: #B6B6B6;
-    font-size: 24px;
+    font-size: 2.4rem;
     font-weight: 500;
-    line-height: 150%; /* 36px */
+    line-height: 150%;
     letter-spacing: -0.528px;
     transition: 0.3s ease-in-out;
   }
@@ -124,7 +124,7 @@ const MaximizeButton = styled.button<{ onClick: any }>`
 `
 
 const DisplayStyle = styled.div`
-  max-width: 926px;
+  max-width: 92.6rem;
   margin: 0 auto;
 
   &:not(:root):fullscreen::backdrop {
@@ -141,23 +141,23 @@ const GameWrap = styled.div<{ fullscreen: boolean }>`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 495px;
+  height: 49.5rem;
   background-color: white;
 
   ${({fullscreen}) => (fullscreen) ? `
     width: 100vw;
-    height: calc(100vh - 63px);
+    height: calc(100vh - 6.3rem);
     
     ~ button {
-        padding: 0 20px
+        padding: 0 2rem;
     }
   ` : ''}
 `
 
 const PlayStyle = styled.div`
-  margin: 0 auto 74px;
-  max-width: 1184px;
-  padding: 0 20px;
+  margin: 0 auto 7.4rem;
+  max-width: 118.4rem;
+  padding: 0 2rem;
 `
 
 

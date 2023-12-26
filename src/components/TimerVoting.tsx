@@ -81,8 +81,8 @@ const GridTimerStyle = styled.div`
 const BoxTimerStyle = styled.div`
     display: flex;
     flex-wrap: wrap;
-    max-width: 80px;
-    column-gap: 4px;
+    max-width: 8rem;
+    column-gap: 0.4rem;
 `
 
 const NumberStyle = styled.div`
@@ -92,19 +92,19 @@ const NumberStyle = styled.div`
     flex-direction: column;
 
     flex: 1 1;
-    height: 67px;
-    border-radius: 4px;
+    height: 6.7rem;
+    border-radius: 0.4rem;
     background: #2D2D2D;
 
     color: #FFF;
-    font-size: 36px;
+    font-size: 3.6rem;
     font-weight: 600;
     line-height: 146.5%;
     letter-spacing: -0.792px;
 `
 
 const PointsStyle = styled.img<{finishTimeBool: boolean}>`
-    margin: -16px 10px 0;
+    margin: -1.6rem 1rem 0;
 
     animation: ${p => (p.finishTimeBool ? 'points 1s ease-in-out infinite' : 'none')};
 
@@ -122,7 +122,7 @@ const UnderTextTimer = styled.div`
     width: 100%;
     text-align: center;
     color: #C1D9E2;
-    font-size: 13px;
+    font-size: 1.3rem;
     font-weight: 300;
 `
 

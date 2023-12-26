@@ -13,7 +13,7 @@ const AuthLayoutStyle = styled.div`
 
 const AuthWrapper = styled.div`
     flex: 1 1;
-    padding: 0 20px;
+    padding: 0 2rem;
     background-color: var(--main-bg-color);
     
     display: flex;
@@ -23,18 +23,18 @@ const AuthWrapper = styled.div`
 `
 
 const AuthBox = styled.div`
-    padding: 60px 102px;
-    width: 542px;
+    padding: 6rem 10.2rem;
+    width: 54.2rem;
     max-width: 100%;
-    margin: 0 auto 40px;
+    margin: 0 auto 4rem;
     background-color: var(--dark-grey-color);
 
     @media (max-width: 600px) {
-        padding: 40px 40px;
+        padding: 4rem 4rem;
     }
 
     @media (max-width: 400px) {
-        padding: 40px 20px;
+        padding: 4rem 2rem;
     }
 `
 

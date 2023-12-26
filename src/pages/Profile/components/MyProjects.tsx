@@ -91,12 +91,12 @@ const MyProjects = () => {
                     <>
                         <Selector
                             headColor={'#D0E6EE'}
-                            fontSize={'16px'}
+                            fontSize={'1.6rem'}
                             value={role}
                             setState={setRole}
                             type={'role'}
-                            width={'356px'}
-                            margin={'10px'}
+                            width={'35.6rem'}
+                            margin={'1rem'}
                             labelSelector={'Роль в команде*'}
                             options={[
                                 'Team Lead', 'UI/UX-дизайнер', 'Game-дизайнер', 'Unity-разработчик', 'Художник',
@@ -117,8 +117,8 @@ const MyProjects = () => {
 
 const ButtonSeasonWrapper = styled.div`
     display: flex;
-    gap: 24px;
-    margin-bottom: 47px;
+    gap: 2.4rem;
+    margin-bottom: 4.7rem;
     flex-wrap: wrap;
 `
 
@@ -126,15 +126,15 @@ const ButtonSeasonStyle = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 166px;
-    height: 44px;
+    width: 16.6rem;
+    height: 4.4rem;
     border: 1px solid #5A9DF5;
 
     transition: background-color 0.1s ease-in-out;
 
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1.6rem;
 
     cursor: pointer;
 
@@ -154,11 +154,11 @@ const MyProjectStyle = styled.div`
 `
 
 const P = styled.div`
-    margin-bottom: 47px;
+    margin-bottom: 4.7rem;
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 1.4rem;
+    line-height: 1.7rem;
 
     color: rgba(208, 230, 238, 0.94);
 `

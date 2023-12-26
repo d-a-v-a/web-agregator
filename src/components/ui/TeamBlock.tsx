@@ -32,23 +32,18 @@ const TeamBlock = ({buttonExit}: {buttonExit?: boolean}) => {
                     <TitleInput>Ваша команда</TitleInput>
                     <CountMembers>Участников: 4</CountMembers>
                 </div>
-                <InputBox style={{marginBottom: '47px', width: '100%'}}>
+                <InputBox style={{marginBottom: '4.7rem', width: '100%'}}>
                     <ProfileInput disabled={true} readOnly={true} value={dataTeam.teamName}/>
                 </InputBox>
             </div>
-
-            {/*<TitleInput>Ваша команда</TitleInput>*/}
-            {/*<InputBox style={{marginBottom: '47px'}}>*/}
-            {/*  <ProfileInput disabled={true} readOnly={true} value={dataTeam.teamName}/>*/}
-            {/*</InputBox>*/}
-            <div style={{marginBottom: '109px'}}>
+            <div style={{marginBottom: '10.9rem'}}>
                 {dataTeam.members.map((member, id) => (
                     <>
                         <TitleInput>Участник команды #{id + 1}</TitleInput>
                         <InputBox>
                             <ProfileInput disabled={true} readOnly={true} value={member.name + ' ' + member.group}/>
                         </InputBox>
-                        <WrapperComponent style={{marginBottom: '47px'}}>
+                        <WrapperComponent style={{marginBottom: '4.7rem'}}>
                             <Role>Роль: <span style={{color: '#D0E6EE'}}>{member.role}</span></Role>
                             <Contacts target={'_blank'} href={member.contacts}>Контакты</Contacts>
                         </WrapperComponent>
@@ -64,25 +59,25 @@ const TeamBlock = ({buttonExit}: {buttonExit?: boolean}) => {
 const CountMembers = styled.div`
     color: var(--d-0-e-6-ee, rgba(208, 230, 238, 0.50));
     font-family: Inter, sans-serif;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 `
 
 const ButtonLeaveTeam = styled.button`
     margin-left: auto;
-    width: 356px;
-    height: 58px;
-    padding: 0 16px;
+    width: 35.6rem;
+    height: 5.8rem;
+    padding: 0 1.6rem;
     border-radius: 3px;
     border: 1px solid var(--ff-8197, #FF8197);
     background: #282828;
 
     color: var(--ff-8197, #FF8197);
     font-family: Inter, sans-serif;
-    font-size: 20px;
+    font-size: 2rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;

@@ -52,7 +52,7 @@ const ProfileLayout = () => {
           <SubTitleProfile>Профиль</SubTitleProfile>
           <ProfileGrid>
             <AsideStyle>
-              <H2Style style={{marginBottom: '8px'}}>Редактирование</H2Style>
+              <H2Style style={{marginBottom: '0.8rem'}}>Редактирование</H2Style>
               <PublicationNotice style={{color: status[1]}}>{status[0]}</PublicationNotice>
               <ProfileNavStyle>
                 <NavListStyle>
@@ -114,10 +114,10 @@ type PropsSubmitProfile = {
 
 const SubmitProfile = styled.button<PropsSubmitProfile>`
   width: 100%;
-  height: 51px;
+  height: 5.1rem;
 
   font-weight: 600;
-  font-size: 20px;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,27 +138,27 @@ const SubmitProfile = styled.button<PropsSubmitProfile>`
 `
 
 const ProfileLayoutStyle = styled.div`
-  margin: 0 auto 74px;
-  max-width: 1184px;
-  padding: 0 20px;
+  margin: 0 auto 7.4rem;
+  max-width: 118.4rem;
+  padding: 0 2rem;
 `
 
 const TitleStyle = styled.div`
-  margin-bottom: 14px;
+  margin-bottom: 1.4rem;
   font-weight: 600;
-  font-size: 26px;
+  font-size: 2.6rem;
   color: var(--white-color);
 `
 
 export const SubTitleProfile = styled.div`
-  margin-bottom: 67px;
-  font-size: 20px;
+  margin-bottom: 6.7rem;
+  font-size: 2rem;
   color: var(--grey-title);
 `
 
 const ProfileGrid = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 2rem;
   justify-content: space-between;
   
   @media (max-width: 1100px) {
@@ -167,8 +167,8 @@ const ProfileGrid = styled.div`
 `
 
 const ProfileNavStyle = styled.nav`
-  margin-bottom: 25px;
-  padding: 27px;
+  margin-bottom: 2.5rem;
+  padding: 2.7rem;
   background-color: var(--dark-grey-color);
 `
 
@@ -177,8 +177,8 @@ const NavListStyle = styled.ul`
 `
 
 const NavLinkStyle = styled(NavLink)<{ isActive?: boolean }>`
-  margin-bottom: 15px;
-  font-size: 18px;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
   color: var(--input-title);
 
   &:last-child {
@@ -196,21 +196,21 @@ const NavLinkStyle = styled(NavLink)<{ isActive?: boolean }>`
 `
 
 const ExitStyle = styled.button`
-  margin-top: 50px;
+  margin-top: 5rem;
 
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.8rem;
 
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 0.9rem;
 
   color: var(--red-color);
 
   &::before {
     content: '';
-    width: 22px;
-    height: 22px;
+    width: 2.2rem;
+    height: 2.2rem;
 
     background-image: url(${exitSvg});
 

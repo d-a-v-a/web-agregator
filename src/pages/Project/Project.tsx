@@ -137,12 +137,12 @@ const AboutStyled = styled.div`
 `
 
 const RightStyle = styled.div`
-  flex: 0 1 736px;
+  flex: 0 1 73.6rem;
 `
 
 const ButtonsAboutStyled = styled.div`
   display: flex;
-  gap: 9px;
+  gap: 0.9rem;
 `
 
 const ButtonAboutStyled = styled.button`
@@ -151,15 +151,15 @@ const ButtonAboutStyled = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 71px;
-  height: 26px;
+  width: 7.1rem;
+  height: 2.6rem;
   border-radius: 3px;
   border: 1px solid #99A2AD;
 
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 15px;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
   text-align: center;
 
   color: rgba(208, 230, 238, 0.94);
@@ -186,44 +186,44 @@ const HeadAboutStyled = styled.div`
 `
 
 const ProjectStyle = styled.div`
-  margin: 0 auto 74px;
-  max-width: 1184px;
-  padding: 0 20px;
+  margin: 0 auto 7.4rem;
+  max-width: 118.4rem;
+  padding: 0 2rem;
 `
 
 const ProjectGrid = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
 
   @media (max-width: 1165px) {
     flex-direction: column;
-    row-gap: 30px;
+    row-gap: 3rem;
   }
 `
 
 const TextWrapperStyled = styled.div`
-  margin-top: 50px;
+  margin-top: 5rem;
 `
 
 const TextBlockStyled = styled.div`
-  padding: 30px 37px;
+  padding: 3rem 3.7rem;
   background-color: var(--dark-grey-color);
 
   font-weight: 300;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: var(--paragraph-color);
 
   p {
     margin-bottom: 1em;
 
     font-weight: 300;
-    font-size: 16px;
+    font-size: 1.6rem;
     color: var(--paragraph-color);
   }
   
   @media (max-width: 1000px) {
-    padding: 20px;
+    padding: 2rem;
   }
 `
 
@@ -232,23 +232,23 @@ const SimilarStyled = styled.div`
 `
 
 const SimilarGrid = styled.div`
-  gap: 25px;
+  gap: 2.5rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
   @media (max-width: 1145px) {
-    grid-template-columns: repeat(3, minmax(200px, 265px));
+    grid-template-columns: repeat(3, minmax(20rem, 26.5rem));
     justify-content: space-between;
   }
 
   @media (max-width: 877px) {
-    grid-template-columns: repeat(2, minmax(200px, 265px));
+    grid-template-columns: repeat(2, minmax(20rem, 26.5rem));
     justify-content: flex-start;
   }
 
   @media (max-width: 500px) {
-    gap: 10px;
-    grid-template-columns: repeat(1, minmax(200px, 265px));
+    gap: 1rem;
+    grid-template-columns: repeat(1, minmax(20rem, 26.5rem));
   }
 `
 

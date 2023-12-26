@@ -20,10 +20,10 @@ const SuccessInfo = () => {
 export default SuccessInfo
 
 export const AuthCenterText = styled.div`
-  margin: 57px auto 77px;
-  max-width: 300px;
+  margin: 5.7rem auto 7.7rem;
+  max-width: 30rem;
   text-align: center;
   font-weight: 300;
-  font-size: 24px;
+  font-size: 2.4rem;
   color: var(--input-title);
 `

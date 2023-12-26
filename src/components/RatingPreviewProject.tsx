@@ -201,7 +201,6 @@ const PreviewProject: React.FC<Props> = ({place, voices, image, prevCategory, ca
   }
     return (
         <CardWrapper place={place}>
-            {/* <PlaceStyle place={place}/> */}
             <VoicesStyle>
                 <img src={voices_svg} alt=""/>
                 {voices}
