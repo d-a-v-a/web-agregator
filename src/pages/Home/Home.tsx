@@ -23,6 +23,7 @@ const HomeStyle = styled.div`
 
 const Home = () => {
     const [seasonVoting, setSeasonVoting] = useState('Осень 2023');
+    const categories = []
 
     return (
         <HomeStyle>
