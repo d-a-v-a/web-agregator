@@ -12,7 +12,7 @@ const CheckedProjectTeamBlock = () => {
             <PreviewProject>
                 <div style={{marginRight: '9.5rem'}}>
                     <TitleInput>Merge Комбинаторика</TitleInput>
-                    <img style={{width: '261rem', height: '15.3rem', borderRadius: '3px'}} src={img} alt={'Постер'}/>
+                    <img style={{width: '26.1rem', height: '15.3rem', borderRadius: '3px'}} src={img} alt={'Постер'}/>
                 </div>
                 <div>
                     <PublicationDate>Проект опубликован <span

@@ -13,7 +13,6 @@ const dataTeam: TeamInterface = {
         {name: 'Дробцов Игорь Ильич', group: 'РИ-210912', role: 'Game-дизайнер', contacts: 'https://telegram.me/s/urfu_ru'},
         {name: 'Моветонов Игорь Догматович', group: 'РИ-210912', role: 'Unity-разработчик', contacts: 'https://telegram.me/s/urfu_ru'},
     ]
-
 }
 
 const GridTeam = styled.div`

@@ -51,11 +51,11 @@ const Information = () => {
   }
 
   // @ts-ignore
-  const {SetLabel, setStatus, setButtonState} = useContext(Context)
-
+  const {SetLabel, SetBtn, setStatus, setButtonState} = useContext(Context);
 
   useEffect(() => {
-    SetLabel('Данные пользователя')
+    SetLabel('Данные пользователя');
+    SetBtn(true);
   }, []);
 
   useEffect(() => {

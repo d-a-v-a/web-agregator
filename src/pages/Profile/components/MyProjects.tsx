@@ -8,7 +8,6 @@ import {useData} from "../../../context/DataContext";
 import TeamBlock from "../../../components/ui/TeamBlock";
 import CheckedProjectTeamBlock from "../../../components/CheckedProjectTeamBlock";
 
-
 interface ButtonSeasonProps {
     label: string,
     disabled?: boolean,
@@ -37,7 +36,7 @@ const MyProjects = () => {
     const [activeButton, setActiveButton] = useState(0)
 
     // @ts-ignore
-    const {SetLabel} = useContext(Context)
+    const {SetLabel, SetBtn} = useContext(Context)
     const {data} = useData()
 
     const seasons = [
@@ -60,6 +59,14 @@ const MyProjects = () => {
     ]
 
     const [role, setRole] = useState('Выберите из списка')
+
+    useEffect(() => {
+        if (role === 'Выберите из списка') {
+            SetBtn(false);
+        } else if (role === 'Team Lead') {
+            SetBtn(true);
+        }
+    }, [role]);
 
     useEffect(() => {
         SetLabel('Мои проекты')

@@ -44,18 +44,20 @@ const Security = () => {
     });
 
     const onSubmit = (data: FormData) => {
-        setStatus(['Изменения сохранены', '#47FFA7'])
+        setStatus(['Изменения сохранены', '#47FFA7']);
     }
     // @ts-ignore
-    const {SetLabel, setStatus, setButtonState} = useContext(Context)
+    const {SetLabel, SetBtn, setStatus, setButtonState} = useContext(Context)
 
     const [showOldPassword, setShowOldPassword] = React.useState(false)
     const [showPassword, setShowPassword] = React.useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = React.useState(false)
 
     useEffect(() => {
-        SetLabel('Безопасность')
+        SetLabel('Безопасность');
+        SetBtn(true);
     }, []);
+
     useEffect(() => {
         setButtonState((prevState: any) => ({
           handleSubmit: handleSubmit,
