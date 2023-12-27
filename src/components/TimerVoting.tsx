@@ -9,44 +9,48 @@ export type TimerProps = {
     changeStatus?: any;
 };
 
+const format = (num: number): string => {
+    return num < 10 ? '0' + num : num.toString();
+};
+
+const calcTimeFormat = (timeLeft: number): string[] => {
+    const newDays = format(Math.floor(timeLeft / (3600 * 24)));
+    const newHours = format(Math.floor((timeLeft / 3600) % 24));
+    const newMinutes = format(Math.ceil((timeLeft / 60) % 60));
+
+    return [newDays, newHours, newMinutes]
+}
 
 function TimerVoting({finishDate, title = 'До завершения голосования осталось:', changeStatus}: TimerProps) {
-    const deadline = new Date(finishDate);
-    const [time, setTime] = useState(
-        Math.max(0, Math.floor((deadline.getTime() - Date.now()) / 1000))
-    );
-    const [days, setDays] = useState('00');
-    const [hours, setHours] = useState('00');
-    const [minutes, setMinutes] = useState('00');
-
-    const decrement = () =>
-        setTime((prevTime) => {
-            return prevTime === 0 ? 0 : prevTime - 1;
-        });
+    const deadline = Math.max(0, Math.floor((new Date(finishDate).getTime() - Date.now()) / 1000));
+    const [timeLeft , setTimeLeft] = useState(deadline);
+    const [days, setDays] = useState(calcTimeFormat(timeLeft)[0]);
+    const [hours, setHours] = useState(calcTimeFormat(timeLeft)[1]);
+    const [minutes, setMinutes] = useState(calcTimeFormat(timeLeft)[2]);
 
     useEffect(() => {
         const id = setInterval(decrement, 1000);
+        const [newDays, newHours, newMinutes] = calcTimeFormat(timeLeft);
 
-        const newDays = format(Math.floor(time / (3600 * 24)));
+        setTimeLeft(deadline)
         setDays(prev => prev !== newDays ? newDays : prev);
-
-        const newHours = format(Math.floor((time / 3600) % 24));
         setHours(prev => prev !== newHours ? newHours : prev);
-
-        const newMinutes = format(Math.ceil((time / 60) % 60));
         setMinutes(prev => prev !== newMinutes ? newMinutes : prev);
 
-        if (time <= 0) {
+        if (timeLeft <= 0) {
             changeStatus();
             clearInterval(id);
+        } else {
+            changeStatus(true);
         }
 
         return () => clearInterval(id);
-    }, [time]);
+    });
 
-    const format = (num: number): string => {
-        return num < 10 ? '0' + num : num.toString();
-    };
+    const decrement = () =>
+        setTimeLeft((prevTime) => {
+            return prevTime === 0 ? 0 : prevTime - 1;
+        });
 
     return (
         <>
@@ -57,13 +61,13 @@ function TimerVoting({finishDate, title = 'До завершения голос�
                     <NumberStyle>{days[1]}</NumberStyle>
                     <UnderTextTimer>дней</UnderTextTimer>
                 </BoxTimerStyle>
-                <PointsStyle src={timer_points} finishTimeBool={!!time}/>
+                <PointsStyle src={timer_points} finishTimeBool={timeLeft !== 0}/>
                 <BoxTimerStyle>
                     <NumberStyle>{hours[0]}</NumberStyle>
                     <NumberStyle>{hours[1]}</NumberStyle>
                     <UnderTextTimer>часов</UnderTextTimer>
                 </BoxTimerStyle>
-                <PointsStyle src={timer_points} finishTimeBool={!!time}/>
+                <PointsStyle src={timer_points} finishTimeBool={timeLeft !== 0}/>
                 <BoxTimerStyle>
                     <NumberStyle>{minutes[0]}</NumberStyle>
                     <NumberStyle>{minutes[1]}</NumberStyle>
@@ -103,7 +107,7 @@ const NumberStyle = styled.div`
     letter-spacing: -0.792px;
 `
 
-const PointsStyle = styled.img<{finishTimeBool: boolean}>`
+const PointsStyle = styled.img<{ finishTimeBool: boolean }>`
     margin: -1.6rem 1rem 0;
 
     animation: ${p => (p.finishTimeBool ? 'points 1s ease-in-out infinite' : 'none')};

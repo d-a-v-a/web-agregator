@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import {H1Style} from "../pages/ProjectEditing/ProjectEditing";
 import {Link} from "react-router-dom";
@@ -111,8 +111,8 @@ const VoicesBox = styled.div<{ count: number; status: boolean }>`
         width: 100%;
         height: auto;
         object-fit: contain;
-        opacity: ${p => (p.count == 0 ? 0.55 : 1)};
-        mix-blend-mode: ${p => (p.count == 0 ? 'luminosity' : 'normal')};
+        opacity: ${p => (!p.status ? 0.55 : 1)};
+        mix-blend-mode: ${p => (!p.status ? 'luminosity' : 'normal')};
     }
 
     &::before {
@@ -219,16 +219,23 @@ const WinsItem = styled.div`
     }
 `
 
+interface ISeason {
+    title: string;
+    finishDate: string;
+    countVoices: number;
+}
 
-export default function VotingProjects({countVoices}: { countVoices: number }) {
+interface IVoting {
+    seasonsData: ISeason[];
+    season: string;
+}
+
+export default function VotingProjects({seasonsData, season}: IVoting) {
     const [eventStatus, setEventStatus] = useState(true);
-
-    if (!eventStatus) {
-        countVoices = 0;
-    }
+    const currentSeason: ISeason | undefined = seasonsData.find(el => el.title === season);
 
     const changeStatus = (status: boolean = false) => {
-        setEventStatus(status)
+        setEventStatus(status);
     }
 
     return (
@@ -247,26 +254,40 @@ export default function VotingProjects({countVoices}: { countVoices: number }) {
                     в защитах проектов в составе экспертной комиссии.
                     Подробнее на странице <LinkStyle to={'/'}>Защиты проектов</LinkStyle>
                 </ParStyle>
-                <TimerVoting finishDate={'2024-01-01 00:00'} title={'До завершения голосования осталось:'}
-                             changeStatus={changeStatus}/>
+                {
+                    currentSeason &&
+                    <TimerVoting finishDate={currentSeason.finishDate} title={'До завершения голосования осталось:'}
+                                 changeStatus={changeStatus}/>
+                }
             </VotingBox>
             <VotingBox>
                 <EventTitle>
-                    Событие: <span>Осень 2023</span>
-                </EventTitle>
-                <EventStatus status={eventStatus}>
+                    <span>Событие: </span>
                     {
-                        eventStatus ?
-                            'Началось' :
-                            'Завершено'
+                        currentSeason ?
+                            <span>{currentSeason.title}</span> :
+                            <span>Событие не найдено</span>
                     }
-                </EventStatus>
-                <Availability>
-                    В наличии:
-                    <VoicesBox count={countVoices} status={eventStatus}>
-                        <img src={voices} alt={'Иконка наличии голосов'}/>
-                    </VoicesBox>
-                </Availability>
+                </EventTitle>
+                {
+                    currentSeason &&
+                    <EventStatus status={eventStatus}>
+                        {
+                            eventStatus ?
+                                'Началось' :
+                                'Завершено'
+                        }
+                    </EventStatus>
+                }
+                {
+                    currentSeason &&
+                    <Availability>
+                        В наличии:
+                        <VoicesBox count={currentSeason.countVoices} status={eventStatus}>
+                            <img src={voices} alt={'Иконка наличии голосов'}/>
+                        </VoicesBox>
+                    </Availability>
+                }
                 <WinsList>
                     Призы первых мест:
                     <WinsItem>

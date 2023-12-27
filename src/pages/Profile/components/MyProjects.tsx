@@ -66,9 +66,11 @@ const MyProjects = () => {
         } else if (role === 'Team Lead') {
             setSubSubmitText('Заполните информацию о команде');
         } else {
-            setSubSubmitText('Создать проект может только \n Team Lead');
+            setSubSubmitText(<React.Fragment>Создать проект может только <div style={{color: '#D0E6EE'}}>Team Lead</div></React.Fragment>);
         }
     }, [role]);
+
+
 
     useEffect(() => {
         SetLabel('Мои проекты')
@@ -112,6 +114,7 @@ const MyProjects = () => {
                                 'UE-разработчик',
                             ]}
                         />
+
                         <P>Создать команду может только <span style={{color: '#FBFF47'}}>Team Lead</span></P>
                     </>}
 

@@ -34,8 +34,6 @@ function RatingProject({
             <H2Style>{title}</H2Style>
             <RatingLine>
                 <PlaceStyle placeNum={currentPlace}/>
-                {/* <Badge number={currentPlace}></Badge> */}
-
                 <ProgressLine percentVoices={percentVoices} nextPlace={nextPlace}>
                     <div>
                         <div></div>
