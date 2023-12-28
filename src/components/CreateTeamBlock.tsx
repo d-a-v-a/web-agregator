@@ -35,7 +35,7 @@ const CreateTeamBlock = () => {
   });
 
   // @ts-ignore
-  const {setStatus, setButtonState, setButtonLink, setSubSubmitText} = useContext(Context)
+  const {setStatus, setButtonState, setButtonLink, setSubSubmitText, setProjectStatus} = useContext(Context)
 
   const { data } = useData()
 
@@ -45,6 +45,7 @@ const CreateTeamBlock = () => {
     setButtonLink(['Открыть проект', '/project']);
     setSubSubmitText('');
     setButtonState();
+    setProjectStatus('full watch');
   }
 
   useEffect(() => {

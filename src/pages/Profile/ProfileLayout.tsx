@@ -19,6 +19,7 @@ const ProfileLayout = () => {
     const [buttonLink, setButtonLink] = useState([])
     const [status, setStatus] = useState(['Изменений нет', '#47BDFF']);
     const [subSubmitText, setSubSubmitText] = useState('');
+    const [projectStatus, setProjectStatus] = useState('choose');
 
 
     const [buttonState, setButtonState] = useState({
@@ -51,7 +52,9 @@ const ProfileLayout = () => {
 
     return (
         <Context.Provider value={{
-            setButtonLink, SetLabel, SetBtn, setStatus, setButtonState, setSubSubmitText
+            setButtonLink, SetLabel, SetBtn,
+            setStatus, setButtonState, setSubSubmitText,
+            projectStatus, setProjectStatus
         }}>
             <ProfileLayoutStyle>
                 <TitleStyle>{label}</TitleStyle>
