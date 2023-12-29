@@ -2,12 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow } from "swiper";
-import image1 from '../../assets/images/project_preview/image1.jpg'
-import image2 from '../../assets/images/project_preview/image2.jpg'
-import image3 from '../../assets/images/project_preview/image3.jpg'
+//import image1 from '../../assets/images/project_preview/image1.jpg'
+//import image2 from '../../assets/images/project_preview/image2.jpg'
+//import image3 from '../../assets/images/project_preview/image3.jpg'
 import sliderArrow from '../../assets/images/icons/arrows/slider-arrow.svg'
 import 'swiper/swiper-bundle.css'
 import {Link} from "react-router-dom";
+import { useData } from "../../context/DataContext";
 
 const SwiperBlockStyle = styled.div`
   position: relative;
@@ -147,6 +148,21 @@ const SlideBtn = styled(Link)`
 `
 
 function SwiperProjects(){
+  const {data} = useData();
+  const image1 = data?.allProjectsInformation?.[0]?.image ?? '';
+  const image2 = data?.allProjectsInformation?.[1]?.image ?? '';
+  const image3 = data?.allProjectsInformation?.[2]?.image ?? '';
+  const image4 = data?.allProjectsInformation?.[3]?.image ?? '';
+
+  const title1 = data?.allProjectsInformation?.[0]?.title ?? '';
+  const title2 = data?.allProjectsInformation?.[1]?.title ?? '';
+  const title3 = data?.allProjectsInformation?.[2]?.title ?? '';
+  const title4 = data?.allProjectsInformation?.[3]?.title ?? '';
+
+  const id1 = data?.allProjectsInformation?.[0]?.id ?? '';
+  const id2 = data?.allProjectsInformation?.[1]?.id ?? '';
+  const id3 = data?.allProjectsInformation?.[2]?.id ?? '';
+  const id4 = data?.allProjectsInformation?.[3]?.id ?? '';
   return (
       <SwiperBlockStyle>
         <Swiper
@@ -170,22 +186,22 @@ function SwiperProjects(){
         >
           <SwiperWrapper>
               <SwiperSlide>
-                  <SlideInner image={image1} category={'Аркады'} name={'Merge Комбинаторика'}/>
+                  <SlideInner id={id1} image={image1} category={'Аркады'} name={title1}/>
               </SwiperSlide>
               <SwiperSlide>
-                  <SlideInner image={image2} category={'Аркады'} name={'Merge Комбинаторика'}/>
+                  <SlideInner id={id2} image={image2} category={'Аркады'} name={title2}/>
               </SwiperSlide>
               <SwiperSlide>
-                  <SlideInner image={image3} category={'Аркады'} name={'Merge Комбинаторика'}/>
+                  <SlideInner id={id3} image={image3} category={'Аркады'} name={title3}/>
               </SwiperSlide>
               <SwiperSlide>
-                  <SlideInner image={image3} category={'Аркады'} name={'Merge Комбинаторика'}/>
+                  <SlideInner id={id4} image={image4} category={'Аркады'} name={title4}/>
               </SwiperSlide>
               <SwiperSlide>
-                  <SlideInner image={image3} category={'Аркады'} name={'Merge Комбинаторика'}/>
+                  <SlideInner id={id3} image={image3} category={'Аркады'} name={title3}/>
               </SwiperSlide>
               <SwiperSlide>
-                  <SlideInner image={image1} category={'Аркады'} name={'Merge Комбинаторика'}/>
+                  <SlideInner id={id1} image={image1} category={'Аркады'} name={title1}/>
               </SwiperSlide>
           </SwiperWrapper>
         </Swiper>
@@ -196,17 +212,22 @@ function SwiperProjects(){
 export interface SlideProps {
     image: any,
     category: string,
-    name: string
+    name: string,
+    id: number,
 }
 
-const SlideInner = ({image, category, name}: SlideProps) => {
+const SlideInner = ({image, category, name, id}: SlideProps) => {
+  const {setValues} = useData();
+  const handleClick = (id:number)=> {
+    setValues({idProject: id})
+  }
     return(
         <>
-            <img src={image} style={{width: '100%'}} alt=""/>
+            <img src={image} style={{width: '100%', height:'100%'}} alt=""/>
             <SlideInfo>
                 <SlideCategory>{category}</SlideCategory>
                 <SlideName>{name}</SlideName>
-                <SlideBtn to={'/project'}>Открыть</SlideBtn>
+                <SlideBtn to={'/project'} onClick={() => handleClick(id)}>Открыть</SlideBtn>
             </SlideInfo>
         </>
     )

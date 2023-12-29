@@ -7,26 +7,9 @@ import unwrap from "../../assets/images/icons/unwrap.svg"
 import roll_up from "../../assets/images/icons/roll_up.svg"
 import {useFullscreen} from "../../context/FullScreen";
 import Iframe from "react-iframe";
+import { useData } from "../../context/DataContext";
 
 function Play() {
-
-  const [state, setState] = useState({ details: [], });
-
-  
-
-  let dataBackend;
-
-  // useEffect(() =>{
-  //   axios.get('http://localhost:8000/api/mainpage/2/')
-  //   .then(response => {
-  //     dataBackend = response.data;
-  //     setState({ details: dataBackend });
-  //     console.log('iteration')
-  //   });
-    
-  // }, [])
-  // console.log(state.details);
-
   return(
       <PlayStyle>
         <H1Style>Название проекта</H1Style>
@@ -50,7 +33,7 @@ function Display({img}: { img: any }) {
                 {/* <DownloadIcon src={img}/>
                 <Download>100%</Download> */}
 
-                {/* <DisplayUnity/> */}
+                <DisplayUnity/>
 
             </GameWrap>
 
@@ -71,8 +54,17 @@ function Display({img}: { img: any }) {
 
 
 function DisplayUnity() {
+  const {data} = useData();
+  let id = 1;
+  if (data.idProject){
+    id = data.idProject;
+    if (id === 4) {
+      id = 1;
+    }
+  }
+  
   return (
-    <Iframe frameBorder={0} scrolling="no" width="100%" height="100%" position="relative" display="block" url="build2/WebGL-Fluid-Simulation-master/index.html"/>
+    <Iframe frameBorder={0} scrolling="no" width="100%" height="100%" position="relative" display="block" url={`build${id}/index.html`}/>
   )
 }
 

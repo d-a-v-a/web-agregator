@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# projects
+/public/build1
+/public/build2
+/public/build3
