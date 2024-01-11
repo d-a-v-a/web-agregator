@@ -9,7 +9,7 @@ import {AsideStyle} from "../../components/Aside/AsideStyle";
 import VotingProjects from "../../components/VotingProjects";
 import Select from "../../components/Select";
 import { useData } from "../../context/DataContext";
-import { getFullInfAboutProjects } from "../../api/api";
+import { getFullInfAboutProjects, getProfile } from "../../api/api";
 import { ProjectInteface } from "../../interfaces/Project.interface";
 import { projects } from "../../projects";
 
@@ -28,20 +28,30 @@ const HomeStyle = styled.div`
 const Home = () => {
 
   
-  const {setValues} = useData();
-
-  useEffect(() => {
-    setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
-  }, [])
-  //setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
+  const {data, setValues} = useData();
 
   // useEffect(() => {
-  //   const fetchPosts = async () => {
-  //     const resp: ProjectInteface[] | null = await getFullInfAboutProjects();
-  //     setValues({ allProjectsInformation: resp, isLoadingProjectInf: true });
-  //   };
-  //   fetchPosts();
-  // }, []);
+  //   setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
+  // }, [])
+  //setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const resp: ProjectInteface[] | null = await getFullInfAboutProjects();
+      setValues({ allProjectsInformation: resp, isLoadingProjectInf: true });
+      //console.log(resp)
+    };
+    fetchPosts();
+  }, []);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const resp: ProjectInteface[] | null = await getProfile();
+      console.log(resp);
+    };
+    fetchPosts();
+  }, []);
+
 
   // useEffect(() => {
   //   console.log(data.allProjectsInformation);
