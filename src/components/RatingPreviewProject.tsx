@@ -7,6 +7,7 @@ import prize_place_2 from "../assets/images/icons/place_flag/place_2.svg"
 import prize_place_3 from "../assets/images/icons/place_flag/place_3.svg"
 import {Link} from "react-router-dom";
 import { Badge } from "./VotingProjects";
+import { useData } from "../context/DataContext";
 
 const CardWrapper = styled.div<{ place: number }>`
   position: relative;
@@ -193,9 +194,14 @@ export interface Props {
     desc: string;
     prevCategory: string;
     place: number;
+    id: number;
 }
 
-const PreviewProject: React.FC<Props> = ({place, voices, image, prevCategory, category, name, path, desc}: Props) => {
+const PreviewProject: React.FC<Props> = ({place, voices, image, prevCategory, category, name, path, desc, id}: Props) => {
+  const {setValues} = useData();
+  const handleClick = (id:number)=> {
+    setValues({idProject: id})
+  }
   let position: boolean = false;
   if (place === 1 || place === 2 || place === 3) {
     position = true;
@@ -216,11 +222,15 @@ const PreviewProject: React.FC<Props> = ({place, voices, image, prevCategory, ca
                 <Name>{name}</Name>
                 <Description>{desc}</Description>
             </InfoProject>
-            <ButtonWrap>
-                <ButtonStyle to={path}>Открыть</ButtonStyle>
+            <ButtonWrap onClick={() => handleClick(id)} >
+                <ButtonStyle to={path}  >Открыть</ButtonStyle>
             </ButtonWrap>
         </CardWrapper>
     )
 }
 
 export default PreviewProject;
+
+function setValues(arg0: { idProject: number; }) {
+  throw new Error("Function not implemented.");
+}
