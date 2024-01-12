@@ -58,9 +58,17 @@ function DisplayUnity() {
   let id = 1;
   if (data.idProject){
     id = data.idProject;
-    if (id === 4) {
+    if (id >= 4) {
       id = 1;
     }
+    if (id === 3) {
+      id = 1;
+    }
+
+    else if (id === 1) {
+      id = 3;
+    }
+
   }
   
   return (

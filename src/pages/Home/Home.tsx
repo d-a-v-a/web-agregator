@@ -39,7 +39,6 @@ const Home = () => {
     const fetchPosts = async () => {
       const resp: ProjectInteface[] | null = await getFullInfAboutProjects();
       setValues({ allProjectsInformation: resp, isLoadingProjectInf: true });
-      //console.log(resp)
     };
     fetchPosts();
   }, []);

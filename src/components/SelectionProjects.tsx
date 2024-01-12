@@ -142,7 +142,7 @@ const SelectionProjects = () => {
                                 image={elem.image} 
                                 prevCategory={'Развлекательные'} 
                                 category={'Аркады'} 
-                                name={elem.name}
+                                name={elem.title}
                                 desc={elem.description}/>
     )
     return (
