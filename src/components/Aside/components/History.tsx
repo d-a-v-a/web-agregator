@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import HistoryButton from "../../../assets/images/icons/play/HistoryButton.svg";
 import HistoryButtonActive from "../../../assets/images/icons/play/HistoryButtonActive.svg";
-import image1 from "../../../assets/images/project_preview/image1.jpg"
+//import image1 from "../../../assets/images/project_preview/image1.jpg"
 import {Link} from "react-router-dom";
+import { useData } from "../../../context/DataContext";
+
+
 
 const CardHistoryStyled = styled(Link)`
   position: relative;
   height: 7.8rem;
   margin-bottom: 1rem;
-`
+`;
 
 const CardInner = styled.div`
   position: relative;
@@ -69,14 +72,21 @@ interface CardProps {
     nameGame: string;
     image: any;
     path: string;
+    id: number;
 }
 
-function CardHistory({genreGame, nameGame, image, path}: CardProps) {
+function CardHistory({genreGame, id, nameGame, image, path}: CardProps) {
+  const {setValues} = useData();
+
+
+  const handleClick = (id:number)=> {
+    setValues({idProject: id})
+  }
   return(
-      <CardHistoryStyled to={path}>
+      <CardHistoryStyled id={id.toString()} to={path} onClick={() => handleClick(id)}>
         <CardInner>
             <NameGame genreGame={genreGame} nameGame={nameGame}/>
-            <HistoryButtonStyled />
+            <HistoryButtonStyled/>
         </CardInner>
         <PreviewImage src={image}/>
       </CardHistoryStyled>
@@ -121,13 +131,26 @@ export interface HistoryProps {
 
 
 const History = ({title = 'История'}: HistoryProps) => {
+  const {data, setValues} = useData();
+
+  
+
+  const image1 = data?.allProjectsInformation?.[0]?.image ?? '';
+  const image2 = data?.allProjectsInformation?.[1]?.image ?? '';
+  const image3 = data?.allProjectsInformation?.[2]?.image ?? '';
+
+  const title1 = data?.allProjectsInformation?.[0]?.title ?? '';
+  const title2 = data?.allProjectsInformation?.[1]?.title ?? '';
+  const title3 = data?.allProjectsInformation?.[2]?.title ?? '';
+
+
   return (
-      <div>
-        <h2>{title}</h2>
-        <CardHistory path={'/project'} image={image1} genreGame={"Аркады"} nameGame={"Birdie Fall"}/>
-        <CardHistory path={'/project'} image={image1} genreGame={"Аркады"} nameGame={"Merge Комбинаторика"}/>
-        <CardHistory path={'/project'} image={image1} genreGame={"Аркады"} nameGame={"Night Way"}/>
-      </div>
+    <div>
+      <h2>{title}</h2>
+      <CardHistory path={'/project'} id={1} image={image1} genreGame={"Аркады"} nameGame={title1}/>
+      <CardHistory path={'/project'} id={2} image={image2} genreGame={"Аркады"} nameGame={title2}/>
+      <CardHistory path={'/project'} id={3} image={image3} genreGame={"Аркады"} nameGame={title3}/>
+    </div>
   )
 }
 

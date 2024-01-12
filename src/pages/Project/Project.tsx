@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import History from "../../components/Aside/components/History";
 import {H1Style, H2Style, PathName} from "../ProjectEditing/ProjectEditing";
@@ -9,8 +9,15 @@ import Team from "../../components/Aside/components/Team";
 import SwiperAboutProject from "../../components/ui/SwiperAboutProject";
 import {Link} from "react-router-dom";
 import RatingProject from "../../components/RatingProject";
+import { useData } from "../../context/DataContext";
+import { projects } from "../../projects";
 
 const Project = () => {
+  const {data, setValues} = useData();
+
+  useEffect(() => {
+    setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
+  }, [])
     const divs = Array(8).fill(10).map((_, i) => <PreviewProject key={i} path={'/project'} views={'12333'}
                                                                  rating={'4,5'}
                                                                  image={image1} category='Аркады'

@@ -1,4 +1,6 @@
-import React, {useState} from "react";
+
+import React, { useEffect, useState } from "react";
+
 import styled from "styled-components";
 
 import SelectionProjects from "../../components/SelectionProjects";
@@ -8,6 +10,10 @@ import History from "../../components/Aside/components/History";
 import {AsideStyle} from "../../components/Aside/AsideStyle";
 import VotingProjects from "../../components/VotingProjects";
 import Select from "../../components/Select";
+import { useData } from "../../context/DataContext";
+import { getFullInfAboutProjects, getProfile } from "../../api/api";
+import { ProjectInteface } from "../../interfaces/Project.interface";
+import { projects } from "../../projects";
 
 const HomeStyle = styled.div`
   display: flex;
@@ -22,23 +28,52 @@ const HomeStyle = styled.div`
 `
 
 const Home = () => {
-    const [seasonVoting, setSeasonVoting] = useState('Осень 2023');
 
-    return (
-        <HomeStyle>
-            <AsideStyle>
-                <Select selectVoting={true} value={seasonVoting} setState={setSeasonVoting}
-                        options={['Осень 2023', 'Весна 2023', 'Осень 2022', 'Осень 2023', 'Весна 2023', 'Осень 2022']}/>
-                <Categories/>
-                <History title={'Иcтория'}/>
-            </AsideStyle>
-            <div>
-                <VotingProjects countVoices={35}/>
-                <PopularProjects/>
-                <SelectionProjects/>
-            </div>
-        </HomeStyle>
-    )
+  
+  const {data, setValues} = useData();
+
+  // useEffect(() => {
+  //   setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
+  // }, [])
+  //setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const resp: ProjectInteface[] | null = await getFullInfAboutProjects();
+      setValues({ allProjectsInformation: resp, isLoadingProjectInf: true });
+    };
+    fetchPosts();
+  }, []);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const resp: ProjectInteface[] | null = await getProfile();
+      console.log(resp);
+    };
+    fetchPosts();
+  }, []);
+
+
+  // useEffect(() => {
+  //   console.log(data.allProjectsInformation);
+  // }, [data.allProjectsInformation]);
+
+
+
+  return(
+      <HomeStyle>
+          <AsideStyle>
+              <Select selectVoting={true} value={'Осень 2023'} options={['Осень 2023', 'Весна 2023', 'Осень 2024', 'Весна 2024', 'Осень 2025', 'Весна 2025']}/>
+              <Categories/>
+              <History title={'Иcтория'}/>
+          </AsideStyle>
+          <div>
+              <VotingProjects/>
+              <PopularProjects />
+              <SelectionProjects />
+          </div>
+      </HomeStyle>
+  )
 }
 
 export default Home

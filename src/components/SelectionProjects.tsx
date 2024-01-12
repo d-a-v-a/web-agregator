@@ -4,6 +4,7 @@ import styled from "styled-components";
 import image1 from "../assets/images/project_preview/image1.jpg"
 import Select from "./Select";
 import RatingPreviewProject from "./RatingPreviewProject";
+import { useData } from "../context/DataContext";
 
 
 const H2Style = styled.h2`
@@ -43,7 +44,24 @@ const HeaderSelectProjects = styled.div`
 `
 
 const SelectionProjects = () => {
+    const {data} = useData();
+    const image1 = data?.allProjectsInformation?.[0]?.image ?? '';
+    const image2 = data?.allProjectsInformation?.[1]?.image ?? '';
+    const image3 = data?.allProjectsInformation?.[2]?.image ?? '';
+    const image4 = data?.allProjectsInformation?.[3]?.image ?? '';
+
+    const title1 = data?.allProjectsInformation?.[0]?.title ?? '';
+    const title2 = data?.allProjectsInformation?.[1]?.title ?? '';
+    const title3 = data?.allProjectsInformation?.[2]?.title ?? '';
+    const title4 = data?.allProjectsInformation?.[3]?.title ?? '';
+
+    const id1 = data?.allProjectsInformation?.[0]?.id ?? '';
+    const id2 = data?.allProjectsInformation?.[1]?.id ?? '';
+    const id3 = data?.allProjectsInformation?.[2]?.id ?? '';
+    const id4 = data?.allProjectsInformation?.[3]?.id ?? '';
+
     const [sort, setSort] = useState('По убыванию рейтинга')
+
     const projects = [
         {
             place: 1,
@@ -116,9 +134,17 @@ const SelectionProjects = () => {
             desc: 'Основной геймплей игры завязан на использовании merge-механики — совмещение/слияние блоков'
         },
     ]
-    const divs = projects.map((_, i) =>
-        <RatingPreviewProject key={i} voices={_['voices']} path={_['path']} place={_['place']} image={_['image']} prevCategory={_['prevCategory']} category={_['category']} name={_['name']}
-                              desc={_['desc']}/>
+    const divs = data?.allProjectsInformation?.map((elem: any) =>
+        <RatingPreviewProject key={elem.id}
+                                id={elem.id}
+                                voices={elem.rating}
+                                path={'/project'} 
+                                place={projects[elem.id-1].place} 
+                                image={elem.image} 
+                                prevCategory={'Развлекательные'} 
+                                category={'Аркады'} 
+                                name={elem.title}
+                                desc={elem.description}/>
     )
     return (
         <div style={{maxWidth: 810}}>

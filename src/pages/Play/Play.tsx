@@ -8,21 +8,11 @@ import roll_up from "../../assets/images/icons/roll_up.svg"
 import {useFullscreen} from "../../context/FullScreen";
 import {Link} from "react-router-dom";
 import Iframe from "react-iframe";
+import { useData } from "../../context/DataContext";
 
 function Play() {
 
   const [state, setState] = useState({ details: [], });
-
-
-  // useEffect(() => {
-  //   let dataBackend;
-  //   axios.get('http://localhost:8000/')
-  //     .then(response => {
-  //       dataBackend = response.data;
-  //       setState({ details: dataBackend });
-  //     });
-
-  // })
   return(
       <PlayStyle>
         <H1Style>Название проекта</H1Style>
@@ -80,8 +70,25 @@ function Display({img}: { img: any }) {
 
 
 function DisplayUnity() {
+  const {data} = useData();
+  let id = 1;
+  if (data.idProject){
+    id = data.idProject;
+    if (id >= 4) {
+      id = 1;
+    }
+    if (id === 3) {
+      id = 1;
+    }
+
+    else if (id === 1) {
+      id = 3;
+    }
+
+  }
+  
   return (
-    <Iframe frameBorder={0} scrolling="no" width="100%" height="100%" position="relative" display="block" url="build2/WebGL-Fluid-Simulation-master/index.html"/>
+    <Iframe frameBorder={0} scrolling="no" width="100%" height="100%" position="relative" display="block" url={`build${id}/index.html`}/>
   )
 }
 
