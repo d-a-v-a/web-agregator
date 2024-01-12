@@ -30,11 +30,6 @@ const Home = () => {
   
   const {data, setValues} = useData();
 
-  // useEffect(() => {
-  //   setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
-  // }, [])
-  //setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
-
   useEffect(() => {
     const fetchPosts = async () => {
       const resp: ProjectInteface[] | null = await getFullInfAboutProjects();
@@ -42,20 +37,6 @@ const Home = () => {
     };
     fetchPosts();
   }, []);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const resp: ProjectInteface[] | null = await getProfile();
-      console.log(resp);
-    };
-    fetchPosts();
-  }, []);
-
-
-  // useEffect(() => {
-  //   console.log(data.allProjectsInformation);
-  // }, [data.allProjectsInformation]);
-
 
 
   return(
