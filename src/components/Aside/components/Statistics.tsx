@@ -6,17 +6,17 @@ import viewSvg from "../../../assets/images/icons/eyes/views.svg"
 import RatingAction from "../../RatingAction";
 
 const StatisticsStyle = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
 `
 
 const NumberViews = styled.div`
-    margin-bottom: 25px;
+    margin-bottom: 2.5rem;
 `
 
 const ViewsTitle = styled.div`
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.8rem;
 
   color: var(--grey-title);
 `
@@ -24,18 +24,18 @@ const ViewsTitle = styled.div`
 const ViewsGrid = styled.div`
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 0.5rem;
 `
 
 const ViewsIcon = styled.img`
-  flex: 0 0 33px;
-  height: 33px;
+  flex: 0 0 3.3rem;
+  height: 3.3rem;
   object-fit: contain;
 `
 
 const ViewsCount = styled.div`
   font-weight: 700;
-  font-size: 24px;
+  font-size: 2.4rem;
   color: var(--white-color);
 `
 

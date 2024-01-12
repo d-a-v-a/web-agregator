@@ -37,16 +37,25 @@ const CreateTeamBlock = () => {
   // @ts-ignore
   const {setStatus, setButtonState} = useContext(Context)
 
-
   const { data } = useData()
-
-  
 
   const onSubmit = () => {
     setStatus(['Изменения сохранены', '#47FFA7']);
     data.checkProject = true;
-  }
 
+    setButtonState((prevState: any) => ({
+      handleSubmit: handleSubmit,
+      onSubmit: onSubmit,
+      isDirty: isDirty,
+      isValid: isValid,
+      styles: {
+        color: 'white',
+        backgroundColor: 'green',
+        borderColor: 'green',
+      },
+      children: 'Открыть проект',
+    }))
+  }
 
   useEffect(() => {
     setButtonState((prevState: any) => ({
@@ -60,7 +69,6 @@ const CreateTeamBlock = () => {
         borderColor: 'green',
       },
       children: 'Создать проект',
-
     }))
   }, [isDirty, isValid]);
 
@@ -109,8 +117,8 @@ const CreateTeamBlock = () => {
         <InputBox>
           <ProfileInput disabled={true} readOnly={true} value={'avarts360@urfu.me'}/>
         </InputBox>
-        <WrapperComponent style={{marginBottom: '47px'}}>
-          <Role>Роль: Разработчик</Role>
+        <WrapperComponent style={{marginBottom: '4.7rem'}}>
+          <Role>Роль: Team Lead</Role>
           <Contacts>Контакты</Contacts>
         </WrapperComponent>
         <Components names={names}/>
@@ -122,16 +130,16 @@ const CreateTeamBlock = () => {
 
 const Component = ({children, number}: { children: any, number: number }) => {
   return (
-      <li style={{marginBottom: '47px'}}>
+      <li style={{marginBottom: '4.7rem'}}>
         <WrapperComponent>
-          <TitleInput marginBottom={'25px'}>Участник команды #{number}</TitleInput>
+          <TitleInput marginBottom={'2.5rem'}>Участник команды #{number}</TitleInput>
           {children}
         </WrapperComponent>
         <InputBox>
           <ProfileInput placeholder={'Фамилия Имя Отчество'}/>
         </InputBox>
         <WrapperComponent>
-          <Role>Роль: Разработчик</Role>
+          <Role>Роль:</Role>
           <Contacts>Контакты</Contacts>
         </WrapperComponent>
       </li>
@@ -143,7 +151,7 @@ const AddComponent = ({addComponent, count}: { addComponent: Function, count: nu
     addComponent()
   }
   return (
-      <ButtonAddComponent type="button" disabled={count >= 7} onClick={addElem}>Добавить компонент {count}/7</ButtonAddComponent>
+      <ButtonAddComponent type="button" disabled={count >= 7} onClick={addElem}>Добавить участника {count}/7</ButtonAddComponent>
   )
 }
 
@@ -152,8 +160,8 @@ const MyPorjectsFormStyle = styled.form`
 `
 
 const ButtonAddComponent = styled.button`
-  width: 356px;
-  height: 56px;
+  width: 35.6rem;
+  height: 5.6rem;
   margin-left: auto;
 
   border-radius: 3px;
@@ -163,7 +171,7 @@ const ButtonAddComponent = styled.button`
 
   color: var(--headline-2nd-2, #D0E6EE);
   text-align: center;
-  font-size: 20px;
+  font-size: 2rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -184,30 +192,34 @@ const ButtonAddComponent = styled.button`
 `
 
 
-export const Contacts = styled.div`
-  color: var(--headline-3-nd, #C1D9E2);
-  text-align: right;
-  font-family: Inter, sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-decoration-line: underline;
-  text-underline-offset: 4px;
-  cursor: pointer;
+export const Contacts = styled.a`
+    color: var(--headline-3-nd, #C1D9E2);
+    text-align: right;
+    font-family: Inter, sans-serif;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+
+    &:hover, &:active {
+        text-decoration-line: none;
+    }
 `
 
 export const Role = styled.div`
   color: #B6B6B6;
   font-family: Inter, sans-serif;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 `
 
 export const WrapperComponent = styled.div`
-  margin-top: 15px;
+  margin-top: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -218,13 +230,13 @@ const ButtonDelete = styled.button`
   border: 1px solid var(--ff-8197, #FF8197);
   border-radius: 4px;
 
-  width: 100px;
-  height: 26px;
+  width: 10rem;
+  height: 2.6rem;
 
   color: var(--ff-8197, #FF8197);
   text-align: center;
   font-family: Inter, sans-serif;
-  font-size: 12px;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;

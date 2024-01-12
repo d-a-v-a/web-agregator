@@ -5,20 +5,20 @@ import viewsSvg from "../assets/images/icons/eyes/views.svg"
 import ratingSvg from "../assets/images/icons/stars/rating.svg"
 
 const CardWrapper = styled.div`
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  border-radius: 2rem;
   background-color: var(--dark-grey-color);
 `
 
 const HeadStyle = styled.div`
   cursor: pointer;
   position: relative;
-  height: 136px;
+  height: 13.6rem;
   overflow: hidden;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 8px;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  border-radius: 0.8rem;
   
   &::before {
     content: 'СЛАЙДШОУ';
@@ -27,8 +27,8 @@ const HeadStyle = styled.div`
     align-items: center;
     justify-content: center;
     font-weight: 800;
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
     top: 0;
     left: 0;
     width: 100%;
@@ -44,7 +44,7 @@ const HeadStyle = styled.div`
 `
 
 const DescriptionStyle = styled.div`
-  padding: 12px 17px;
+  padding: 1.2rem 1.7rem;
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-areas: "category button"
@@ -54,8 +54,8 @@ const DescriptionStyle = styled.div`
 const Category = styled.div`
   grid-area: category;
   font-weight: 500;
-  font-size: 12px;
-  margin-bottom: 4px;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
 
   color: rgba(255, 255, 255, 0.8);
 `
@@ -63,9 +63,9 @@ const Category = styled.div`
 const Name = styled.div`
   grid-area: name;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 1.2rem;
   font-style: normal;
-  line-height: 15px;
+  line-height: 1.5rem;
 
   color: var(--white-color);
 
@@ -79,15 +79,15 @@ const ButtonStyle = styled.div`
 
 const Statistics = styled.div`
   position: absolute;
-  bottom: 10px;
+  bottom: 1rem;
   left: 0;
   right: 0;
-  padding: 0 14px;
+  padding: 0 1.4rem;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 1rem;
 `
 
 const Views = styled.div`
@@ -96,15 +96,15 @@ const Views = styled.div`
   gap: 2px;
 
   font-weight: 800;
-  font-size: 10px;
+  font-size: 1rem;
   color: vat(--statistics-color);
   filter: drop-shadow(0px 1px 0px rgba(134, 115, 250, 0.4));
 
 
   &::before {
     content: '';
-    width: 16px;
-    height: 16px;
+    width: 1.6rem;
+    height: 1.6rem;
     background-image: url(${viewsSvg});
     background-size: contain;
     background-repeat: no-repeat;
@@ -116,17 +116,17 @@ const Views = styled.div`
 const Rating = styled.div`
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.4rem;
 
   font-weight: 800;
-  font-size: 10px;
+  font-size: 1rem;
   color: vat(--statistics-color);
   filter: drop-shadow(0px 1px 0px rgba(134, 115, 250, 0.4));
 
   &::before {
     content: '';
-    width: 16px;
-    height: 16px;
+    width: 1.6rem;
+    height: 1.6rem;
     background-image: url(${ratingSvg});
     background-size: contain;
     background-repeat: no-repeat;

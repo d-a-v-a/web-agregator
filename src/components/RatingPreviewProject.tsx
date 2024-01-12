@@ -6,8 +6,10 @@ import prize_place_1 from "../assets/images/icons/place_flag/place_1.svg"
 import prize_place_2 from "../assets/images/icons/place_flag/place_2.svg"
 import prize_place_3 from "../assets/images/icons/place_flag/place_3.svg"
 import {Link} from "react-router-dom";
+
 import { Badge } from "./VotingProjects";
 import { useData } from "../context/DataContext";
+
 
 const CardWrapper = styled.div<{ place: number }>`
   position: relative;
@@ -208,8 +210,6 @@ const PreviewProject: React.FC<Props> = ({place, voices, image, prevCategory, ca
   }
     return (
         <CardWrapper place={place}>
-            {/* <PlaceStyle place={place}/> */}
-            <Badge number={place} top="0" left="1rem" position={position}/>
             <VoicesStyle>
                 <img src={voices_svg} alt=""/>
                 {voices}

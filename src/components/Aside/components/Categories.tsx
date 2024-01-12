@@ -20,7 +20,7 @@ const CategoriesBlockStyle = styled.div`
 `
 
 const H3Style = styled.h2`
-  margin: 0 0 18px;
+  margin: 0 0 1.8rem;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -59,10 +59,8 @@ function Categories() {
             <Checkbox id={'ch16'} labelTxt={'Другие области'}></Checkbox>
 
             <H3Style>Другие проекты</H3Style>
-            <Checkbox id={'ch17'} labelTxt={'Веб-проекты'}></Checkbox>
             <Checkbox id={'ch18'} labelTxt={'Приложения'}></Checkbox>
-            <Checkbox id={'ch19'} labelTxt={'ML'}></Checkbox>
-            <Checkbox id={'ch20'} labelTxt={'Другое'}></Checkbox>
+            <Checkbox id={'ch20'} labelTxt={'Другие'}></Checkbox>
 
         </CategoriesBlockStyle>
       </CategoriesStyle>

@@ -17,16 +17,16 @@ const TotalRating = ({total}: TotalRatingProps) => {
 }
 
 const TotalRatingStyled = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 `
 
 const TotalStyled = styled.div`
-  margin-right: 10px;
+  margin-right: 1rem;
   font-weight: 700;
-  font-size: 36px;
+  font-size: 3.6rem;
   line-height: 1;
   color: var(--white-color);
 `
@@ -36,11 +36,11 @@ const StarsStyled = styled.div<{ num: any }>`
   display: block;
   margin: 0;
   padding: 0;
-  flex: 0 0 190px;
-  height: 29.35px;
+  flex: 0 0 19rem;
+  height: 2.935rem;
   
   background-image: url(${totalStarsDisable});
-  background-size: 190px 29.35px;
+  background-size: 19rem 2.935rem;
   background-position: 0 0;
   background-repeat: no-repeat;
   
@@ -49,11 +49,11 @@ const StarsStyled = styled.div<{ num: any }>`
     position: absolute;
     display: block;
     width: ${props => (props.num ? (props.num / 5) * 100 : '0')}%;
-    height: 29.35px; 
+    height: 2.935rem; 
     top: 0;
 
     background-image: url(${totalStarsActive});
-    background-size: 190px 29.35px;
+    background-size: 19rem 2.935rem;
     background-position: 0 0;
     background-repeat: no-repeat;
   }

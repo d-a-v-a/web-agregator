@@ -29,7 +29,7 @@ type FormData = yup.InferType<typeof schema>;
 
 const Basic = ({ setStep }: Context) => {
     const {data, setValues} = useData()
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+    const { register, handleSubmit, formState: { errors, dirtyFields } } = useForm<FormData>({
         defaultValues: {
             email: data.email,
             password: data.password,
@@ -52,7 +52,11 @@ const Basic = ({ setStep }: Context) => {
                     {...register("email")}
                     type={'email'}
                     placeholder={'Почта от ЛК УрФУ'}/>
-                <ErrorText>{errors.email?.message}</ErrorText>
+                {
+                    dirtyFields?.email && !errors.email ?
+                        <ErrorText>Введите почту УрФУ</ErrorText> :
+                        <ErrorText>{ errors.email?.message }</ErrorText>
+                }
             </AuthLabel>
             <AuthLabel isInvalid={!!errors.password}>
                 <AuthInput
@@ -66,13 +70,17 @@ const Basic = ({ setStep }: Context) => {
                     src={showPassword ? hidePasswordSvg : showPasswordSvg}
                     onClick={() => setShowPassword(prevState => !prevState)}
                 />
-                <ErrorText>{errors.password?.message}</ErrorText>
+                {
+                    dirtyFields?.password && !errors.password ?
+                        <ErrorText>Введите не менее 8 символов</ErrorText> :
+                        <ErrorText>{ errors.password?.message }</ErrorText>
+                }
             </AuthLabel>
             <AuthLabel isInvalid={!!errors.confirmPassword}>
                 <AuthInput
                     type={showPasswordConfirm ? "text" : "password"}
                     {...register("confirmPassword")}
-                    placeholder={'Пароль'}
+                    placeholder={'Подтвердите пароль'}
                     autoComplete={'off'}
                 />
                 <ShowPassword
@@ -80,7 +88,7 @@ const Basic = ({ setStep }: Context) => {
                     src={showPasswordConfirm ? hidePasswordSvg : showPasswordSvg}
                     onClick={() => setShowPasswordConfirm(prevState => !prevState)}
                 />
-                <ErrorText>{errors.confirmPassword?.message}</ErrorText>
+                <ErrorText>{ errors.confirmPassword?.message }</ErrorText>
             </AuthLabel>
             <AuthBtn type={'submit'}>
                 Далее
@@ -94,19 +102,19 @@ export default Basic
 export const Steps = styled.div`
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-bottom: 30px;
+  gap: 3rem;
+  margin-bottom: 3rem;
 `
 
 export const Step = styled.button<{ isActive: boolean}>`
   position: relative;
   font-weight: 700;
-  flex: 0 0 30px;
-  height: 30px;
+  flex: 0 0 3rem;
+  height: 3rem;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  font-size: 14px;
+  font-size: 1.4rem;
 
   display: flex;
   align-items: center;
@@ -118,8 +126,8 @@ export const Step = styled.button<{ isActive: boolean}>`
     content: '';
     position: absolute;
     top: 50%;
-    right: 35px;
-    width: 20px;
+    right: 3.5rem;
+    width: 2rem;
     height: 2px;
     background-color: ${p=> (p.isActive ? 'var(--blue-bg)' : 'var(--step-grey)')};
     transition: background-color 0.3s ease-in-out;
@@ -129,10 +137,10 @@ export const Step = styled.button<{ isActive: boolean}>`
 export const ShowPassword = styled.img`
   position: absolute;
   cursor: pointer;
-  top: 12px;
-  right: 21px;
-  width: 28px;
-  height: 28px;
+  top: 1.2rem;
+  right: 2.1rem;
+  width: 2.8rem;
+  height: 2.8rem;
   object-fit: contain;
   z-index: 2;
 
