@@ -8,10 +8,10 @@ import {Contacts, Role, WrapperComponent} from "../CreateTeamBlock";
 const dataTeam: TeamInterface = {
   teamName: 'DreamTeam',
   members: [
-    {name: 'Петров Игорь Васильевич', group: 'РИ-210912', role: 'Конципт дизанер', contacts: '+79564756354'},
+    {name: 'Петров Игорь Васильевич', group: 'РИ-210912', role: 'Дизайнер', contacts: '+79564756354'},
     {name: 'Кашевников Игорь Николаевич', group: 'РИ-210912', role: 'Художнк', contacts: '+79564756354'},
-    {name: 'Дробцов Игорь Ильич', group: 'РИ-210912', role: 'Девелопер', contacts: '+79564756354'},
-    {name: 'Моветонов Игорь Догматович', group: 'РИ-210912', role: 'Аналитик', contacts: '+79564756354'},
+    {name: 'Дробцов Игорь Ильич', group: 'РИ-210912', role: 'Разработчик', contacts: '+79564756354'},
+    {name: 'Мовтонов Игорь Догматович', group: 'РИ-210912', role: 'Аналитик', contacts: '+79564756354'},
   ]
 
 }
@@ -23,7 +23,7 @@ const TeamBlock = () => {
           <div style={{marginRight: '24px'}}>
             <TitleInput>Роль в команде</TitleInput>
             <InputBox style={{marginBottom: '47px', width: '356px'}}>
-              <ProfileInput style={{color: '#93AED6'}} disabled={true} readOnly={true} value={'Конципт дизанер'}/>
+              <ProfileInput style={{color: '#93AED6'}} disabled={true} readOnly={true} value={'UI/UX Дизайнер'}/>
             </InputBox>
           </div>
           <div>

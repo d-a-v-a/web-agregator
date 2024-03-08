@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 
-import image1 from "../../assets/images/project_preview/image1.jpg";
-import image2 from "../../assets/images/project_preview/image2.jpg";
-import image3 from "../../assets/images/project_preview/image3.jpg";
+import img1 from "../../assets/images/project_preview/image1.jpg";
+import img2 from "../../assets/images/project_preview/image2.jpg";
+import img3 from "../../assets/images/project_preview/image3.jpg";
 import styled from "styled-components";
+import { useData } from "../../context/DataContext";
 
 
 
@@ -31,8 +32,19 @@ export interface SlideProps {
 
 
 function SwiperAboutProject() {
-
+  const {data, setValues} = useData();
   const [currentNumber, setCurrentNumber] = useState(1)
+
+  let image1 = img1;
+  let image2 = img2;
+  let image3 = img3;
+
+  if (data.idProject && data.idProject <= data.allProjectsInformation.length) {
+    const img = data.allProjectsInformation[data.idProject-1].image;
+    image1 = image2 = image3 = img;
+    
+  }
+
   const [img, setImg] = useState(image1)
 
   function handleClickSlide(img: any, number: number) {

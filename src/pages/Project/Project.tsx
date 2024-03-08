@@ -3,7 +3,7 @@ import styled from "styled-components";
 import History from "../../components/Aside/components/History";
 import {H1Style, H2Style, PathName} from "../ProjectEditing/ProjectEditing";
 import PreviewProject from "../../components/PreviewProject";
-import image1 from "../../assets/images/project_preview/image1.jpg";
+import img from "../../assets/images/project_preview/image1.jpg";
 import ProjectPlay from "../../components/Aside/components/ProjectPlay";
 import Team from "../../components/Aside/components/Team";
 import SwiperAboutProject from "../../components/ui/SwiperAboutProject";
@@ -14,13 +14,18 @@ import { projects } from "../../projects";
 
 const Project = () => {
   const {data, setValues} = useData();
-
+  let image = img;
+  let text = "Merge Комбинаторика";
   useEffect(() => {
     setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
-  }, [])
+  }, []);
+  if (data.idProject && data.idProject <= data.allProjectsInformation.length) {
+    image = data.allProjectsInformation[data.idProject-1].image;
+    text = data.allProjectsInformation[data.idProject-1].title;
+  }
     const divs = Array(8).fill(10).map((_, i) => <PreviewProject key={i} path={'/project'} views={'12333'}
                                                                  rating={'4,5'}
-                                                                 image={image1} category='Аркады'
+                                                                 image={image} category='Аркады'
                                                                  name='Merge Комбинаторика'/>)
     return (
         <ProjectStyle>
@@ -35,7 +40,7 @@ const Project = () => {
 
             <ProjectGrid>
                 <AsideProjectStyle>
-                    <ProjectPlay path={'/play'} name={'Merge Комбинаторика'} image={image1}/>
+                    <ProjectPlay path={'/play'} name={text} image={image}/>
                     <RatingProject endVoting={false} currentPlace={2} currentVoices={40} fullVoices={70}/>
                     <Team countOnTab={3}/>
                     <History title={'Проекты команды'}/>

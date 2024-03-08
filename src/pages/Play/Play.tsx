@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import axios from 'axios';
 import {H1Style, PathName} from "../ProjectEditing/ProjectEditing";
@@ -13,8 +13,6 @@ function Play() {
   return(
       <PlayStyle>
         <H1Style>Название проекта</H1Style>
-        {/* <div dangerouslySetInnerHTML={{__html: state.details.toString()}}></div> */}
-        {/* {state.details} */}
         <PathName><span style={{color: '#B6B6B6'}}>Проеты &gt; </span>Страница проекта</PathName>
         <Display img={icon}/>
       </PlayStyle>
@@ -56,23 +54,12 @@ function Display({img}: { img: any }) {
 function DisplayUnity() {
   const {data} = useData();
   let id = 1;
-  if (data.idProject){
+  if (data.idProject && data.idProject <= 6)
     id = data.idProject;
-    if (id >= 4) {
-      id = 1;
-    }
-    if (id === 3) {
-      id = 1;
-    }
-
-    else if (id === 1) {
-      id = 3;
-    }
-
-  }
+    
   
   return (
-    <Iframe frameBorder={0} scrolling="no" width="100%" height="100%" position="relative" display="block" url={`build${id}/index.html`}/>
+    <Iframe frameBorder={0} scrolling="no" width="100%" height="100%" position="relative" display="block" url={`builds/build${id}/index.html`}/>
   )
 }
 

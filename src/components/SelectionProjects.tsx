@@ -1,7 +1,6 @@
 import React from "react";
 import Pagination from "./ui/Pagination";
 import styled from "styled-components";
-import image1 from "../assets/images/project_preview/image1.jpg"
 import Select from "./Select";
 import RatingPreviewProject from "./RatingPreviewProject";
 import { useData } from "../context/DataContext";
@@ -103,7 +102,7 @@ const SelectionProjects = () => {
             desc: 'Основной геймплей игры завязан на использовании merge-механики — совмещение/слияние блоков'
         },
         {
-            place: 11,
+            place: 5,
             path: '/project',
             voices: '30',
             image: image1,
@@ -113,7 +112,7 @@ const SelectionProjects = () => {
             desc: 'Основной геймплей игры завязан на использовании merge-механики — совмещение/слияние блоков'
         },
         {
-            place: 22,
+            place: 6,
             path: '/project',
             voices: '20',
             image: image1,
