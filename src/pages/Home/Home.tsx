@@ -83,7 +83,7 @@ const Home = () => {
               <History title={'Иcтория'}/>
           </AsideStyle>
           <div>
-              <VotingProjects/>
+              <VotingProjects seasonsData={seasonsData} season={seasonVoting}/>
               <PopularProjects />
               <SelectionProjects />
           </div>
