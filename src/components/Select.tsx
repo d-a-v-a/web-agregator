@@ -16,7 +16,7 @@ export interface IProps {
     headColor?: string;
 }
 
-function Select({value, setState, options, headColor = '#fff', height, fontSize = '12px', type, selectVoting = false}: IProps) {
+function Select({value, setState, options, headColor = '#fff', height, fontSize = '1.2rem', type, selectVoting = false}: IProps) {
     const [isOpen, setIsOpen] = useState(false)
     const ref = useRef<HTMLDivElement>();
     const hideClickHandler = () => {
@@ -122,7 +122,7 @@ const HeadVotingStyle = styled.div<{ height?: string}>`
   height: 60px;
   background-color: var(--dark-grey-color);
 
-  ${({height}) => height && `
+    ${({height}) => height && `
         height: ${height};
     `}
     span {
@@ -138,7 +138,7 @@ const HeadVotingStyle = styled.div<{ height?: string}>`
         line-height: 19px;
         display: flex;
         align-items: center;
-        color: rgba(255, 255, 255, 0.65);
+        color: var(--paragraph-color);
     }
 
     &::after {
@@ -161,7 +161,7 @@ const HeadStyle = styled.div<{ height?: string }>`
   font-weight: 500;
   font-size: 12px;
 
-  color: var(--light-grey-color);
+    color: var(--light-grey-color);
 
   border-radius: 3px;
   border: 1px solid var(--light-grey-color);
@@ -219,9 +219,9 @@ const ItemStyle = styled.div<{fontSize: string}>`
     transform: rotate(180deg);
   }
 
-  &:hover {
-    background-color: var(--black-bg);
-  }
+    &:hover {
+        background-color: var(--black-bg);
+    }
 `
 
 const BodyWrapVotingStyle = styled.div`

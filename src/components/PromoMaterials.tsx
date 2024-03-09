@@ -4,27 +4,26 @@ import styled from "styled-components";
 import icon from "../assets/images/icons/download.svg"
 
 const PromoMaterialsStyle = styled.div`
-  margin-bottom: 94px;
+  margin-bottom: 9.4rem;
 `
 
 const PPromo = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
   color: #B6B6B6;
 `
 
 const CardsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 24px 30px;
-  //justify-content: space-between;
+  gap: 2.4rem 3rem;
 `
 
 const CardStyle = styled.div`
-  max-width: 356px;
+  max-width: 35.6rem;
   
   @media (max-width: 400px) {
     max-width: none;
@@ -37,9 +36,9 @@ const Block = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-bottom: 16px;
-  width: 356px;
-  height: 199px;
+  margin-bottom: 1.6rem;
+  width: 35.6rem;
+  height: 19.9rem;
 
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid #99A2AD;
@@ -54,21 +53,20 @@ const Block = styled.div`
 
 const IconInBlock = styled.img`
   position: absolute;
-  bottom: 17px;
-  right: 18px;
+  bottom: 1.7rem;
+  right: 1.8rem;
 `
 
 const CardBottom = styled.div`
-  display: flex;
-  justify-content: space-between;
-  //margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
 `
 
 const LinkDownload = styled.a`
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
   text-decoration-line: underline;
 
   color: #65A7FF;
@@ -78,16 +76,16 @@ const LinkDownload = styled.a`
 const Format = styled.div`
   font-style: normal;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
   color: rgba(208, 230, 238, 0.94);
 `
 
 const Par1Div = styled.div`
   font-style: normal;
   font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 2.4rem;
+  line-height: 2.9rem;
 
   color: rgba(208, 230, 238, 0.94);
 
@@ -100,27 +98,27 @@ const Par23Div = styled.div`
 `
 
 const Par231 = styled.div`
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
   color: white;
 `
 const Par232 = styled.div`
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
 
   color: rgba(208, 230, 238, 0.94);
 `
 const Par233 = styled.div`
   font-style: normal;
   font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 2.4rem;
+  line-height: 2.9rem;
   
   color: rgba(208, 230, 238, 0.94);
 `

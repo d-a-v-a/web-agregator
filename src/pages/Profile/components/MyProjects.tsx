@@ -8,7 +8,6 @@ import {useData} from "../../../context/DataContext";
 import TeamBlock from "../../../components/ui/TeamBlock";
 import CheckedProjectTeamBlock from "../../../components/CheckedProjectTeamBlock";
 
-
 interface ButtonSeasonProps {
   label: string,
   disable?: boolean,
@@ -36,6 +35,15 @@ function ButtonSeason({label = '', disable = false, select}: ButtonSeasonProps) 
 const MyProjects = () => {
   const [activeButton, setActiveButton] = useState(0)
 
+    const {
+        SetLabel,
+        SetBtn,
+        setButtonState,
+        setSubSubmitText,
+        setButtonLink,
+        projectStatus,
+        setProjectStatus
+    }: any = useContext(Context)
   const {data} = useData()
 
     const seasons = [
@@ -55,16 +63,35 @@ const MyProjects = () => {
             label: 'Весна 2023',
             disabled: true
         }
-    ]
+    ];
+    const [role, setRole] = useState('Выберите из списка')
 
-    const [role, setRole] = useState('Team Lead')
+    useEffect(() => {
+        if (role === 'Выберите из списка') {
+            setProjectStatus('choose');
+            setSubSubmitText('Выберите роль в команде');
+            setButtonState((prevState: any) => ({
+                styles: {
+                    color: 'white',
+                    backgroundColor: 'green',
+                    borderColor: 'green'
+                },
+                children: 'Создать проект',
+            }))
+        } else if (role === 'Team Lead') {
+            setProjectStatus('edit');
+            setSubSubmitText('Заполните информацию о команде');
+        } else {
+            setProjectStatus('watch');
+            setSubSubmitText(<React.Fragment>Создать проект может только <div style={{color: '#D0E6EE'}}>Team Lead</div>
+            </React.Fragment>);
+        }
+    }, [role]);
+
 
   useEffect(() => {
     SetLabel('Мои проекты')
   }, []);
-
-  // @ts-ignore
-  const {SetLabel} = useContext(Context)
 
   return (
       <MyProjectStyle>
@@ -86,68 +113,74 @@ const MyProjects = () => {
                     </div>
                 ))}
             </ButtonSeasonWrapper>
+
             {
-                data.checkProject ?
-                    <></> :
-                    <>
-                        <Selector
-                            headColor={'#D0E6EE'}
-                            fontSize={'16px'}
-                            value={role}
-                            setState={setRole}
-                            type={'role'}
-                            width={'356px'}
-                            margin={'10px'}
-                            labelSelector={'Роль в команде*'}
-                            options={[
-                                'Team Lead', 'UI/UX-дизайнер', 'Game-дизайнер', 'Unity-разработчик', 'Художник',
-                                'UE-разработчик',
-                            ]}
-                        />
-                        <P>Создать команду может только <span style={{color: '#FBFF47'}}>Team Lead</span></P>
-                    </>}
+                projectStatus !== 'full watch' &&
+                <>
+                    <Selector
+                        headColor={'#D0E6EE'}
+                        fontSize={'16px'}
+                        value={role}
+                        setState={setRole}
+                        type={'role'}
+                        width={'356px'}
+                        margin={'10px'}
+                        labelSelector={'Роль в команде*'}
+                        options={[
+                            'Team Lead', 'UI/UX-дизайнер', 'Game-дизайнер', 'Unity-разработчик', 'Художник',
+                            'UE-разработчик',
+                        ]}
+                    />
 
+                    <P>Создать команду может только <span
+                        style={{color: '#FBFF47'}}>Team Lead</span></P>
+                </>
+            }
 
-            {data.checkProject ? <CheckedProjectTeamBlock/> : (data.role ? data.role === 'Team Lead' ?
-                <CreateTeamBlock/> :
-                <TeamBlock buttonExit={true}/> : <></>)}
+            {
+                projectStatus == 'full watch' ? <CheckedProjectTeamBlock/> :
+                    (projectStatus == 'edit' ? <CreateTeamBlock/> :
+                            (projectStatus == 'watch' ? <TeamBlock buttonExit={true}/> :
+                                <></>)
+                    )
+            }
 
         </MyProjectStyle>
     )
 }
 
 const ButtonSeasonWrapper = styled.div`
-  display: flex;
-  gap: 24px;
-  margin-bottom: 47px;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 24px;
+    margin-bottom: 47px;
+    flex-wrap: wrap;
 `
 
 const ButtonSeasonStyle = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 166px;
-  height: 44px;
-  border: 1px solid #5A9DF5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 166px;
+    height: 44px;
+    border: 1px solid #5A9DF5;
 
-  transition: background-color 0.1s ease-in-out;
+    transition: background-color 0.1s ease-in-out;
 
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
 
-  cursor: pointer;
+    cursor: pointer;
 
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 
-  &:disabled {
-    color: rgba(208, 230, 238, 0.5);
-    border-color: rgba(208, 230, 238, 0.5);
-    cursor: unset;
-  }
+    &:disabled {
+        color: rgba(208, 230, 238, 0.5);
+        border-color: rgba(208, 230, 238, 0.5);
+        cursor: unset;
+    }
 `
 
 const MyProjectStyle = styled.div`
@@ -155,13 +188,13 @@ const MyProjectStyle = styled.div`
 `
 
 const P = styled.div`
-  margin-bottom: 47px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
+    margin-bottom: 47px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
 
-  color: rgba(208, 230, 238, 0.94);
+    color: rgba(208, 230, 238, 0.94);
 `
 
 export default MyProjects

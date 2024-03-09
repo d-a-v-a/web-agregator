@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Block = styled.div`
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 3rem;
 `
 
 export const BlockTextArea = styled(Block)`
@@ -12,11 +12,11 @@ export const BlockTextArea = styled(Block)`
 
 export const WrapperNameInput = styled.div<{isInvalid?: boolean}>`
   display: flex;
-  gap: 15px;
+  gap: 1.5rem;
   align-items: center;
   width: 100%;
-  margin-bottom: 15px;
-  padding: 10px 15px;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.5rem;
   background-color: var(--dark-grey-color);
   
   ${({ isInvalid }) => isInvalid && `
@@ -42,8 +42,8 @@ export const Counter = styled.div`
   color: var(--grey-title);
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
 `
 
 

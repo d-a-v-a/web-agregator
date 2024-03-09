@@ -7,7 +7,7 @@ import NameProjectTextArea from "./ui/TextAreaProfile";
 
 
 const DescriptionProjectStyle = styled.div`
-  flex: 0 1 736px;
+  flex: 0 1 73.6rem;
 `
 
 

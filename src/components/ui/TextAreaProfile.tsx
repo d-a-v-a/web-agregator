@@ -8,7 +8,7 @@ function NameProjectTextArea({placeholder}: { placeholder: string }) {
   const handleInputChange = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     setInputValue(event.currentTarget.value);
     if (event.currentTarget.value === "") {
-      setHeight('60px');
+      setHeight('6rem');
     }
   };
 
@@ -39,15 +39,15 @@ const TextAreaStyle = styled.textarea`
   border-radius: 4px;
 
 
-  padding: 20px 22px;
+  padding: 2rem 2.2rem;
   width: 100%;
   min-height: 100%;
 
   background: rgba(200, 200, 200, 0.1);
   font-style: normal;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
   color: rgba(255, 255, 255, 0.65);
 
   &:focus {

@@ -6,9 +6,9 @@ import icon from "../../assets/images/project_preview/IconDisplayDownloadGame.jp
 import unwrap from "../../assets/images/icons/unwrap.svg"
 import roll_up from "../../assets/images/icons/roll_up.svg"
 import {useFullscreen} from "../../context/FullScreen";
+import {Link} from "react-router-dom";
 import Iframe from "react-iframe";
 import { useData } from "../../context/DataContext";
-import {Link} from "react-router-dom";
 
 function Play() {
     return (

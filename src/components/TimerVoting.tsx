@@ -4,83 +4,74 @@ import timer_points from "../assets/images/icons/timer_points.svg"
 import {H2Style} from "../pages/ProjectEditing/ProjectEditing";
 
 export type TimerProps = {
-    countFrom?: number;
+    finishDate: string;
     title?: string;
     changeStatus?: any;
-    onTimesup?: () => void;
 };
 
-function f(value: number) {
-    if (value < 10) {
-        return [0, value];
-    }
-    return (""+value).split("").map(Number);
+const format = (num: number): string => {
+    return num < 10 ? '0' + num : num.toString();
+};
+
+const calcTimeFormat = (timeLeft: number): string[] => {
+    const newDays = format(Math.floor(timeLeft / (3600 * 24)));
+    const newHours = format(Math.floor((timeLeft / 3600) % 24));
+    const newMinutes = format(Math.ceil((timeLeft / 60) % 60));
+
+    return [newDays, newHours, newMinutes]
 }
 
-function addToDate(secs: number) {
-    const c = Date.now() + secs * 1000;
-    return new Date(c);
-}
-
-function TimerVoting({ countFrom = 0, onTimesup, title = 'До завершения голосования осталось:', changeStatus }: TimerProps) {
-    const [hh, setHh] = useState(countFrom);
-    const [mm, setMm] = useState(countFrom);
-    const [ss, setSs] = useState(countFrom);
-    const [endDate, setEndDate] = useState(addToDate(countFrom));
-
-    function calculateRemainingTime() {
-        const r = Math.round((endDate.getTime() - new Date().getTime()) / 1000);
-        return Math.max(r, 0);
-    }
+function TimerVoting({finishDate, title = 'До завершения голосования осталось:', changeStatus}: TimerProps) {
+    const deadline = Math.max(0, Math.floor((new Date(finishDate).getTime() - Date.now()) / 1000));
+    const [timeLeft , setTimeLeft] = useState(deadline);
+    const [days, setDays] = useState(calcTimeFormat(timeLeft)[0]);
+    const [hours, setHours] = useState(calcTimeFormat(timeLeft)[1]);
+    const [minutes, setMinutes] = useState(calcTimeFormat(timeLeft)[2]);
 
     useEffect(() => {
-        setEndDate(addToDate(countFrom));
-    }, [countFrom]);
+        const id = setInterval(decrement, 1000);
+        const [newDays, newHours, newMinutes] = calcTimeFormat(timeLeft);
 
-    useEffect(() => {
-        updateTimeParts(calculateRemainingTime());
-        const interval = setInterval(() => {
-            let r = calculateRemainingTime();
-            updateTimeParts(r);
-            if (r === 0) {
-                clearInterval(interval);
-                changeStatus();
-                (onTimesup ?? (() => {}))();
-            }
-        }, 1000);
+        setTimeLeft(deadline)
+        setDays(prev => prev !== newDays ? newDays : prev);
+        setHours(prev => prev !== newHours ? newHours : prev);
+        setMinutes(prev => prev !== newMinutes ? newMinutes : prev);
 
-        return () => clearInterval(interval);
-    }, [endDate]);
+        if (timeLeft <= 0) {
+            changeStatus();
+            clearInterval(id);
+        } else {
+            changeStatus(true);
+        }
 
-    function updateTimeParts(x: number) {
-        const hours = Math.floor(x / 3600);
-        const minutes = Math.floor((x - hours * 3600) / 60);
-        const seconds = x - hours * 3600 - minutes * 60;
-        setHh(hours);
-        setMm(minutes);
-        setSs(seconds);
-    }
+        return () => clearInterval(id);
+    });
+
+    const decrement = () =>
+        setTimeLeft((prevTime) => {
+            return prevTime === 0 ? 0 : prevTime - 1;
+        });
 
     return (
         <>
             <H2Style>{title}</H2Style>
             <GridTimerStyle>
                 <BoxTimerStyle>
-                    <NumberStyle>{f(hh)[0]}</NumberStyle>
-                    <NumberStyle>{f(hh)[1]}</NumberStyle>
+                    <NumberStyle>{days[0]}</NumberStyle>
+                    <NumberStyle>{days[1]}</NumberStyle>
+                    <UnderTextTimer>дней</UnderTextTimer>
+                </BoxTimerStyle>
+                <PointsStyle src={timer_points} finishTimeBool={timeLeft !== 0}/>
+                <BoxTimerStyle>
+                    <NumberStyle>{hours[0]}</NumberStyle>
+                    <NumberStyle>{hours[1]}</NumberStyle>
                     <UnderTextTimer>часов</UnderTextTimer>
                 </BoxTimerStyle>
-                <PointsStyle src={timer_points}/>
+                <PointsStyle src={timer_points} finishTimeBool={timeLeft !== 0}/>
                 <BoxTimerStyle>
-                    <NumberStyle>{f(mm)[0]}</NumberStyle>
-                    <NumberStyle>{f(mm)[1]}</NumberStyle>
+                    <NumberStyle>{minutes[0]}</NumberStyle>
+                    <NumberStyle>{minutes[1]}</NumberStyle>
                     <UnderTextTimer>минут</UnderTextTimer>
-                </BoxTimerStyle>
-                <PointsStyle src={timer_points}/>
-                <BoxTimerStyle>
-                    <NumberStyle>{f(ss)[0]}</NumberStyle>
-                    <NumberStyle>{f(ss)[1]}</NumberStyle>
-                    <UnderTextTimer>секунд</UnderTextTimer>
                 </BoxTimerStyle>
             </GridTimerStyle>
         </>
@@ -88,36 +79,47 @@ function TimerVoting({ countFrom = 0, onTimesup, title = 'До завершен�
 }
 
 const GridTimerStyle = styled.div`
-  display: flex;
+    display: flex;
 `
 
 const BoxTimerStyle = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 8rem;
-  column-gap: 0.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 8rem;
+    column-gap: 0.4rem;
 `
 
 const NumberStyle = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-  flex: 1 1;
-  height: 6.7rem;
-  border-radius: 0.4rem;
-  background: #2D2D2D;
+    flex: 1 1;
+    height: 6.7rem;
+    border-radius: 0.4rem;
+    background: #2D2D2D;
 
-  color: #FFF;
-  font-size: 3.6rem;
-  font-weight: 600;
-  line-height: 146.5%;
-  letter-spacing: -0.792px;
+    color: #FFF;
+    font-size: 3.6rem;
+    font-weight: 600;
+    line-height: 146.5%;
+    letter-spacing: -0.792px;
 `
 
-const PointsStyle = styled.img`
+const PointsStyle = styled.img<{ finishTimeBool: boolean }>`
     margin: -1.6rem 1rem 0;
+
+    animation: ${p => (p.finishTimeBool ? 'points 1s ease-in-out infinite' : 'none')};
+
+    @keyframes points {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 `
 
 const UnderTextTimer = styled.div`

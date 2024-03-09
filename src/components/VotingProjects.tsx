@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import {H1Style} from "../pages/ProjectEditing/ProjectEditing";
 import {Link} from "react-router-dom";
@@ -7,12 +7,21 @@ import voices from "../assets/images/icons/voices.svg"
 import { useData } from "../context/DataContext";
 
 
+interface ISeason {
+    title: string;
+    finishDate: string;
+    countVoices: number;
+}
 
+interface IVoting {
+    seasonsData: ISeason[];
+    season: string;
+}
 
-
-export default function VotingProjects() {
+export default function VotingProjects({seasonsData, season}: IVoting) {
     const [eventStatus, setEventStatus] = useState(true)
     const {data, setValues} = useData();
+    const currentSeason: ISeason | undefined = seasonsData.find(el => el.title === season);
     data.eventStatus = eventStatus;
 
     const changeStatus = () => {
@@ -22,8 +31,6 @@ export default function VotingProjects() {
           eventStatus: eventStatus
         });
     }
-
-    //const countTime = Math.round((new Date(2024, 11-1, 9, 20).getTime() - new Date().getTime())/1000);
 
     return (
         <VotingMainStyle>
@@ -41,25 +48,40 @@ export default function VotingProjects() {
                     в защитах проектов в составе экспертной комиссии.
                     Подробнее на странице <LinkStyle to={'/'}>Защиты проектов</LinkStyle>
                 </ParStyle>
-                <TimerVoting countFrom={10} title={'До завершения голосования осталось:'} changeStatus={changeStatus}/>
+                {
+                    currentSeason &&
+                    <TimerVoting finishDate={currentSeason.finishDate} title={'До завершения голосования осталось:'}
+                                 changeStatus={changeStatus}/>
+                }
             </VotingBox>
             <VotingBox>
                 <EventTitle>
-                    Событие: <span>Осень 2023</span>
-                </EventTitle>
-                <EventStatus status={eventStatus}>
+                    <span>Событие: </span>
                     {
-                        eventStatus ?
-                            'Началось' :
-                            'Завершено'
+                        currentSeason ?
+                            <span>{currentSeason.title}</span> :
+                            <span>Событие не найдено</span>
                     }
-                </EventStatus>
-                <Availability>
-                    В наличии:
-                    <VoicesBox count={8}>
-                        <img src={voices} alt={'Иконка наличии голосов'}/>
-                    </VoicesBox>
-                </Availability>
+                </EventTitle>
+                {
+                    currentSeason &&
+                    <EventStatus status={eventStatus}>
+                        {
+                            eventStatus ?
+                                'Началось' :
+                                'Завершено'
+                        }
+                    </EventStatus>
+                }
+                {
+                    currentSeason &&
+                    <Availability>
+                        В наличии:
+                        <VoicesBox count={currentSeason.countVoices} status={eventStatus}>
+                            <img src={voices} alt={'Иконка наличии голосов'}/>
+                        </VoicesBox>
+                    </Availability>
+                }
                 <WinsList>
                     Призы первых мест:
                     <WinsItem>
@@ -111,7 +133,7 @@ export const Badge = ({number: number = 0, top = "17px", left = "-10px", positio
           <stop offset="8.02%" stopColor="#C25506"/>
           <stop offset="106.46%" stopColor="#CD7F32"/>
         </linearGradient>
-        {number == 1 ? <path d="M2 0H10H18C19.1046 0 20 0.88281 20 1.98738V31.244C20 34.6613 10 25.3857 10 25.3857C10 25.3857 0 34.6613 0 31.244V1.98738C0 0.88281 0.895431 0 2 0Z" fill="url(#linear-gradient1)"/> 
+        {number == 1 ? <path d="M2 0H10H18C19.1046 0 20 0.88281 20 1.98738V31.244C20 34.6613 10 25.3857 10 25.3857C10 25.3857 0 34.6613 0 31.244V1.98738C0 0.88281 0.895431 0 2 0Z" fill="url(#linear-gradient1)"/>
           : number == 2 ? <path d="M2 0H10H18C19.1046 0 20 0.88281 20 1.98738V31.244C20 34.6613 10 25.3857 10 25.3857C10 25.3857 0 34.6613 0 31.244V1.98738C0 0.88281 0.895431 0 2 0Z" fill="url(#linear-gradient2)"/>
           : number == 3 ? <path d="M2 0H10H18C19.1046 0 20 0.88281 20 1.98738V31.244C20 34.6613 10 25.3857 10 25.3857C10 25.3857 0 34.6613 0 31.244V1.98738C0 0.88281 0.895431 0 2 0Z" fill="url(#linear-gradient3)"/>
           : <path d="M2 0H10H18C19.1046 0 20 0.88281 20 1.98738V31.244C20 34.6613 10 25.3857 10 25.3857C10 25.3857 0 34.6613 0 31.244V1.98738C0 0.88281 0.895431 0 2 0Z" fill="#474747"/>}
@@ -181,15 +203,15 @@ const BadgeContent = styled.div`
 
 const BadgeImage = styled.div`
   & svg path {
-    fill: linear-gradient(164deg, #E47B00 11.13%, #EBAA03 51.27%, #FFEF5C 92.29%);
+      fill: linear-gradient(164deg, #E47B00 11.13%, #EBAA03 51.27%, #FFEF5C 92.29%);
   }
 
    
 `
 
 const VotingMainStyle = styled.div`
-  @media (min-width: 82.9rem) {
-    
+  @media (min-width: 829px) {
+      margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
   }
@@ -277,8 +299,8 @@ const Availability = styled.div`
   margin-bottom: 2rem;
 `
 
-const VoicesBox = styled.div<{ count: number }>`
-  @media (min-width: 82.9rem) {
+const VoicesBox = styled.div<{ count: number; status: boolean }>`
+  @media (min-width: 829px) {
     margin-left: auto;
   }
   
@@ -290,12 +312,12 @@ const VoicesBox = styled.div<{ count: number }>`
     width: 100%;
     height: auto;
     object-fit: contain;
-    opacity: ${p => (p.count == 0 ? 0.55 : 1)};
-    mix-blend-mode: ${p => (p.count == 0 ? 'luminosity' : 'normal')};
+    opacity: ${p => (!p.status ? 0.55 : 1)};
+      mix-blend-mode: ${p => (!p.status ? 'luminosity' : 'normal')};
   }
 
   &::before {
-    content: '${p => (p.count ? p.count : 0)}';
+    content: '${p => (p.status ? p.count : 0)}';
     position: absolute;
     left: 0;
     bottom: 0;

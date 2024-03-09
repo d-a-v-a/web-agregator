@@ -14,36 +14,36 @@ import course_4 from "../../../assets/images/icons/course_number/course_4.svg"
 import arrow from "../../../assets/images/icons/arrows/arrow_left.svg";
 
 const TeamStyle = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
 `
 
 const TeamName = styled.div`
-  margin-bottom: 3px;
+  margin-bottom: 0.3rem;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.8rem;
   color: var(--grey-title);
 `
 
 const TeamLength = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 1.4rem;
 
   color: var(--title-blue-grey);
 `
 
 const TeamWrapper = styled.div`
-  padding-left: 12px;
+  padding-left: 1.2rem;
 `
 
 const Participant = styled.div`
-  margin-bottom: 25px;
+  margin-bottom: 2.5rem;
 `
 
 const NameStyle = styled.div`
-  margin-bottom: 8px;
+  margin-bottom: 0.8rem;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.8rem;
 
   color: var(--name-title);
 `
@@ -52,17 +52,17 @@ const CourseAndRoleStyle = styled.div<{ course: number }>`
 
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.8rem;
 
-  margin-bottom: 8px;
+  margin-bottom: 0.8rem;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.8rem;
   color: var(--role-color);
 
   &::before {
     content: '';
-    flex: 0 0 16px;
-    height: 18px;
+    flex: 0 0 1.6rem;
+    height: 1.8rem;
     background: url(${course_1});
   }
 
@@ -99,7 +99,7 @@ const CourseAndRoleStyle = styled.div<{ course: number }>`
 
 const ContactsStyle = styled.div`
   font-weight: 400;
-  font-size: 14px;
+  font-size: 1.4rem;
   text-decoration-line: underline;
   color: var(--contacts-color);
 `

@@ -7,7 +7,7 @@ const AboutStyled = styled.div`
 `
 
 const AboutTitleStyle = styled.div`
-  margin-bottom: 18px;
+  margin-bottom: 1.8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,19 +16,19 @@ const AboutTitleStyle = styled.div`
 const BtnsWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 0.9rem;
 `
 
 const ButtonAbout = styled.button`
-  min-width: 71px;
-  height: 26px;
+  min-width: 7.1rem;
+  height: 2.6rem;
   
   display: flex;
   align-items: center;
   justify-content: center;
   
   font-weight: 500;
-  font-size: 12px;
+  font-size: 1.2rem;
   line-height: 1;
   color: var(--contacts-color);
   border-radius: 3px;
