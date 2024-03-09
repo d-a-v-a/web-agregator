@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom/client';
 import {BrowserRouter} from "react-router-dom";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {GlobalStyle} from "./styles";
+
+import {createGlobalStyle} from "styled-components";
 import {DataProvider} from "./context/DataContext";
 import NavState from "./context/navState";
 import {FullscreenProvider} from "./context/FullScreen";
+import {GlobalStyle} from "./assets/GlobalStyles";
+
 import {Provider} from "react-redux";
 
 

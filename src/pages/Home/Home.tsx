@@ -14,22 +14,22 @@ import { ProjectInteface } from "../../interfaces/Project.interface";
 import { projects } from "../../projects";
 
 const HomeStyle = styled.div`
-  display: flex;
-  gap: 2.4rem;
-  margin: 0 auto 7.4rem;
-  max-width: 118.4rem;
-  padding: 0 2rem;
-  
-  @media (max-width: 1165px) {
-    flex-direction: column;
-  }
+    display: flex;
+    gap: 24px;
+    margin: 0 auto 74px;
+    max-width: 1184px;
+    padding: 0 20px;
+
+    @media (max-width: 1165px) {
+        flex-direction: column;
+    }
 `
 
 const Home = () => {
 
-  
+
   const {data, setValues} = useData();
- 
+
   useEffect(() => {
     const fetchPosts = async () => {
       setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
@@ -59,6 +59,23 @@ const Home = () => {
           </div>
       </HomeStyle>
   )
+    const [seasonVoting, setSeasonVoting] = useState('Осень 2023');
+
+    return (
+        <HomeStyle>
+            <AsideStyle>
+                <Select selectVoting={true} value={seasonVoting} setState={setSeasonVoting}
+                        options={['Осень 2023', 'Весна 2023', 'Осень 2022', 'Осень 2023', 'Весна 2023', 'Осень 2022']}/>
+                <Categories/>
+                <History title={'Иcтория'}/>
+            </AsideStyle>
+            <div>
+                <VotingProjects countVoices={35}/>
+                <PopularProjects/>
+                <SelectionProjects/>
+            </div>
+        </HomeStyle>
+    )
 }
 
 export default Home

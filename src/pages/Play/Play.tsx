@@ -8,15 +8,22 @@ import roll_up from "../../assets/images/icons/roll_up.svg"
 import {useFullscreen} from "../../context/FullScreen";
 import Iframe from "react-iframe";
 import { useData } from "../../context/DataContext";
+import {Link} from "react-router-dom";
 
 function Play() {
-  return(
-      <PlayStyle>
-        <H1Style>Название проекта</H1Style>
-        <PathName><span style={{color: '#B6B6B6'}}>Проеты &gt; </span>Страница проекта</PathName>
-        <Display img={icon}/>
-      </PlayStyle>
-  )
+    return (
+        <PlayStyle>
+            <H1Style>Название проекта</H1Style>
+            <PathName>
+            <span style={{color: '#B6B6B6'}}>
+                <Link style={{display: 'inline', color: '#B6B6B6'}} to={'/'}>Проекты </Link>
+            </span>
+                <span> &gt; </span>
+                <span> Страница проекта</span>
+            </PathName>
+            <Display img={icon}/>
+        </PlayStyle>
+    )
 }
 
 function Display({img}: { img: any }) {
@@ -56,8 +63,8 @@ function DisplayUnity() {
   let id = 1;
   if (data.idProject && data.idProject <= 6)
     id = data.idProject;
-    
-  
+
+
   return (
     <Iframe frameBorder={0} scrolling="no" width="100%" height="100%" position="relative" display="block" url={`builds/build${id}/index.html`}/>
   )

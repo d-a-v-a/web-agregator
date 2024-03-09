@@ -1,22 +1,24 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {Dispatch, SetStateAction, useEffect, useRef, useState} from "react";
 import styled from "styled-components";
 import dropdownOutline from "../assets/images/icons/arrows/dropdown_outline.svg";
 import {TypeSelector} from "./ui/Selector";
 import {useData} from "../context/DataContext";
 import {H2Style} from "../pages/ProjectEditing/ProjectEditing";
 
-export interface Props {
-    value?: string;
+export interface IProps {
+    value: string;
+    setState: Dispatch<SetStateAction<string>>;
     options: string[];
     height?: string;
+    fontSize?: string;
     type?: TypeSelector;
     selectVoting?: boolean;
+    headColor?: string;
 }
 
-function Select({ options, value = options[0], height, type, selectVoting = false}: Props) {
+function Select({value, setState, options, headColor = '#fff', height, fontSize = '12px', type, selectVoting = false}: IProps) {
     const [isOpen, setIsOpen] = useState(false)
     const ref = useRef<HTMLDivElement>();
-    const [activeValue, setActiveValue] = useState(value)
     const hideClickHandler = () => {
         setIsOpen(prevState => !prevState)
     }
@@ -24,7 +26,7 @@ function Select({ options, value = options[0], height, type, selectVoting = fals
     const {setValues} = useData();
 
     const activeValueHandler = ({target}: any) => {
-        setActiveValue(target.textContent)
+        setState(target.textContent);
         setIsOpen(false)
         if (type === 'role') {
             setValues({role: target.textContent})
@@ -50,7 +52,7 @@ function Select({ options, value = options[0], height, type, selectVoting = fals
                 <H2Style>Выбор события</H2Style>
                 <SelectStyle ref={ref}>
                     <HeadVotingStyle height={height} onClick={hideClickHandler}>
-                        <span>{activeValue ? activeValue : 'Выберите из списка'}</span>
+                        <span>{value ? value : 'Выберите из списка'}</span>
                     </HeadVotingStyle>
                     {
                         isOpen && (
@@ -58,7 +60,7 @@ function Select({ options, value = options[0], height, type, selectVoting = fals
                                 <BodyVotingStyle>
                                     {options.map((item: string, i: number) =>
                                         <ItemVotingStyle key={i}
-                                             curValue={item} activeValue={activeValue}
+                                                         curValue={item} activeValue={value}
                                                          onClick={activeValueHandler}>{item}</ItemVotingStyle>)
                                     }
                                 </BodyVotingStyle>
@@ -74,13 +76,13 @@ function Select({ options, value = options[0], height, type, selectVoting = fals
     return (
         <SelectStyle ref={ref}>
             <HeadStyle height={height} onClick={hideClickHandler}>
-                <span>{activeValue ? activeValue : 'Выберите из списка'}</span>
+                <span style={{ fontSize: fontSize, color: headColor }}>{value ? value : 'Выберите из списка'}</span>
             </HeadStyle>
             {
                 isOpen && (
                     <BodyStyle>
                         {options.map((item: string, i: number) =>
-                            <ItemStyle key={i} onClick={activeValueHandler}>{item}</ItemStyle>)
+                            <ItemStyle fontSize={fontSize} key={i} onClick={activeValueHandler}>{item}</ItemStyle>)
                         }
                     </BodyStyle>
                 )
@@ -93,100 +95,101 @@ function Select({ options, value = options[0], height, type, selectVoting = fals
 export default Select
 
 const SelectWrapVotingStyle = styled.div`
-  margin-bottom: 3rem;
+  margin-bottom: 30px;
 `
 
 const SelectStyle = styled.div<{ ref: any }>`
   position: relative;
-  min-width: 16.6rem;
+  min-width: 166px;
 `
 
-const HeadVotingStyle = styled.div<{ height? : string}>`
-  cursor: pointer;
-  justify-content: space-between;
-  gap: 1rem;
+const HeadVotingStyle = styled.div<{ height?: string}>`
+    cursor: pointer;
+    justify-content: space-between;
+    gap: 0;
 
-  font-weight: 500;
-  font-size: 1.2rem;
+    font-weight: 500;
+    font-size: 12px;
 
-  color: var(--light-grey-color);
+    color: var(--light-grey-color);
 
-  min-width: 26.1rem;
+
   display: flex;
   -webkit-box-align: center;
   align-items: center;
-  padding: 1rem 1.5rem;
-  height: 6rem;
+  margin-bottom: 30px;
+  padding: 10px 15px;
+  height: 60px;
   background-color: var(--dark-grey-color);
 
   ${({height}) => height && `
         height: ${height};
     `}
-  
-  span {
-    flex: 1 1 0;
-    padding-left: 1rem;
-    height: 100%;
-    width: 100%;
-    border: none;
-    border-radius: 0.4rem;
-    background-color: var(--rgba-grey-color);
-    font-weight: 300;
-    font-size: 1.6rem;
-    line-height: 1.9rem;
-    display: flex;
-    align-items: center;
-    color: var(--paragraph-color);
-  }
-  
-  &::after {
-    content: '';
-    flex: 0 0 2.7rem;
-    height: 100%;
-    background: url(${dropdownOutline}) center/contain no-repeat;
-  }
+    span {
+        flex: 1 1 0;
+        padding-left: 10px;
+        height: 40px;
+        width: 196px;
+        border: none;
+        border-radius: 4px;
+        background-color: rgb(61, 61, 61);
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+        color: rgba(255, 255, 255, 0.65);
+    }
+
+    &::after {
+        content: '';
+        margin-left: 15px;
+        flex: 0 0 27px;
+        height: 100%;
+        background: url(${dropdownOutline}) center/contain no-repeat;
+    }
 `
 
 const HeadStyle = styled.div<{ height?: string }>`
   cursor: pointer;
-  padding: 0.5rem 1.5rem 0.5rem 2rem;
+  padding: 5px 15px 5px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 10px;
 
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 12px;
 
   color: var(--light-grey-color);
 
-  border-radius: 0.3rem;
-  border: 0.1rem solid var(--light-grey-color);
+  border-radius: 3px;
+  border: 1px solid var(--light-grey-color);
 
   ${({height}) => height && `
         height: ${height};
     `}
   &::after {
     content: '';
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 16px;
+    height: 16px;
     background: url(${dropdownOutline}) center/contain no-repeat;
   }
 `
 
 const BodyStyle = styled.div`
   position: absolute;
-  padding: 0.8rem 0;
+  padding: 8px 0;
   top: 120%;
   left: 0;
   z-index: 10;
   width: 100%;
   background-color: var(--dark-grey-color);
-  max-height: 18rem;
+  max-height: 180px;
   overflow-y: auto;
 
   &::-webkit-scrollbar {
-    width: 0.8rem;
+    width: 8px;
   }
 
   &::-webkit-scrollbar-track {
@@ -194,24 +197,24 @@ const BodyStyle = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
   }
 `
 
-const ItemStyle = styled.div`
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--rgba-white-color);
+const ItemStyle = styled.div<{fontSize: string}>`
+    cursor: pointer;
+    padding: 5px 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--rgba-white-color);
+    font-size: ${(p) => p.fontSize ? p.fontSize : '12px'};
 
   &::after {
     content: '';
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 16px;
+    height: 16px;
     background: url(${dropdownOutline}) center/contain no-repeat;
     transform: rotate(180deg);
   }
@@ -223,7 +226,7 @@ const ItemStyle = styled.div`
 
 const BodyWrapVotingStyle = styled.div`
   position: absolute;
-  padding: 0.5rem 0.8rem 0.5rem 0;
+  padding: 5px 8px 5px 0;
   top: 120%;
   left: 0;
   z-index: 10;
@@ -232,10 +235,10 @@ const BodyWrapVotingStyle = styled.div`
 `
 
 const BodyVotingStyle = styled.div`
-  padding: 0.5rem 1.5rem;
+  padding: 5px 15px;
 
   &::-webkit-scrollbar {
-    width: 0.2rem;
+    width: 2px;
   }
 
   &::-webkit-scrollbar-track {
@@ -243,29 +246,29 @@ const BodyVotingStyle = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 0.5rem rgba(153, 162, 173, 1);
+    box-shadow: inset 0 0 5px rgba(153, 162, 173, 1);
   }
 
-  max-height: 15.7rem;
+  max-height: 157px;
   overflow-y: auto;
 `
 
 const ItemVotingStyle = styled.div<{activeValue: string, curValue: string}>`
   cursor: pointer;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem 0;
+  padding: 5px 10px;
+  margin: 5px 0;
   
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: ${(p) => p.activeValue == p.curValue ? '#C1D9E2' : 'rgba(255, 255, 255, 0.65)'};
 
-  font-size: 1.6rem;
+  font-size: 16px;
   font-weight: 300;
-  border-radius: 0.4rem;
+  border-radius: 4px;
   transition: 0.1s ease-in-out;
 
   &:hover {
-    background-color: ${(p) => p.activeValue == p.curValue ? '' : 'rgba(200, 200, 200, 0.10)'};;
+    background-color: ${(p) => p.activeValue == p.curValue ? '' : 'rgba(200, 200, 200, 0.10)'};
   }
 `

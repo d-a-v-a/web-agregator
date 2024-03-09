@@ -110,7 +110,7 @@ const CreateTeamBlock = () => {
           <ProfileInput disabled={true} readOnly={true} value={'avarts360@urfu.me'}/>
         </InputBox>
         <WrapperComponent style={{marginBottom: '47px'}}>
-          <Role>Роль: Разработчик</Role>
+          <Role>Роль: Team Lead</Role>
           <Contacts>Контакты</Contacts>
         </WrapperComponent>
         <Components names={names}/>
@@ -131,7 +131,7 @@ const Component = ({children, number}: { children: any, number: number }) => {
           <ProfileInput placeholder={'Фамилия Имя Отчество'}/>
         </InputBox>
         <WrapperComponent>
-          <Role>Роль: Разработчик</Role>
+          <Role>Роль:</Role>
           <Contacts>Контакты</Contacts>
         </WrapperComponent>
       </li>
@@ -184,17 +184,21 @@ const ButtonAddComponent = styled.button`
 `
 
 
-export const Contacts = styled.div`
-  color: var(--headline-3-nd, #C1D9E2);
-  text-align: right;
-  font-family: Inter, sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-decoration-line: underline;
-  text-underline-offset: 4px;
-  cursor: pointer;
+export const Contacts = styled.a`
+    color: var(--headline-3-nd, #C1D9E2);
+    text-align: right;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+
+    &:hover, &:active {
+        text-decoration-line: none;
+    }
 `
 
 export const Role = styled.div`

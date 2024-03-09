@@ -38,8 +38,26 @@ const MyProjects = () => {
 
   const {data} = useData()
 
-  const seasons = ['Осень 2022', 'Весна 2022', 'Осень 2023', 'Весна 2023']
+    const seasons = [
+        {
+            label: 'Осень 2022',
+            disabled: false
+        },
+        {
+            label: 'Весна 2022',
+            disabled: false
+        },
+        {
+            label: 'Осень 2023',
+            disabled: false
+        },
+        {
+            label: 'Весна 2023',
+            disabled: true
+        }
+    ]
 
+    const [role, setRole] = useState('Team Lead')
 
   useEffect(() => {
     SetLabel('Мои проекты')
@@ -54,36 +72,48 @@ const MyProjects = () => {
           marginBottom: 8,
         }}>Выбор проектов</H2Style>
         <P style={{
-          fontSize: 18,
+            fontSize: 18,
+            color: '#B6B6B6'
         }}>выберите учебный семестр</P>
 
-        <ButtonSeasonWrapper>
-          {seasons.map((label, idx) => (
-              <div key={idx}>
-                <div onClick={() => setActiveButton(idx)}>
-                  <ButtonSeason label={label} select={idx === activeButton}/>
-                </div>
-              </div>
-          ))}
-        </ButtonSeasonWrapper>
-        {data.checkProject ? <></> : <><Selector type={'role'}
-                                                 width={'356px'}
-                                                 margin={'10px'}
-                                                 labelSelector={'Роль в команде*'}
-                                                 options={[
-                                                   'Team Lead', 'UI/UX-дизайнер', 'Game-дизайнер', 'Unity-разработчик', 'Художник',
-                                                   'UE-разработчик',
-                                                 ]}
-        />
-          <P>Создать команду может только <span style={{color: '#FBFF47'}}>Team Lead</span></P>
-        </>}
+            <ButtonSeasonWrapper>
+                {seasons.map((season, idx) => (
+                    <div key={idx}>
+                        <div onClick={() => setActiveButton(idx)}>
+                            <ButtonSeason disabled={season['disabled']} label={season['label']}
+                                          select={idx === activeButton}/>
+                        </div>
+                    </div>
+                ))}
+            </ButtonSeasonWrapper>
+            {
+                data.checkProject ?
+                    <></> :
+                    <>
+                        <Selector
+                            headColor={'#D0E6EE'}
+                            fontSize={'16px'}
+                            value={role}
+                            setState={setRole}
+                            type={'role'}
+                            width={'356px'}
+                            margin={'10px'}
+                            labelSelector={'Роль в команде*'}
+                            options={[
+                                'Team Lead', 'UI/UX-дизайнер', 'Game-дизайнер', 'Unity-разработчик', 'Художник',
+                                'UE-разработчик',
+                            ]}
+                        />
+                        <P>Создать команду может только <span style={{color: '#FBFF47'}}>Team Lead</span></P>
+                    </>}
 
 
-        {data.checkProject ? <CheckedProjectTeamBlock/> : (data.role ? data.role === 'Team Lead' ? <CreateTeamBlock/> :
-            <TeamBlock/> : <></>)}
+            {data.checkProject ? <CheckedProjectTeamBlock/> : (data.role ? data.role === 'Team Lead' ?
+                <CreateTeamBlock/> :
+                <TeamBlock buttonExit={true}/> : <></>)}
 
-      </MyProjectStyle>
-  )
+        </MyProjectStyle>
+    )
 }
 
 const ButtonSeasonWrapper = styled.div`
