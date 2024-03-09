@@ -13,6 +13,10 @@ export const Base = `
     -webkit-text-size-adjust: 100%;
     color: var(--white-color);
   }
+  
+  html {
+    font-size: 10px;
+  }
 
 
   h1 {

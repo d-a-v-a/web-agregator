@@ -57,8 +57,8 @@ const TeamBlock = ({buttonExit}: {buttonExit?: boolean}) => {
                   <ProfileInput disabled={true} readOnly={true} value={member.name + ' ' + member.group}/>
                 </InputBox>
                 <WrapperComponent style={{marginBottom: '47px'}}>
-                  <Role>Роль: <span style={{color: '#D0E6EE'}}>{member.role}</span></Role>
-                  <Contacts target={'_blank'} href={member.contacts}>Контакты</Contacts>
+                    <Role>Роль: <span style={{color: '#D0E6EE'}}>{member.role}</span></Role>
+                    <Contacts target={'_blank'} href={member.contacts}>Контакты</Contacts>
                 </WrapperComponent>
               </>)
           )}

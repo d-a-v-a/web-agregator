@@ -45,10 +45,12 @@ const Home = () => {
   //   fetchPosts();
   // }, []);
 
+    const [seasonVoting, setSeasonVoting] = useState('Осень 2023');
   return(
       <HomeStyle>
           <AsideStyle>
-              <Select selectVoting={true} value={'Осень 2023'} options={['Осень 2023', 'Весна 2023', 'Осень 2024', 'Весна 2024', 'Осень 2025', 'Весна 2025']}/>
+              <Select selectVoting={true} value={seasonVoting} setState={setSeasonVoting}
+                                  options={['Осень 2023', 'Весна 2023', 'Осень 2022', 'Осень 2023', 'Весна 2023', 'Осень 2022']}/>
               <Categories/>
               <History title={'Иcтория'}/>
           </AsideStyle>
@@ -59,23 +61,6 @@ const Home = () => {
           </div>
       </HomeStyle>
   )
-    const [seasonVoting, setSeasonVoting] = useState('Осень 2023');
-
-    return (
-        <HomeStyle>
-            <AsideStyle>
-                <Select selectVoting={true} value={seasonVoting} setState={setSeasonVoting}
-                        options={['Осень 2023', 'Весна 2023', 'Осень 2022', 'Осень 2023', 'Весна 2023', 'Осень 2022']}/>
-                <Categories/>
-                <History title={'Иcтория'}/>
-            </AsideStyle>
-            <div>
-                <VotingProjects countVoices={35}/>
-                <PopularProjects/>
-                <SelectionProjects/>
-            </div>
-        </HomeStyle>
-    )
 }
 
 export default Home

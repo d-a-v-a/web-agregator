@@ -64,7 +64,7 @@ const MyProjects = () => {
   }, []);
 
   // @ts-ignore
-  const {SetLabel, setStatus, setButtonState} = useContext(Context)
+  const {SetLabel} = useContext(Context)
 
   return (
       <MyProjectStyle>
@@ -80,7 +80,7 @@ const MyProjects = () => {
                 {seasons.map((season, idx) => (
                     <div key={idx}>
                         <div onClick={() => setActiveButton(idx)}>
-                            <ButtonSeason disabled={season['disabled']} label={season['label']}
+                            <ButtonSeason disable={season['disabled']} label={season['label']}
                                           select={idx === activeButton}/>
                         </div>
                     </div>
