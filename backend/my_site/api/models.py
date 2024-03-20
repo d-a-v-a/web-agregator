@@ -1,5 +1,6 @@
 from django.db import models
-from users.forms import User
+#from users.forms import User
+from django.contrib.auth.models import User
 from django.utils import timezone
 from django.core.validators import FileExtensionValidator
 
@@ -43,3 +44,12 @@ class MainPage(models.Model):
 
     def __str__(self):
         return self.title
+
+class Team(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    leader = models.ForeignKey(User, on_delete=models.CASCADE, related_name='team_leader')
+    members = models.ManyToManyField(User, related_name='team_members')
+
+    def __str__(self):
+        return self.name

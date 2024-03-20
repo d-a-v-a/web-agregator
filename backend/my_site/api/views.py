@@ -2,7 +2,8 @@ from rest_framework.decorators import api_view
 from rest_framework import generics
 
 from my_site import settings
-from .models import ProjectModel, MainPage, TestModel
+from .models import ProjectModel, MainPage, TestModel, Team
+from .forms import TeamForm
 from .serializers import ProjectSerializer, MainPageSerializer, TestProjectSerializer
 from django.http import HttpResponse
 from django.views import View
@@ -10,6 +11,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 import os
 from wsgiref.util import FileWrapper
+
+#20/03/2024
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 class LeadProjectCreate(generics.ListCreateAPIView):
     queryset = TestModel.objects.all()
@@ -50,3 +56,44 @@ class HTMLDocumentView(View):
 class MainPageDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MainPage.objects.all()
     serializer_class = MainPageSerializer
+
+
+@login_required
+def create_team(request):
+    if request.method == 'POST':
+        form = TeamForm(request.POST)
+        if form.is_valid():
+            team = form.save(commit=False)
+            team.leader = request.user  # Устанавливаем текущего пользователя как лидера команды
+            team.save()
+            form.save_m2m()  # Сохраняем связи со связанными объектами (члены команды)
+            messages.success(request, 'Команда успешно создана!')
+            return redirect('team_list')
+    else:
+        form = TeamForm()
+    return render(request, 'create_team.html', {'form': form})
+
+@login_required
+def edit_team(request, team_id):
+    team = Team.objects.get(id=team_id)
+    if request.method == 'POST':
+        form = TeamForm(request.POST, instance=team)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Изменения сохранены!')
+            return redirect('team_list')
+    else:
+        form = TeamForm(instance=team)
+    return render(request, 'edit_team.html', {'form': form})
+
+@login_required
+def delete_team(request, team_id):
+    team = Team.objects.get(id=team_id)
+    team.delete()
+    messages.success(request, 'Команда успешно удалена!')
+    return redirect('team_list')
+
+@login_required
+def team_list(request):
+    teams = Team.objects.all()
+    return render(request, 'team_list.html', {'teams': teams})

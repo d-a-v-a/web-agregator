@@ -15,6 +15,7 @@ urlpatterns = [
     path('page', MainPageListCreateView.as_view()),
     path('page/<int:pk>/', MainPageDetailView.as_view()),
     path('mainpage/<int:pk>/', MainPageDetailView.as_view()),
+
     
     #path('profile/<int:profile_id')
     #path('rating/'),
