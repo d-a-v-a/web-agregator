@@ -47,7 +47,7 @@ const Home = () => {
         },
         {
             title: 'Осень 2023',
-            finishDate: '2024-01-01 00:00',
+            finishDate: '2024-04-21 00:00',
             countVoices: 55
         }
     ]

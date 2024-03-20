@@ -6,7 +6,6 @@ import TimerVoting from "./TimerVoting";
 import voices from "../assets/images/icons/voices.svg"
 import { useData } from "../context/DataContext";
 
-
 interface ISeason {
     title: string;
     finishDate: string;
@@ -24,8 +23,8 @@ export default function VotingProjects({seasonsData, season}: IVoting) {
     const currentSeason: ISeason | undefined = seasonsData.find(el => el.title === season);
     data.eventStatus = eventStatus;
 
-    const changeStatus = () => {
-        setEventStatus(prevState => !prevState);
+    const changeStatus = (change: boolean = false) => {
+        setEventStatus(change);
         setValues({
           ...data,
           eventStatus: eventStatus
