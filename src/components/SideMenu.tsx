@@ -16,10 +16,10 @@ const Menu = styled.nav<{ open: boolean }>`
   bottom: 0;
   z-index: 293;
   display: block;
-  width: 400px;
+  width: 40rem;
   max-width: 100%;
   margin-top: 0;
-  padding-top: 40px;
+  padding-top: 4rem;
   padding-right: 0;
   align-items: stretch;
   background-color: var(--main-bg-color);
@@ -27,8 +27,8 @@ const Menu = styled.nav<{ open: boolean }>`
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   list-style: none;
  button {
-   padding-left: 40px;
-   margin-bottom: 10px;
+   padding-left: 4rem;
+   margin-bottom: 1rem;
  }
   ${props =>
     props.open &&
@@ -42,16 +42,16 @@ export const MenuLink = styled.a`
   display: block;
   text-align: left;
   max-width: 100%;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
   padding-left: 16%;
   background-position: 88% 50%;
-  background-size: 36px;
+  background-size: 3.6rem;
   background-repeat: no-repeat;
   transition: background-position 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
   text-decoration: none;
   color: #fff;
-  font-size: 32px;
+  font-size: 3.2rem;
   line-height: 120%;
   font-weight: 500;
 

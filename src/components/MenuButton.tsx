@@ -7,8 +7,8 @@ const MenuButton = styled.div`
     display: none;
   }
   
-  width: 30px;
-  height: 20px;
+  width: 3rem;
+  height: 2rem;
   display: flex;
   justify-content: space-between;
   flex-direction: column;

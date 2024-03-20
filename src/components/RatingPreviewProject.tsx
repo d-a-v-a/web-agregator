@@ -230,7 +230,3 @@ const PreviewProject: React.FC<Props> = ({place, voices, image, prevCategory, ca
 }
 
 export default PreviewProject;
-
-function setValues(arg0: { idProject: number; }) {
-  throw new Error("Function not implemented.");
-}

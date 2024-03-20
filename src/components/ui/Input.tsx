@@ -10,12 +10,12 @@ interface InputProps {
 const InputStyle = styled.input<InputProps>`
   display: block;
   flex: 1;
-  height: ${({height = '39px'}) => height};
-  padding: ${({padding = '0 10px'}) => padding};
+  height: ${({height = '3.rem'}) => height};
+  padding: ${({padding = '0 rem'}) => padding};
   width: ${({width = '100%'}) => width};
 
   font-weight: 300;
-  font-size: 16px;
+  font-size: 1.6rem;
 
   color: var(--white-color);
   background-color: var(--rgba-grey-color);

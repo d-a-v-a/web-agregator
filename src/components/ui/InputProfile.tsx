@@ -84,8 +84,8 @@ function NameProjectInput({
 const CleanEl = styled.div`
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
 
   color: rgba(208, 230, 238, 0.94);
   cursor: pointer;
@@ -113,16 +113,16 @@ const Icon = styled.div<IconProps>`
 `
 
 const NameInputStyle = styled.input`
-  padding-left: 22px;
+  padding-left: 2.2rem;
   width: 100%;
-  height: 39px;
+  height: 3.9rem;
   background: rgba(200, 200, 200, 0.1);
   border-radius: 4px;
   border: 1px solid transparent;
   font-style: normal;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
   transition: border-color 0.3s ease-in-out;
 
   color: rgba(255, 255, 255, 0.65);

@@ -55,7 +55,7 @@ const HeaderWrapper = styled.div<{ref?: any}>`
   position: sticky;
   top: 0;
   z-index: 10000;
-  margin-bottom: 53px;
+  margin-bottom: 5.3rem;
   background-color:  var(--dark-grey-color);
 `
 
@@ -64,8 +64,8 @@ const HeaderStyle = styled.div`
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
-  max-width: 1280px;
-  padding: 11px 25px;
+  max-width: 128rem;
+  padding: 1.6rem 2.5rem;
 
   @media (max-width: 1100px) {
     justify-content: space-between;
@@ -93,11 +93,11 @@ const ListLinks = styled.ul`
   margin-bottom: 0;
   
   @media (max-width: 1100px) {
-    padding: 40px 20px;
-    row-gap: 20px;
+    padding: 4rem 2rem;
+    row-gap: 2rem;
     flex-direction: column;
     background: var(--main-bg-color);
-    max-width: 300px;
+    max-width: 30rem;
     height: 100%;
   }
 
@@ -111,8 +111,8 @@ const LinkStyle = styled(NavLink)`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
   display: flex;
   align-items: center;
   text-align: center;
@@ -130,7 +130,7 @@ const LinkStyle = styled(NavLink)`
   }
 
   @media (max-width: 1100px) {
-    font-size: 20px ;
+    font-size: 2rem ;
   }
 `
 

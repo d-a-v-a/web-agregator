@@ -27,8 +27,8 @@ export const PaginationButtonLeft = styled(PaginationButtonStyle)`
 `
 
 export const PaginationText = styled.div`
-  padding: 0 10px;
-  font-size: 12px;
+  padding: 0 1rem;
+  font-size: 1.2rem;
   color: var(--light-grey-color);
 `
 

@@ -6,20 +6,27 @@ import {Contacts, Role, WrapperComponent} from "../CreateTeamBlock";
 
 
 const dataTeam: TeamInterface = {
-  teamName: 'DreamTeam',
-  members: [
-    {name: 'Петров Игорь Васильевич', group: 'РИ-210912', role: 'Конципт дизанер', contacts: '+79564756354'},
-    {name: 'Кашевников Игорь Николаевич', group: 'РИ-210912', role: 'Художнк', contacts: '+79564756354'},
-    {name: 'Дробцов Игорь Ильич', group: 'РИ-210912', role: 'Девелопер', contacts: '+79564756354'},
-    {name: 'Моветонов Игорь Догматович', group: 'РИ-210912', role: 'Аналитик', contacts: '+79564756354'},
-  ]
-
+    teamName: 'DreamTeam',
+    members: [
+        {name: 'Петров Игорь Васильевич', group: 'РИ-210912', role: 'UI/UX-дизайнер', contacts: 'https://telegram.me/s/urfu_ru'},
+        {name: 'Кашевников Игорь Николаевич', group: 'РИ-210912', role: 'Team Lead', contacts: 'https://telegram.me/s/urfu_ru'},
+        {name: 'Дробцов Игорь Ильич', group: 'РИ-210912', role: 'Game-дизайнер', contacts: 'https://telegram.me/s/urfu_ru'},
+        {name: 'Моветонов Игорь Догматович', group: 'РИ-210912', role: 'Unity-разработчик', contacts: 'https://telegram.me/s/urfu_ru'},
+    ]
 }
 
-const TeamBlock = () => {
+const GridTeam = styled.div`
+    display: flex;
+
+    @media (max-width: 777px) {
+        flex-direction: column;
+    }
+`
+
+const TeamBlock = ({buttonExit}: {buttonExit?: boolean}) => {
   return (
       <>
-        <div style={{display: 'flex'}}>
+        <GridTeam>
           <div style={{marginRight: '24px'}}>
             <TitleInput>Роль в команде</TitleInput>
             <InputBox style={{marginBottom: '47px', width: '356px'}}>
@@ -27,7 +34,7 @@ const TeamBlock = () => {
             </InputBox>
           </div>
           <div>
-            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
               <TitleInput>Ваша команда</TitleInput>
               <CountMembers>Участников: 4</CountMembers>
             </div>
@@ -35,7 +42,12 @@ const TeamBlock = () => {
               <ProfileInput disabled={true} readOnly={true} value={dataTeam.teamName}/>
             </InputBox>
           </div>
-        </div>
+        </GridTeam>
+
+        {/*<TitleInput>Ваша команда</TitleInput>*/}
+        {/*<InputBox style={{marginBottom: '47px'}}>*/}
+        {/*  <ProfileInput disabled={true} readOnly={true} value={dataTeam.teamName}/>*/}
+        {/*</InputBox>*/}
         <div style={{marginBottom: '109px'}}>
           {dataTeam.members.map((member, id) => (
               <>
@@ -44,27 +56,27 @@ const TeamBlock = () => {
                   <ProfileInput disabled={true} readOnly={true} value={member.name + ' ' + member.group}/>
                 </InputBox>
                 <WrapperComponent style={{marginBottom: '47px'}}>
-                  <Role>Роль: {member.role}</Role>
-                  <Contacts>Контакты: {member.contacts}</Contacts>
+                    <Role>Роль: <span style={{color: '#D0E6EE'}}>{member.role}</span></Role>
+                    <Contacts target={'_blank'} href={member.contacts}>Контакты</Contacts>
                 </WrapperComponent>
               </>)
           )}
         </div>
 
-
-        <ButtonLeaveTeam>Выйти из команды</ButtonLeaveTeam>
-      </>
-  )
+            {buttonExit && <ButtonLeaveTeam>Выйти из команды</ButtonLeaveTeam>}
+        </>
+    )
 }
 
 const CountMembers = styled.div`
-  color: var(--d-0-e-6-ee, rgba(208, 230, 238, 0.50));
-  font-family: Inter, sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  transform: translateY(20px);
+    color: var(--d-0-e-6-ee, rgba(208, 230, 238, 0.50));
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 20px;
+    //transform: translateY(20px);
 `
 
 const ButtonLeaveTeam = styled.button`

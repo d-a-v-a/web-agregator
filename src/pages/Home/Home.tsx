@@ -14,40 +14,76 @@ import { ProjectInteface } from "../../interfaces/Project.interface";
 import { projects } from "../../projects";
 
 const HomeStyle = styled.div`
-  display: flex;
-  gap: 2.4rem;
-  margin: 0 auto 7.4rem;
-  max-width: 118.4rem;
-  padding: 0 2rem;
-  
-  @media (max-width: 1165px) {
-    flex-direction: column;
-  }
+    display: flex;
+    gap: 24px;
+    margin: 0 auto 74px;
+    max-width: 1184px;
+    padding: 0 20px;
+
+    @media (max-width: 1165px) {
+        flex-direction: column;
+    }
 `
 
 const Home = () => {
 
-  
+    const seasonsOptions: string[] = []
+
+    const seasonsData = [
+        {
+            title: 'Весна 2022',
+            finishDate: '2022-06-01 00:00',
+            countVoices: 40
+        },
+        {
+            title: 'Осень 2022',
+            finishDate: '2023-01-01 00:00',
+            countVoices: 30
+        },
+        {
+            title: 'Весна 2023',
+            finishDate: '2023-06-01 00:00',
+            countVoices: 35
+        },
+        {
+            title: 'Осень 2023',
+            finishDate: '2024-04-21 00:00',
+            countVoices: 55
+        }
+    ]
+    seasonsData.forEach(el => {
+        seasonsOptions.push(el.title)
+    })
+
+
   const {data, setValues} = useData();
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const resp: ProjectInteface[] | null = await getFullInfAboutProjects();
-      setValues({ allProjectsInformation: resp, isLoadingProjectInf: true });
+      setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
     };
     fetchPosts();
   }, []);
 
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     const resp: ProjectInteface[] | null = await getFullInfAboutProjects();
+  //     setValues({ allProjectsInformation: resp, isLoadingProjectInf: true });
+  //   };
+  //   fetchPosts();
+  // }, []);
 
+    const [seasonVoting, setSeasonVoting] = useState('Осень 2023');
   return(
       <HomeStyle>
           <AsideStyle>
-              <Select selectVoting={true} value={'Осень 2023'} options={['Осень 2023', 'Весна 2023', 'Осень 2024', 'Весна 2024', 'Осень 2025', 'Весна 2025']}/>
+              <Select selectVoting={true} value={seasonVoting} setState={setSeasonVoting}
+                                  options={seasonsOptions}/>
               <Categories/>
               <History title={'Иcтория'}/>
           </AsideStyle>
           <div>
-              <VotingProjects/>
+              <VotingProjects seasonsData={seasonsData} season={seasonVoting}/>
               <PopularProjects />
               <SelectionProjects />
           </div>

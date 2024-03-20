@@ -1,16 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import Pagination from "./ui/Pagination";
 import styled from "styled-components";
-import image1 from "../assets/images/project_preview/image1.jpg"
 import Select from "./Select";
 import RatingPreviewProject from "./RatingPreviewProject";
 import { useData } from "../context/DataContext";
 
 
 const H2Style = styled.h2`
-    margin-bottom: 1.4rem;
+    margin-bottom: 14px;
     font-weight: 600;
-    font-size: 2.6rem;
+    font-size: 26px;
     color: var(--white-color);
 `
 
@@ -18,8 +17,8 @@ const Options = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
+    gap: 20px;
+  flex-wrap: wrap;
   
 
   @media (max-width: 676px) {
@@ -31,19 +30,20 @@ const Options = styled.div`
 
 const FoundStyle = styled.span`
     flex: 1 1;
-    font-size: 2rem;
+    font-size: 20px;
     color: var(--light-grey-color);
 `
 
 const HeaderSelectProjects = styled.div`
     position: sticky;
-    padding: 1.5rem 0 1.5rem;
-    top: 6.3rem;
+    padding: 15px 0 15px;
+    top: 63px;
     background-color: var(--main-bg-color);
     z-index: 1000;
 `
 
 const SelectionProjects = () => {
+    const [sort, setSort] = useState('По убыванию рейтинга')
     const {data} = useData();
     const image1 = data?.allProjectsInformation?.[0]?.image ?? '';
     const image2 = data?.allProjectsInformation?.[1]?.image ?? '';
@@ -103,7 +103,7 @@ const SelectionProjects = () => {
             desc: 'Основной геймплей игры завязан на использовании merge-механики — совмещение/слияние блоков'
         },
         {
-            place: 11,
+            place: 5,
             path: '/project',
             voices: '30',
             image: image1,
@@ -113,7 +113,7 @@ const SelectionProjects = () => {
             desc: 'Основной геймплей игры завязан на использовании merge-механики — совмещение/слияние блоков'
         },
         {
-            place: 22,
+            place: 6,
             path: '/project',
             voices: '20',
             image: image1,
@@ -137,11 +137,11 @@ const SelectionProjects = () => {
         <RatingPreviewProject key={elem.id}
                                 id={elem.id}
                                 voices={elem.rating}
-                                path={'/project'} 
-                                place={projects[elem.id-1].place} 
-                                image={elem.image} 
-                                prevCategory={'Развлекательные'} 
-                                category={'Аркады'} 
+                                path={'/project'}
+                                place={projects[elem.id-1].place}
+                                image={elem.image}
+                                prevCategory={'Развлекательные'}
+                                category={'Аркады'}
                                 name={elem.title}
                                 desc={elem.description}/>
     )
@@ -152,7 +152,7 @@ const SelectionProjects = () => {
                 <Options>
                     <FoundStyle>Найдено 31 проект</FoundStyle>
                     <Pagination current={1} total={5}/>
-                    <Select value={'По убыванию рейтинга'} options={['По убыванию рейтинга', 'По возрастанию рейтинга']}/>
+                    <Select setState={setSort} value={sort} options={['По убыванию рейтинга', 'По возрастанию рейтинга', 'Весь список проектов']}/>
                 </Options>
             </HeaderSelectProjects>
             <>

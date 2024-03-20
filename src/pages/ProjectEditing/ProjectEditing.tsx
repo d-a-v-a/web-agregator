@@ -18,7 +18,7 @@ function ProjectEditing() {
             <span> Мои проекты</span>
         </PathName>
         <MainPart>
-          <SidebarForEditing/>
+          <SidebarForEditing />
           <DescriptionProject/>
         </MainPart>
         <PromoMaterials/>
@@ -32,9 +32,9 @@ function ProjectEditing() {
 }
 
 const ProjectEditingStyle = styled.div`
-  margin: 0 auto 74px;
-  max-width: 1184px;
-  padding: 0 20px;
+  margin: 0 auto 7.4rem;
+  max-width: 118.4rem;
+  padding: 0 2rem;
 `
 
 export const H1Style = styled.h1`
@@ -47,26 +47,26 @@ export const H1Style = styled.h1`
 `
 
 export const PathName = styled.div`
-  margin-bottom: 66px;
+  margin-bottom: 6.6rem;
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 2rem;
+  line-height: 2.4rem;
   color: #D0E6EE;
 `
 
 export const H2Style = styled.h2`
-  margin: 0 0 25px;
+  margin: 0 0 2.5rem;
   font-style: normal;
   font-weight: 500;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 2.4rem;
+  line-height: 2.9rem;
   color: var(--white-color);
 `
 
 const MainPart = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 2rem;
   justify-content: space-between;
 
   @media (max-width: 850px) {
@@ -75,22 +75,22 @@ const MainPart = styled.div`
 `
 
 const Buttons = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 4rem;
   display: flex;
   justify-content: center;
 `
 
 const SaveButton = styled.button`
-  width: 356px;
-  margin-right: 24px;
+  width: 35.6rem;
+  margin-right: 2.4rem;
   background-color: var(--blue-bg);
   border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 20px;
-  height: 56px;
+  font-size: 2rem;
+  height: 5.6rem;
   transition: background-color 0.3s ease-in-out;
 
   &:hover {
@@ -114,8 +114,8 @@ const P = styled.div`
   justify-content: center;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
   color: rgba(208, 230, 238, 0.94);
 `
 

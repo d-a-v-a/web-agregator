@@ -6,9 +6,9 @@ const RatingActionStyle = styled.div`
 `
 
 const TitleStyle = styled.div`
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.8rem;
   color: var(--title-blue-grey);
 `
 
@@ -16,7 +16,7 @@ const GridStyle = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 15px;
+  gap: 1.5rem;
 `
 
 const StarsStyled = styled.div`
@@ -27,7 +27,7 @@ const StarsStyled = styled.div`
 
 const StarStyled = styled.div<{ active?: boolean }>`
   cursor: pointer;
-  padding-right: 10px;
+  padding-right: 1rem;
   
   &:first-child {
     padding-right: 0;
@@ -50,7 +50,7 @@ const StarStyled = styled.div<{ active?: boolean }>`
 
 const RatingCount = styled.div`
   font-weight: 700;
-  font-size: 24px;
+  font-size: 2.4rem;
   color: var(--white-color);
 `
 

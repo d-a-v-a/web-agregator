@@ -9,18 +9,18 @@ const SearchStyle = styled.div`
 const SearchBlockStyle = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
-  padding: 10px 15px;
-  height: 60px;
+  margin-bottom: 3rem;
+  padding: 1rem 1.5rem;
+  height: 6rem;
   background-color: var(--dark-grey-color);
 `
 
 const SearchInputStyle = styled.input`
   flex: 1 1;
-  margin-right: 13px;
-  padding-left: 10px;
-  height: 40px;
-  width: 196px;
+  margin-right: 1.3rem;
+  padding-left: 1rem;
+  height: 4rem;
+  width: 19.6rem;
   border: none;
   border-radius: 4px;
   background-color: #3d3d3d;
@@ -28,8 +28,8 @@ const SearchInputStyle = styled.input`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
   display: flex;
   align-items: center;
 
