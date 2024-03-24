@@ -128,6 +128,7 @@ const DropLinksWrapper = styled.ul<IsActive>`
                     ` :
                     css`
                         opacity: 0;
+                        display: none;
                     `
     }
     position: absolute;
