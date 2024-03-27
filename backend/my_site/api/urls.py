@@ -1,5 +1,6 @@
 from django.urls import path
 from rest_framework import routers
+from .views import vote_project
 from .views import *
 from django.views.generic import TemplateView
 
@@ -15,6 +16,7 @@ urlpatterns = [
     path('page', MainPageListCreateView.as_view()),
     path('page/<int:pk>/', MainPageDetailView.as_view()),
     path('mainpage/<int:pk>/', MainPageDetailView.as_view()),
+    path('project/<int:pk>/vote/', vote_project, name='vote_project'),
 
     
     #path('profile/<int:profile_id')

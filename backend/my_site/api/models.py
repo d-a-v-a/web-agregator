@@ -15,6 +15,13 @@ class ProjectModel(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    votes = models.IntegerField(default=0)
+
+    # Функция API для отправки голоса
+    def vote(self):
+        self.votes += 1
+        self.save()
+
     def __str__(self):
         return self.title
 
