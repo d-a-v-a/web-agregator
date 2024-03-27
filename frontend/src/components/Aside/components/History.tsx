@@ -16,7 +16,7 @@ const CardHistoryStyled = styled(Link)`
 
 const CardInner = styled.div`
   position: relative;
-  width: 100%;
+  width: 261px;
   height: 100%;
   z-index: 1;
   display: flex;
@@ -35,6 +35,10 @@ const CardInner = styled.div`
     visibility: visible;
     bottom: 100%;
   }
+    
+    @media (max-width: 1165px) {
+        width: 100%;
+    }
 `
 
 const HistoryButtonStyled = styled.button`
