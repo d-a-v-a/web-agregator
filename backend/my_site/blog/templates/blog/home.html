@@ -11,6 +11,8 @@
             <h2><a class="article-title" href="/project/{{ project.id }}">{{ project.title }}</a></h2>
               <image  src="{{ project.image.url }}" width="200px"></image>
             <p class="article-content">{{ project.description }}</p>
+            <p class="article-content">{{ project.theme }}</p>
+            <p class="article-content">{{ project.link_repository }}</p>
             <p class="article-content">Категории</p>
             <ol>
                 {% for category in project.categories.all %}
@@ -20,11 +22,11 @@
           </div>
         </article>
     {% endfor %}
-    <div class="pagination justify-content-center"> 
+    <div class="pagination justify-content-center">
     {% if is_paginated %}
 
       {% if page_obj.has_previous %}
-        
+
         <a class="btn btn-outline-info mb-4 mr-1" href="?page=1">Первая</a>
         <a class="btn btn-outline-info mb-4 mr-1" href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
       {% endif %}

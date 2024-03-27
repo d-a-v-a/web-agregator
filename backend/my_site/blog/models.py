@@ -27,6 +27,8 @@ class Categories(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=200)  # название проекта
     description = models.TextField()  # описание проекта
+    theme = models.CharField(max_length=200)
+    link_repository = models.CharField(max_length=50)
     # rools = models.TextField() # правила игры
     image = models.ImageField(default='default.jpg', upload_to='projects_images/%Y-%m-%d/')  # главное изображение проекта
     file = models.FileField(upload_to='projects/%Y-%m-%d/')
