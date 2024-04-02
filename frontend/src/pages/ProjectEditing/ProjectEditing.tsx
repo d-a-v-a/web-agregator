@@ -57,6 +57,7 @@ export const PathName = styled.div`
 
 export const H2Style = styled.h2`
   margin: 0 0 2.5rem;
+    max-width: 261px;
   font-style: normal;
   font-weight: 500;
   font-size: 2.4rem;
