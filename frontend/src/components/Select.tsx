@@ -12,7 +12,7 @@ function Select({value, setState, options, headColor = '#fff', height, fontSize 
     const [isOpen, setIsOpen] = useState(false)
     const ref = useRef<HTMLDivElement>();
     /**
-     * Открытие/закртытие выпадаюзего списка
+     * Открытие/закртытие выпадающего списка
      */
     const hideClickHandler = () => {
         setIsOpen(prevState => !prevState)
@@ -21,7 +21,7 @@ function Select({value, setState, options, headColor = '#fff', height, fontSize 
     const {setValues} = useData();
 
     /**
-     * установк активного значения
+     * установка активного значения селекта
      * @param target
      */
     const activeValueHandler = ({target}: any) => {
@@ -34,7 +34,7 @@ function Select({value, setState, options, headColor = '#fff', height, fontSize 
 
     useEffect(() => {
         /**
-         * Закрытие выпадаюзего списка при клик вне его области
+         * Закрытие выпадаюзего списка при клике вне его области
          * @param e
          */
         const checkIfClickedOutside = (e: any) => {

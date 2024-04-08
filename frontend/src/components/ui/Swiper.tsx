@@ -11,6 +11,102 @@ import {Link} from "react-router-dom";
 import { useData } from "../../context/DataContext";
 import RatingPreviewProject from "../RatingPreviewProject";
 
+/**
+ * Компонента свайпера (листалки)
+ * @constructor
+ */
+function SwiperProjects(){
+  const {data} = useData();
+  const image1 = data?.allProjectsInformation?.[0]?.image ?? '';
+  const image2 = data?.allProjectsInformation?.[1]?.image ?? '';
+  const image3 = data?.allProjectsInformation?.[2]?.image ?? '';
+  const image4 = data?.allProjectsInformation?.[3]?.image ?? '';
+
+  const title1 = data?.allProjectsInformation?.[0]?.title ?? '';
+  const title2 = data?.allProjectsInformation?.[1]?.title ?? '';
+  const title3 = data?.allProjectsInformation?.[2]?.title ?? '';
+  const title4 = data?.allProjectsInformation?.[3]?.title ?? '';
+
+  const id1 = data?.allProjectsInformation?.[0]?.id ?? '';
+  const id2 = data?.allProjectsInformation?.[1]?.id ?? '';
+  const id3 = data?.allProjectsInformation?.[2]?.id ?? '';
+  const id4 = data?.allProjectsInformation?.[3]?.id ?? '';
+  return (
+      <SwiperBlockStyle>
+        <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
+            spaceBetween={0}
+
+            grabCursor={true}
+            effect={'coverflow'}
+            navigation
+            pagination={{ clickable: true }}
+            centeredSlides={true}
+            loop={true}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 304,
+              depth: 100,
+              modifier: 1.132,
+            }}
+            slidesPerView={"auto"}
+            allowTouchMove={false}
+        >
+          <SwiperWrapper>
+              <SwiperSlide>
+                  <SlideInner id={id1} image={image1} category={['Развлекательные', 'Аркады']} name={title1}/>
+              </SwiperSlide>
+              <SwiperSlide>
+                  <SlideInner id={id2} image={image2} category={['Развлекательные', 'Аркады']} name={title2}/>
+              </SwiperSlide>
+              <SwiperSlide>
+                  <SlideInner id={id3} image={image3} category={['Развлекательные', 'Аркады']} name={title3}/>
+              </SwiperSlide>
+              <SwiperSlide>
+                  <SlideInner id={id4} image={image4} category={['Развлекательные', 'Аркады']} name={title4}/>
+              </SwiperSlide>
+              <SwiperSlide>
+                  <SlideInner id={id3} image={image3} category={['Развлекательные', 'Аркады']} name={title3}/>
+              </SwiperSlide>
+              <SwiperSlide>
+                  <SlideInner id={id1} image={image1} category={['Развлекательные', 'Аркады']} name={title1}/>
+              </SwiperSlide>
+          </SwiperWrapper>
+        </Swiper>
+      </SwiperBlockStyle>
+  )
+}
+
+export interface SlideProps {
+    image: any,
+    category: string[],
+    name: string,
+    id: number,
+}
+
+const SlideInner = ({image, category, name, id}: SlideProps) => {
+  const {setValues} = useData();
+  const handleClick = (id:number)=> {
+    setValues({idProject: id})
+  }
+
+    const categoryBlock = category.map((_, i) => (
+        <CategoryStyle key={i}>{_}</CategoryStyle>
+    ))
+    return(
+        <>
+            <img src={image} style={{width: '100%', height:'100%'}} alt=""/>
+            <SlideInfo>
+                <SlideCategory>{categoryBlock}</SlideCategory>
+                <SlideName>{name}</SlideName>
+                <SlideBtn to={'/project'} onClick={() => handleClick(id)}>Открыть</SlideBtn>
+            </SlideInfo>
+        </>
+    )
+}
+
+export default SwiperProjects
+
 const SwiperBlockStyle = styled.div`
     position: relative;
     margin-bottom: 40px;
@@ -204,95 +300,3 @@ const SlideBtn = styled(Link)`
     opacity: 0.8;
   }
 `
-
-function SwiperProjects(){
-  const {data} = useData();
-  const image1 = data?.allProjectsInformation?.[0]?.image ?? '';
-  const image2 = data?.allProjectsInformation?.[1]?.image ?? '';
-  const image3 = data?.allProjectsInformation?.[2]?.image ?? '';
-  const image4 = data?.allProjectsInformation?.[3]?.image ?? '';
-
-  const title1 = data?.allProjectsInformation?.[0]?.title ?? '';
-  const title2 = data?.allProjectsInformation?.[1]?.title ?? '';
-  const title3 = data?.allProjectsInformation?.[2]?.title ?? '';
-  const title4 = data?.allProjectsInformation?.[3]?.title ?? '';
-
-  const id1 = data?.allProjectsInformation?.[0]?.id ?? '';
-  const id2 = data?.allProjectsInformation?.[1]?.id ?? '';
-  const id3 = data?.allProjectsInformation?.[2]?.id ?? '';
-  const id4 = data?.allProjectsInformation?.[3]?.id ?? '';
-  return (
-      <SwiperBlockStyle>
-        <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
-            spaceBetween={0}
-
-            grabCursor={true}
-            effect={'coverflow'}
-            navigation
-            pagination={{ clickable: true }}
-            centeredSlides={true}
-            loop={true}
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 304,
-              depth: 100,
-              modifier: 1.132,
-            }}
-            slidesPerView={"auto"}
-            allowTouchMove={false}
-        >
-          <SwiperWrapper>
-              <SwiperSlide>
-                  <SlideInner id={id1} image={image1} category={['Развлекательные', 'Аркады']} name={title1}/>
-              </SwiperSlide>
-              <SwiperSlide>
-                  <SlideInner id={id2} image={image2} category={['Развлекательные', 'Аркады']} name={title2}/>
-              </SwiperSlide>
-              <SwiperSlide>
-                  <SlideInner id={id3} image={image3} category={['Развлекательные', 'Аркады']} name={title3}/>
-              </SwiperSlide>
-              <SwiperSlide>
-                  <SlideInner id={id4} image={image4} category={['Развлекательные', 'Аркады']} name={title4}/>
-              </SwiperSlide>
-              <SwiperSlide>
-                  <SlideInner id={id3} image={image3} category={['Развлекательные', 'Аркады']} name={title3}/>
-              </SwiperSlide>
-              <SwiperSlide>
-                  <SlideInner id={id1} image={image1} category={['Развлекательные', 'Аркады']} name={title1}/>
-              </SwiperSlide>
-          </SwiperWrapper>
-        </Swiper>
-      </SwiperBlockStyle>
-  )
-}
-
-export interface SlideProps {
-    image: any,
-    category: string[],
-    name: string,
-    id: number,
-}
-
-const SlideInner = ({image, category, name, id}: SlideProps) => {
-  const {setValues} = useData();
-  const handleClick = (id:number)=> {
-    setValues({idProject: id})
-  }
-
-    const categoryBlock = category.map((_, i) => (
-        <CategoryStyle key={i}>{_}</CategoryStyle>
-    ))
-    return(
-        <>
-            <img src={image} style={{width: '100%', height:'100%'}} alt=""/>
-            <SlideInfo>
-                <SlideCategory>{categoryBlock}</SlideCategory>
-                <SlideName>{name}</SlideName>
-                <SlideBtn to={'/project'} onClick={() => handleClick(id)}>Открыть</SlideBtn>
-            </SlideInfo>
-        </>
-    )
-}
-
-export default SwiperProjects

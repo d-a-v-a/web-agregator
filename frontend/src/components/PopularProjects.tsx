@@ -2,6 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import SwiperProjects from "./ui/Swiper";
 
+/**
+ * Компонента популярных проектов
+ * @constructor
+ */
+function PopularProjects(){
+  return(
+      <PopularProjectsStyle>
+        <H1Style>Популярные проекты</H1Style>
+        <SwiperProjects/>
+      </PopularProjectsStyle>
+  )
+}
+
+export default PopularProjects
 
 const PopularProjectsStyle = styled.div`
   
@@ -15,15 +29,3 @@ const H1Style = styled.h1`
   line-height: 3.1rem;
   color: var(--white-color);
 `
-
-
-function PopularProjects(){
-  return(
-      <PopularProjectsStyle>
-        <H1Style>Популярные проекты</H1Style>
-        <SwiperProjects/>
-      </PopularProjectsStyle>
-  )
-}
-
-export default PopularProjects
