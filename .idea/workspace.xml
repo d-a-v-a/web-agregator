@@ -4,20 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc8382be-3d7d-4048-b9dc-a9e7df49c2ef" name="Changes" comment="js doc" />
+    <list default="true" id="fc8382be-3d7d-4048-b9dc-a9e7df49c2ef" name="Changes" comment="добавлена роль тимлида и функции по создание/редактирование/удаление команды">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/my_site/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/my_site/api/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/my_site/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/my_site/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/my_site/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/my_site/api/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master-fixBags" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -35,35 +46,16 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Project/web-agregator&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\3\\PROJECTSandPISKI\\Web\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\ddubrovskii\\WebstormProjects\\web-agregator\\frontend\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/frontend/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="npm.start" />
-        <item itemvalue="npm.start" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -74,14 +66,6 @@
       <updated>1710912908432</updated>
       <workItem from="1710912911274" duration="2292000" />
       <workItem from="1710915275139" duration="1563000" />
-      <workItem from="1711289624968" duration="3946000" />
-      <workItem from="1711549858593" duration="1979000" />
-      <workItem from="1712060270199" duration="114000" />
-      <workItem from="1712060390936" duration="134000" />
-      <workItem from="1712060533563" duration="6245000" />
-      <workItem from="1712068530559" duration="748000" />
-      <workItem from="1712339978341" duration="17000" />
-      <workItem from="1712578381805" duration="2138000" />
     </task>
     <task id="LOCAL-00001" summary="fix bag with timer">
       <option name="closed" value="true" />
@@ -99,39 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710916639602</updated>
     </task>
-    <task id="LOCAL-00003" summary="fix профиль">
-      <option name="closed" value="true" />
-      <created>1711294926683</created>
+    <task id="LOCAL-00003" summary="добавлена роль тимлида и функции по создание/редактирование/удаление команды">
+      <created>1710937942719</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1711294926683</updated>
+      <updated>1710937942719</updated>
     </task>
-    <task id="LOCAL-00004" summary="fix Неправильный размер на странице проекта">
-      <option name="closed" value="true" />
-      <created>1712061279155</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1712061279155</updated>
-    </task>
-    <task id="LOCAL-00005" summary="папка для бэка">
-      <option name="closed" value="true" />
-      <created>1712068680229</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1712068680229</updated>
-    </task>
-    <task id="LOCAL-00006" summary="js doc">
-      <option name="closed" value="true" />
-      <created>1712584658666</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1712584658666</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,19 +101,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master-fixBags" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -163,11 +110,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix bag with timer" />
     <MESSAGE value="добавил бэк в репу" />
-    <MESSAGE value="Мерж с веткой фикса макета оли" />
-    <MESSAGE value="fix профиль" />
-    <MESSAGE value="fix Неправильный размер на странице проекта" />
-    <MESSAGE value="папка для бэка" />
-    <MESSAGE value="js doc" />
-    <option name="LAST_COMMIT_MESSAGE" value="js doc" />
+    <MESSAGE value="добавлена роль тимлида и функции по создание/редактирование/удаление команды" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавлена роль тимлида и функции по создание/редактирование/удаление команды" />
   </component>
 </project>
