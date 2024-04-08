@@ -13,20 +13,10 @@ import { getFullInfAboutProjects, getProfile } from "../../api/api";
 import { ProjectInteface } from "../../interfaces/Project.interface";
 import { projects } from "../../projects";
 
-const HomeStyle = styled.div`
-    display: flex;
-    gap: 24px;
-    margin: 0 auto 74px;
-    max-width: 1184px;
-    padding: 0 20px;
-
-    @media (max-width: 1165px) {
-        flex-direction: column;
-    }
-`
-
+/**
+ * Компонент главной страницы
+ */
 const Home = () => {
-
     const seasonsOptions: string[] = []
 
     const seasonsData = [
@@ -90,5 +80,17 @@ const Home = () => {
       </HomeStyle>
   )
 }
+
+const HomeStyle = styled.div`
+    display: flex;
+    gap: 24px;
+    margin: 0 auto 74px;
+    max-width: 1184px;
+    padding: 0 20px;
+
+    @media (max-width: 1165px) {
+        flex-direction: column;
+    }
+`
 
 export default Home

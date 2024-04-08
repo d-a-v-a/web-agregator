@@ -5,26 +5,25 @@ import {TypeSelector} from "./ui/Selector";
 import {useData} from "../context/DataContext";
 import {H2Style} from "../pages/ProjectEditing/ProjectEditing";
 
-export interface IProps {
-    value: string;
-    setState: Dispatch<SetStateAction<string>>;
-    options: string[];
-    height?: string;
-    fontSize?: string;
-    type?: TypeSelector;
-    selectVoting?: boolean;
-    headColor?: string;
-}
-
-function Select({value, setState, options, headColor = '#fff', height, fontSize = '1.2rem', type, selectVoting = false}: IProps) {
+/**
+ * компонент селекта
+ */
+function Select({value, setState, options, headColor = '#fff', height, fontSize = '12px', type, selectVoting = false}: IProps) {
     const [isOpen, setIsOpen] = useState(false)
     const ref = useRef<HTMLDivElement>();
+    /**
+     * Открытие/закртытие выпадаюзего списка
+     */
     const hideClickHandler = () => {
         setIsOpen(prevState => !prevState)
     }
 
     const {setValues} = useData();
 
+    /**
+     * установк активного значения
+     * @param target
+     */
     const activeValueHandler = ({target}: any) => {
         setState(target.textContent);
         setIsOpen(false)
@@ -34,6 +33,10 @@ function Select({value, setState, options, headColor = '#fff', height, fontSize 
     }
 
     useEffect(() => {
+        /**
+         * Закрытие выпадаюзего списка при клик вне его области
+         * @param e
+         */
         const checkIfClickedOutside = (e: any) => {
             if (isOpen && ref.current && !ref.current.contains(e.target)) {
                 setIsOpen(false);
@@ -90,6 +93,17 @@ function Select({value, setState, options, headColor = '#fff', height, fontSize 
 
         </SelectStyle>
     )
+}
+
+export interface IProps {
+    value: string;
+    setState: Dispatch<SetStateAction<string>>;
+    options: string[];
+    height?: string;
+    fontSize?: string;
+    type?: TypeSelector;
+    selectVoting?: boolean;
+    headColor?: string;
 }
 
 export default Select
