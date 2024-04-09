@@ -6,7 +6,7 @@ import {useData} from "../context/DataContext";
 import {H2Style} from "../pages/ProjectEditing/ProjectEditing";
 
 /**
- * компонент селекта
+ * выподаюзий список
  */
 function Select({value, setState, options, headColor = '#fff', height, fontSize = '12px', type, selectVoting = false}: IProps) {
     const [isOpen, setIsOpen] = useState(false)
