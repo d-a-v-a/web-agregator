@@ -3,3 +3,6 @@ from django.db import models
 class TestModel(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
+
+class TimerModel(models.Model):
+    time = models.IntegerField()
