@@ -5,6 +5,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework import permissions
 
 from .TestView import TestModelViewSet
+from .TimerView import NumberReturn, CategoriesReturn, TestAPIView
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -19,9 +20,14 @@ schema_view = get_schema_view(
    permission_classes=(AllowAny,),
 )
 
+number = 128
+
 urlpatterns = [
     path('testmodel/', TestModelViewSet.as_view({'get': 'list', 'post': 'create'}), name='mymodels-list'),
     path('testmodel/<int:pk>/', TestModelViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='mymodels-detail'),
+    path('timer/', NumberReturn.as_view()),
+    path('categories/', CategoriesReturn.as_view()),
+    path('test/', TestAPIView.as_view()),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
 
