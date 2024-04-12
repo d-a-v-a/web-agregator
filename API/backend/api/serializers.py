@@ -1,12 +1,16 @@
+# serializers.py
 from rest_framework import serializers
-from .models import TestModel, TimerModel
+from django.contrib.auth import get_user_model
 
-class TestModelSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TestModel
-        fields = '__all__'
+User = get_user_model()
 
-class TimerModelSerializer(serializers.ModelSerializer):
+class CustomUserSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
+
     class Meta:
-        model = TimerModel
-        fields = '__all__'
+        model = User
+        fields = ['username', 'password']
+
+    def create(self, validated_data):
+        user = User.objects.create_user(**validated_data)
+        return user
