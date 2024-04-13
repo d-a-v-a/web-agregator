@@ -7,6 +7,8 @@ from rest_framework import permissions
 
 from .views import RegistrationView, LoginView, LogoutView, profile_view
 
+from .views_project import *
+
 schema_view = get_schema_view(
    openapi.Info(
       title="API Documentation",
@@ -28,5 +30,11 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('profile/', profile_view, name='profile'),
+    path('projects/', list_projects),
+    path('projects/register/', create_project),
+    path('projects/<int:pk>/', view_project),
+    path('projects/<int:pk>/delete/', delete_project),
+    path('projects/<int:pk>/update/', update_project),
+    path('projects/<int:pk>/vote/', vote_project),
 ]
 
