@@ -4,7 +4,10 @@ from drf_yasg import openapi
 from rest_framework.permissions import AllowAny
 from rest_framework import permissions
 
-from .TestView import TestModelViewSet
+
+from .views import RegistrationView, LoginView, LogoutView, profile_view
+
+from .views_project import *
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -19,9 +22,19 @@ schema_view = get_schema_view(
    permission_classes=(AllowAny,),
 )
 
+number = 128
+
 urlpatterns = [
-    path('testmodel/', TestModelViewSet.as_view({'get': 'list', 'post': 'create'}), name='mymodels-list'),
-    path('testmodel/<int:pk>/', TestModelViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='mymodels-detail'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('register/', RegistrationView.as_view(), name='register'),
+    path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('profile/', profile_view, name='profile'),
+    path('projects/', list_projects),
+    path('projects/register/', create_project),
+    path('projects/<int:pk>/', view_project),
+    path('projects/<int:pk>/delete/', delete_project),
+    path('projects/<int:pk>/update/', update_project),
+    path('projects/<int:pk>/vote/', vote_project),
 ]
 
