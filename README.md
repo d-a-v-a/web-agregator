@@ -14,11 +14,11 @@
 
 1.  Переходим в папку бэкенда.
 
-`cd backend`
+`cd API`
 
 2. Создаем виртуальное окружение.
 
-`python3 -m venv venv`
+`python -m venv venv`
 
 3. Запускаем виртуальное окружение.
 
@@ -31,11 +31,11 @@
 5. Создаем миграции.
 
 ```
-python my_site/manage.py makemigrations
-python my_site/manage.py migrate
-python my_site/manage.py migrate --run-syncdb
+python backend/manage.py makemigrations
+python backend/manage.py migrate
+python backend/manage.py migrate --run-syncdb
 ```
 
 6. Запускаем сервер.
 
-`python my_site/manage.py runserver`
+`python backend/manage.py runserver`
