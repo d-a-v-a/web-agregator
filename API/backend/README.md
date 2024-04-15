@@ -11,5 +11,5 @@
 10. Создание миграций БД - python manage.py makemigrations
 11. Применение миграций БД - python manage.py migrate
 12. И лучше еще выполнить команду - python manage.py migrate --run-syncdb  
-13. Запуск бэкенда - python manage.py runserver 
+13. Запуск бэкенда - python manage.py runserver  
 

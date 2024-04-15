@@ -82,3 +82,11 @@ def vote_project(request, pk):
             return Response(status=status.HTTP_200_OK)
         else:
             return Response({'error': 'Rating value is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+def list_projects_by_category(request, category):
+    if request.method == 'GET':
+        projects = Project.objects.filter(categories=category)
+        serializer = ProjectSerializer(projects, many=True)
+        return Response(serializer.data)
