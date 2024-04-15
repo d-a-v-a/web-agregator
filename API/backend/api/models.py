@@ -25,8 +25,9 @@ class Project(models.Model):
     description = models.TextField() #описание проекта
     how_to_play = models.TextField() #как играть
     rating = models.DecimalField(max_digits=5, decimal_places=2, default=0) #кол-во рейтинга
-    views = models.IntegerField() #кол-во просмотров проекта
+    views = models.IntegerField(default=0) #кол-во просмотров проекта
     date_posted = models.DateTimeField(default=timezone.now)
+    categories = models.CharField(max_length=100,default='arcade')
 
 
     total_votes = models.IntegerField(default=0)  # Новое поле для общего количества голосов
