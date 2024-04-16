@@ -16,7 +16,9 @@ interface IVoting {
     seasonsData: ISeason[];
     season: string;
 }
-
+/**
+ * Компонента блока голосования за проекты
+ * */
 export default function VotingProjects({seasonsData, season}: IVoting) {
     const [eventStatus, setEventStatus] = useState(true)
     const {data, setValues} = useData();
@@ -110,6 +112,9 @@ export default function VotingProjects({seasonsData, season}: IVoting) {
     )
 }
 
+/**
+ * Компанента флагов с призовыми менстами
+ */
 export const Badge = ({number: number = 0, top = "17px", left = "-10px", position = false}) => {
   const {data} = useData();
 

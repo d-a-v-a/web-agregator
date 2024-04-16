@@ -5,43 +5,10 @@ import Select from "./Select";
 import RatingPreviewProject from "./RatingPreviewProject";
 import { useData } from "../context/DataContext";
 
-
-const H2Style = styled.h2`
-    margin-bottom: 14px;
-    font-weight: 600;
-    font-size: 26px;
-    color: var(--white-color);
-`
-
-const Options = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-  flex-wrap: wrap;
-  
-
-  @media (max-width: 676px) {
-    span:first-child {
-      flex: 1 1 100%;
-    }
-  }
-`
-
-const FoundStyle = styled.span`
-    flex: 1 1;
-    font-size: 20px;
-    color: var(--light-grey-color);
-`
-
-const HeaderSelectProjects = styled.div`
-    position: sticky;
-    padding: 15px 0 15px;
-    top: 63px;
-    background-color: var(--main-bg-color);
-    z-index: 1000;
-`
-
+/**
+ * компонент списка проектов на главной странице
+ * @constructor
+ */
 const SelectionProjects = () => {
     const [sort, setSort] = useState('По убыванию рейтинга')
     const {data} = useData();
@@ -163,3 +130,39 @@ const SelectionProjects = () => {
 }
 
 export default SelectionProjects
+
+const H2Style = styled.h2`
+    margin-bottom: 14px;
+    font-weight: 600;
+    font-size: 26px;
+    color: var(--white-color);
+`
+
+const Options = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  flex-wrap: wrap;
+  
+
+  @media (max-width: 676px) {
+    span:first-child {
+      flex: 1 1 100%;
+    }
+  }
+`
+
+const FoundStyle = styled.span`
+    flex: 1 1;
+    font-size: 20px;
+    color: var(--light-grey-color);
+`
+
+const HeaderSelectProjects = styled.div`
+    position: sticky;
+    padding: 15px 0 15px;
+    top: 63px;
+    background-color: var(--main-bg-color);
+    z-index: 1000;
+`

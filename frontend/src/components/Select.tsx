@@ -6,13 +6,13 @@ import {useData} from "../context/DataContext";
 import {H2Style} from "../pages/ProjectEditing/ProjectEditing";
 
 /**
- * компонент селекта
+ * выподаюзий список
  */
 function Select({value, setState, options, headColor = '#fff', height, fontSize = '12px', type, selectVoting = false}: IProps) {
     const [isOpen, setIsOpen] = useState(false)
     const ref = useRef<HTMLDivElement>();
     /**
-     * Открытие/закртытие выпадаюзего списка
+     * Открытие/закртытие выпадающего списка
      */
     const hideClickHandler = () => {
         setIsOpen(prevState => !prevState)
@@ -21,7 +21,7 @@ function Select({value, setState, options, headColor = '#fff', height, fontSize 
     const {setValues} = useData();
 
     /**
-     * установк активного значения
+     * установка активного значения селекта
      * @param target
      */
     const activeValueHandler = ({target}: any) => {
@@ -34,7 +34,7 @@ function Select({value, setState, options, headColor = '#fff', height, fontSize 
 
     useEffect(() => {
         /**
-         * Закрытие выпадаюзего списка при клик вне его области
+         * Закрытие выпадаюзего списка при клике вне его области
          * @param e
          */
         const checkIfClickedOutside = (e: any) => {

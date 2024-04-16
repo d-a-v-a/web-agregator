@@ -3,44 +3,10 @@ import styled from "styled-components";
 import Checkbox from "../../ui/Checkbox";
 import RatingPreviewProject from "../../RatingPreviewProject";
 
-const CategoriesStyle = styled.div`
-
-`
-const CategoriesBlockStyle = styled.div`
-    margin-bottom: 3.1rem;
-    background-color: var(--dark-grey-color);
-    padding: 2.7rem 2rem;
-
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.8rem;
-    line-height: 2.2rem;
-
-    color: #C1D9E2;
-`
-
-const H3Style = styled.h2`
-    margin: 0 0 1.8rem;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.8rem;
-    line-height: 2.2rem;
-
-    color: var(--grey-title);
-`
-
-const CategoryGrid = styled.div`
-    &:first-of-type {
-        margin-top: 2rem;
-    }
-    
-    &:not(:last-of-type) {
-        margin-bottom: 3.5rem;
-    }
-`
-
+/**
+ * компонент списка категорий слева на главной странице
+ * @constructor
+ */
 const Categories = () => {
     const categories = [
         {
@@ -106,5 +72,41 @@ const Categories = () => {
 
 export default Categories
 
+const CategoriesStyle = styled.div`
 
+`
+const CategoriesBlockStyle = styled.div`
+    margin-bottom: 3.1rem;
+    background-color: var(--dark-grey-color);
+    padding: 2.7rem 2rem;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+
+    color: #C1D9E2;
+`
+
+const H3Style = styled.h2`
+    margin: 0 0 1.8rem;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+
+    color: var(--grey-title);
+`
+
+const CategoryGrid = styled.div`
+    &:first-of-type {
+        margin-top: 2rem;
+    }
+    
+    &:not(:last-of-type) {
+        margin-bottom: 3.5rem;
+    }
+`
 
