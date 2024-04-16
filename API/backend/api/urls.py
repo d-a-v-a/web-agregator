@@ -17,5 +17,6 @@ urlpatterns = [
     path('projects/<int:pk>/delete/', delete_project),
     path('projects/<int:pk>/update/', update_project),
     path('projects/<int:pk>/vote/', vote_project),
+    path('projects/categories=<str:category>/', list_projects_by_category),
 ]
 
