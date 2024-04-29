@@ -3,6 +3,23 @@ import styled from "styled-components";
 import {H2Style} from "../../../pages/ProjectEditing/ProjectEditing";
 import {Link} from "react-router-dom";
 
+/**
+ * the component of the name and opening of the project
+ * @param name
+ * @param image
+ * @param path path to play project
+ * @constructor
+ */
+const ProjectPlay = ({name, image, path = ''}: ProjectPlayProps) => {
+    return (
+        <ProjectPlayStyle>
+            <H2Style>{name}</H2Style>
+            <ImageStyled src={image}/>
+            <ButtonStyled to={path}> Играть </ButtonStyled>
+        </ProjectPlayStyle>
+    )
+}
+
 const ProjectPlayStyle = styled.div`
   margin-bottom: 5rem;
 `
@@ -47,16 +64,6 @@ interface ProjectPlayProps {
     name: string;
     image: any;
     path?: string;
-}
-
-const ProjectPlay = ({name, image, path = ''}: ProjectPlayProps) => {
-    return (
-        <ProjectPlayStyle>
-            <H2Style>{name}</H2Style>
-            <ImageStyled src={image}/>
-            <ButtonStyled to={path}> Играть </ButtonStyled>
-        </ProjectPlayStyle>
-    )
 }
 
 export default ProjectPlay

@@ -8,6 +8,10 @@ import {SideMenu} from "../SideMenu";
 import useOnClickOutside from "../../hooks/onClickOutside";
 import {MenuContext} from "../../context/navState";
 
+/**
+ * Header component
+ * @constructor
+ */
 const Header = () => {
     const node = useRef<any>();
     const { isMenuOpen, switchMenu }: any = useContext(MenuContext);
@@ -42,7 +46,14 @@ const Header = () => {
   )
 }
 
-
+/**
+ * companent Link to other pages
+ * @param label
+ * @param path
+ * @param margin
+ * @param onClick
+ * @constructor
+ */
 export function LinkToCategories({label = 'ссылка', path = '/order', margin = 34, onClick}:{label: string, path: string, margin: number, onClick?: any}) {
   return(
       <button onClick={onClick} style={{marginRight: margin}}>

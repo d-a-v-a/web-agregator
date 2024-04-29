@@ -2,8 +2,14 @@ import React from "react";
 import axios from 'axios';
 import { ProjectInteface } from "../interfaces/Project.interface";
 
+/**
+ * basic endpoint
+ */
 const API_BASE_URL = 'http://127.0.0.1:3030/api/';
 
+/**
+ * the function of getting information about the projects from backend
+ */
 export const getFullInfAboutProjects = async () => {
     let resp: ProjectInteface[] | null = null;
     await axios.get(`${API_BASE_URL}mainpage/`)
@@ -13,6 +19,9 @@ export const getFullInfAboutProjects = async () => {
     return resp;
 };
 
+/**
+ * the function of getting information about profile projects from backend
+ */
 export const getProfile = async () => {
     let resp: ProjectInteface[] | null = null;
     await axios.get(`${API_BASE_URL}profile/`)

@@ -16,6 +16,16 @@ export type TypeRating = {
     button?: boolean;
 };
 
+/**
+ * component of the project rating scale
+ * @param title
+ * @param button enable voting button
+ * @param currentPlace
+ * @param fullVoices
+ * @param currentVoices
+ * @param endVoting
+ * @constructor
+ */
 function RatingProject({
                            title = 'Рейтинг проекта',
                            button,

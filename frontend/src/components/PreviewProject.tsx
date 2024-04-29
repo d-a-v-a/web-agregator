@@ -4,6 +4,57 @@ import styled from "styled-components";
 import viewsSvg from "../assets/images/icons/eyes/views.svg"
 import ratingSvg from "../assets/images/icons/stars/rating.svg"
 
+export interface Props {
+    image: any;
+    category: string;
+    name: string;
+    views: string;
+    rating: string;
+    path: string;
+}
+
+/**
+ * a item component of the project list on the main page
+ * @param image
+ * @param category
+ * @param name
+ * @param views
+ * @param rating
+ * @param path
+ * @constructor
+ */
+const PreviewProject: React.FC<Props> = ({image, category, name, views, rating, path}: Props) => {
+    /**
+     * The function of replacing 000 by k in large numbers
+     * @param num
+     */
+    const roundViews = (num:string) => {
+        if (Number(num) < 1000) {
+            return num
+        }
+        return String((Number(num) / 1000).toFixed(1)) + 'k'
+    }
+
+    return (
+        <CardWrapper>
+            <HeadStyle>
+                <img style={{maxWidth: '100%', objectFit: "cover"}} src={image} alt=""/>
+                <Statistics>
+                    <Views>{roundViews(views)}</Views>
+                    <Rating>{rating}</Rating>
+                </Statistics>
+            </HeadStyle>
+            <DescriptionStyle>
+                <Category>{category}</Category>
+                <Name>{name}</Name>
+                <ButtonStyle>
+                    <Button to={path}>Играть</Button>
+                </ButtonStyle>
+            </DescriptionStyle>
+        </CardWrapper>
+    )
+}
+
 const CardWrapper = styled.div`
   -webkit-border-radius: 2rem;
   -moz-border-radius: 2rem;
@@ -134,43 +185,5 @@ const Rating = styled.div`
     filter: drop-shadow(0px 1px 0px rgba(134, 115, 250, 0.4));
   }
 `
-
-
-export interface Props {
-    image: any;
-    category: string;
-    name: string;
-    views: string;
-    rating: string;
-    path: string;
-}
-
-const PreviewProject: React.FC<Props> = ({image, category, name, views, rating, path}: Props) => {
-    const roundViews = (num:string) => {
-        if (Number(num) < 1000) {
-            return num
-        }
-        return String((Number(num) / 1000).toFixed(1)) + 'k'
-    }
-
-    return (
-        <CardWrapper >
-            <HeadStyle>
-                <img style={{maxWidth: '100%', objectFit: "cover"}} src={image} alt=""/>
-                <Statistics>
-                    <Views>{roundViews(views)}</Views>
-                    <Rating>{rating}</Rating>
-                </Statistics>
-            </HeadStyle>
-            <DescriptionStyle>
-                <Category>{category}</Category>
-                <Name>{name}</Name>
-                <ButtonStyle>
-                    <Button to={path}>Играть</Button>
-                </ButtonStyle>
-            </DescriptionStyle>
-        </CardWrapper>
-    )
-}
 
 export default PreviewProject;

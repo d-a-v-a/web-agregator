@@ -7,7 +7,10 @@ import FireIcon from "../../assets/images/icons/voices.svg";
 import {useData} from "../../context/DataContext";
 import useOnClickOutside from "../../hooks/onClickOutside";
 
-
+/**
+ * component profile in Header
+ * @constructor
+ */
 const Profile = () => {
 
     const {data} = useData();
@@ -18,6 +21,9 @@ const Profile = () => {
 
     const isActiveUser: boolean = false;
 
+    /**
+     * property active drop element
+     */
     const [isActive, setIsActive] = useState<boolean>(false);
 
     const callToggle = () => {
@@ -120,7 +126,9 @@ type IsActive = {
     isActive: boolean;
 }
 
-
+/**
+ * element Drop links wrapper
+ */
 const DropLinksWrapper = styled.ul<IsActive>`
     ${
             ({isActive}) => isActive ? css`

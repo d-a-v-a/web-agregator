@@ -1,3 +1,5 @@
+/**
+ * font styles*/
 export const Fonts = `
 
   /* cyrillic-ext */

@@ -1,3 +1,5 @@
+/**
+ * style variables*/
 export const Vars = `
 
   :root {

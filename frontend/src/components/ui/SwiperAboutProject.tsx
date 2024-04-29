@@ -7,30 +7,16 @@ import img3 from "../../assets/images/project_preview/image3.jpg";
 import styled from "styled-components";
 import { useData } from "../../context/DataContext";
 
-
-
-const SlideInner = ({image, number, currentNumber}: SlideProps) => {
-  let opacity;
-  if (currentNumber === number) {
-    opacity = '1';
-  }
-  else {
-    opacity = '0.2';
-  }
-  return (
-  <>
-    <img src={image} style={{width: '100%', opacity: opacity}} alt=""/>
-  </>
-  )
-}
-
 export interface SlideProps {
   image: any,
   number: number,
   currentNumber: number,
 }
 
-
+/**
+ * a swiper component with project pictures
+ * @constructor
+ */
 function SwiperAboutProject() {
   const {data, setValues} = useData();
   const [currentNumber, setCurrentNumber] = useState(1)
@@ -89,6 +75,28 @@ function SwiperAboutProject() {
           </Swiper>
         </SwiperBlockStyle>
       </div>
+  )
+}
+
+/**
+ * a component of a separate slide
+ * @param image
+ * @param number
+ * @param currentNumber
+ * @constructor
+ */
+const SlideInner = ({image, number, currentNumber}: SlideProps) => {
+  let opacity;
+  if (currentNumber === number) {
+    opacity = '1';
+  }
+  else {
+    opacity = '0.2';
+  }
+  return (
+      <>
+        <img src={image} style={{width: '100%', opacity: opacity}} alt=""/>
+      </>
   )
 }
 

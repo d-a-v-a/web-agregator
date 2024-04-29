@@ -1,3 +1,5 @@
+/**
+ * global styles*/
 export const Base = `
    html {
     font-size: 10px;

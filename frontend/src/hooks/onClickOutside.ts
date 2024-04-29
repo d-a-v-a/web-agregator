@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 
-
+/**
+ * the function of registering clicks outside the element
+ * @param ref element
+ * @param handler
+ */
 const useOnClickOutside = (ref: React.RefObject<any>, handler: () => void) => {
     useEffect(() => {
         const listener = (event: TouchEvent | MouseEvent) => {

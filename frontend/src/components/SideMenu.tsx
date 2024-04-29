@@ -4,6 +4,29 @@ import styled, { css } from 'styled-components';
 import { MenuContext } from '../context/navState';
 import {LinkToCategories} from "./Header/Header";
 
+/**
+ * side menu for header
+ * @constructor
+ */
+export const SideMenu = () => {
+    const { isMenuOpen, switchMenu }: any = useContext(MenuContext);
+    const clickHandler = () => {
+        switchMenu();
+    };
+
+    return <Menu open={isMenuOpen}>
+        <>
+            <LinkToCategories onClick={clickHandler} label={'Площадка проектов'} path={'/editing'} margin={34}/>
+            <LinkToCategories onClick={clickHandler}  label={'Защиты проектов'} path={'/'} margin={34}/>
+            <LinkToCategories onClick={clickHandler} label={'Заказать проект'} path={'/'} margin={34}/>
+        </>
+    </Menu>;
+};
+
+SideMenu.propTypes = {
+    children: PropTypes.node,
+};
+
 const Menu = styled.nav<{ open: boolean }>`
   @media (min-width: 1100px) {
     display: none;
@@ -59,23 +82,3 @@ export const MenuLink = styled.a`
     background-position: 90% 50%;
   }
 `;
-
-export const SideMenu = () => {
-    const { isMenuOpen, switchMenu }: any = useContext(MenuContext);
-    const clickHandler = () => {
-        switchMenu();
-    };
-
-    return <Menu open={isMenuOpen}>
-        <>
-            <LinkToCategories onClick={clickHandler} label={'Площадка проектов'} path={'/editing'} margin={34}/>
-            <LinkToCategories onClick={clickHandler}  label={'Защиты проектов'} path={'/'} margin={34}/>
-            <LinkToCategories onClick={clickHandler} label={'Заказать проект'} path={'/'} margin={34}/>
-            <LinkToCategories onClick={clickHandler} label={'Обучение команды'} path={'/'} margin={0}/>
-        </>
-    </Menu>;
-};
-
-SideMenu.propTypes = {
-    children: PropTypes.node,
-};

@@ -9,8 +9,6 @@ import {AsideStyle} from "../../components/Aside/AsideStyle";
 import VotingProjects from "../../components/VotingProjects";
 import Select from "../../components/Select";
 import { useData } from "../../context/DataContext";
-import { getFullInfAboutProjects, getProfile } from "../../api/api";
-import { ProjectInteface } from "../../interfaces/Project.interface";
 import { projects } from "../../projects";
 
 /**

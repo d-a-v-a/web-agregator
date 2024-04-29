@@ -5,6 +5,23 @@ import TotalRating from "../../ui/TotalRating";
 import viewSvg from "../../../assets/images/icons/eyes/views.svg"
 import RatingAction from "../../RatingAction";
 
+const Statistics = ({onlyRating = false, totalRating = '3.5'}:{onlyRating?: boolean, totalRating?: string}) => {
+    return (
+        <StatisticsStyle>
+            <H2Style>Рейтинг проекта</H2Style>
+            <TotalRating total={totalRating}/>
+            <NumberViews>
+                <ViewsTitle>Количество игроков</ViewsTitle>
+                <ViewsGrid>
+                    <ViewsIcon src={viewSvg}/>
+                    <ViewsCount>10,2к</ViewsCount>
+                </ViewsGrid>
+            </NumberViews>
+            {onlyRating ? <></> : <RatingAction/>}
+        </StatisticsStyle>
+    )
+}
+
 const StatisticsStyle = styled.div`
   margin-bottom: 5rem;
 `
@@ -38,22 +55,5 @@ const ViewsCount = styled.div`
   font-size: 2.4rem;
   color: var(--white-color);
 `
-
-const Statistics = ({onlyRating = false, totalRating = '3.5'}:{onlyRating?: boolean, totalRating?: string}) => {
-    return (
-        <StatisticsStyle>
-            <H2Style>Рейтинг проекта</H2Style>
-            <TotalRating total={totalRating}/>
-            <NumberViews>
-                <ViewsTitle>Количество игроков</ViewsTitle>
-                <ViewsGrid>
-                    <ViewsIcon src={viewSvg}/>
-                    <ViewsCount>10,2к</ViewsCount>
-                </ViewsGrid>
-            </NumberViews>
-          {onlyRating ? <></> : <RatingAction/>}
-        </StatisticsStyle>
-    )
-}
 
 export default Statistics

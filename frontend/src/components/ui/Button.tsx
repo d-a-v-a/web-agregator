@@ -2,6 +2,27 @@ import React from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 
+/**
+ *
+ * the button component
+ * @param children button content
+ * @param to path
+ * @param color
+ * @constructor
+ */
+const Button: React.FC<IButtonProps> =
+    ({
+         children, to = '', color = 'transparent'
+     }) => {
+        return (
+            <ButtonStyle to={to}>
+                <Wrapper color={color} className='wrapper'>
+                    {children}
+                </Wrapper>
+            </ButtonStyle>
+        );
+    };
+
 const ButtonStyle = styled(Link)`
   padding: 1px;
   width: 7.6rem;
@@ -49,17 +70,5 @@ export interface IButtonProps {
     to?: string;
     children?: React.ReactNode;
 }
-const Button: React.FC<IButtonProps> =
-    ({
-        children, to = '', color = 'transparent'
-    }) => {
-        return (
-            <ButtonStyle to={to}>
-                <Wrapper color={color} className='wrapper'>
-                    {children}
-                </Wrapper>
-            </ButtonStyle>
-        );
-    };
 
 export default Button;

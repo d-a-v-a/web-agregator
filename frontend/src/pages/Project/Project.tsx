@@ -12,6 +12,10 @@ import RatingProject from "../../components/RatingProject";
 import { useData } from "../../context/DataContext";
 import { projects } from "../../projects";
 
+/**
+ * component of the project page
+ * @constructor
+ */
 const Project = () => {
   const {data, setValues} = useData();
   let image = img;
@@ -23,6 +27,9 @@ const Project = () => {
     image = data.allProjectsInformation[data.idProject-1].image;
     text = data.allProjectsInformation[data.idProject-1].title;
   }
+    /**
+     * array of projects
+     */
     const divs = Array(8).fill(10).map((_, i) => <PreviewProject key={i} path={'/project'} views={'12333'}
                                                                  rating={'4,5'}
                                                                  image={image} category='Аркады'
