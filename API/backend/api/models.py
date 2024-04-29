@@ -39,6 +39,8 @@ class Project(models.Model):
     total_votes = models.IntegerField(default=0)  # Новое поле для общего количества голосов
     total_rating = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
+    main_image = models.ImageField(upload_to='project_images/', default='project_images/default.jpg', null=True, blank=True)
+
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

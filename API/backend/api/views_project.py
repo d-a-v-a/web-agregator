@@ -90,3 +90,35 @@ def list_projects_by_category(request, category):
         projects = Project.objects.filter(categories=category)
         serializer = ProjectSerializer(projects, many=True)
         return Response(serializer.data)
+
+
+#new
+from rest_framework.decorators import api_view, parser_classes
+from rest_framework.parsers import MultiPartParser, FormParser
+@api_view(['POST'])
+@parser_classes([MultiPartParser, FormParser])
+def upload_main_image(request, pk):
+    try:
+        project = Project.objects.get(pk=pk)
+    except Project.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'POST' and request.FILES.get('main_image'):
+        project.main_image = request.FILES['main_image']
+        project.save()
+        return Response(status=status.HTTP_200_OK)
+    else:
+        return Response({'error': 'Main image file is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def get_main_image(request, pk):
+    try:
+        project = Project.objects.get(pk=pk)
+    except Project.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if project.main_image:
+        image_url = request.build_absolute_uri(project.main_image.url)
+        return Response({'main_image_url': image_url}, status=status.HTTP_200_OK)
+    else:
+        return Response({'error': 'Main image not found'}, status=status.HTTP_404_NOT_FOUND)
