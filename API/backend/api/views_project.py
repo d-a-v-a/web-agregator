@@ -122,3 +122,32 @@ def get_main_image(request, pk):
         return Response({'main_image_url': image_url}, status=status.HTTP_200_OK)
     else:
         return Response({'error': 'Main image not found'}, status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(['POST'])
+@parser_classes([MultiPartParser, FormParser])
+def upload_webgl(request, pk):
+    try:
+        project = Project.objects.get(pk=pk)
+    except Project.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'POST' and request.FILES.get('webgl_file'):
+        project.webgl_file = request.FILES['webgl_file']
+        project.save()
+        return Response(status=status.HTTP_200_OK)
+    else:
+        return Response({'error': 'WebGL file is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def get_webgl(request, pk):
+    try:
+        project = Project.objects.get(pk=pk)
+    except Project.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if project.webgl_file:
+        webgl_url = request.build_absolute_uri(project.webgl_file.url)
+        return Response({'webgl_url': webgl_url}, status=status.HTTP_200_OK)
+    else:
+        return Response({'error': 'WebGL file not found'}, status=status.HTTP_404_NOT_FOUND)

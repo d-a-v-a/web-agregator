@@ -40,7 +40,7 @@ class Project(models.Model):
     total_rating = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     main_image = models.ImageField(upload_to='project_images/', default='project_images/default.jpg', null=True, blank=True)
-
+    #webgl_file = models.FileField(upload_to='webgl_projects/', null=True, blank=True)
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

@@ -30,6 +30,8 @@ urlpatterns = [
     path('teams/<int:id>/', TeamView.as_view()),
     path('projects/<int:pk>/upload_main_image/', upload_main_image, name='upload_main_image'),
     path('projects/<int:pk>/main_image/', get_main_image, name='get_main_image'),
-    path('media/projects_images/<path:image_path>/', RedirectView.as_view(url=settings.MEDIA_URL))
+    path('media/projects_images/<path:image_path>/', RedirectView.as_view(url=settings.MEDIA_URL)),
+    path('projects/<int:pk>/upload_webgl/', upload_webgl, name='upload_webgl'),
+    path('projects/<int:pk>/webgl/', get_webgl, name='get_webgl')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
