@@ -2,6 +2,8 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 
+from .models import Team
+
 User = get_user_model()
 
 class CustomUserSerializer(serializers.ModelSerializer):
@@ -21,4 +23,9 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = '__all__'
 
+
+class TeamSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Team
+        fields = ('id', 'title', 'description')
 
