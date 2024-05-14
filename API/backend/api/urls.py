@@ -4,6 +4,7 @@ from .view_team import TeamsView, TeamView
 from .views import RegistrationView, LoginView, LogoutView, profile_view
 
 from .views_project import *
+from .views_site import *
 
 number = 128
 
@@ -26,6 +27,8 @@ urlpatterns = [
     path('projects/<int:pk>/update/', update_project),
     path('projects/<int:pk>/vote/', vote_project),
     path('projects/categories=<str:category>/', list_projects_by_category),
+    path('projects/timer/', remaining_voting_time),
+    path('projects/start_timer/', start_voting_timer),
     path('teams/', TeamsView.as_view()),
     path('teams/<int:id>/', TeamView.as_view()),
     path('projects/<int:pk>/upload_main_image/', upload_main_image, name='upload_main_image'),

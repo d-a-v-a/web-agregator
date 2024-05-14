@@ -60,3 +60,8 @@ class Team(models.Model):
         verbose_name = 'team'
         verbose_name_plural = 'teams'
         ordering = ('id',)
+
+
+class SiteConfiguration(models.Model):
+    voting_deadline = models.DateTimeField() # время голосования
+
