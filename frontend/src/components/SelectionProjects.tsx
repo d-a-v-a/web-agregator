@@ -100,17 +100,19 @@ const SelectionProjects = () => {
             desc: 'Основной геймплей игры завязан на использовании merge-механики — совмещение/слияние блоков'
         },
     ]
-    const divs = data?.allProjectsInformation?.map((elem: any) =>
-        <RatingPreviewProject key={elem.id}
-                                id={elem.id}
-                                voices={elem.rating}
-                                path={'/project'}
-                                place={projects[elem.id-1].place}
-                                image={elem.image}
-                                prevCategory={'Развлекательные'}
-                                category={'Аркады'}
-                                name={elem.title}
-                                desc={elem.description}/>
+    const divs = data?.allProjectsInformation?.map((elem: any) => {
+        // const image = elem.image || image1;
+            return <RatingPreviewProject key={elem.id}
+                                         id={elem.id}
+                                         voices={elem.rating}
+                                         path={'/project'}
+                                         place={projects[elem.id-1].place}
+                                         image={elem.image}
+                                         prevCategory={'Развлекательные'}
+                                         category={'Аркады'}
+                                         name={elem.title}
+                                         desc={elem.description}/>
+    }
     )
     return (
         <div style={{maxWidth: 810}}>

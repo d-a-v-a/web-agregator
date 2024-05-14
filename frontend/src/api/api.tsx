@@ -5,14 +5,14 @@ import { ProjectInteface } from "../interfaces/Project.interface";
 /**
  * basic endpoint
  */
-const API_BASE_URL = 'http://127.0.0.1:3030/api/';
+const API_BASE_URL = 'http://127.0.0.1:8000/api/';
 
 /**
  * the function of getting information about the projects from backend
  */
 export const getFullInfAboutProjects = async () => {
     let resp: ProjectInteface[] | null = null;
-    await axios.get(`${API_BASE_URL}mainpage/`)
+    await axios.get(`${API_BASE_URL}projects/`)
     .then(response => {
         resp = response.data; 
     });

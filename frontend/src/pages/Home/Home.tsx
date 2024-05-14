@@ -10,6 +10,8 @@ import VotingProjects from "../../components/VotingProjects";
 import Select from "../../components/Select";
 import { useData } from "../../context/DataContext";
 import { projects } from "../../projects";
+import { ProjectInteface} from "../../interfaces/Project.interface";
+import {getFullInfAboutProjects} from "../../api/api";
 
 /**
  * Компонент главной страницы
@@ -46,20 +48,20 @@ const Home = () => {
 
   const {data, setValues} = useData();
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
-    };
-    fetchPosts();
-  }, []);
-
   // useEffect(() => {
   //   const fetchPosts = async () => {
-  //     const resp: ProjectInteface[] | null = await getFullInfAboutProjects();
-  //     setValues({ allProjectsInformation: resp, isLoadingProjectInf: true });
+  //     setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
   //   };
   //   fetchPosts();
   // }, []);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const resp: ProjectInteface[] | null = await getFullInfAboutProjects();
+      setValues({ allProjectsInformation: resp, isLoadingProjectInf: true });
+    };
+    fetchPosts();
+  }, []);
 
     const [seasonVoting, setSeasonVoting] = useState('Осень 2023');
   return(
