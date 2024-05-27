@@ -29,6 +29,8 @@ urlpatterns = [
     path('projects/categories=<str:category>/', list_projects_by_category),
     path('projects/timer/', remaining_voting_time),
     path('projects/start_timer/', start_voting_timer),
+    #path('projects/<int:pk>/upload_screenshot/', upload_screenshot),
+    #path('projects/<int:pk>/get_screenshots/', get_screenshots),
     path('teams/', TeamsView.as_view()),
     path('teams/<int:id>/', TeamView.as_view()),
     path('projects/<int:pk>/upload_main_image/', upload_main_image, name='upload_main_image'),

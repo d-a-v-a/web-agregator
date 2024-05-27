@@ -42,10 +42,15 @@ class Project(models.Model):
     main_image = models.ImageField(upload_to='project_images/', default='project_images/default.jpg', null=True, blank=True)
     #webgl_file = models.FileField(upload_to='webgl_projects/', null=True, blank=True)
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    #screenshots = models.ManyToManyField('Screenshot', related_name='projects', blank=True)
     def __str__(self):
         return self.title
 
+class Screenshot(models.Model):
+    image = models.ImageField(upload_to='project_screenshots/')
+
+    def __str__(self):
+        return self.image.name
 
 class Team(models.Model):
     title = models.CharField(max_length=200)
