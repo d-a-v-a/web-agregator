@@ -36,7 +36,8 @@ urlpatterns = [
     path('projects/<int:pk>/upload_main_image/', upload_main_image, name='upload_main_image'),
     path('projects/<int:pk>/main_image/', get_main_image, name='get_main_image'),
     path('media/projects_images/<path:image_path>/', RedirectView.as_view(url=settings.MEDIA_URL)),
-    path('projects/<int:pk>/upload_webgl/', upload_webgl, name='upload_webgl'),
-    path('projects/<int:pk>/webgl/', get_webgl, name='get_webgl')
+    path('projects/<int:pk>/update_webgl/', update_webgl_project, name='upload_webgl'),
+    path('projects/<int:pk>/webgl/', get_webgl_project, name='get_webgl'),
+    path('upload_webgl_project/', upload_webgl_project_test, name='upload_webgl_project')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
