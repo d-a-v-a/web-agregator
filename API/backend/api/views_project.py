@@ -156,29 +156,29 @@ def get_webgl(request, pk):
     else:
         return Response({'error': 'WebGL file not found'}, status=status.HTTP_404_NOT_FOUND)
 
-from models import Screenshot
-@api_view(['POST'])
-@parser_classes([MultiPartParser, FormParser])
-def upload_screenshot(request, pk):
-    try:
-        project = Project.objects.get(pk=pk)
-    except Project.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
-    if request.method == 'POST' and request.FILES.get('screenshot'):
-        screenshot = Screenshot.objects.create(image=request.FILES['screenshot'])
-        project.screenshots.add(screenshot)
-        return Response(status=status.HTTP_200_OK)
-    else:
-        return Response({'error': 'Screenshot file is required'}, status=status.HTTP_400_BAD_REQUEST)
-
-@api_view(['GET'])
-def get_screenshots(request, pk):
-    try:
-        project = Project.objects.get(pk=pk)
-    except Project.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
-    screenshots = project.screenshots.all()
-    screenshot_urls = [request.build_absolute_uri(screenshot.image.url) for screenshot in screenshots]
-    return Response({'screenshot_urls': screenshot_urls}, status=status.HTTP_200_OK)
+# from models import Screenshot
+# @api_view(['POST'])
+# @parser_classes([MultiPartParser, FormParser])
+# def upload_screenshot(request, pk):
+#     try:
+#         project = Project.objects.get(pk=pk)
+#     except Project.DoesNotExist:
+#         return Response(status=status.HTTP_404_NOT_FOUND)
+#
+#     if request.method == 'POST' and request.FILES.get('screenshot'):
+#         screenshot = Screenshot.objects.create(image=request.FILES['screenshot'])
+#         project.screenshots.add(screenshot)
+#         return Response(status=status.HTTP_200_OK)
+#     else:
+#         return Response({'error': 'Screenshot file is required'}, status=status.HTTP_400_BAD_REQUEST)
+#
+# @api_view(['GET'])
+# def get_screenshots(request, pk):
+#     try:
+#         project = Project.objects.get(pk=pk)
+#     except Project.DoesNotExist:
+#         return Response(status=status.HTTP_404_NOT_FOUND)
+#
+#     screenshots = project.screenshots.all()
+#     screenshot_urls = [request.build_absolute_uri(screenshot.image.url) for screenshot in screenshots]
+#     return Response({'screenshot_urls': screenshot_urls}, status=status.HTTP_200_OK)

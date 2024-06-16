@@ -23,7 +23,8 @@
 3. Запускаем виртуальное окружение.
 
 `source venv/bin/activate`
-
+или
+`venv\Scripts\activate`
 4. Устанавливаем зависимости.
 
 `pip install -r requirements.txt`

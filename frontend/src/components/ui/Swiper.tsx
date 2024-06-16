@@ -17,10 +17,10 @@ import RatingPreviewProject from "../RatingPreviewProject";
  */
 function SwiperProjects(){
   const {data} = useData();
-  const image1 = data?.allProjectsInformation?.[0]?.image ?? '';
-  const image2 = data?.allProjectsInformation?.[1]?.image ?? '';
-  const image3 = data?.allProjectsInformation?.[2]?.image ?? '';
-  const image4 = data?.allProjectsInformation?.[3]?.image ?? '';
+  const image1 = `http://127.0.0.1:8000/api` + data?.allProjectsInformation?.[0]?.main_image ?? '';
+  const image2 = `http://127.0.0.1:8000/api` + data?.allProjectsInformation?.[1]?.main_image ?? '';
+  const image3 = `http://127.0.0.1:8000/api` + data?.allProjectsInformation?.[2]?.main_image ?? '';
+  const image4 = `http://127.0.0.1:8000/api` + data?.allProjectsInformation?.[3]?.main_image ?? '';
 
   const title1 = data?.allProjectsInformation?.[0]?.title ?? '';
   const title2 = data?.allProjectsInformation?.[1]?.title ?? '';

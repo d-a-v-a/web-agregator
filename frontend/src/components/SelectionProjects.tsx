@@ -101,15 +101,15 @@ const SelectionProjects = () => {
         },
     ]
     const divs = data?.allProjectsInformation?.map((elem: any) => {
-        // const image = elem.image || image1;
+        const image = `http://127.0.0.1:8000/api` + elem.main_image;
             return <RatingPreviewProject key={elem.id}
                                          id={elem.id}
                                          voices={elem.rating}
                                          path={'/project'}
-                                         place={projects[elem.id-1].place}
-                                         image={elem.image}
+                                         place={elem.id}
+                                         image={image}
                                          prevCategory={'Развлекательные'}
-                                         category={'Аркады'}
+                                         category={elem.category}
                                          name={elem.title}
                                          desc={elem.description}/>
     }
