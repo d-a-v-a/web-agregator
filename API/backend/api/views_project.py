@@ -240,3 +240,117 @@ def upload_webgl_project_test(request):
 
     except Exception as e:
         return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+
+#Тест 2
+from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import Project
+
+@csrf_exempt
+def upload_zip_to_project(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+
+    if request.method == 'POST' and request.FILES.get('zip_file'):
+        zip_file = request.FILES['zip_file']
+
+        try:
+            # Сохраняем zip архив на сервере в папку projects/
+            filename = f"{project.title}.zip"  # Пример генерации имени файла
+            file_path = os.path.join(settings.MEDIA_ROOT, 'projects', filename)
+            with open(file_path, 'wb') as destination:
+                for chunk in zip_file.chunks():
+                    destination.write(chunk)
+
+            # Разархивируем файл, если это zip архив
+            if filename.endswith('.zip'):
+                with zipfile.ZipFile(file_path, 'r') as zip_ref:
+                    # Разархивируем файл в папку проекта
+                    extract_path = os.path.join(settings.MEDIA_ROOT, 'projects', project.title)
+                    zip_ref.extractall(extract_path)
+
+                # Обновляем поле file и path в модели проекта
+                #project.file = os.path.join('projects', project.title, 'index.html')
+                project.file = os.path.join('projects', project.title).replace('\\', '/')
+                project.path = os.path.join(settings.MEDIA_URL, 'projects', project.title, 'index.html').replace('\\', '/')
+                project.save()
+
+                return JsonResponse({'message': 'Zip archive uploaded and processed successfully.'}, status=200)
+            else:
+                # Если загруженный файл не является zip архивом
+                return JsonResponse({'error': 'Uploaded file is not a valid zip archive.'}, status=400)
+
+        except Exception as e:
+            # Обработка ошибок
+            print(f"Error: {str(e)}")
+            return JsonResponse({'error': str(e)}, status=500)
+
+    else:
+        return JsonResponse({'error': 'POST request with zip_file parameter is required.'}, status=400)
+
+from django.shortcuts import render, get_object_or_404
+from .models import Project
+from django.views.generic.base import View
+from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
+from django.conf import settings
+import os
+
+from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
+from django.conf import settings
+import os
+
+class ViewProject(View):
+    def get(self, request, pk):
+        project_id = Project.objects.get(pk=pk)
+        project_title = Project.title
+        # project_id.path = 'http://localhost:8000/get_project/' + project_id.path
+
+        #file_zip = zipfile.ZipFile(project_id.file, 'r')
+        #print(file_zip)
+        # # file_zip.extractall(f'./media/projects/{file_zip.filename}')
+        # file_zip.extractall(f'./blog/static/{file_zip.filename}')
+        # # print(file_zip.namelist())
+        # file_zip.close()
+
+        # with zipfile.ZipFile(project_id.file, 'r') as file: #менеджер контекста
+        #     # for item in file.infolist():
+        #     #     print(f"File Name: {item.filename} Date: {item.date_time} Size: {item.file_size}")
+        #
+        #     file.extractall('./')
+        url_zip = 'web-agregator/API/backend/media/projects/Test1'
+        context = {'project': project_id,
+                   'project_path': url_zip + '/index.html'}
+
+
+        # print(project_id.file)
+        return render(request, 'blog/project.html', context)
+        # return render(request, f'./{project_id.file}/index.html', context)
+        # return render(request, f'./media/projects/{file_zip.filename}/index.html')
+
+def view_webgl_project(request, pk):
+    # Путь к index.html проекта WebGL
+    project_path = os.path.join(settings.MEDIA_ROOT, 'projects', 'Test1', 'index.html')
+
+    try:
+        # Открываем файл и читаем его содержимое
+        with open(project_path, 'r', encoding='utf-8') as file:
+            html_content = file.read()
+
+        # Заменяем теги {% static %} на абсолютные URL статических файлов
+        html_content = html_content.replace('{% static \'TemplateData/UnityProgress.js\' %}', settings.STATIC_URL + 'TemplateData/UnityProgress.js')
+        html_content = html_content.replace('{% static \'Release/UnityLoader.js\' %}', settings.STATIC_URL + 'Release/UnityLoader.js')
+        html_content = html_content.replace('{% static \'TemplateData/style.css\' %}', settings.STATIC_URL + 'TemplateData/style.css')
+        html_content = html_content.replace('{% static \'TemplateData/fullscreen.png\' %}', settings.STATIC_URL + 'TemplateData/fullscreen.png')
+        html_content = html_content.replace('{% static \'TemplateData/favicon.ico\' %}', settings.STATIC_URL + 'TemplateData/favicon.ico')
+
+        # Возвращаем содержимое файла как HTTP-ответ
+        return HttpResponse(html_content, content_type='text/html')
+    except FileNotFoundError:
+        return HttpResponse("Project not found", status=404)
+
+def unity_webgl_page(request):
+    return render(request, 'C:\Проект web-agregator (new)\web-agregator\Ao  i\backend\media\projects\Test1\index.html')
