@@ -40,7 +40,10 @@ class Project(models.Model):
     total_rating = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     main_image = models.ImageField(upload_to='project_images/', default='project_images/default.jpg', null=True, blank=True)
-    webgl_file = models.FileField(upload_to='webgl_projects/', default='webgl_projects/Birdie_Fall.zip', null=True, blank=True)
+    #webgl_file = models.FileField(upload_to='webgl_projects/', default='webgl_projects/Birdie_Fall.zip', null=True, blank=True)
+
+    file = models.FileField(upload_to='projects/', default='projects/Title')
+    path = models.CharField(max_length=100, default='/')
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
     #screenshots = models.ManyToManyField('Screenshot', related_name='projects', blank=True)
     def __str__(self):

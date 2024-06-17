@@ -13,7 +13,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from django.views.generic import RedirectView
-
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('register/', RegistrationView.as_view(), name='register'),
@@ -36,8 +36,10 @@ urlpatterns = [
     path('projects/<int:pk>/upload_main_image/', upload_main_image, name='upload_main_image'),
     path('projects/<int:pk>/main_image/', get_main_image, name='get_main_image'),
     path('media/projects_images/<path:image_path>/', RedirectView.as_view(url=settings.MEDIA_URL)),
-    path('projects/<int:pk>/update_webgl/', update_webgl_project, name='upload_webgl'),
-    path('projects/<int:pk>/webgl/', get_webgl_project, name='get_webgl'),
-    path('upload_webgl_project/', upload_webgl_project_test, name='upload_webgl_project')
+    path('projects/<int:pk>/update_webgl/', upload_zip_to_project, name='upload_zip'),
+    path('projects/<int:pk>/webgl/', view_webgl_project, name='view_project'),
+    path('webgl/', TemplateView.as_view(template_name='projects/Test1/index.html'), name='webgl_view'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
