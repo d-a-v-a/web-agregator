@@ -91,6 +91,12 @@ def list_projects_by_category(request, category):
         serializer = ProjectSerializer(projects, many=True)
         return Response(serializer.data)
 
+@api_view(['GET'])
+def get_path(request, pk):
+    if request.method == 'GET':
+        project = Project.objects.get(pk=pk)
+        return Response(project.path)
+
 
 #new
 from rest_framework.decorators import api_view, parser_classes
