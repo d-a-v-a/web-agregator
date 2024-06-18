@@ -1,32 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import History from "../../components/Aside/components/History";
-import {H1Style, H2Style, PathName} from "../ProjectEditing/ProjectEditing";
+import { H1Style, H2Style, PathName } from "../ProjectEditing/ProjectEditing";
 import PreviewProject from "../../components/PreviewProject";
 import img from "../../assets/images/project_preview/image1.jpg";
 import ProjectPlay from "../../components/Aside/components/ProjectPlay";
 import Team from "../../components/Aside/components/Team";
 import SwiperAboutProject from "../../components/ui/SwiperAboutProject";
-import {Link} from "react-router-dom";
+import { Link, Params, useParams } from "react-router-dom";
 import RatingProject from "../../components/RatingProject";
 import { useData } from "../../context/DataContext";
 import { projects } from "../../projects";
+import { getImage, getProjectById } from '../../api/api';
+import { ProjectInterface } from '../../interfaces/Project.interface';
 
 /**
  * component of the project page
  * @constructor
  */
 const Project = () => {
-  const {data, setValues} = useData();
-  let image = img;
-  let text = "Merge Комбинаторика";
-  useEffect(() => {
-    setValues({ allProjectsInformation: projects, isLoadingProjectInf: true });
-  }, []);
-  if (data.idProject && data.idProject <= data.allProjectsInformation.length) {
-    image = data.allProjectsInformation[data.idProject-1].image;
-    text = data.allProjectsInformation[data.idProject-1].title;
-  }
+
+    const params: Params<string> = useParams() || 'def';
+
+    const [project, setProject] = useState<ProjectInterface>();
+
+
+    let image = getImage(project?.main_image || '');
+    let text = "Merge Комбинаторика";
+    useEffect(() => {
+        getProjectById(params.id || 'none').then(res => {
+            setProject(res);
+        });
+    }, []);
     /**
      * array of projects
      */
@@ -39,7 +44,7 @@ const Project = () => {
             <H1Style>Страница проекта</H1Style>
             <PathName>
             <span style={{color: '#B6B6B6'}}>
-                <Link style={{display: 'inline', color: '#B6B6B6'}} to={'/'}>Проекты </Link>
+                <Link style={{display: 'inline', color: '#B6B6B6'}} to={'/'}>Проекты</Link>
             </span>
                 <span> &gt; </span>
                 <span> Название проекта</span>
@@ -47,7 +52,7 @@ const Project = () => {
 
             <ProjectGrid>
                 <AsideProjectStyle>
-                    <ProjectPlay path={'/play'} name={text} image={image}/>
+                    <ProjectPlay path={'/play'} name={project?.title || 'Комбинаторика'} image={image} />
                     <RatingProject endVoting={false} currentPlace={2} currentVoices={40} fullVoices={70}/>
                     <Team countOnTab={3}/>
                     <History title={'Проекты команды'}/>
@@ -141,14 +146,14 @@ const Project = () => {
 }
 
 const AsideProjectStyle = styled.div`
-  @media (max-width: 1165px) and (min-width: 681px) {
-    display: flex;
-    flex-wrap: wrap;
-    
-    > div {
-      width: 50%;
+    @media (max-width: 1165px) and (min-width: 681px) {
+        display: flex;
+        flex-wrap: wrap;
+
+        > div {
+            width: 50%;
+        }
     }
-  }
 `
 
 const AboutStyled = styled.div`
@@ -156,94 +161,94 @@ const AboutStyled = styled.div`
 `
 
 const RightStyle = styled.div`
-  flex: 0 1 73.6rem;
+    flex: 0 1 73.6rem;
 `
 
 const ButtonsAboutStyled = styled.div`
-  display: flex;
-  gap: 0.9rem;
+    display: flex;
+    gap: 0.9rem;
 `
 
 const ButtonAboutStyled = styled.button`
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 7.1rem;
-  height: 2.6rem;
-  border-radius: 3px;
-  border: 1px solid #99A2AD;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7.1rem;
+    height: 2.6rem;
+    border-radius: 3px;
+    border: 1px solid #99A2AD;
 
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.2rem;
-  line-height: 1.5rem;
-  text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    text-align: center;
 
-  color: rgba(208, 230, 238, 0.94);
+    color: rgba(208, 230, 238, 0.94);
 
-  &:hover {
-    text-decoration-line: underline;
-    text-underline-offset: 2px;
-  }
+    &:hover {
+        text-decoration-line: underline;
+        text-underline-offset: 2px;
+    }
 
-  &:disabled {
-    opacity: 0.5;
-  }
+    &:disabled {
+        opacity: 0.5;
+    }
 
-  &:disabled:hover {
-    text-decoration: none;
-    cursor: initial;
-  }
+    &:disabled:hover {
+        text-decoration: none;
+        cursor: initial;
+    }
 `
 
 const HeadAboutStyled = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `
 
 const ProjectStyle = styled.div`
-  margin: 0 auto 7.4rem;
-  max-width: 118.4rem;
-  padding: 0 2rem;
+    margin: 0 auto 7.4rem;
+    max-width: 118.4rem;
+    padding: 0 2rem;
 `
 
 const ProjectGrid = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5rem;
 
-  @media (max-width: 1165px) {
-    flex-direction: column;
-    row-gap: 3rem;
-  }
+    @media (max-width: 1165px) {
+        flex-direction: column;
+        row-gap: 3rem;
+    }
 `
 
 const TextWrapperStyled = styled.div`
-  margin-top: 5rem;
+    margin-top: 5rem;
 `
 
 const TextBlockStyled = styled.div`
-  padding: 3rem 3.7rem;
-  background-color: var(--dark-grey-color);
-
-  font-weight: 300;
-  font-size: 1.6rem;
-  color: var(--paragraph-color);
-
-  p {
-    margin-bottom: 1em;
+    padding: 3rem 3.7rem;
+    background-color: var(--dark-grey-color);
 
     font-weight: 300;
     font-size: 1.6rem;
     color: var(--paragraph-color);
-  }
-  
-  @media (max-width: 1000px) {
-    padding: 2rem;
-  }
+
+    p {
+        margin-bottom: 1em;
+
+        font-weight: 300;
+        font-size: 1.6rem;
+        color: var(--paragraph-color);
+    }
+
+    @media (max-width: 1000px) {
+        padding: 2rem;
+    }
 `
 
 const SimilarStyled = styled.div`
@@ -251,24 +256,24 @@ const SimilarStyled = styled.div`
 `
 
 const SimilarGrid = styled.div`
-  gap: 2.5rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 
-  @media (max-width: 1145px) {
-    grid-template-columns: repeat(3, minmax(20rem, 26.5rem));
-    justify-content: space-between;
-  }
+    @media (max-width: 1145px) {
+        grid-template-columns: repeat(3, minmax(20rem, 26.5rem));
+        justify-content: space-between;
+    }
 
-  @media (max-width: 877px) {
-    grid-template-columns: repeat(2, minmax(20rem, 26.5rem));
-    justify-content: flex-start;
-  }
+    @media (max-width: 877px) {
+        grid-template-columns: repeat(2, minmax(20rem, 26.5rem));
+        justify-content: flex-start;
+    }
 
-  @media (max-width: 500px) {
-    gap: 1rem;
-    grid-template-columns: repeat(1, minmax(20rem, 26.5rem));
-  }
+    @media (max-width: 500px) {
+        gap: 1rem;
+        grid-template-columns: repeat(1, minmax(20rem, 26.5rem));
+    }
 `
 
 export default Project

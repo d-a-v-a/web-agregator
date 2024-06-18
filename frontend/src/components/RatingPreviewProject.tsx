@@ -223,7 +223,7 @@ const PreviewProject: React.FC<Props> = ({place, voices, image, prevCategory, ca
                 <Description>{desc}</Description>
             </InfoProject>
             <ButtonWrap onClick={() => handleClick(id)} >
-                <ButtonStyle to={path}  >Открыть</ButtonStyle>
+                <ButtonStyle to={`${path}/${id}`}>Открыть</ButtonStyle>
             </ButtonWrap>
         </CardWrapper>
     )

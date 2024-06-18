@@ -59,14 +59,10 @@ function Display({img}: { img: any }) {
 
 
 function DisplayUnity() {
-  const {data} = useData();
-  let id = 1;
-  if (data.idProject && data.idProject <= 6)
-    id = data.idProject;
 
 
   return (
-    <Iframe frameBorder={0} scrolling="no" width="100%" height="100%" position="relative" display="block" url={`builds/build${id}/index.html`}/>
+    <Iframe frameBorder={0}  scrolling="no" width="100%" height="100%" position="relative" display="block" url={`http://127.0.0.1:8000/api/media/projects/game2/index.html`}/>
   )
 }
 

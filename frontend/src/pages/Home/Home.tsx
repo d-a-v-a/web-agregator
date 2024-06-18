@@ -10,7 +10,7 @@ import VotingProjects from "../../components/VotingProjects";
 import Select from "../../components/Select";
 import { useData } from "../../context/DataContext";
 import { projects } from "../../projects";
-import { ProjectInteface} from "../../interfaces/Project.interface";
+import { ProjectInterface} from "../../interfaces/Project.interface";
 import {getFullInfAboutProjects} from "../../api/api";
 
 /**
@@ -57,7 +57,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const resp: ProjectInteface[] | null = await getFullInfAboutProjects();
+      const resp: ProjectInterface[] | null = await getFullInfAboutProjects();
       setValues({ allProjectsInformation: resp, isLoadingProjectInf: true });
     };
     fetchPosts();

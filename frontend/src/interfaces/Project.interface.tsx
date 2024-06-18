@@ -1,11 +1,12 @@
-export interface ProjectInteface {
-    date_posted: string;
-    description: string;
-    file: string;
-    id: number;
-    image: string;
-    path: string;
-    rating: number;
+export interface ProjectInterface {
     title: string;
-    user: number;
+    description: string;
+    how_to_play: string;
+    rating?: number;
+    views?: string;
+    date_posted?: string;
+    categories?: string;
+    total_votes?: string;
+    total_rating?: string;
+    main_image?: string;
 }

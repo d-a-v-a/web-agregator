@@ -23,7 +23,7 @@ function App() {
         <Routes>
             <Route path='/' element={<MainLayout/>}>
                 <Route index element={<Home/>}/>
-                <Route path='project' element={<Project/>}/>
+                <Route path='project/:id' element={<Project/>}/>
                 <Route path='editing' element={<ProjectEditing/>}/>
 
                 <Route path='play' element={<Play/>}/>
